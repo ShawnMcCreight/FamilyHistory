@@ -16,14 +16,6 @@ with Places
 end
 //============================================================================================================
 
-let Attendees(list, text) = Span {
-  Span {
-    Separator: ", ",
-    ShowLink(each list),
-  },
-  text
-}
-
 with Stories
 
 let TripToTheWhitehouse = Story.New(ShawnHamillMcCreight, "Trip to the White House", DateTime(1990)) {
@@ -50,24 +42,71 @@ end
 //============================================================================================================
 
 with Unions
-  let HarryBertha    = Union.New(HarryHazelett, BerthaHazelett)
-  let JennieJohn     = Union.New(JennieAdelphiaMcCreight, JohnJamiesonMcCreight)
-  let InezClarence   = Union.New(InezMargaretKerr, ClarenceGrantKerr, DateTime(1921, 3, 31))
-  let FloJohn        = Union.New(FlorenceHazelettMcCreight, JohnHamillMcCreight)
-  let FloBob         = Union.New(FlorenceJaneGofton, RobertJGofton, DateTime(1950, 12, 23))
-  let JanetRalph     = Union.New(JanetMcCreight, RalphEmersonMcCreight, DateTime(1959, 11, 28))
-  let JoanJack       = Union.New(MaryJoanMcCreight, JohnHarryMcCreight, DateTime(1958, 12, 2))
-  let PeggyJeff      = Union.New(PeggyLeeNelson, JeffNelson, DateTime(1976, 6, 29))
-  let LisaClay       = Union.New(LisaLouiseMcCreight, ClaytonAllenMcCreight, DateTime(1987, 5, 9))
-  let MarianneCraig  = Union.New(MarianneElizabethFrontino, CraigJohnMcCreight, DateTime(1986, 9, 13))
-  let TerryCraig     = Union.New(TheresaMaryMcCreight, CraigJohnMcCreight, DateTime(2017))
-  let JenniferShawn  = Union.New(JenniferLynnMcCreight, ShawnHamillMcCreight, DateTime(1995, 6, 17))
-  let JoannTobey     = Union.New(JoannVarner, TobeyVarner, DateTime(1974, 7, 29))
-  let JamesSharon    = Union.New(SharonParks, JamesRobertGofton, DateTime(1971, 4, 17))
-  let MichelleBobby  = Union.New(MichelleNicholeMcCreight, Bobby)
-  let LoriJohn       = Union.New(LoriChun, JohnCraigMcCreight, DateTime(2005, 6, 25))
-  let RenaedaAnthony = Union.New(RanaedaMarieYuncker, AnthonyYuncker)
-  let AllisaTom      = Union.New(AllisaMcCreight, ThomasDanielMcCreight)
+  let HarryBertha = Union.New(HarryHazelett, BerthaHazelett) {
+  }
+
+  let JennieJohn = Union.New(JennieAdelphiaMcCreight, JohnJamiesonMcCreight) {
+  }
+
+  let InezClarence = Union.New(InezMargaretKerr, ClarenceGrantKerr) {
+    Married(1921, 3, 31)
+  }
+
+  let FloJohn = Union.New(FlorenceHazelettMcCreight, JohnHamillMcCreight) {
+  }
+
+  let FloBob = Union.New(FlorenceJaneGofton, RobertJGofton) {
+    Married(1950, 12, 23)
+  }
+
+  let JanetRalph = Union.New(JanetMcCreight, RalphEmersonMcCreight) {
+    Married(1959, 11, 28)
+  }
+
+  let JoanJack = Union.New(MaryJoanMcCreight, JohnHarryMcCreight) {
+    Married(1958, 12, 2)
+  }
+
+  let PeggyJeff = Union.New(PeggyLeeNelson, JeffNelson) {
+    Married(1976, 6, 29)
+  }
+
+  let LisaClay = Union.New(LisaLouiseMcCreight, ClaytonAllenMcCreight) {
+    Married(1987, 5, 9)
+  }
+
+  let MarianneCraig = Union.New(MarianneElizabethFrontino, CraigJohnMcCreight) {
+    Married(1986, 9, 13)
+  }
+
+  let TerryCraig = Union.New(TheresaMaryMcCreight, CraigJohnMcCreight) {
+    Married(2017)
+  }
+
+  let JenniferShawn = Union.New(JenniferLynnMcCreight, ShawnHamillMcCreight) {
+    Married(1995, 6, 17)
+  }
+
+  let JoannTobey = Union.New(JoannVarner, TobeyVarner) {
+    Married(1974, 7, 29)
+  }
+
+  let JamesSharon = Union.New(SharonParks, JamesRobertGofton) {
+    Married(1971, 4, 17)
+  }
+
+  let MichelleBobby  = Union.New(MichelleNicholeMcCreight, Bobby) {
+  }
+
+  let LoriJohn = Union.New(LoriChun, JohnCraigMcCreight) {
+    Married(2005, 6, 25)
+  }
+
+  let RenaedaAnthony = Union.New(RanaedaMarieYuncker, AnthonyYuncker) {
+  }
+
+  let AllisaTom = Union.New(AllisaMcCreight, ThomasDanielMcCreight) {
+  }
 end
 //============================================================================================================
 

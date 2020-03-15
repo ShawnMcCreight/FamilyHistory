@@ -30,10 +30,13 @@ let Died(year, month=null, day=null) = {
   end
 }
 
-let Born(year, month=null, day=null, place=null) = {
+let DatePlace(year, month, day, place) = {
   Date: DateTime(year, month, day),
   BirthPlace: place,
 }
+
+let Born(year, month=null, day=null, place=null)    = DatePlace(year, month, day, place)
+let Married(year, month=null, day=null, place=null) = DatePlace(year, month, day, place)
 
 let Formerly(name) = {
   Ne: name,
@@ -61,7 +64,19 @@ let AddPlace(city, state, country=null) = {
   State: state
 }
 
-let AddPicture(person) = IO.Read(IO.Folders.Source IO.FileName(person.Name) IO.Extensions.JPG)
+let AddPicture(person, width, height) = IO.Read(IO.Folders.Source IO.FileName(person.Name) IO.Extensions.JPG) {
+  Width: width,
+  Height: height,
+  Proportional: true
+}
+
+let Attendees(list, text) = Span {
+  Span {
+    Separator: ", ",
+    ShowLink(each list),
+  },
+  text
+}
 
 let GatherEvent(event, list) begin
   if (event.Date)
@@ -154,10 +169,7 @@ with Person
             Width: 5 inches,
             ShowFullPersonData(person)
           },
-          AddPicture(person) {
-            Size: Type.Size(1.5 inches, 1.5 inches),
-            Proportional: true
-          }
+          AddPicture(person, 1.5 inches, 1.5 inches),
         }
       }
     else
@@ -273,10 +285,7 @@ with Story
             Width: 3 inches,
             story.Text
           },
-          AddPicture(story) {
-            Size: Type.Size(4 inches, 3 inches),
-            Proportional: true
-          }
+          AddPicture(story, 4 inches, 3 inches),
         }
       else
         story.Text
