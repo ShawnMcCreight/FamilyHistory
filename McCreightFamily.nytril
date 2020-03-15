@@ -161,7 +161,6 @@ let RobertJGofton = Male("Robert", "J", Gofton, UnknownUnion) {
 }
 
 let JanetMcCreight = Female("Janet", null, McCreight, UnknownUnion) {
- //Marion mom
   Born(1939, 8, 18),
   Formerly("Johnson"),
 }
