@@ -1,0 +1,714 @@
+﻿using Type, Format, Units
+//============================================================================================================
+// Size and color information
+//===============================================================================================================
+
+with Metrics
+  let TreeText    = 8 pts
+  let BarWidth    = 1 pts
+  let LevelIndent = 0.25 inches
+  let IconColor   = Color(73, 112, 163)
+  let LineColor   = Color(62, 94, 136)
+  let BoxColor    = Color(0182, 199, 222)
+  let DateIndent  = 1.35 inches
+end
+//===============================================================================================================
+
+let Picture = {
+  HasPicture: true
+}
+
+let Nick(name) = {
+  NickName: name
+}
+
+let Died(year, month=null, day=null) = {
+  if (year == 0)
+    DeathDateUnknown: true,
+  else
+    Death: DateTime(year, month, day)
+  end
+}
+
+let Born(year, month=null, day=null, place=null) = {
+  Date: DateTime(year, month, day),
+  BirthPlace: place,
+}
+
+let Formerly(name) = {
+  Ne: name,
+}
+
+with Gender
+  with Male
+    let Icon = Styles.Icon(Chars.WhiteSquare)
+  end
+
+  with Female
+    let Icon = Styles.Icon(Chars.WhiteCircle)
+  end
+end
+
+with Stories end
+with Unions end
+with Persons end
+
+with Places end
+
+let AddPlace(city, state, country=null) = {
+  Country: country ?? "USA",
+  City: city,
+  State: state
+}
+
+let AddPicture(person) = IO.Read(IO.Folders.Source IO.FileName(person.Name) IO.Extensions.JPG)
+
+let GatherEvent(event, list) begin
+  if (event.Date)
+    if (event.AddEvent)
+      event.AddEvent(event, list)
+    else
+      list.AddElement(event)
+    end
+  end
+end
+
+let SortFunc(obj1, obj2) = Math.Compare(obj1.Date, obj2.Date)
+
+let SortEvents(events) begin
+  var sortlist = List(256);
+  GatherEvent(each events, sortlist);
+  return sortlist.Sort(false, SortFunc);
+end
+
+let UnknownUnion    = Union.New(UnknownPerson, UnknownPerson)
+let UnknownPerson   = Female("?", null, "?", null)
+let PeopleAndUnions = Unions + People
+let SortedEvents    = SortEvents(PeopleAndUnions + Stories)
+let CurrentDate     = System.Now
+
+//============================================================================================================
+// Class definitions
+//===============================================================================================================
+
+with Event
+  let New(class) = {
+    DrawTimeline: class.DrawTimeline,
+    AddEvent: class.?AddEvent,
+    DrawListing: class.?DrawListing,
+    FindChildren: class.?FindChildren,
+    FormatNode: class.?FormatNode,
+    ShowFull: class.?ShowFull
+  }
+end
+//===============================================================================================================
+
+let Female(first, middle, last, parent) = Event.New(Person) {
+  First: first,
+  Middle: middle,
+  Last: last,
+  ParentUnion: parent,
+  Icon: Gender.Female.Icon,
+}
+
+let Male(first, middle, last, parent) = Event.New(Person) {
+  First: first,
+  Middle: middle,
+  Last: last,
+  ParentUnion: parent,
+  Icon: Gender.Male.Icon,
+}
+
+with Person
+  let AddEvent(event, list) begin
+    list.AddElement(event);
+    if (event.Death)
+      list.AddElement(Passing.New(event));
+    end
+  end
+
+  let FindChildren(event, set, parent) = set.AddElement(event) && event.ParentUnion == parent
+
+  let FormatNode(event) = {
+    Label: TreePerson(event)
+  }
+
+  let DrawTimeline(event) = {
+    ShowFullLink(event),
+    Space,
+    "was born"
+  }
+
+  let DrawListing(event, level) = Styles.LevelPar(level, false) {
+    ShowListing(event)
+  }
+
+  let ShowFull(person) = Block {
+    if (person.HasPicture)
+      Paragraph {
+        SpaceAfter: 10 pts,
+        Group {
+          Padding: 2 pts,
+          VAlign: VAligns.Top,
+          Frame {
+            Width: 5 inches,
+            ShowFullPersonData(person)
+          },
+          AddPicture(person) {
+            Size: Type.Size(1.5 inches, 1.5 inches),
+            Proportional: true
+          }
+        }
+      }
+    else
+      ShowFullPersonData(person),
+      Paragraph,
+    end
+  }
+end
+//===============================================================================================================
+
+with Union
+  let New(person1, person2, date=null) begin
+    Assert(person1 and person2, "Expecting both partners");
+    return Event.New(Union) {
+      Date: date,
+      Partner1: person1 ?? UnknownPerson,
+      Partner2: person2 ?? UnknownPerson,
+      Icon: Styles.Icon("\u2A01"),
+    }
+  end
+
+  let FormatNode(event) = {
+    Marker: TreeUnion(event)
+  }
+
+  let FindChildren(event, set, parent) begin
+    set.AddElement(event.Partner1);
+    set.AddElement(event.Partner2);
+    return event.Partner1.ParentUnion == parent or event.Partner2.ParentUnion == parent;
+  end
+
+  let DrawTimeline(event) = {
+    ShowFullLink(event.Partner1, true),
+    Space,
+    "married",
+    Space,
+    ShowFullLink(event.Partner2, true),
+  }
+
+  let DrawListing(event, level) = Block {
+    Styles.LevelPar(level) {
+      ShowListing(event.Partner1),
+    },
+    Styles.LevelPar(level) {
+      Tab,
+      Span {
+        event.Icon,
+        Space,
+        TextColor: Metrics.IconColor
+      },
+      Styles.TextDate(Space, event.Date),
+    },
+    Styles.LevelPar(level) {
+      ShowListing(event.Partner2),
+    }
+  }
+end
+//===============================================================================================================
+
+with Passing
+  let New(person) = Event.New(Passing) {
+    Date: person.Death,
+    Person: person,
+    Icon: Styles.Icon("\u2A4D"),
+  }
+
+  let DrawTimeline(event) = Span {
+    ShowFullLink(event.Person),
+    " died",
+    Styles.DiedAtAge(event.Person)
+  }
+end
+//===============================================================================================================
+
+with Story
+  let New(toldby, title, date) = Event.New(Story) {
+    Date: date,
+    ToldBy: toldby,
+    Title: title,
+    Icon: Styles.Icon("\u25A4"),
+  }
+
+  let DrawTimeline(story) = Span {
+    Popup: StoryPopup.Call(story),
+    Link: story.Key,
+    story.Title
+  }
+
+  let StoryPopup(story) = Frame {
+    Width: 4 inches,
+    story.Text,
+  }
+
+  let ShowFull(story) = Block {
+    Paragraph {
+      LocationMark: story.Key,
+      Styles.ShowDate(story.Date),
+      ": ",
+      Span {
+        Bold, Italic,
+        story.Title
+      },
+      " as told by ",
+      ShowFullLink(story.ToldBy)
+    },
+    FullPar {
+      SpaceAfter: 10 pts,
+      if (story.HasPicture)
+        Group {
+          Padding: 2 pts,
+          VAlign: VAligns.Top,
+          Frame {
+            Width: 3 inches,
+            story.Text
+          },
+          AddPicture(story) {
+            Size: Type.Size(4 inches, 3 inches),
+            Proportional: true
+          }
+        }
+      else
+        story.Text
+      end
+    }
+  }
+end
+//============================================================================================================
+// Document styles
+//============================================================================================================
+
+with Styles
+  let Header2(text) = Paragraph {
+    BorderB: 0.5,
+    TextFamily: TextFamilies.Garamond,
+    TextHeight: 16 pts,
+    SpaceBefore: 12 pts,
+    SpaceAfter: 6 pts,
+    Bold,
+    text
+  }
+
+  let Icon(text) = Span {
+    TextFamily: TextFamilies.CambriaMath,
+    text
+  }
+
+  let ShowDate(d) = Span {
+    if (d.Precision == DatePrecisions.Year)
+      TextFormat: "yyyy",
+    else
+      if (d.Precision == DatePrecisions.Month)
+        TextFormat: "MMMM yyyy",
+      else
+        TextFormat: "MMMM dd, yyyy",
+      end
+    end,
+    d,
+  }
+
+  let TimelineDate(d) = Span {
+    if (d.Precision == DatePrecisions.Year)
+      TextFormat: "yyyy",
+    else
+      if (d.Precision == DatePrecisions.Month)
+        TextFormat: "yyyy MMMM",
+      else
+        TextFormat: "yyyy MMMM dd",
+      end
+    end,
+    d,
+  }
+
+  let TextDate(text, d) begin
+    if (d)
+      return Span {
+        text,
+        Space,
+        ShowDate(d),
+      };
+    else
+      return null
+    end
+  end
+
+  let ShowPlace(place) = Span {
+    place.City,
+    ", ",
+    place.State,
+  }
+
+  let DiedAge(person) = Span {
+    TextDate(Italic "Died ", person.Death),
+    if (person.Date)
+      DiedAtAge(person)
+    end
+  }
+
+  let DiedAtAge(person) = Span {
+     ", at age {0}"(Math.Floor((person.Death - person.Date).Years))
+  }
+
+  let LevelPar(level, border=true) = Paragraph {
+    LeftIndent: level*Metrics.LevelIndent + 12 pts,
+    FirstIndent: -12 pts,
+    if (border)
+      BorderL: 3 pts {Color: 90%, Padding: 3 pts},
+    end
+  }
+end
+//============================================================================================================
+
+let ShowLink(person, text=null) = Span {
+  Link: person.Key,
+  Popup: PersonPopup.Call(person),
+  TextColor: Colors.Blue,
+  text ?? (person.NickName ?? person.First)
+}
+
+let ShowFullName(person, former=false) = Span {
+  Separator: Space,
+  person.First,
+  person.Middle,
+  if (former)
+    person.Ne ?? person.Last,
+  else
+    person.Last
+  end
+}
+
+let ShowFullLink(person, former=false) = ShowFullName(person, former) {
+  Link: person.Key,
+  Popup: PersonPopup.Call(person),
+}
+
+let ShowListing(person) = Span {
+  person.Icon,
+  Space,
+  ShowFullLink(person),
+  if (person.Ne)
+    " (né {0})"(person.Ne)
+  end,
+  if (person.Death)
+    Span {
+      TextColor: Colors.DarkGray,
+      Styles.TextDate(", died ", person.Death),
+    }
+  end
+}
+
+let FullPar = Paragraph {
+  LeftIndent: 0.25 inches,
+}
+
+let ShowFullPersonData(person) = Block {
+  FullPar {
+    LocationMark: person.Key,
+    LeftIndent: 0.25 inches,
+    FirstIndent: -0.25 inches,
+    TextHeight: 16 pts,
+    person.Icon,
+    Tab,
+    ShowFullName(person) {
+      if (person.NickName)
+        Span {
+          " - \"",
+          person.NickName,
+          "\""
+        },
+      end,
+    },
+  },
+  if (person.Ne)
+    FullPar {
+      Italic "né ",
+      ShowFullName(person, true)
+    }
+  end
+
+  if (person.Date)
+    FullPar {
+      if (person.DeathDateUnknown)
+        "Unknown time of death",
+      else
+        if (not person.Death)
+          "{0} years old"(Math.Floor((CurrentDate - person.Date).Years))
+        end,
+      end,
+    },
+    FullPar {
+      if (person.Date)
+        Styles.TextDate("Born ", person.Date),
+      end,
+      if (person.Death)
+        LineBreak,
+        Styles.DiedAge(person)
+      end,
+
+      if (person.BirthPlace)
+        " in ",
+        Styles.ShowPlace(person.BirthPlace),
+      end,
+    },
+  end,
+}
+
+let PersonPopup(person) = Frame {
+  if (person.Picture)
+    Width: 6 inches,
+  else
+    Width: 3 inches,
+  end,
+  person.ShowFull(person)
+}
+//============================================================================================================
+// Timeline
+//============================================================================================================
+
+with Timeline
+  let MaxWidth   = 7 inches
+  let InnerWidth = MaxWidth - Edge*2
+  let RowHeight  = 9 pts
+  let Edge       = 12 pts
+
+  let AddEvent(event, yearstart, yearend) begin
+    var frac = (event.Date.Year - yearstart) / (yearend - yearstart);
+    var x    = InnerWidth * frac;
+    if (frac > 0.5)
+      return Canvas {
+        Y: RowHeight * EachIndex,
+        Width: x,
+        HAlign: HAligns.Right,
+        Span {
+          event.DrawTimeline(event),
+          Space,
+          event.Icon {TextColor: Metrics.IconColor},
+        }
+      };
+    else
+      return Canvas {
+        X: x,
+        Y: RowHeight * EachIndex,
+        Span {
+          event.Icon {TextColor: Metrics.IconColor},
+          Space,
+          event.DrawTimeline(event)
+        }
+      };
+    end
+  end
+
+  let ShowBlock(events) begin
+    var yearstart  = (Math.Floor(events.FirstElement.Date.Year) div 10) * 10; // Round down to the nearest 10 years
+    var yearend    = (Math.Floor(events.LastElement.Date.Year + 9) div 10) * 10; // Round up to the nearest 10 years
+
+    return Paragraph {
+      SpaceAfter: 10 pts,
+      Group {
+        Vertical: true,
+        Group {
+          Vertical: true,
+          ChartAxis {
+            Width: MaxWidth,
+            Start: yearstart,
+            Stop: yearend,
+          },
+        },
+        Canvas {
+          X: Edge,
+          Width: InnerWidth,
+          Border: 0.25 pts,
+          TextHeight: 8 pts,
+          AddEvent(each events, yearstart, yearend),
+        }
+      }
+    };
+  end
+
+  let AddRows(event) = Paragraph {
+    LeftIndent: Metrics.DateIndent,
+    FirstIndent: -Metrics.DateIndent,
+    Styles.TimelineDate(event.Date),
+    Tab,
+    event.Icon,
+    Space,
+    event.DrawTimeline(event)
+  }
+
+  let Show = Block {
+    Styles.Header2("Timeline"),
+    ShowBlock(each (SortedEvents / Math.Floor((7 inches) / (RowHeight into inches)))),
+    Styles.Header2("Timeline Details"),
+    AddRows(each SortedEvents),
+  }
+end
+//============================================================================================================
+
+let ShowSource = Block {
+  Styles.Header2("Source Data"),
+  Paragraph {
+    TextHeight: 8 pts,
+    SourceSelection(System.SourceList[0])
+  }
+}
+//============================================================================================================
+// Tree
+//============================================================================================================
+
+let FindChildData(c, data) begin
+  c.FindChildren(c, data.Set, data.Parent)
+end
+
+let CollectChildren(list, c) begin
+  var set = Dictionary(PeopleAndUnions.Length);
+  return FindSlice(list, FindChildData, {Parent: c, Set: set});
+end
+
+let TreePerson(person) = Group {
+  VAlign: VAligns.Center,
+  Span {
+    person.Icon {TextColor: Metrics.IconColor},
+    Space,
+    Link: person.Key,
+    Popup: PersonPopup.Call(person),
+    person.NickName ?? person.First,
+  }
+}
+
+let TreeUnion(event) = Group {
+  Vertical: true,
+  Padding: 1 pts,
+  Background: Metrics.BoxColor,
+  TreePerson(event.Partner1),
+  TreePerson(event.Partner2),
+}
+
+let MakeTreeNodes(list, event) = Node {
+  event.FormatNode(event),
+  MakeTreeNodes(list, each CollectChildren(list, event))
+}
+
+let FamilyTree(list, rootunion) = Tree {
+  TextHeight: Metrics.TreeText,
+  Width: 7.5 inches,
+  Bevel: 100%,
+  Curvature: 50%,
+  NodeGap: 1 pts,
+  Stroke: 0.5 pts {Color: Metrics.LineColor},
+  MakeTreeNodes(list, rootunion),
+}
+//============================================================================================================
+//  Family member listing
+//============================================================================================================
+
+let BuildListing(list, event, level) = Block {
+  event.DrawListing(event, level),
+  BuildListing(list, each CollectChildren(list, event), level+1),
+}
+
+let ShowFamilyLine(rootunion) = Block {
+  Paragraph {
+    PageBreakBefore: true,
+    ParAlignment: ParAlignments.Center,
+    TextHeight: 36 pts,
+    "The Decendants of",
+  },
+  Block {
+    TextHeight: 24 pts,
+    ParAlignment: ParAlignments.Center,
+    ShowFullName(rootunion.Partner1),
+    " and ",
+    ShowFullName(rootunion.Partner2),
+  },
+  FamilyTree(PeopleAndUnions, rootunion),
+  Styles.Header2("Tree Details"),
+  BuildListing(PeopleAndUnions, rootunion, 0),
+}
+
+let Leaf = Node {Marker: Gender.Female.Icon}
+
+let IconTree = Node {
+  Node {
+    Leaf {Branch: 4},
+    Node {
+      Branch: 2,
+      Leaf {Branch: 2},
+      Node {
+        Leaf, Leaf
+      }
+    }
+  },
+  Node {
+    Branch: 3,
+    Node {
+      Leaf, Leaf
+    },
+    Leaf {Branch: 2}
+  }
+}
+
+let TreeIcon(size) = Tree {
+  Height: size,
+  Marker: Styles.Icon(Chars.Square) {TextColor: Metrics.BoxColor},
+  Vertical: true,
+  Reverse: true,
+  Stroke: 2 pts {Color: Metrics.LineColor},
+  Curvature: 10%,
+  Bevel: 10%,
+  NodeGap: 20 pts,
+  IconTree
+}
+
+let ShowFullEvent(event) = Block {
+  event.ShowFull(event)
+}
+
+let ShowFullEvents(list, title) begin
+  if (list.Length > 0)
+    return Block {
+      PageBreak,
+      Styles.Header2(title),
+      ShowFullEvent(each list),
+    }
+  end
+end
+
+let Album(title, lines) = Document {
+  Margin: 0.5 inches,
+  ParAlignment: ParAlignments.Center,
+  Paragraph {
+    SpaceBefore: 2 inches,
+    TextHeight: 36 pts,
+    title,
+  },
+  Paragraph {
+    TreeIcon(60 pts),
+  },
+  Paragraph {
+    SpaceBefore: 3.25 inches,
+    TextHeight: 16 pts,
+    "Last updated: ",
+    Styles.ShowDate(CurrentDate)
+  },
+  ShowFamilyLine(each lines),
+  PageBreak,
+  Timeline.Show,
+  ShowFullEvents(Stories, "Stories"),
+//  ShowFullEvents(Events, "Events"),
+  ShowFullEvents(People, "Family Members"),
+  PageBreak,
+  ShowSource,
+}
+//============================================================================================================
+
+

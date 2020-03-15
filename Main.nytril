@@ -1,0 +1,18 @@
+using Type, Format, Units, IO
+
+include "McCreightFamily"
+include "WionFamily"
+include "Style"
+//======================================================================
+
+let OutputFile = Folders.Documents FileName("Family History") Extensions.PDF
+
+let Main.Run = [
+  Write(Watch, OutputFile),
+  IO.OpenDocument(OutputFile),
+]
+
+let Watch = Album("Family History", [Unions.JennieJohn])
+//===============================================================================================================
+
+

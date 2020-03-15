@@ -1,0 +1,39 @@
+using Type, People
+//============================================================================================================
+
+let Wion = "Wion"
+
+with People
+
+let CharlotteWion = Female("Charlotte", "June", Wion, UnknownUnion) {
+  Formerly("Rafior"),
+  Born(1944, 8, 19)
+}
+
+let CharlesWion = Male("Charles", "Wesley", Wion, UnknownUnion) {
+  Nick("Chuck"),
+  Born(1942, 12, 19),
+}
+
+let RichardWion = Male("Richard", "Charles", Wion, Unions.CharlotteCharlesWion) {
+  Nick("Rich"),
+  Born(1969, 10, 23)
+}
+
+let Jeanine = Female("Jeanine", null, "Cline", UnknownUnion) {
+}
+
+let HalieWion = Female("Hailie", "Jane", Wion, Unions.JeanineRichardWion) {
+  Born(2003, 12, 31)
+}
+
+end
+//============================================================================================================
+
+
+with Unions
+  let JeanineRichardWion = Union.New(RichardWion, Jeanine)
+  let CharlotteCharlesWion = Union.New(CharlotteWion, CharlesWion, DateTime(1964, 3, 8))
+end
+//============================================================================================================
+
