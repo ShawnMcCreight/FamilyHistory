@@ -95,6 +95,13 @@ with Unions
     Married(1971, 4, 17)
   }
 
+  let JoanneJamesGofton = Union.New(JoanneJohnson, JamesRobertGofton)
+
+  let GailEnglishJamesGofton = Union.New(GailEnglish, JamesRobertGofton)
+
+  let DebbieGoftonJamesGofton = Union.New(DebbieGofton, JamesRobertGofton)
+
+
   let MichelleBobby = Union.New(MichelleNicholeMcCreight, RobertCalderoni) {
     Married(2019, 7, 8)
   }
@@ -254,7 +261,7 @@ let JohnCraigMcCreight = Male("John", "Craig", McCreight, Unions.JoanJack) {
   Born(1962, 7, 2)
 }
 
-let LoriChun = Female("Lori", null, "Chun", Unions.JoanJack) {
+let LoriChun = Female("Lori", null, "Chun", UnknownUnion) {
 }
 
 let JoannaMcCreight = Female("Joanna", null, McCreight, Unions.LoriJohn) {
@@ -281,7 +288,7 @@ let ThomasDanielMcCreight = Male("Thomas", "Daniel", McCreight, Unions.MarianneC
   Born(1993, 4, 23),
 }
 
-let AllisaMcCreight = Female("Allisa", null, McCreight, Unions.MarianneCraig) {
+let AllisaMcCreight = Female("Allisa", null, McCreight, UnknownUnion) {
   Formerly("Boote"),
   Born(1992, 12, 28),
 }
@@ -294,30 +301,35 @@ let MichelleNicholeMcCreight = Female("Michelle", "Nichole", McCreight, Unions.M
   Born(1988, 1, 21)
 }
 
-let RobertCalderoni = Male("Robert", null, "Calderoni", Unions.MarianneCraig) {
+let RobertCalderoni = Male("Robert", null, "Calderoni", UnknownUnion) {
   Nick("Bobby"),
   Born(1988, 1, 21)
 }
 
 let ShawnHamillMcCreight = Male("Shawn", Hamill, McCreight, Unions.JoanJack) {
+  Picture,
   Born(1966, 2, 5)
 }
 
 let JenniferLynnMcCreight = Female("Jennifer", "Lynn", McCreight, Unions.CharlotteCharlesWion) {
+  Picture,
   Nick("Jen")
   Formerly("Wion"),
   Born(1968, 2, 16)
 }
 
 let MeganCharlotteMcCreight = Female("Megan", "Charlotte", McCreight, Unions.JenniferShawn) {
+  Picture,
   Born(1999, 1, 14, Places.Pasadena),
 }
 
 let NolanHamillMcCreight = Male("Nolan", Hamill, McCreight, Unions.JenniferShawn) {
+  Picture,
   Born(2001, 7, 30, Places.Pasadena),
 }
 
 let LaurenLynnMcCreight = Female("Lauren", "Lynn", McCreight, Unions.JenniferShawn) {
+  Picture,
   Born(2004, 7, 26, Places.Pasadena),
 }
 
@@ -367,11 +379,20 @@ let SharonParks = Female("Sharon", "Kay", "Parks", UnknownUnion) {
   Nick("Sherri"),
 }
 
+let JoanneJohnson = Female("Joanne", null, "Johnson", UnknownUnion) {
+}
+
+let GailEnglish = Female("Gail", null, "English", UnknownUnion) {
+}
+
+let DebbieGofton = Female("Debbie", null, "Gofton", UnknownUnion) {
+}
+
 let JoannVarner = Female("Joann", "Marie", Varner, Unions.FloBob) {
   Formerly(Gofton),
 }
 
-let TobeyVarner = Male("Tobey", null, Varner, Unions.FloBob) {
+let TobeyVarner = Male("Tobey", null, Varner, UnknownUnion) {
 }
 
 let PeggyLeeNelson = Female("Peggy", "Lee", Nelson, Unions.FloBob) {
