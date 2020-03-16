@@ -12,7 +12,7 @@ let Main.Run = [
   IO.OpenDocument(OutputFile),
 ]
 
-let Watch = FamilyAlbum("Family History", [Unions.JennieJohn])
+let Watch = FamilyAlbum("Family History", [Unions.JaneAndrew])
 //===============================================================================================================
 
 

@@ -9,7 +9,7 @@ with Metrics
   let LevelIndent   = 0.25 inches
   let IconColor     = Color(73, 112, 163)
   let LineColor     = Color(62, 94, 136)
-  let BoxColor      = Color(0182, 199, 222)
+  let BoxColor      = Color(182, 199, 222)
   let DateIndent    = 1.35 inches
   let LeftMargin    = 0.75 inches
   let RightMargin   = 0.75 inches
@@ -622,7 +622,7 @@ let FamilyTree(list, rootunion) = Tree {
   TextHeight: Metrics.TreeText,
   Width: Metrics.Content.Width,
   Bevel: 100%,
-  Curvature: 50%,
+  Curvature: 20%,
   NodeGap: 1 pts,
   Stroke: 0.5 pts {Color: Metrics.LineColor},
   MakeTreeNodes(list, null, rootunion),
@@ -700,12 +700,10 @@ let TitlePage(union) = Block {
   ParAlignment: ParAlignments.Center,
   Paragraph {
     PageBreakBefore: true,
-    TextHeight: 20 pts,
-    "The Decendants of",
-  },
-  Paragraph {
-    UnionTitle(union),
     TextHeight: 14 pts,
+    SpaceAfter: 8 pts,
+    "The Decendants of ",
+    UnionTitle(union),
   },
 }
 
@@ -755,6 +753,7 @@ end
 let ShowFamilyLine(title, union) = DocSection(title, UnionTitle(union)) {
   TitlePage(union),
   FamilyTree(PeopleAndUnions, union),
+  PageBreak,
   Styles.Header2("Tree Details"),
   BuildListing(PeopleAndUnions, union, 0),
   Timeline.Show,
