@@ -4,6 +4,7 @@
 //===============================================================================================================
 
 with Metrics
+  let CurrentDate   = System.Now
   let TreeText      = 8 pts
   let LevelIndent   = 0.25 inches
   let IconColor     = Color(73, 112, 163)
@@ -14,7 +15,7 @@ with Metrics
   let RightMargin   = 0.75 inches
   let TopMargin     = 0.75 inches
   let BottomMargin  = 0.75 inches
-  let Margin        = {MarginL: LeftMargin, MarginR: RightMargin, MarginT: TopMargin, MarginB: BottomMargin}
+  let Margins       = {MarginL: LeftMargin, MarginR: RightMargin, MarginT: TopMargin, MarginB: BottomMargin}
   let Paper         = Size(8.5 inches, 11 inches)
   let Content       = Size(Paper.Width - LeftMargin - RightMargin, Paper.Height - TopMargin - BottomMargin)
   let StoryPicture  = Size(Content.Width * 0.5, 2 inches)
@@ -103,11 +104,8 @@ let SortEvents(events) begin
   return sortlist.Sort(false, SortFunc);
 end
 
-let UnknownUnion    = Union.New(UnknownPerson, UnknownPerson)
-let UnknownPerson   = Female("?", null, "?", null)
 let PeopleAndUnions = Unions + People
 let SortedEvents    = SortEvents(PeopleAndUnions + Stories)
-let CurrentDate     = System.Now
 
 //============================================================================================================
 // Class definitions
@@ -125,7 +123,7 @@ with Event
 end
 //===============================================================================================================
 
-let Female(first, middle, last, parent) = Event.New(Person) {
+let Female(first, middle, last, parent=null) = Event.New(Person) {
   First: first,
   Middle: middle,
   Last: last,
@@ -133,7 +131,7 @@ let Female(first, middle, last, parent) = Event.New(Person) {
   Icon: Gender.Female.Icon,
 }
 
-let Male(first, middle, last, parent) = Event.New(Person) {
+let Male(first, middle, last, parent=null) = Event.New(Person) {
   First: first,
   Middle: middle,
   Last: last,
@@ -192,8 +190,8 @@ with Union
     Assert(person1 and person2, "Expecting both partners");
     return Event.New(Union) {
       Date: date,
-      Partner1: person1 ?? UnknownPerson,
-      Partner2: person2 ?? UnknownPerson,
+      Partner1: person1,
+      Partner2: person2,
       Icon: Styles.Icon("\u2A01"),
     }
   end
@@ -338,9 +336,9 @@ with Styles
       TextFormat: "yyyy",
     else
       if (d.Precision == DatePrecisions.Month)
-        TextFormat: "yyyy MMMM",
+        TextFormat: "yyyy, MMMM",
       else
-        TextFormat: "yyyy MMMM dd",
+        TextFormat: "yyyy, MMMM dd",
       end
     end,
     d,
@@ -458,7 +456,7 @@ let ShowFullPersonData(person) = Block {
         "Unknown time of death",
       else
         if (not person.Death)
-          "{0} years old"(Math.Floor((CurrentDate - person.Date).Years))
+          "{0} years old"(Math.Floor((Metrics.CurrentDate - person.Date).Years))
         end,
       end,
     },
@@ -660,32 +658,6 @@ let IconTree = Node {
   }
 }
 
-let TreeIcon(size) = Tree {
-  Height: size,
-  Marker: Styles.Icon(Chars.Square) {TextColor: Metrics.BoxColor},
-  Vertical: true,
-  Reverse: true,
-  Stroke: 2 pts {Color: Metrics.LineColor},
-  Curvature: 10%,
-  Bevel: 10%,
-  NodeGap: 20 pts,
-  IconTree
-}
-
-let ShowFullEvent(event) = Block {
-  event.ShowFull(event)
-}
-
-let ShowFullEvents(list, title) begin
-  if (list.Length > 0)
-    return Block {
-      PageBreak,
-      Styles.Header2(title),
-      ShowFullEvent(each list),
-    }
-  end
-end
-
 let HeaderFormat = Paragraph {
   TextHeight: 10 pts,
   TextFamily: TextFamilies.TimesNewRoman,
@@ -746,15 +718,39 @@ let AlbumTitlePage(title) = Section {
     title,
   },
   Paragraph {
-    TreeIcon(60 pts),
+    Tree {
+      Height: 60 pts,
+      Marker: Styles.Icon(Chars.Square) {TextColor: Metrics.BoxColor},
+      Vertical: true,
+      Reverse: true,
+      Stroke: 2 pts {Color: Metrics.LineColor},
+      Curvature: 20%,
+      Bevel: 20%,
+      NodeGap: 20 pts,
+      IconTree
+    }
   },
   Paragraph {
     SpaceBefore: 3 inches,
     TextHeight: 16 pts,
     "Updated on ",
-    Styles.ShowDate(CurrentDate)
+    Styles.ShowDate(Metrics.CurrentDate)
   },
 }
+
+let ShowFullEvent(event) = Block {
+  event.ShowFull(event)
+}
+
+let ShowFullEvents(list, title) begin
+  if (list.Length > 0)
+    return Block {
+      PageBreak,
+      Styles.Header2(title),
+      ShowFullEvent(each list),
+    }
+  end
+end
 
 let ShowFamilyLine(title, union) = DocSection(title, UnionTitle(union)) {
   TitlePage(union),
@@ -775,7 +771,7 @@ let ShowSource(title) = DocSection(title, "Source Data") {
 
 let FamilyAlbum(title, lines) = Document {
   Size: Metrics.Paper,
-  Metrics.Margin,
+  Metrics.Margins,
   AlbumTitlePage(title),
   ShowFamilyLine(title, each lines),
   ShowSource(title),

@@ -5,12 +5,12 @@ let Wion = "Wion"
 
 with People
 
-let CharlotteWion = Female("Charlotte", "June", Wion, UnknownUnion) {
+let CharlotteWion = Female("Charlotte", "June", Wion) {
   Formerly("Rafior"),
   Born(1944, 8, 19)
 }
 
-let CharlesWion = Male("Charles", "Wesley", Wion, UnknownUnion) {
+let CharlesWion = Male("Charles", "Wesley", Wion) {
   Nick("Chuck"),
   Born(1942, 12, 19),
 }
@@ -20,7 +20,7 @@ let RichardWion = Male("Richard", "Charles", Wion, Unions.CharlotteCharlesWion) 
   Born(1969, 10, 23)
 }
 
-let Jeanine = Female("Jeanine", null, "Cline", UnknownUnion) {
+let Jeanine = Female("Jeanine", null, "Cline") {
 }
 
 let HalieWion = Female("Hailie", "Jane", Wion, Unions.JeanineRichardWion) {

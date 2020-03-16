@@ -124,23 +124,23 @@ end
 
 with People
 
-let JohnJamiesonMcCreight = Male("John", "Jamieson", McCreight, UnknownUnion) {
+let JohnJamiesonMcCreight = Male("John", "Jamieson", McCreight) {
   Picture,
   Born(1846, 8, 22),
   Died(1923, 12, 5)
 }
 
-let JennieAdelphiaMcCreight = Female("Jennie", "Adelphia", McCreight, UnknownUnion) {
+let JennieAdelphiaMcCreight = Female("Jennie", "Adelphia", McCreight) {
   //mary hugh
   Formerly(Hamill),
   Born(1875, 11, 1),
   Died(1950, 1, 3),
 }
 
-let HarryHazelett = Male("Harry", null, Hazelett, UnknownUnion) {
+let HarryHazelett = Male("Harry", null, Hazelett) {
 }
 
-let BerthaHazelett = Female("Bertha", null, Hazelett, UnknownUnion) {
+let BerthaHazelett = Female("Bertha", null, Hazelett) {
   Formerly("Wolfe"),
 }
 
@@ -162,7 +162,7 @@ let WendleButlerMcCreight = Male("Wendle", "Butler", McCreight, Unions.JennieJoh
   Died(1998, 8, 23),
 }
 
-let ThelmaJones = Female("Thelma", null, "Jones", UnknownUnion) {
+let ThelmaJones = Female("Thelma", null, "Jones") {
 }
 
 let JamesClarkMcCreight = Male("James", "Clark", McCreight, Unions.JennieJohn) {
@@ -170,7 +170,7 @@ let JamesClarkMcCreight = Male("James", "Clark", McCreight, Unions.JennieJohn) {
   Died(0),
 }
 
-let ClarenceGrantKerr = Male("Clarence", "Grant", "Kerr", UnknownUnion) {
+let ClarenceGrantKerr = Male("Clarence", "Grant", "Kerr") {
   Born(1897),
   Died(1964),
 }
@@ -180,7 +180,7 @@ let FlorenceHazelettMcCreight  = Female("Florence", null, McCreight, Unions.Harr
   Formerly(Hazelett),
 }
 
-let MaryJoanMcCreight = Female("Mary", "Joan", McCreight, UnknownUnion) {
+let MaryJoanMcCreight = Female("Mary", "Joan", McCreight) {
   Nick("Joanie"),
   Picture,
   Formerly("Plowe"),
@@ -208,14 +208,14 @@ let FlorenceJaneGofton = Female("Florence", "Jane", Gofton, Unions.FloJohn) {
   Formerly(McCreight),
 }
 
-let RobertJGofton = Male("Robert", "J", Gofton, UnknownUnion) {
+let RobertJGofton = Male("Robert", "J", Gofton) {
   Nick("Bob"),
   Picture,
   Born(1927, 3, 11),
   Died(2015, 6, 13),
 }
 
-let JanetMcCreight = Female("Janet", null, McCreight, UnknownUnion) {
+let JanetMcCreight = Female("Janet", null, McCreight) {
   Born(1939, 8, 18),
   Formerly("Johnson"),
 }
@@ -261,7 +261,7 @@ let JohnCraigMcCreight = Male("John", "Craig", McCreight, Unions.JoanJack) {
   Born(1962, 7, 2)
 }
 
-let LoriChun = Female("Lori", null, "Chun", UnknownUnion) {
+let LoriChun = Female("Lori", null, "Chun") {
 }
 
 let JoannaMcCreight = Female("Joanna", null, McCreight, Unions.LoriJohn) {
@@ -274,13 +274,13 @@ let CraigJohnMcCreight = Male("Craig", "John", McCreight, Unions.JoanJack) {
   Born(1964, 8, 17)
 }
 
-let TheresaMaryMcCreight = Female("Theresa", "Mary", McCreight, UnknownUnion) {
+let TheresaMaryMcCreight = Female("Theresa", "Mary", McCreight) {
   Nick("Terry"),
   Formerly("Furlong"),
   Born(1960)
 }
 
-let MarianneElizabethFrontino = Female("Marianne", "Elizabeth", "Frontino", UnknownUnion) {
+let MarianneElizabethFrontino = Female("Marianne", "Elizabeth", "Frontino") {
 }
 
 let ThomasDanielMcCreight = Male("Thomas", "Daniel", McCreight, Unions.MarianneCraig) {
@@ -288,7 +288,7 @@ let ThomasDanielMcCreight = Male("Thomas", "Daniel", McCreight, Unions.MarianneC
   Born(1993, 4, 23),
 }
 
-let AllisaMcCreight = Female("Allisa", null, McCreight, UnknownUnion) {
+let AllisaMcCreight = Female("Allisa", null, McCreight) {
   Formerly("Boote"),
   Born(1992, 12, 28),
 }
@@ -301,7 +301,7 @@ let MichelleNicholeMcCreight = Female("Michelle", "Nichole", McCreight, Unions.M
   Born(1988, 1, 21)
 }
 
-let RobertCalderoni = Male("Robert", null, "Calderoni", UnknownUnion) {
+let RobertCalderoni = Male("Robert", null, "Calderoni") {
   Nick("Bobby"),
   Born(1988, 1, 21)
 }
@@ -342,7 +342,7 @@ let ClaytonAlanMcCreight = Male("Clayton", "Alan", McCreight, Unions.JanetRalph)
   Born(1963, 4, 4),
 }
 
-let LisaLouiseMcCreight = Female("Lisa", "Louise", McCreight, UnknownUnion) {
+let LisaLouiseMcCreight = Female("Lisa", "Louise", McCreight) {
   Born(1966, 8, 16),
   //edward evelen
   Formerly("Huber"),
@@ -353,7 +353,7 @@ let RanaedaMarieYuncker = Female("Ranaeda", "Marie", Yuncker, Unions.LisaClay) {
   Born(1988, 6, 10),
 }
 
-let AnthonyYuncker = Male("Anthony", "Francis", Yuncker, UnknownUnion) {
+let AnthonyYuncker = Male("Anthony", "Francis", Yuncker) {
   Born(1986, 7, 1),
 }
 
@@ -375,24 +375,24 @@ let JamesRobertGofton = Male("James", "Robert", Gofton, Unions.FloBob) {
   Born(1951, 12, 17),
 }
 
-let SharonParks = Female("Sharon", "Kay", "Parks", UnknownUnion) {
+let SharonParks = Female("Sharon", "Kay", "Parks") {
   Nick("Sherri"),
 }
 
-let JoanneJohnson = Female("Joanne", null, "Johnson", UnknownUnion) {
+let JoanneJohnson = Female("Joanne", null, "Johnson") {
 }
 
-let GailEnglish = Female("Gail", null, "English", UnknownUnion) {
+let GailEnglish = Female("Gail", null, "English") {
 }
 
-let DebbieGofton = Female("Debbie", null, "Gofton", UnknownUnion) {
+let DebbieGofton = Female("Debbie", null, "Gofton") {
 }
 
 let JoannVarner = Female("Joann", "Marie", Varner, Unions.FloBob) {
   Formerly(Gofton),
 }
 
-let TobeyVarner = Male("Tobey", null, Varner, UnknownUnion) {
+let TobeyVarner = Male("Tobey", null, Varner) {
 }
 
 let PeggyLeeNelson = Female("Peggy", "Lee", Nelson, Unions.FloBob) {
@@ -400,7 +400,7 @@ let PeggyLeeNelson = Female("Peggy", "Lee", Nelson, Unions.FloBob) {
   Born(1955, 2, 3),
 }
 
-let JeffNelson = Male("Jeff", null, Nelson, UnknownUnion) {
+let JeffNelson = Male("Jeff", null, Nelson) {
 }
 
 end
