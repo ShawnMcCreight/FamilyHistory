@@ -20,8 +20,8 @@ with Stories
 
 let TripToTheWhitehouse = Story.New(ShawnHamillMcCreight, "Trip to the White House", DateTime(1990)) {
   Text: Paragraph {
-    FlorenceJaneGofton.ShowLink("Aunto Flo"),
-    " and I took a trip to Washington D.C. for the celebration of the retirement of her cousin. ",
+    FlorenceJaneGofton.ShowLink("Aunt Flo") ", " RobertJGofton.ShowLink("Uncle Bob"),
+    " and I met in Washington D.C. for the retirement of her cousin. ",
     " He got us into the the press briefing room, and the Situation Room at the White House."
   }
 }
