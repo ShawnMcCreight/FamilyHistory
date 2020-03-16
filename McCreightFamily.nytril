@@ -25,7 +25,7 @@ with Stories
 
 let TripToTheWhitehouse = Story.New(ShawnHamillMcCreight, "Trip to the White House", DateTime(1990)) {
   Text: Paragraph {
-    FlorenceJaneGofton.ShowLink("Aunt Flo") ", " RobertJGofton.ShowLink("Uncle Bob"),
+    FlorenceJaneGofton.ShowLink("Aunt Flo") ", " RobertJohnGofton.ShowLink("Uncle Bob"),
     " and I met in Washington D.C. for the retirement of her cousin. ",
     " He got us into the the press briefing room, and the Situation Room at the White House."
   }
@@ -96,7 +96,6 @@ let People.AndrewSmithMcCreight = Male("Andrew", "Smith", McCreight, Unions.Jane
 }
 
 let Unions.MarthaAndrew = Union.New(MarthaJaneNorth, AndrewSmithMcCreight)
-//=====================================
 
 let People.OliveMyrtleMcCreight = Female("Olive", "Myrtle", McCreight, Unions.MarthaAndrew) {
 }
@@ -109,6 +108,43 @@ let People.WalterAndrewNorthMcCreight = Male("Walter", "Andrew North", McCreight
 
 let People.JohnEugeneMcCreight = Male("John", "Eugene", McCreight, Unions.MarthaAndrew) {
 }
+//=====================================
+
+let People.SallyBelleWalker = Male("Sally", "Belle", McCreight) {
+  Formerly("Walker"),
+  Died(1933)
+}
+
+let People.JamesAlexanderMcCreight = Male("James", "Alexander", McCreight, Unions.JaneAndrew) {
+  Born(1853, 4, 3),
+  Died(1937, 7, 11)
+}
+
+let Unions.SallyJames = Union.New(SallyBelleWalker, JamesAlexanderMcCreight) {
+  Married(1888, 9, 20)
+}
+
+let People.HazelMcCreight = Female("Hazel", null, McCreight, Unions.SallyJames) {
+  Born(1892)
+}
+
+let People.JamesMarlinMcCreight = Male("James", "Marlin", McCreight, Unions.SallyJames) {
+  Born(1894, 11, 6)
+}
+
+let People.ElizabethMcCreight = Female("Elizabeth", null, McCreight, Unions.SallyJames) {
+  Born(1897)
+}
+//=====================================
+
+let People.MaryDonegan = Female("Mary", null, "Donegan")
+let People.CyrilMcCreight = Male("Cyril", null, McCreight, Unions.SallyJames) {
+  Born(1900),
+  Died(1972)
+}
+let Unions.MaryCyril = Union.New(MaryDonegan, CyrilMcCreight)
+
+//=====================================
 
 let People.WilliamMcCreight = Male("William", null, McCreight, Unions.JaneAndrew)
 
@@ -240,14 +276,14 @@ let People.FlorenceJaneGofton = Female("Florence", "Jane", Gofton, Unions.FloJoh
   Formerly(McCreight),
 }
 
-let People.RobertJGofton = Male("Robert", "J", Gofton) {
+let People.RobertJohnGofton = Male("Robert", "John", Gofton) {
   Nick("Bob"),
   Picture,
   Born(1927, 3, 11),
   Died(2015, 6, 13),
 }
 
-let Unions.FloBob = Union.New(FlorenceJaneGofton, RobertJGofton) {
+let Unions.FloBob = Union.New(FlorenceJaneGofton, RobertJohnGofton) {
   Married(1950, 12, 23)
 }
 //=====================================
@@ -454,7 +490,7 @@ let People.SharonParks = Female("Sharon", "Kay", "Parks") {
   Nick("Sherri"),
 }
 
-let People.JoanneJohnson = Female("Joanne", null, "Johnson")
+let People.MollyJohnson = Female("Molly", null, "Johnson")
 
 let People.GailEnglish = Female("Gail", null, "English")
 
@@ -464,7 +500,7 @@ let Unions.JamesSharon = Union.New(SharonParks, JamesRobertGofton) {
   Married(1971, 4, 17)
 }
 
-let Unions.JoanneJamesGofton = Union.New(JoanneJohnson, JamesRobertGofton)
+let Unions.JoanneJamesGofton = Union.New(MollyJohnson, JamesRobertGofton)
 
 let Unions.GailEnglishJamesGofton = Union.New(GailEnglish, JamesRobertGofton)
 

@@ -150,7 +150,7 @@ with Person
   let FindChildren(event, set, parent) = set.AddElement(event) && event.Parent == parent
 
   let FormatNode(parent, event) = {
-    Label: TreePerson(null, event)
+    Marker: TreePerson(null, event)
   }
 
   let DrawTimeline(event) = {
@@ -197,7 +197,13 @@ with Union
   end
 
   let FormatNode(parent, event) = {
-    Marker: TreeUnion(parent, event)
+    Marker: Group {
+      Vertical: true,
+//      Padding: 1 pts,
+      Background: Metrics.BoxColor,
+      TreePerson(parent, event.Partner1),
+      TreePerson(parent, event.Partner2),
+    }
   }
 
   let FindChildren(event, set, parent) begin
@@ -563,7 +569,8 @@ with Timeline
     FirstIndent: -Metrics.DateIndent,
     Styles.TimelineDate(event.Date),
     Tab,
-    event.Icon,
+    Tab,
+    event.Icon {TextColor: Metrics.IconColor},
     Space,
     event.DrawTimeline(event)
   }
@@ -605,14 +612,6 @@ let TreePerson(parent, person) = Group {
   }
 }
 
-let TreeUnion(parent, event) = Group {
-  Vertical: true,
-  Padding: 1 pts,
-  Background: Metrics.BoxColor,
-  TreePerson(parent, event.Partner1),
-  TreePerson(parent, event.Partner2),
-}
-
 let MakeTreeNodes(list, parent, event) = Node {
   event.FormatNode(parent, event),
   MakeTreeNodes(list, event, each CollectChildren(list, event))
@@ -621,10 +620,9 @@ let MakeTreeNodes(list, parent, event) = Node {
 let FamilyTree(list, rootunion) = Tree {
   TextHeight: Metrics.TreeText,
   Width: Metrics.Content.Width,
-  Bevel: 100%,
-  Curvature: 20%,
-  NodeGap: 1 pts,
-  Stroke: 0.5 pts {Color: Metrics.LineColor},
+  Bevel: 10%,
+  Curvature: 10%,
+  Stroke: 0.25 pts {Color: Metrics.LineColor},
   MakeTreeNodes(list, null, rootunion),
 }
 //============================================================================================================
