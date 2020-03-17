@@ -5,7 +5,7 @@ include "WionFamily"
 include "Style"
 //======================================================================
 
-let OutputFile = Folders.Documents FileName("Family History") Extensions.PDF
+let OutputFile = Folders.Documents Folder("Code") Folder("FamilyHistory") FileName("Family History") Extensions.PDF
 
 let Main.Run = [
   Write(Watch, OutputFile),
