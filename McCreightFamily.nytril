@@ -267,6 +267,7 @@ let People.RalphEmersonMcCreight = Male("Ralph", "Emerson", McCreight, Unions.Fl
 let People.JanetMcCreight = Female("Janet", null, McCreight) {
   Born(1939, 8, 18),
   Formerly("Johnson"),
+  Picture,
 }
 
 let Unions.JanetRalph = Union.New(JanetMcCreight, RalphEmersonMcCreight) {
@@ -355,9 +356,11 @@ let People.LisaJoanMcCreight = Female("Lisa", "Joan", McCreight, Unions.JoanJack
 //=====================================
 
 let People.LoriChun = Female("Lori", null, "Chun") {
+  Picture,
 }
 
 let People.JohnCraigMcCreight = Male("John", "Craig", McCreight, Unions.JoanJack) {
+  Picture,
   Born(1962, 7, 2)
 }
 
@@ -374,6 +377,7 @@ let People.AmandaMcCreight = Female("Amanda", null, McCreight, Unions.LoriJohn) 
 //=====================================
 
 let People.CraigJohnMcCreight = Male("Craig", "John", McCreight, Unions.JoanJack) {
+  Picture,
   Born(1964, 8, 17)
 }
 
@@ -461,6 +465,7 @@ let People.LaurenLynnMcCreight = Female("Lauren", "Lynn", McCreight, Unions.Jenn
 }
 
 let People.ShannonReneeMcCreight = Female("Shannon", "Renee", McCreight, Unions.JoanJack) {
+  Picture,
   Born(1968, 8, 10)
 }
 //=====================================
@@ -469,11 +474,13 @@ let People.LisaLouiseMcCreight = Female("Lisa", "Louise", McCreight) {
   Born(1966, 8, 16),
   //edward evelen
   Formerly("Huber"),
+  Picture,
 }
 
 let People.ClaytonAlanMcCreight = Male("Clayton", "Alan", McCreight, Unions.JanetRalph) {
   Nick("Clay"),
   Born(1963, 4, 4),
+  Picture,
 }
 
 let Unions.LisaClay = Union.New(LisaLouiseMcCreight, ClaytonAlanMcCreight) {
@@ -504,6 +511,7 @@ let People.AmeliaMcCreight = Female("Amelia", "Mae", McCreight, Unions.LisaClay)
 }
 
 let People.KathyAnneMcCreight = Female("Kathy", "Anne", McCreight, Unions.JanetRalph) {
+  Picture,
   Born(1961, 7, 13),
 }
 //=====================================
@@ -549,11 +557,13 @@ let Unions.JoannTobey = Union.New(JoannVarner, TobeyVarner) {
 //=====================================
 
 let People.PeggyLeeNelson = Female("Peggy", "Lee", Nelson, Unions.FloBob) {
+  Picture,
   Formerly(Gofton),
   Born(1955, 2, 3),
 }
 
 let People.JeffNelson = Male("Jeff", null, Nelson) {
+  Picture,
 }
 
 let Unions.PeggyJeff = Union.New(PeggyLeeNelson, JeffNelson) {

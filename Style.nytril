@@ -100,7 +100,7 @@ let GatherEvent(event, list) begin
   end
 end
 
-let SortFunc(obj1, obj2) = Math.Compare(obj1.Date, obj2.Date)
+let SortFunc(x, y) = Math.Compare(x.Date, y.Date)
 
 let SortEvents(events) begin
   var sortlist = List(256);
@@ -122,7 +122,7 @@ end
 
 let PeopleAndUnions = Unions + People
 let SortedEvents    = SortEvents(PeopleAndUnions + Stories)
-let PictureList     = GatherPictures(SortEvents(Unions))
+let PictureList     = GatherPictures(Unions)
 
 //===============================================================================================================
 // Class definitions
@@ -181,7 +181,7 @@ with Person
   }
 
   let ShowFull(person) = Block {
-    if (person.HasPictur)
+    if (person.HasPicture)
       Paragraph {
         SpaceAfter: 10 pts,
         Group {
@@ -767,13 +767,13 @@ let AlbumTitlePage(title) = Section {
   Paragraph {
     Group {
       Vertical: true,
-      ShowPortraitLine(each PictureList / 6)
+      HAlign: HAligns.Center,
+      ShowPortraitLine(each (PictureList / 4))
     }
   },
   Paragraph {
-    SpaceBefore: 2 inches,
+    SpaceBefore: 1 inches,
     TextHeight: 16 pts,
-    "Updated on ",
     Styles.ShowDate(Metrics.CurrentDate)
   },
 }
