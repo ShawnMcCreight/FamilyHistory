@@ -23,8 +23,32 @@ end
 
 with Stories
 
+let LostCousin = Story.New(FlorenceJaneGofton, "My Long Lost Cousin", DateTime(1939)) {
+  Text: Block {
+    Styles.Story {
+      "It was 1939 and I was in the 4th grade. ",
+      "I had to walk a mile to school because in the old days we didn't have buses. ",
+      "We had to take our lunch and after we ate, we could go out on the playground. ",
+      "While I was out there I saw a girl sitting under a tree. ",
+      "I found out that she had stepped on a needle and it broke off in her foot. ",
+    },
+    Styles.Story {
+      "We exchanged names and I told her that my last name was 'McCreight'. ",
+      "Her name was Leone Phillips. She said that was her aunt's name.  ",
+      "The aunt (Mary McCreight) lived with them. Leone's mother was Mary's sister. ",
+      "Leone and I were in different 4th grade rooms, but we became very good friends and I stood up in her wedding and kept in touch until she passed away with cancer. ",
+    },
+    Styles.Story {
+      "We both went home and told our parents and my folks invited them to dinner. "
+      "Years before my Grandfather had a falling out with his brothers over a bank deal and consequently my " JohnHamillMcCreight.ShowLink("Dad"), " never met his aunts, uncles or cousins.  ",
+      "These two ladies were my Dad's first cousins and they all went to DuBois, PA to meet Major McCreight and some of the family. ",
+      "Needless to say Dad did spend more time with Major's family over the years. "
+    }
+  },
+}
+
 let TripToTheWhitehouse = Story.New(ShawnHamillMcCreight, "Trip to the White House", DateTime(1990)) {
-  Text: Paragraph {
+  Text: Styles.Story {
     FlorenceJaneGofton.ShowLink("Aunt Flo") ", " RobertJohnGofton.ShowLink("Uncle Bob"),
     " and I met in Washington D.C. for the retirement of her cousin. ",
     " He got us into the the press briefing room, and the Situation Room at the White House."
@@ -33,7 +57,7 @@ let TripToTheWhitehouse = Story.New(ShawnHamillMcCreight, "Trip to the White Hou
 
 let SnowmobileTrip1 = Story.New(ShawnHamillMcCreight, "First Annual Michigan Snowmobile Trip", DateTime(2019, 1)) {
   Picture,
-  Text: Paragraph {
+  Text: Styles.Story {
     ClaytonAlanMcCreight.ShowLink,
     " and ",
     CraigJohnMcCreight.ShowLink,

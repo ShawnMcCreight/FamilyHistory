@@ -18,7 +18,7 @@ with Metrics
   let Margins        = {MarginL: LeftMargin, MarginR: RightMargin, MarginT: TopMargin, MarginB: BottomMargin}
   let Paper          = Size(8.5 inches, 11 inches)
   let Content        = Size(Paper.Width - LeftMargin - RightMargin, Paper.Height - TopMargin - BottomMargin)
-  let StoryPicture   = Size(Content.Width * 0.5, 2 inches)
+  let StoryPicture   = Size(Content.Width, 3 inches)
   let PersonPicture  = Size(1.5 inches)
   let PortraitHeight = 1 inch
   let PortraitAngle  = 5 degrees
@@ -293,6 +293,7 @@ with Story
 
   let ShowFull(story) = Block {
     Paragraph {
+      SpaceBefore: 16 pts,
       LocationMark: story.Key,
       Styles.ShowDate(story.Date),
       ": ",
@@ -303,21 +304,13 @@ with Story
       " as told by ",
       ShowFullLink(story.ToldBy)
     },
-    FullPar {
-      SpaceAfter: 10 pts,
+    Block {
       if (story.HasPicture)
-        Group {
-          Padding: 2 pts,
-          VAlign: VAligns.Top,
-          Frame {
-            Width: Metrics.Content.Width - Metrics.StoryPicture.Width,
-            story.Text
-          },
+        Paragraph {
           AddPicture(story, Metrics.StoryPicture),
         }
-      else
-        story.Text
       end
+      story.Text
     }
   }
 end
@@ -402,6 +395,10 @@ with Styles
     if (border)
       BorderL: 3 pts {Color: 90%, Padding: 3 pts},
     end
+  }
+
+  let Story = Paragraph {
+    FirstIndent: 16 pts,
   }
 end
 //============================================================================================================
