@@ -5,7 +5,7 @@
 
 with Metrics
   let CurrentDate    = System.Now
-  let TreeText       = 8 pts
+  let TreeText       = 6.5 pts
   let LevelIndent    = 0.25 inches
   let IconColor      = Color(73, 112, 163)
   let LineColor      = Color(62, 94, 136)
@@ -42,7 +42,9 @@ let Died(year, month=null, day=null) = {
 }
 
 let DatePlace(year, month, day, place) = {
-  Date: DateTime(year, month, day),
+  if (year)
+    Date: DateTime(year, month, day),
+  end,
   BirthPlace: place,
 }
 
@@ -294,6 +296,7 @@ with Story
   let ShowFull(story) = Block {
     Paragraph {
       SpaceBefore: 16 pts,
+      ParBackground: 90%,
       LocationMark: story.Key,
       Styles.ShowDate(story.Date),
       ": ",
@@ -301,8 +304,10 @@ with Story
         Bold, Italic,
         story.Title
       },
-      " as told by ",
-      ShowFullLink(story.ToldBy)
+      if (story.ToldBy)
+        " as told by ",
+        ShowFullLink(story.ToldBy)
+      end
     },
     Block {
       story.Text,
@@ -379,7 +384,7 @@ with Styles
   }
 
   let DiedAge(person) = Span {
-    TextDate(Italic "Died ", person.Death),
+    TextDate("Died ", person.Death),
     if (person.Date)
       DiedAtAge(person)
     end
@@ -475,7 +480,7 @@ let ShowFullPersonData(person) = Block {
       if (person.DeathDateUnknown)
         "Unknown time of death",
       else
-        if (not person.Death)
+        if (not person.Death and (Metrics.CurrentDate - person.Date).Years < 100)
           "{0} years old"(Math.Floor((Metrics.CurrentDate - person.Date).Years))
         end,
       end,
@@ -708,17 +713,6 @@ let UnionTitle(union) = Span {
   ShowFullName(union.Partner2),
 }
 
-let TitlePage(union) = Block {
-  ParAlignment: ParAlignments.Center,
-  Paragraph {
-    PageBreakBefore: true,
-    TextHeight: 14 pts,
-    SpaceAfter: 8 pts,
-    "The Decendants of ",
-    UnionTitle(union),
-  },
-}
-
 let PortraitFrame(person, angle) = Canvas {
   Border: 4 pts {Color: Colors.Silver},
   Transform: Rotate(angle) Skew(angle, angle),
@@ -789,9 +783,25 @@ let ShowFullEvents(list, title) begin
   end
 end
 
+
 let ShowFamilyLine(title, union) = DocSection(title, UnionTitle(union)) {
-  TitlePage(union),
-  FamilyTree(PeopleAndUnions, union),
+  Paragraph {
+    PageBreakBefore: true,
+    Canvas {
+      Size: Metrics.Content,
+      FamilyTree(PeopleAndUnions, union),
+      Canvas {
+        HAlignment: HAligns.Right,
+        VAlignment: VAligns.Bottom,
+        Paragraph {
+          TextHeight: 14 pts,
+          "The Decendants of",
+          LineBreak,
+          UnionTitle(union),
+        }
+      }
+    }
+  },
   PageBreak,
   Styles.Header2("Tree Details"),
   BuildListing(PeopleAndUnions, union, 0),

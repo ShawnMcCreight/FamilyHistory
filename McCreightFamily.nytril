@@ -12,9 +12,12 @@ let Nelson    = "Nelson"
 let Pennsylvania = "Pennsylvania"
 
 with Places
+  let Ireland         = AddPlace(null, null, "Ireland")
+  let Glasgow         = AddPlace("Glasgow", null, "Scotland")
   let NorthernIreland = AddPlace(null, null, "Northern Ireland")
   let Charleston      = AddPlace("Charleston", "South Carolina")
   let GeorgevillePA   = AddPlace("Georgeville", Pennsylvania)
+  let Shelocta        = AddPlace("Shelocta", Pennsylvania)
   let PA              = AddPlace(null, Pennsylvania)
   let CrookedCreekPA  = AddPlace("Crooked Creek", Pennsylvania)
   let Pasadena        = AddPlace("Pasadena", "California")
@@ -22,6 +25,21 @@ end
 //============================================================================================================
 
 with Stories
+
+let MajorIsraelStory = Story.New(null, "Major Israel", DateTime(1888)) {
+  Picture,
+  Text: Block {
+    Styles.Story {
+      MajorIsraelMcCreight.ShowLink " was named after Major Israel Uncapher. ",
+      "Neighbors thought it was cute to call the infant Major when he was born, so he went through life with that name. ",
+      "In 1888 he helped start a Deposit Bank in Dubois, Pa., and was manager for 50 years. ",
+      "He was a friend of Buffalo Bill Cody and in June 1908 was installed by Chief Irontail as a Chief of the Sioux Tribe. ",
+      "His Indian name was Tchanta Tanks. ",
+      "His home in Dubois was known as \"The Wigwam\". ",
+      "He was interested in genealogy and published three booklets on McCreights in the U.S. ",
+    },
+  },
+}
 
 let LostCousin = Story.New(FlorenceJaneGofton, "My Long Lost Cousin", DateTime(1939)) {
   Text: Block {
@@ -47,32 +65,12 @@ let LostCousin = Story.New(FlorenceJaneGofton, "My Long Lost Cousin", DateTime(1
   },
 }
 
-let TripToTheWhitehouse = Story.New(ShawnHamillMcCreight, "Trip to the White House", DateTime(1990)) {
-  Text: Styles.Story {
-    FlorenceJaneGofton.ShowLink("Aunt Flo") ", " RobertJohnGofton.ShowLink("Uncle Bob"),
-    " and I met in Washington D.C. for the retirement of her cousin. ",
-    " He got us into the the press briefing room, and the Situation Room at the White House."
-  }
-}
-
-
-let McCreightSparklerSign = Story.New(KatherineMarieMcCreight, "Sparkler Sign", DateTime(2014, 9, 13)) {
+let WhiteHouseTrip = Story.New(FlorenceJaneGofton, "Trip to the White House", DateTime(1989)) {
   Picture,
   Text: Styles.Story {
-    "One night at a family camping trip, I did time-lapse photographs of everyone waving a sparler around in the shape of a letter. ",
-    "I combined those together to spell out the family name. ",
-    Attendees([
-      ShawnHamillMcCreight,
-      ClaytonAlanMcCreight,
-       ShannonReneeMcCreight,
-       JohnCraigMcCreight,
-       LisaLouiseMcCreight,
-       PeggyLeeNelson,
-       CraigJohnMcCreight,
-       KathyAnneMcCreight,
-       MichelleNicholeMcCreight,
-     ],
-     " helped make the picture."),
+    ShawnHamillMcCreight.ShowLink,
+    " and I met in Virginia for the retirement of my cousin Jerry Reynolds from the Pentagon. ",
+    " Jerry got us into the the press briefing room, and the Situation Room at the White House."
   }
 }
 
@@ -81,6 +79,48 @@ let BobSnowPlow = Story.New(FlorenceJaneGofton, "Poor Man's Snow Plow", DateTime
   Text: Styles.Story {
     "Never one to shirk his household responsibilities, even in the face of injury, ", RobertJohnGofton.ShowLink("Bob"),
     " crafted a clever tool to get the job done. ",
+  }
+}
+
+let ReunionAtNelsons = Story.New(PeggyLeeNelson, "Reunion at the Nelson House", DateTime(2003, 8, 24)) {
+  Picture,
+  Text: Styles.Story {
+    JeffNelson.ShowLink " and I hosted a family reunion at our house in Harlan, Indiana. ",
+    Attendees([
+      RalphEmersonMcCreight,
+      RobertJohnGofton,
+      JenniferLynnMcCreight,
+      CraigJohnMcCreight,
+      ShannonReneeMcCreight,
+      ShawnHamillMcCreight,
+      KathyAnneMcCreight,
+      ClaytonAlanMcCreight,
+      JoannMarieVarner,
+      JohnCraigMcCreight,
+      JamesRobertGofton,
+      FlorenceHazelettMcCreight,
+    ],
+    " were there to enjoy the family time."),
+  }
+}
+
+let McCreightSparklerSign = Story.New(KatherineMarieMcCreight, "Sparkler Sign", DateTime(2014, 9, 13)) {
+  Picture,
+  Text: Styles.Story {
+    "One night at a family camping trip, I did time-lapse photographs of everyone waving a sparkler around in the shape of a letter. ",
+    "I combined those together to spell out the family name. ",
+    Attendees([
+      ShawnHamillMcCreight,
+      ClaytonAlanMcCreight,
+      ShannonReneeMcCreight,
+      JohnCraigMcCreight,
+      LisaLouiseMcCreight,
+      PeggyLeeNelson,
+      CraigJohnMcCreight,
+      KathyAnneMcCreight,
+      MichelleNicholeMcCreight,
+    ],
+    " helped make the picture."),
   }
 }
 
@@ -99,17 +139,186 @@ let SnowmobileTrip1 = Story.New(ShawnHamillMcCreight, "First Annual Michigan Sno
 end
 //============================================================================================================
 
-let People.AndrewSharpMcCreight = Male("Andrew", "Sharp", McCreight) {
+
+let People.MaryMcCreight = Female("Mary", null, McCreight) {
+  Born(null, null, null, Places.Ireland),
+  Died(1780, 1, 19)
+}
+
+let People.DavidMcCreight = Male("David", null, McCreight) {
+  Born(1709, null, null, Places.Ireland),
+  Died(1799, 9, 14)
+}
+
+let Unions.DavidMary = Union.New(MaryMcCreight, DavidMcCreight) {
+  Married(1730)
+}
+//============================================================================================================
+
+let People.WilliamMcCreight = Male("William", null, McCreight, Unions.DavidMary) {
+  Born(1736, 12, null, Places.Ireland)
+}
+//============================================================================================================
+
+let People.JamesMcCreight = Male("James", null, McCreight, Unions.DavidMary) {
+  Born(1745, 12, null, Places.Glasgow)
+}
+
+let People.SallyDunnMcCreight = Female("Sally", "Dunn", McCreight) {
+}
+
+let Unions.JamesSally = Union.New(SallyDunnMcCreight, JamesMcCreight) {
+  Married(1730)
+}
+//============================================================================================================
+
+let People.DavidJrMcCreight = Male("David", null, McCreight, Unions.DavidMary) {
+  Born(1749, 12, null, Places.Ireland),
+  Died(1817, 2, 7),
+}
+
+let People.MarthaMcCreight = Female("Martha", null, McCreight, Unions.DavidMary) {
+  Born(1748),
+  Died(1815, 9, 13),
+}
+
+let People.DavidDaughter = Female("?", null, McCreight, Unions.DavidMary) {
+}
+//============================================================================================================
+
+let People.AndrewMcCreight1 = Male("Andrew", null, McCreight, Unions.JamesSally) {
+  Born(1787, 5, 5, Places.Shelocta),
+  Died(1861, 5, 23),
+}
+
+let People.AnnSharpMcCreight = Female("Ann", "Sharp", McCreight) {
+  Born(1794, 6, 27),
+}
+
+let Unions.AnnAndrew = Union.New(AnnSharpMcCreight, AndrewMcCreight1) {
+  Married(1812, 1, 7)
+}
+//============================================================================================================
+
+let People.JamesEdwardMcCreight = Male("James", "Edward", McCreight, Unions.AnnAndrew) {
+}
+
+let People.AndrewSharpMcCreight = Male("Andrew", "Sharp", McCreight, Unions.AnnAndrew) {
   Born(1815, 1, 10, Places.CrookedCreekPA)
+}
+
+let Unions.JaneAndrew = Union.New(JaneJohnsonMcCreight, AndrewSharpMcCreight) {
+  //First cousins!
+  Married(1843, 6, 6)
 }
 
 let People.JaneJohnsonMcCreight = Female("Jane", null, McCreight) {
   Formerly("Johnson")
 }
 
-let Unions.JaneAndrew = Union.New(JaneJohnsonMcCreight, AndrewSharpMcCreight) {
-  //First cousins!
-  Married(1843, 6, 6)
+
+let People.SallieMcCreight = Female("Sallie", null, McCreight, Unions.AnnAndrew) {
+}
+
+let People.JosephMcCreight = Male("Joseph", null, McCreight, Unions.AnnAndrew) {
+}
+
+
+let People.JohnWinslowMcCreight = Male("John", "Winslow", McCreight, Unions.AnnAndrew) {
+  Picture,
+  Born(1821, 7, 11),
+  Died(1900, 7, 23)
+}
+
+let People.ElizaUncapherMcCreight = Female("Eliza", null, McCreight, Unions.AnnAndrew) {
+  Picture,
+  Formerly("Uncapher"),
+  Born(1830, 5, 10),
+  Died(1918, 7, 2)
+}
+
+let Unions.ElizaJohn = Union.New(ElizaUncapherMcCreight, JohnWinslowMcCreight)
+
+let People.AnneSMcCreight = Female("Anne", "S", McCreight, Unions.AnnAndrew) {
+}
+
+let People.JaneMcCreight = Female("Jane", null, McCreight, Unions.AnnAndrew) {
+}
+
+let People.PollyRMcCreight = Female("Polly", "R", McCreight, Unions.AnnAndrew) {
+}
+
+let People.ThomasSMcCreight = Male("Thomas", "S", McCreight, Unions.AnnAndrew) {
+}
+
+let People.SmithMcCreight = Male("Smith", null, McCreight, Unions.AnnAndrew) {
+}
+
+let People.NancySMcCreight = Female("Nancy", "S", McCreight, Unions.AnnAndrew) {
+  Born(1834, 7, 10),
+  Died(1891, 6, 3)
+}
+
+let People.JamiesonMcCreight = Male("Jamieson", null, McCreight, Unions.AnnAndrew) {
+}
+
+let People.HannaLMcCreight = Female("Hanna", "L", McCreight, Unions.AnnAndrew) {
+  Born(1839, 11, 26),
+}
+//=====================================
+
+let People.AnnaMarieMcCreight = Female("Anna", "Marie", McCreight, Unions.ElizaJohn) {
+  Born(1852, 10, 26),
+  Died(1860, 7, 10)
+}
+
+let People.SusanMcCreight = Female("Susan", null, McCreight, Unions.ElizaJohn) {
+  Born(1854, 8, 23),
+  Died(1932, 1, 17),
+}
+
+let People.JosephSamuelMcCreight = Male("Joseph", "Samuel", McCreight, Unions.ElizaJohn) {
+  Picture,
+  Born(1858, 1, 2),
+  Died(1954, 1, 15)
+}
+
+let People.WilliamHenryMcCreight = Male("William", "Henry", McCreight, Unions.ElizaJohn) {
+  Born(1860, 1, 20),
+}
+
+let People.AndrewSharpMcCreight2 = Male("Andrew", "Sharp", McCreight, Unions.ElizaJohn) {
+  Born(1863, 3, 18),
+  Died(1867, 3, 19)
+}
+
+let People.MajorIsraelMcCreight = Male("Israel", null, McCreight, Unions.ElizaJohn) {
+  Picture,
+  Born(1866, 4, 21),
+  Died(1958, 11, 13)
+}
+
+let People.AliceMcCreight = Female("Alice", null, McCreight) {
+  Picture,
+  Born(1866, 4, 21),
+  Died(1958, 11, 13)
+}
+
+let Unions.AliceIsrael = Union.New(AliceMcCreight, MajorIsraelMcCreight) {
+  Married(1860)
+}
+
+let People.EdithPriscillaMcCreight = Female("Edith", "Priscilla", McCreight, Unions.ElizaJohn) {
+}
+
+let People.BenjaminBruceMcCreight = Male("Benjamin", "Bruce", McCreight, Unions.ElizaJohn) {
+}
+
+let People.OliveBerthaMcCreight = Female("Olive", "Bertha", McCreight, Unions.ElizaJohn) {
+}
+
+let People.MaryLillibelMcCreight = Female("Mary", "Lillibell", McCreight, Unions.ElizaJohn) {
+  Picture,
 }
 //=====================================
 
@@ -199,7 +408,7 @@ let Unions.MaryCyril = Union.New(MaryDonegan, CyrilMcCreight)
 
 //=====================================
 
-let People.WilliamMcCreight = Male("William", null, McCreight, Unions.JaneAndrew)
+let People.WilliamMcCreight2 = Male("William", null, McCreight, Unions.JaneAndrew)
 
 let People.JohnSharpWarnick = Male("John", "Sharp", "Warnick", Unions.SarahGeorge)
 
@@ -220,10 +429,12 @@ let People.JohnJamiesonMcCreight = Male("John", "Jamieson", McCreight, Unions.Ja
 }
 
 let People.JennieAdelphiaMcCreight = Female("Jennie", "Adelphia", McCreight, Unions.MaryHughHamill) {
+  Picture,
   Formerly(Hamill),
   Born(1875, 11, 1, Places.GeorgevillePA),
   Died(1950, 1, 3),
 }
+
 let Unions.JennieJohn = Union.New(JennieAdelphiaMcCreight, JohnJamiesonMcCreight) {
 }
 //=====================================
@@ -234,6 +445,7 @@ let People.HarryHazelett = Male("Harry", null, Hazelett) {
 let People.BerthaHazelett = Female("Bertha", null, Hazelett) {
   Formerly("Wolfe"),
 }
+
 let Unions.HarryBertha = Union.New(BerthaHazelett, HarryHazelett)
 //=====================================
 
@@ -241,6 +453,7 @@ let People.AnneMcCreight = Male("Anne", null, McCreight) {
 }
 
 let People.WendleButlerMcCreight = Male("Wendle", "Butler", McCreight, Unions.JennieJohn) {
+  Picture,
   Born(1905, 12, 17),
   Died(1998, 8, 23),
 }
@@ -249,9 +462,11 @@ let Unions.AnneWendle = Union.New(AnneMcCreight, WendleButlerMcCreight)
 //=====================================
 
 let People.ThelmaEllenFaust = Female("Thelma", "Ellen", "Faust") {
+  Picture,
 }
 
 let People.JamesClarkMcCreight = Male("James", "Clark", McCreight, Unions.JennieJohn) {
+  Picture,
   Born(1909, 4, 16),
   Died(0),
 }
@@ -598,14 +813,14 @@ let Unions.DebbieGoftonJamesGofton = Union.New(DebbieGofton, JamesRobertGofton)
 //=====================================
 
 
-let People.JoannVarner = Female("Joann", "Marie", Varner, Unions.FloBob) {
+let People.JoannMarieVarner = Female("Joann", "Marie", Varner, Unions.FloBob) {
   Formerly(Gofton),
 }
 
 let People.TobeyVarner = Male("Tobey", null, Varner) {
 }
 
-let Unions.JoannTobey = Union.New(JoannVarner, TobeyVarner) {
+let Unions.JoannTobey = Union.New(JoannMarieVarner, TobeyVarner) {
   Married(1974, 7, 29)
 }
 //=====================================
