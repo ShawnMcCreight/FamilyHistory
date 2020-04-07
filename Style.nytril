@@ -305,12 +305,12 @@ with Story
       ShowFullLink(story.ToldBy)
     },
     Block {
+      story.Text,
       if (story.HasPicture)
         Paragraph {
           AddPicture(story, Metrics.StoryPicture),
         }
-      end
-      story.Text
+      end,
     }
   }
 end

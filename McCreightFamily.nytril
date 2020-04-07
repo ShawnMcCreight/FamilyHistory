@@ -55,13 +55,42 @@ let TripToTheWhitehouse = Story.New(ShawnHamillMcCreight, "Trip to the White Hou
   }
 }
 
+
+let McCreightSparklerSign = Story.New(KatherineMarieMcCreight, "Sparkler Sign", DateTime(2014, 9, 13)) {
+  Picture,
+  Text: Styles.Story {
+    "One night at a family camping trip, I did time-lapse photographs of everyone waving a sparler around in the shape of a letter. ",
+    "I combined those together to spell out the family name. ",
+    Attendees([
+      ShawnHamillMcCreight,
+      ClaytonAlanMcCreight,
+       ShannonReneeMcCreight,
+       JohnCraigMcCreight,
+       LisaLouiseMcCreight,
+       PeggyLeeNelson,
+       CraigJohnMcCreight,
+       KathyAnneMcCreight,
+       MichelleNicholeMcCreight,
+     ],
+     " helped make the picture."),
+  }
+}
+
+let BobSnowPlow = Story.New(FlorenceJaneGofton, "Poor Man's Snow Plow", DateTime(2013, 1, 26)) {
+  Picture,
+  Text: Styles.Story {
+    "Never one to shirk his household responsibilities, even in the face of injury, ", RobertJohnGofton.ShowLink("Bob"),
+    " crafted a clever tool to get the job done. ",
+  }
+}
+
 let SnowmobileTrip1 = Story.New(ShawnHamillMcCreight, "First Annual Michigan Snowmobile Trip", DateTime(2019, 1)) {
   Picture,
   Text: Styles.Story {
     ClaytonAlanMcCreight.ShowLink,
     " and ",
     CraigJohnMcCreight.ShowLink,
-    " arranged the first annual McCreight-Johnson sledding trip to the Johnson cabin. ",
+    " arranged the first annual McCreight-Johnson sledding trip to the Johnson family cabin. ",
     " The conditions were perfect, and a great time was had by all. ",
     Attendees([ThomasDanielMcCreight], " was there to enjoy the snow as well."),
   }
@@ -406,6 +435,7 @@ let People.CraigJohnMcCreight = Male("Craig", "John", McCreight, Unions.JoanJack
 }
 
 let People.TheresaMaryMcCreight = Female("Theresa", "Mary", McCreight) {
+  Picture,
   Nick("Terry"),
   Formerly("Furlong"),
   Born(1960)
