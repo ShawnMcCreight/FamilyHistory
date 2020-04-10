@@ -11,13 +11,11 @@ with Metrics
   let LineColor      = Color(62, 94, 136)
   let BoxColor       = Color(182, 199, 222)
   let DateIndent     = 1.35 inches
-  let LeftMargin     = 0.75 inches
-  let RightMargin    = 0.75 inches
-  let TopMargin      = 0.75 inches
-  let BottomMargin   = 0.75 inches
-  let Margins        = {MarginL: LeftMargin, MarginR: RightMargin, MarginT: TopMargin, MarginB: BottomMargin}
+  let MainMargin     = Margin(0.75 inches, 0.75 inches, 0.75 inches, 0.75 inches)
+  let TreeMargin     = Margin(0.125 inches, 0.125 inches, 0.125 inches, 0.125 inches)
   let Paper          = Size(8.5 inches, 11 inches)
-  let Content        = Size(Paper.Width - LeftMargin - RightMargin, Paper.Height - TopMargin - BottomMargin)
+  let Content        = Paper - MainMargin
+  let TreeContent    = Paper - TreeMargin
   let StoryPicture   = Size(Content.Width, 3 inches)
   let PersonPicture  = Size(1.5 inches)
   let PortraitHeight = 1 inch
@@ -638,7 +636,7 @@ let MakeTreeNodes(list, parent, event) = Node {
 
 let FamilyTree(list, rootunion) = Tree {
   TextHeight: Metrics.TreeText,
-  Width: Metrics.Content.Width,
+  Width: Metrics.TreeContent.Width,
   Bevel: 10%,
   Curvature: 10%,
   Stroke: 0.25 pts {Color: Metrics.LineColor},
@@ -713,8 +711,14 @@ let UnionTitle(union) = Span {
   ShowFullName(union.Partner2),
 }
 
+let TopColor    = 94%
+let BottomColor = 80%
+
 let PortraitFrame(person, angle) = Canvas {
-  Border: 4 pts {Color: Colors.Silver},
+  BorderT: 4 pts {Color: TopColor..BottomColor {Vertical: true}},
+  BorderLR: 4 pts {Color: TopColor..BottomColor},
+  BorderB: 4 pts {Color: TopColor..BottomColor {Vertical: true}},
+
   Transform: Rotate(angle) Skew(angle, angle),
   IO.Read(person.ImagePath) {
     Size: Size(Metrics.PortraitHeight),
@@ -784,25 +788,23 @@ let ShowFullEvents(list, title) begin
 end
 
 
-let ShowFamilyLine(title, union) = DocSection(title, UnionTitle(union)) {
-  Paragraph {
-    PageBreakBefore: true,
-    Canvas {
-      Size: Metrics.Content,
-      FamilyTree(PeopleAndUnions, union),
-      Canvas {
-        HAlignment: HAligns.Right,
-        VAlignment: VAligns.Bottom,
-        Paragraph {
-          TextHeight: 14 pts,
-          "The Decendants of",
-          LineBreak,
-          UnionTitle(union),
-        }
-      }
+let ShowFamilyTree(union) = Section {
+  SectionBreak: SectionBreaks.NextPage,
+  Margin: Metrics.TreeMargin,
+  Canvas {
+    Size: Metrics.TreeContent,
+    FamilyTree(PeopleAndUnions, union),
+    Frame {
+      Width: 2 inches,
+      TextHeight: 14 pts,
+      "The Decendants of",
+      UnionTitle(union),
     }
-  },
-  PageBreak,
+  }
+}
+
+let ShowFamilyLine(title, union) = DocSection(title, UnionTitle(union)) {
+  SectionBreak: SectionBreaks.NextPage,
   Styles.Header2("Tree Details"),
   BuildListing(PeopleAndUnions, union, 0),
   Timeline.Show,
@@ -819,8 +821,9 @@ let ShowSource(title) = DocSection(title, "Source Data") {
 
 let FamilyAlbum(title, lines) = Document {
   Size: Metrics.Paper,
-  Metrics.Margins,
+  Margin: Metrics.MainMargin,
   AlbumTitlePage(title),
+  ShowFamilyTree(each lines),
   ShowFamilyLine(title, each lines),
   ShowSource(title),
 }

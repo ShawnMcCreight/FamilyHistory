@@ -230,7 +230,7 @@ let People.JohnWinslowMcCreight = Male("John", "Winslow", McCreight, Unions.AnnA
   Died(1900, 7, 23)
 }
 
-let People.ElizaUncapherMcCreight = Female("Eliza", null, McCreight, Unions.AnnAndrew) {
+let People.ElizaUncapherMcCreight = Female("Eliza", null, McCreight) {
   Picture,
   Formerly("Uncapher"),
   Born(1830, 5, 10),
