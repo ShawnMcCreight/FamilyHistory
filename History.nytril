@@ -39,11 +39,15 @@ let Died(year, month=null, day=null) = {
   end
 }
 
+let Divorced(year, month=null, day=null) = {
+  DivorceDate: DateTime(year, month, day)
+}
+
 let DatePlace(year, month, day, place) = {
   if (year)
     Date: DateTime(year, month, day),
   end,
-  BirthPlace: place,
+  Place: place,
 }
 
 let Born(year, month=null, day=null, place=null)    = DatePlace(year, month, day, place)
@@ -75,7 +79,7 @@ let AddPlace(city, state, country=null) = {
   State: state
 }
 
-let ImagePath(person) = IO.Folders.Source IO.FileName(person.Name) IO.Extensions.JPG
+let ImagePath(person) = IO.Folders.Main IO.FileName(person.Name) IO.Extensions.JPG
 
 let AddPicture(person, size) = IO.Read(person.ImagePath) {
   Size: size,
@@ -322,6 +326,13 @@ end
 //============================================================================================================
 
 with Styles
+  let Header1(text) = Paragraph {
+    TextHeight: 18 pts,
+    SpaceAfter: 12 pts,
+    Bold,
+    text
+  }
+
   let Header2(text) = Paragraph {
     BorderB: 0.5,
     TextFamily: TextFamilies.Garamond,
@@ -492,9 +503,9 @@ let ShowFullPersonData(person) = Block {
         Styles.DiedAge(person)
       end,
 
-      if (person.BirthPlace)
+      if (person.Place)
         " in ",
-        Styles.ShowPlace(person.BirthPlace),
+        Styles.ShowPlace(person.Place),
       end,
     },
   end,
@@ -721,6 +732,8 @@ let PortraitFrame(person, angle) = Canvas {
 
   Transform: Rotate(angle) Skew(angle, angle),
   IO.Read(person.ImagePath) {
+    Link: person.Key,
+    Popup: PersonPopup.Call(person),
     Size: Size(Metrics.PortraitHeight),
     Proportional: true,
   },
@@ -729,6 +742,12 @@ let PortraitFrame(person, angle) = Canvas {
 let ShowPortrait(union) = Group {
   VAlign: VAligns.Top,
   PortraitFrame(union.Partner1, -Metrics.PortraitAngle),
+  Canvas {
+    MarginTB: 8 pts,
+    Width: 2 pts,
+    Height: Metrics.PortraitHeight,
+    Background: 60%,
+  },
   PortraitFrame(union.Partner2, Metrics.PortraitAngle),
 }
 
