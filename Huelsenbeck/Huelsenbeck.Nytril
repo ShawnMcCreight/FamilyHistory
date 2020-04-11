@@ -3,7 +3,7 @@ using Type, Format, Units, People
 include "..\\History"
 //======================================================================
 
-let OutputFile = IO.Folders.Source IO.FileName(Huelsenbeck " History") IO.Extensions.PDF
+let OutputFile = IO.Folders.Source IO.FileName("Family History") IO.Extensions.PDF
 
 let Main.Run = [
   IO.Write(Watch, OutputFile),
@@ -32,7 +32,7 @@ let HuelsenbeckFamilyAlbum(title, lines) = Document {
   ShowFamilyLine(title, each lines),
 }
 
-let Watch = HuelsenbeckFamilyAlbum(Huelsenbeck " Family History", [Unions.PeteNikki, Unions.MartinBarbara])
+let Watch = HuelsenbeckFamilyAlbum("Family History", [Unions.PeteNikki, Unions.MartinBarbara])
 //===============================================================================================================
 
 let Huelsenbeck = "Huelsenbeck"
