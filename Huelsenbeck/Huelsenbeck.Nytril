@@ -3,36 +3,7 @@ using Type, Format, Units, People
 include "..\\History"
 //======================================================================
 
-let OutputFile = IO.Folders.Source IO.FileName("Family History") IO.Extensions.PDF
-
-let Main.Run = [
-  IO.Write(Watch, OutputFile),
-  IO.OpenDocument(OutputFile),
-]
-
-let ShowTree(union) = Section {
-  SectionBreak: SectionBreaks.NextPage,
-  Margin: 0.75 inches,
-  Styles.Header1("The Decendants of " UnionTitle(union)),
-  Tree {
-    TextHeight: Metrics.TreeText,
-    Width: 5 inches,
-    Bevel: 10%,
-    Curvature: 10%,
-    Stroke: 0.25 pts {Color: Metrics.LineColor},
-    MakeTreeNodes(PeopleAndUnions, null, union),
-  }
-}
-
-let HuelsenbeckFamilyAlbum(title, lines) = Document {
-  Size: Metrics.Paper,
-  Margin: Metrics.MainMargin,
-  AlbumTitlePage(title),
-  ShowTree(each lines),
-  ShowFamilyLine(title, each lines),
-}
-
-let Watch = HuelsenbeckFamilyAlbum("Family History", [Unions.PeteNikki, Unions.MartinBarbara])
+let Watch = FamilyAlbum("Family History", [Unions.PeteNikki, Unions.MartinBarbara])
 //===============================================================================================================
 
 let Huelsenbeck = "Huelsenbeck"

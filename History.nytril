@@ -3,6 +3,13 @@
 // Size and color information
 //==============================================================================================================
 
+let OutputFile = IO.Folders.Main IO.FileName("Family History") IO.Extensions.PDF
+
+let Main.Run = [
+  IO.Write(Watch, OutputFile),
+  IO.OpenDocument(OutputFile),
+]
+
 with Metrics
   let CurrentDate    = System.Now
   let TreeText       = 6.5 pts
@@ -12,7 +19,7 @@ with Metrics
   let BoxColor       = Color(182, 199, 222)
   let DateIndent     = 1.35 inches
   let MainMargin     = Margin(0.75 inches, 0.75 inches, 0.75 inches, 0.75 inches)
-  let TreeMargin     = Margin(0.125 inches, 0.125 inches, 0.125 inches, 0.125 inches)
+  let TreeMargin     = Margin(0.5 inches, 0.125 inches, 0.125 inches, 0.5 inches)
   let Paper          = Size(8.5 inches, 11 inches)
   let Content        = Paper - MainMargin
   let TreeContent    = Paper - TreeMargin
@@ -807,25 +814,13 @@ let ShowFullEvents(list, title) begin
 end
 
 
-let ShowFamilyTree(union) = Section {
-  SectionBreak: SectionBreaks.NextPage,
-  Margin: Metrics.TreeMargin,
-  Canvas {
-    Size: Metrics.TreeContent,
-    FamilyTree(PeopleAndUnions, union),
-    Frame {
-      Width: 2 inches,
-      TextHeight: 14 pts,
-      "The Decendants of",
-      UnionTitle(union),
-    }
-  }
-}
-
 let ShowFamilyLine(title, union) = DocSection(title, UnionTitle(union)) {
   SectionBreak: SectionBreaks.NextPage,
   Styles.Header2("Tree Details"),
   BuildListing(PeopleAndUnions, union, 0),
+}
+
+let ShowDetails(title) = DocSection(title, "Details") {
   Timeline.Show,
   ShowFullEvents(Stories, "Stories"),
   ShowFullEvents(People, "Family Members"),
@@ -838,13 +833,28 @@ let ShowSource(title) = DocSection(title, "Source Data") {
   }
 }
 
+let ShowTree(title, union) = Section {
+  SectionBreak: SectionBreaks.NextPage,
+  Margin: Metrics.TreeMargin,
+  Styles.Header1("The Decendants of " UnionTitle(union)),
+  Tree {
+    TextHeight: Metrics.TreeText,
+    Width: Metrics.TreeContent.Width,
+    Bevel: 10%,
+    Curvature: 10%,
+    Stroke: 0.25 pts {Color: Metrics.LineColor},
+    MakeTreeNodes(PeopleAndUnions, null, union),
+  },
+  ShowFamilyLine(title, union),
+}
+
 let FamilyAlbum(title, lines) = Document {
   Size: Metrics.Paper,
   Margin: Metrics.MainMargin,
   AlbumTitlePage(title),
-  ShowFamilyTree(each lines),
-  ShowFamilyLine(title, each lines),
-  ShowSource(title),
+  ShowTree(title, each lines),
+  ShowDetails(title),
+//  ShowSource(title),
 }
 //============================================================================================================
 
