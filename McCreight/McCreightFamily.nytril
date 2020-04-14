@@ -1,10 +1,11 @@
 using Format, Type, People
 
-include "WionFamily"
 include "..\\History"
+include "WionFamily"
+include "NelsonFamily"
 //======================================================================
 
-let Watch = FamilyAlbum("McCreight Family History", [Unions.DavidMary])
+let Watch = FamilyAlbum("Family History", [Unions.DavidMary, Unions.MarieJohan])
 
 //============================================================================================================
 
@@ -15,8 +16,12 @@ let Yuncker   = "Yuncker"
 let Gofton    = "Gofton"
 let Varner    = "Varner"
 let Nelson    = "Nelson"
+let Jordan    = "Jordan"
 
 let Pennsylvania = "Pennsylvania"
+let Michigan     = "Michigan"
+let California   = "California"
+let Indiana      = "Indiana"
 
 with Places
   let Ireland         = AddPlace(null, null, "Ireland")
@@ -27,7 +32,22 @@ with Places
   let Shelocta        = AddPlace("Shelocta", Pennsylvania)
   let PA              = AddPlace(null, Pennsylvania)
   let CrookedCreekPA  = AddPlace("Crooked Creek", Pennsylvania)
-  let Pasadena        = AddPlace("Pasadena", "California")
+  let NewKensington   = AddPlace("New Kensington", Pennsylvania)
+  let Pasadena        = AddPlace("Pasadena", California)
+  let SanBernardino   = AddPlace("San Bernardino", California)
+  let Saginaw         = AddPlace("Saginaw", Michigan)
+  let Midland         = AddPlace("Midland", Michigan)
+  let Flushing        = AddPlace("Flushing", Michigan)
+  let Janesville      = AddPlace("Janesville", "Wisconsin")
+  let Madison         = AddPlace("Madison", "Wisconsin")
+  let FortWayne       = AddPlace("Fort Wayne", Indiana)
+  let Beresford       = AddPlace("Beresford", "South Dakota")
+  let Durban          = AddPlace("Durban", null, "South Africa")
+  let Norway          = AddPlace(null, null, "Norway")
+  let Bergan          = AddPlace("Bergan", null, "Norway")
+  let Voss            = AddPlace("Voss", null, "Norway")
+  let Hosanger        = AddPlace("Hosanger", null, "Norway")
+  let Laurel          = AddPlace("Laurel", "Nebraska")
 end
 //============================================================================================================
 
@@ -92,7 +112,7 @@ let BobSnowPlow = Story.New(FlorenceJaneGofton, "Poor Man's Snow Plow", DateTime
 let ReunionAtNelsons = Story.New(PeggyLeeNelson, "Reunion at the Nelson House", DateTime(2003, 8, 24)) {
   Picture,
   Text: Styles.Story {
-    JeffNelson.ShowLink " and I hosted a family reunion at our house in Harlan, Indiana. ",
+    JeffreyPNelson.ShowLink " and I hosted a family reunion at our house in Harlan, Indiana. ",
     Attendees([
       RalphEmersonMcCreight,
       RobertJohnGofton,
@@ -553,32 +573,19 @@ let Unions.JanetRalph = Union.New(JanetMcCreight, RalphEmersonMcCreight) {
 let People.FlorenceJaneGofton = Female("Florence", "Jane", Gofton, Unions.FloJohn) {
   Nick("Flo"),
   Picture,
-  Born(1930, 8, 22),
+  Born(1930, 8, 22, Places.NewKensington),
   Formerly(McCreight),
 }
 
 let People.RobertJohnGofton = Male("Robert", "John", Gofton) {
   Nick("Bob"),
   Picture,
-  Born(1927, 3, 11),
+  Born(1927, 3, 11, Places.Flushing),
   Died(2015, 6, 13),
 }
 
 let Unions.FloBob = Union.New(FlorenceJaneGofton, RobertJohnGofton) {
-  Married(1950, 12, 23)
-}
-//=====================================
-
-let People.KristyLeeNelson = Female("Kristy", "Lee", Nelson, Unions.PeggyJeff) {
-  Born(1979, 9, 17),
-}
-
-let People.KevinMichaelNelson = Male("Kevin", "Michael", Nelson, Unions.PeggyJeff) {
-  Born(1982, 6, 2)
-}
-
-let People.LisaAnnNelson = Female("Lisa", "Ann", Nelson, Unions.PeggyJeff) {
-  Born(1983, 12, 29)
+  Married(1950, 12, 21)
 }
 //=====================================
 
@@ -653,7 +660,7 @@ let People.AmandaMcCreight = Female("Amanda", null, McCreight, Unions.LoriJohn) 
 
 let People.CraigJohnMcCreight = Male("Craig", "John", McCreight, Unions.JoanJack) {
   Picture,
-  Born(1964, 8, 17)
+  Born(1964, 8, 17, Places.SanBernardino)
 }
 
 let People.TheresaMaryMcCreight = Female("Theresa", "Mary", McCreight) {
@@ -710,7 +717,7 @@ let Unions.MichelleBobby = Union.New(MichelleNicholeMcCreight, RobertCalderoni) 
 
 let People.ShawnHamillMcCreight = Male("Shawn", Hamill, McCreight, Unions.JoanJack) {
   Picture,
-  Born(1966, 2, 5)
+  Born(1966, 2, 5, Places.SanBernardino)
 }
 
 let People.JenniferLynnMcCreight = Female("Jennifer", "Lynn", McCreight, Unions.CharlotteCharlesWion) {
@@ -742,7 +749,7 @@ let People.LaurenLynnMcCreight = Female("Lauren", "Lynn", McCreight, Unions.Jenn
 
 let People.ShannonReneeMcCreight = Female("Shannon", "Renee", McCreight, Unions.JoanJack) {
   Picture,
-  Born(1968, 8, 10)
+  Born(1968, 8, 10, Places.SanBernardino)
 }
 //=====================================
 
@@ -819,7 +826,6 @@ let Unions.GailEnglishJamesGofton = Union.New(GailEnglish, JamesRobertGofton)
 let Unions.DebbieGoftonJamesGofton = Union.New(DebbieGofton, JamesRobertGofton)
 //=====================================
 
-
 let People.JoannMarieVarner = Female("Joann", "Marie", Varner, Unions.FloBob) {
   Formerly(Gofton),
 }
@@ -829,21 +835,6 @@ let People.TobeyVarner = Male("Tobey", null, Varner) {
 
 let Unions.JoannTobey = Union.New(JoannMarieVarner, TobeyVarner) {
   Married(1974, 7, 29)
-}
-//=====================================
-
-let People.PeggyLeeNelson = Female("Peggy", "Lee", Nelson, Unions.FloBob) {
-  Picture,
-  Formerly(Gofton),
-  Born(1955, 2, 3),
-}
-
-let People.JeffNelson = Male("Jeff", null, Nelson) {
-  Picture,
-}
-
-let Unions.PeggyJeff = Union.New(PeggyLeeNelson, JeffNelson) {
-  Married(1976, 6, 29)
 }
 //============================================================================================================
 

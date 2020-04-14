@@ -3,7 +3,7 @@
 // Size and color information
 //==============================================================================================================
 
-let OutputFile = IO.Folders.Main IO.FileName("Family History") IO.Extensions.PDF
+let OutputFile = IO.Folders.Main IO.FileName("Family History") IO.Extensions.HTML
 
 let Main.Run = [
   IO.Write(Watch, OutputFile),
@@ -12,7 +12,7 @@ let Main.Run = [
 
 with Metrics
   let CurrentDate    = System.Now
-  let TreeText       = 6.5 pts
+  let TreeText       = 5.5 pts
   let LevelIndent    = 0.25 inches
   let IconColor      = Color(73, 112, 163)
   let LineColor      = Color(62, 94, 136)
@@ -650,15 +650,6 @@ let TreePerson(parent, person) = Group {
 let MakeTreeNodes(list, parent, event) = Node {
   event.FormatNode(parent, event),
   MakeTreeNodes(list, event, each CollectChildren(list, event))
-}
-
-let FamilyTree(list, rootunion) = Tree {
-  TextHeight: Metrics.TreeText,
-  Width: Metrics.TreeContent.Width,
-  Bevel: 10%,
-  Curvature: 10%,
-  Stroke: 0.25 pts {Color: Metrics.LineColor},
-  MakeTreeNodes(list, null, rootunion),
 }
 //============================================================================================================
 //  Family member listing

@@ -1,0 +1,163 @@
+using People
+//============================================================================================================
+
+let People.CleoLNelson = Male("Cleo", "L.", Nelson) {
+  Picture,
+  Born(1930, 9, 28, Places.Durban),
+  Died(1980, 11, 30),
+}
+//=====================================
+
+let People.AnnaVetheNelson = Female("Anna", null, Nelson) {
+  Picture,
+  Formerly("Vethe")
+  Born(1872, 2, 24, Places.Voss),
+  Died(1963, 5, 19)
+}
+
+let People.MarieOBortveit = Female("Marie", null, "Bortveit") {
+  Born(1830, 8, 6, Places.Norway),
+  Died(1896, 5, 30)
+}
+
+let People.JohanNGrettveit = Male("Johan", "N.", "Grettveit") {
+  Born(1835, 1, 11, Places.Norway),
+  Died(1882, 10, 30)
+}
+
+let Unions.MarieJohan = Union.New(MarieOBortveit, JohanNGrettveit) {
+  Married(1860, 4, 30, Places.Hosanger)
+}
+
+let People.OlaiNelson = Male("Olai", null, Nelson, Unions.MarieJohan) {
+  Picture,
+  Born(1866, 1, 25, Places.Bergan),
+  Died(1950, 7, 27)
+}
+
+let Unions.AnnaOlai = Union.New(AnnaVetheNelson, OlaiNelson) {
+  Married(1897, 3, 24, Places.Madison)
+}
+//=====================================
+
+let People.ViolaMNelson = Female("Viola", "M.", Nelson) {
+  Picture,
+  Formerly("Vetos"),
+}
+
+let People.RichardTNelson = Male("Richard", "T.", Nelson, Unions.AnnaOlai) {
+  Picture,
+  Born(1908, 1, 19, Places.Laurel),
+  Died(1999, 12, 12)
+}
+
+let Unions.ViolaRichard = Union.New(ViolaMNelson, RichardTNelson) {
+  Married(1931, 6, 26, Places.Janesville)
+}
+//=====================================
+
+let People.MelvinENelson = Male("Melvin", "E.", Nelson, Unions.ViolaRichard) {
+  Picture,
+  Born(1932, 2, 19, Places.Beresford),
+}
+
+let Unions.CleoMelvin = Union.New(CleoLNelson, MelvinENelson) {
+  Married(1976, 7, 30, Places.Midland)
+}
+//=====================================
+
+let People.PeggyLeeNelson = Female("Peggy", "Lee", Nelson, Unions.FloBob) {
+  Picture,
+  Formerly(Gofton),
+  Born(1955, 2, 3, Places.Saginaw),
+}
+
+let People.JeffreyPNelson = Male("Jeffrey", "P.", Nelson, Unions.CleoMelvin) {
+  Nick("Jeff"),
+  Born(1955, 9, 7, Places.Midland),
+  Picture,
+}
+
+let Unions.PeggyJeff = Union.New(PeggyLeeNelson, JeffreyPNelson) {
+  Married(1976, 7, 30, Places.Midland)
+}
+//=====================================
+
+let People.KristyLeeJordan = Female("Kristy", "Lee", Jordan, Unions.PeggyJeff) {
+  Picture,
+  Formerly(Nelson),
+  Born(1979, 9, 17, Places.Janesville),
+}
+
+let People.JasonWJordan = Male("Jason", "W.", Jordan) {
+  Born(1973, 5, 5, Places.FortWayne),
+}
+
+let Unions.KristyJason = Union.New(KristyLeeJordan, JasonWJordan) {
+  Married(2005, 2, 26),
+  Divorced(2005, 9)
+}
+
+let People.JustinAJordan = Male("Justin", "A.", Jordan, Unions.KristyJason) {
+  Picture,
+  Born(1997, 8, 1, Places.FortWayne),
+}
+
+let People.AlexisAJordan = Female("Alexis", "A.", Jordan, Unions.KristyJason) {
+  Picture,
+  Born(2000, 11, 8, Places.FortWayne),
+}
+
+let People.DelaneyNJordan = Female("Delaney", "N.", Jordan, Unions.KristyJason) {
+  Picture,
+  Born(2003, 3, 11, Places.FortWayne),
+}
+//=========
+
+let People.KevinMichaelNelson = Male("Kevin", "Michael", Nelson, Unions.PeggyJeff) {
+  Picture,
+  Born(1982, 6, 2, Places.Janesville)
+}
+
+let People.TiffanyFrye = Female("Tiffany", null, "Frye") {
+  Born(2000, 11, 8, Places.FortWayne),
+}
+
+let Unions.TiffanyKevin = Union.New(TiffanyFrye, KevinMichaelNelson)
+
+let People.CaitlinMNelson = Female("Caitlin", "M.", Nelson, Unions.TiffanyKevin) {
+  Picture,
+  Born(2000, 11, 8, Places.FortWayne)
+}
+//=========
+
+let People.LisaAnnNelson = Female("Lisa", "Ann", "Maroney", Unions.PeggyJeff) {
+  Formerly(Nelson),
+  Born(1983, 12, 29, Places.Janesville)
+}
+
+let People.PhillipRosier = Male("Phillip", null, "Rosier") {
+  Born(1981, 8, 13)
+}
+
+let People.ChadMaroney = Male("Chad", null, "Maroney") {
+  Born(1971, 3, 28, Places.FortWayne)
+}
+
+let Unions.LisaPhillip = Union.New(LisaAnnNelson, PhillipRosier) {
+  Married(2019, 4, 29)
+}
+
+let Unions.LisaChad = Union.New(LisaAnnNelson, ChadMaroney) {
+  Married(2003, 8, 23)
+}
+
+let People.ClaytonPRosier = Male("Clayton", "P.", "Rosier", Unions.LisaPhillip) {
+  Born(2007, 3, 6, Places.FortWayne)
+}
+
+let People.GraceLRosier = Female("Grace", "L.", "Rosier", Unions.LisaPhillip) {
+  Born(2010, 6, 17, Places.FortWayne)
+}
+//============================================================================================================
+
