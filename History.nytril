@@ -3,7 +3,7 @@
 // Size and color information
 //==============================================================================================================
 
-let OutputFile = IO.Folders.Main IO.FileName("Family History") IO.Extensions.HTML
+let OutputFile = IO.Folders.Main IO.FileName("Family History") IO.Extensions.PDF
 
 let Main.Run = [
   IO.Write(Watch, OutputFile),
@@ -12,7 +12,7 @@ let Main.Run = [
 
 with Metrics
   let CurrentDate    = System.Now
-  let TreeText       = 5.5 pts
+  let TreeText       = 5.8 pts
   let LevelIndent    = 0.25 inches
   let IconColor      = Color(73, 112, 163)
   let LineColor      = Color(62, 94, 136)
@@ -166,6 +166,7 @@ let Male(first, middle, last, parent=null) = Event.New(Person) {
   Parent: parent,
   Icon: Gender.Male.Icon,
 }
+//===============================================================================================================
 
 with Person
   let AddEvent(event, list) begin
@@ -227,7 +228,6 @@ with Union
   let FormatNode(parent, event) = {
     Marker: Group {
       Vertical: true,
-//      Padding: 1 pts,
       Background: Metrics.BoxColor,
       TreePerson(parent, event.Partner1),
       TreePerson(parent, event.Partner2),
@@ -516,6 +516,42 @@ let ShowFullPersonData(person) = Block {
       end,
     },
   end,
+
+  if (person.Parent)
+    ShowParents(person.Parent)
+  end,
+  ShowChildren(person),
+}
+
+let FindUnion(union, data) = union.Partner1 == data.Person or union.Partner2 == data.Person
+
+let ShowChildren(person) begin
+  var unions = Unions.FindSlice(FindUnion, {Person: person});
+  if (unions.Length > 0)
+    var children = CollectChildren(People, unions[0]);
+    if (children.Length > 0)
+      return FullPar {
+        "Children: ",
+        Span {
+          Separator: ", ",
+          LastSeparator: " and ",
+          ShowFullLink(each children),
+        }
+      }
+    end
+  end
+  return null;
+end
+
+let ShowParents(union) = FullPar {
+  "Parents: ",
+  if (union.Partner1)
+    ShowFullLink(union.Partner1)
+  end,
+  " and ",
+  if (union.Partner2)
+    ShowFullLink(union.Partner2)
+  end
 }
 
 let PersonPopup(person) = Frame {
@@ -758,7 +794,6 @@ let AlbumTitlePage(title) = Section {
   SectionBreak: SectionBreaks.NextPage,
   ParAlignment: ParAlignments.Center,
   Paragraph {
-    SpaceBefore: 1 inches,
     TextHeight: 36 pts,
     title,
   },
@@ -774,7 +809,10 @@ let AlbumTitlePage(title) = Section {
       NodeGap: 20 pts,
       IconTree
     },
-    SpaceAfter: 20 pts,
+  },
+  Paragraph {
+    TextHeight: 16 pts,
+    Styles.ShowDate(Metrics.CurrentDate)
   },
   Paragraph {
     Group {
@@ -782,11 +820,6 @@ let AlbumTitlePage(title) = Section {
       HAlign: HAligns.Center,
       ShowPortraitLine(each (PictureList / 4))
     }
-  },
-  Paragraph {
-    SpaceBefore: 1 inches,
-    TextHeight: 16 pts,
-    Styles.ShowDate(Metrics.CurrentDate)
   },
 }
 

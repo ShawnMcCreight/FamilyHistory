@@ -5,7 +5,7 @@ include "WionFamily"
 include "NelsonFamily"
 //======================================================================
 
-let Watch = FamilyAlbum("Family History", [Unions.DavidMary, Unions.MarieJohan])
+let Watch = FamilyAlbum("Family History", [Unions.DavidMary, Unions.MargretJohn, Unions.MarieJohan])
 
 //============================================================================================================
 
@@ -48,6 +48,8 @@ with Places
   let Voss            = AddPlace("Voss", null, "Norway")
   let Hosanger        = AddPlace("Hosanger", null, "Norway")
   let Laurel          = AddPlace("Laurel", "Nebraska")
+  let Applegate       = AddPlace("Applegate", Michigan)
+  let Oxford          = AddPlace("Oxford", null, "Canada")
 end
 //============================================================================================================
 
@@ -577,7 +579,7 @@ let People.FlorenceJaneGofton = Female("Florence", "Jane", Gofton, Unions.FloJoh
   Formerly(McCreight),
 }
 
-let People.RobertJohnGofton = Male("Robert", "John", Gofton) {
+let People.RobertJohnGofton = Male("Robert", "John", Gofton, Unions.LoisClaude) {
   Nick("Bob"),
   Picture,
   Born(1927, 3, 11, Places.Flushing),
