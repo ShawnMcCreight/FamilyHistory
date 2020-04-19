@@ -492,15 +492,17 @@ let ShowFullPersonData(person) = Block {
   end
 
   if (person.Date)
-    FullPar {
-      if (person.DeathDateUnknown)
+    if (person.DeathDateUnknown)
+      FullPar {
         "Unknown time of death",
-      else
-        if (not person.Death and (Metrics.CurrentDate - person.Date).Years < 100)
+      },
+    else
+      if (not person.Death and (Metrics.CurrentDate - person.Date).Years < 100)
+        FullPar {
           "{0} years old"(Math.Floor((Metrics.CurrentDate - person.Date).Years))
-        end,
+        },
       end,
-    },
+    end,
     FullPar {
       if (person.Date)
         Styles.TextDate("Born ", person.Date),
@@ -567,16 +569,14 @@ let PersonPopup(person) = Frame {
 //============================================================================================================
 
 with Timeline
-  let MaxWidth    = Metrics.Content.Width
-  let RowHeight   = 9 pts
-  let TotalHeight = Metrics.Content.Height - 1 inch
-  let Edge        = 12 pts
-  let InnerWidth  = MaxWidth - Edge*2
-  let MaxRows     = Math.Floor(Units.DivideUnits(Metrics.TotalHeight, RowHeight))
-  let RowCount    = SortedEvents.Length div (SortedEvents.Length div MaxRows + 1)
+  let MaxWidth   = Metrics.Content.Width
+  let RowHeight  = 9 pts
+  let Edge       = 12 pts
+  let InnerWidth = MaxWidth - Edge*2
+  let MaxRows    = Math.Floor(Units.DivideUnits(Metrics.Content.Height - 0.5 inch, RowHeight))
 
   let AddEvent(event, yearstart, yearend) begin
-    var frac = (event.Date.Year - yearstart) / (yearend - yearstart);
+    var frac = (event.Date.Year - yearstart) / (yearend - yearstart + 1);
     var x    = InnerWidth * frac;
     if (frac > 0.5)
       return Canvas {
@@ -647,7 +647,7 @@ with Timeline
   }
 
   let Show = Block {
-    ShowBlock(each (SortedEvents / RowCount)),
+    ShowBlock(each (SortedEvents / MaxRows)),
     Styles.Header2("Timeline Details"),
     AddRows(each SortedEvents),
   }
@@ -765,6 +765,7 @@ let PortraitFrame(person, angle) = Canvas {
   BorderB: 4 pts {Color: TopColor..BottomColor {Vertical: true}},
 
   Transform: Rotate(angle) Skew(angle, angle),
+  TransformFit: true,
   IO.Read(person.ImagePath) {
     Link: person.Key,
     Popup: PersonPopup.Call(person),
@@ -860,7 +861,7 @@ let ShowSource(title) = DocSection(title, "Source Data") {
 let ShowTree(title, union) = Section {
   SectionBreak: SectionBreaks.NextPage,
   Margin: Metrics.TreeMargin,
-  Styles.Header1("The Decendants of " UnionTitle(union)),
+  Styles.Header1("The Descendants of " UnionTitle(union)),
   Tree {
     TextHeight: Metrics.TreeText,
     Width: Metrics.TreeContent.Width,

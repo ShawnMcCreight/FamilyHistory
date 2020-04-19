@@ -624,12 +624,11 @@ let People.ReeseVarner = Male("Reese", null, Varner, Unions.MeganJoshua) {
 //=====================================
 
 let People.TylerJamesGofton = Male("Tyler", "James", Gofton, Unions.JamesSharon) {
-  // Addopted
-  Born(1979, 6, 19)
+  Born(1979, 6, 19),
+  Died(2020, 4, 18)
 }
 
 let People.AdamRussellGofton = Male("Adam", "Russell", Gofton, Unions.JamesSharon) {
-  // Addopted
   Born(1987, 3, 12)
 }
 
