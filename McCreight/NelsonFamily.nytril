@@ -25,7 +25,7 @@ let People.JohanNGrettveit = Male("Johan", "N.", "Grettveit") {
   Died(1882, 10, 30)
 }
 
-let Unions.MarieJohan = Union.New(MarieOBortveit, JohanNGrettveit) {
+let Unions.MarieJohan = Union(MarieOBortveit, JohanNGrettveit) {
   Married(1860, 4, 30, Places.Hosanger)
 }
 
@@ -35,7 +35,7 @@ let People.OlaiNelson = Male("Olai", null, Nelson, Unions.MarieJohan) {
   Died(1950, 7, 27)
 }
 
-let Unions.AnnaOlai = Union.New(AnnaVetheNelson, OlaiNelson) {
+let Unions.AnnaOlai = Union(AnnaVetheNelson, OlaiNelson) {
   Married(1897, 3, 24, Places.Madison)
 }
 //=====================================
@@ -51,7 +51,7 @@ let People.RichardTNelson = Male("Richard", "T.", Nelson, Unions.AnnaOlai) {
   Died(1999, 12, 12)
 }
 
-let Unions.ViolaRichard = Union.New(ViolaMNelson, RichardTNelson) {
+let Unions.ViolaRichard = Union(ViolaMNelson, RichardTNelson) {
   Married(1931, 6, 26, Places.Janesville)
 }
 //=====================================
@@ -61,7 +61,7 @@ let People.MelvinENelson = Male("Melvin", "E.", Nelson, Unions.ViolaRichard) {
   Born(1932, 2, 19, Places.Beresford),
 }
 
-let Unions.CleoMelvin = Union.New(CleoLNelson, MelvinENelson) {
+let Unions.CleoMelvin = Union(CleoLNelson, MelvinENelson) {
   Married(1976, 7, 30, Places.Midland)
 }
 //=====================================
@@ -78,7 +78,7 @@ let People.JeffreyPNelson = Male("Jeffrey", "P.", Nelson, Unions.CleoMelvin) {
   Picture,
 }
 
-let Unions.PeggyJeff = Union.New(PeggyLeeNelson, JeffreyPNelson) {
+let Unions.PeggyJeff = Union(PeggyLeeNelson, JeffreyPNelson) {
   Married(1976, 7, 30, Places.Midland)
 }
 //=====================================
@@ -93,7 +93,7 @@ let People.JasonWJordan = Male("Jason", "W.", Jordan) {
   Born(1973, 5, 5, Places.FortWayne),
 }
 
-let Unions.KristyJason = Union.New(KristyLeeJordan, JasonWJordan) {
+let Unions.KristyJason = Union(KristyLeeJordan, JasonWJordan) {
   Married(2005, 2, 26),
   Divorced(2005, 9)
 }
@@ -123,7 +123,7 @@ let People.TiffanyFrye = Female("Tiffany", null, "Frye") {
   Born(2000, 11, 8, Places.FortWayne),
 }
 
-let Unions.TiffanyKevin = Union.New(TiffanyFrye, KevinMichaelNelson)
+let Unions.TiffanyKevin = Union(TiffanyFrye, KevinMichaelNelson)
 
 let People.CaitlinMNelson = Female("Caitlin", "M.", Nelson, Unions.TiffanyKevin) {
   Picture,
@@ -146,11 +146,11 @@ let People.ChadMaroney = Male("Chad", null, "Maroney") {
   Born(1971, 3, 28, Places.FortWayne)
 }
 
-let Unions.LisaPhillip = Union.New(LisaAnnMaroney, PhillipRosier) {
+let Unions.LisaPhillip = Union(LisaAnnMaroney, PhillipRosier) {
   Married(2019, 4, 29)
 }
 
-let Unions.LisaChad = Union.New(LisaAnnMaroney, ChadMaroney) {
+let Unions.LisaChad = Union(LisaAnnMaroney, ChadMaroney) {
   Married(2003, 8, 23)
 }
 
@@ -171,7 +171,7 @@ let People.JeannieSmithProut = Female("Jeannie", null, "Prout") {
 
 let People.ThomasProut = Male("Thomas", null, "Prout")
 
-let Unions.JeannieThomas = Union.New(JeannieSmithProut, ThomasProut)
+let Unions.JeannieThomas = Union(JeannieSmithProut, ThomasProut)
 //=========================================
 
 let People.MargretGofton = Female("Margret", null, Gofton, Unions.JeannieThomas) {
@@ -185,7 +185,7 @@ let People.JohnGofton = Male("John", null, Gofton) {
   Died(1931, 4, 26),
 }
 
-let Unions.MargretJohn = Union.New(MargretGofton, JohnGofton) {
+let Unions.MargretJohn = Union(MargretGofton, JohnGofton) {
   Married(1899, 1, 23),
 }
 //=========================================
@@ -201,7 +201,7 @@ let People.NathanialGofton = Male("Nathanial", null, Gofton, Unions.MargretJohn)
   Died(1928, 1, 18),
 }
 
-let Unions.MaryNathanial = Union.New(MaryAGofton, NathanialGofton) {
+let Unions.MaryNathanial = Union(MaryAGofton, NathanialGofton) {
   Married(1899, 1, 23),
 }
 //===========================================
@@ -217,7 +217,7 @@ let People.ClaudeGofton = Male("Claude", null, Gofton, Unions.MaryNathanial) {
   Died(1952, 2, 16),
 }
 
-let Unions.LoisClaude = Union.New(LoisLelandGofton, ClaudeGofton) {
+let Unions.LoisClaude = Union(LoisLelandGofton, ClaudeGofton) {
   Married(1899, 1, 23),
 }
 //============================================================================================================

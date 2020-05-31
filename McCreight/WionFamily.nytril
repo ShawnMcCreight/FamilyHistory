@@ -32,8 +32,8 @@ end
 
 
 with Unions
-  let JeanineRichardWion = Union.New(RichardWion, Jeanine)
-  let CharlotteCharlesWion = Union.New(CharlotteWion, CharlesWion, DateTime(1964, 3, 8))
+  let JeanineRichardWion = Union(RichardWion, Jeanine)
+  let CharlotteCharlesWion = Union(CharlotteWion, CharlesWion, DateTime(1964, 3, 8))
 end
 //============================================================================================================
 
