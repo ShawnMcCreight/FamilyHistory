@@ -123,32 +123,32 @@ class EventClass
       Place,
       HasPicture;
 
-  function init(date) begin
+  init(date) begin
     Date = date;
   end
 
-  virtual function DrawTimeline begin
+  virtual DrawTimeline begin
   end
 
-  virtual function AddEvent(list) begin
+  virtual AddEvent(list) begin
     list.AddElement(this)
   end
 
-  virtual function DrawListing(level) begin
+  virtual DrawListing(level) begin
   end
 
-  virtual function FindChildren(set, parent) begin
+  virtual FindChildren(set, parent) begin
   end
 
-  virtual function FormatNode(parent) begin
+  virtual FormatNode(parent) begin
   end
 
-  virtual function ShowFull begin
+  virtual ShowFull begin
   end
 
-  function ImagePath = IO.Folders.Main IO.FileName(this.Name) IO.Extensions.JPG;
+  ImagePath = IO.Folders.Main IO.FileName(this.Name) IO.Extensions.JPG;
 
-  function AddPicture(size) = IO.Read(ImagePath) {
+  AddPicture(size) = IO.Read(ImagePath) {
     Size: size,
     Proportional: true
   };
@@ -167,7 +167,7 @@ class PersonClass: EventClass
       NickName,
       DeathDateUnknown;
 
-  function init(first, middle, last, parent) begin
+  init(first, middle, last, parent) begin
     super.init(null);
     First  = first;
     Middle = middle;
@@ -175,30 +175,30 @@ class PersonClass: EventClass
     Parent = parent;
   end
 
-  override function AddEvent(list) begin
+  override AddEvent(list) begin
     list.AddElement(this);
     if (Death)
       list.AddElement(PassingClass(this));
     end
   end
 
-  override function FindChildren(set, parent) = set.AddElement(this) && Parent == parent;
+  override FindChildren(set, parent) = set.AddElement(this) && Parent == parent;
 
-  override function FormatNode(parent) = {
+  override FormatNode(parent) = {
     Label: TreePerson(null, this)
   };
 
-  override function DrawTimeline = {
+  override DrawTimeline = {
     ShowFullLink(false),
     Space,
     "was born"
   };
 
-  override function DrawListing(level) = Styles.LevelPar(level, false) {
+  override DrawListing(level) = Styles.LevelPar(level, false) {
     ShowListing,
   };
 
-  override function ShowFull = Block {
+  override ShowFull = Block {
     if (HasPicture)
       Paragraph {
         SpaceAfter: 10 pts,
@@ -218,14 +218,14 @@ class PersonClass: EventClass
     end
   };
 
-  override function ShowLink(text=null) = Span {
+  override ShowLink(text=null) = Span {
     Link: this.Key,
 //    Popup: Call(this, Popup),
     TextColor: Colors.Blue,
     text ?? (NickName ?? First)
   };
 
-  function ShowFullName(former) = Span {
+  ShowFullName(former) = Span {
     Separator: Space,
     First,
     Middle,
@@ -236,12 +236,12 @@ class PersonClass: EventClass
     end
   };
 
-  function ShowFullLink(former) = ShowFullName(former) {
+  ShowFullLink(former) = ShowFullName(former) {
     Link: this.Key,
 //    Popup: Call(this, Popup),
   };
 
-  override function ShowListing = Span {
+  override ShowListing = Span {
     Icon,
     Space,
     ShowFullLink(false),
@@ -256,7 +256,7 @@ class PersonClass: EventClass
     end
   };
 
-  function ShowFullPersonData = Block {
+  ShowFullPersonData = Block {
     FullPar {
       LocationMark: this.Key,
       LeftIndent: Metrics.LevelIndent,
@@ -315,7 +315,7 @@ class PersonClass: EventClass
     ShowChildren,
   };
 
-  function ShowChildren begin
+  ShowChildren begin
     var unions = Unions.FindSlice(FindUnion, {Person: this});
     if (unions.Length > 0)
       var children = CollectChildren(People, unions[0]);
@@ -333,7 +333,7 @@ class PersonClass: EventClass
     return null;
   end
 
-  function Popup = Frame {
+  Popup = Frame {
     if (HasPicture)
       Width: Metrics.Content.Width,
     else
@@ -345,14 +345,14 @@ end
 //===============================================================================================================
 
 class Female: PersonClass
-  function init(first, middle, last, parent=null) begin
+  init(first, middle, last, parent=null) begin
     super.init(first, middle, last, parent);
     Icon = Styles.TextIcon(Chars.WhiteCircle);
   end
 end
 
 class Male: PersonClass
-  function init(first, middle, last, parent=null) begin
+  init(first, middle, last, parent=null) begin
     super.init(first, middle, last, parent);
     Icon = Styles.TextIcon(Chars.WhiteSquare);
   end
@@ -363,7 +363,7 @@ class Union: EventClass
   var Partner1,
       Partner2;
 
-  function init(partner1, partner2, date=null) begin
+  init(partner1, partner2, date=null) begin
     Assert(partner1 and partner2, "Expecting both partners");
     super.init(date);
     Partner1 = partner1;
@@ -371,7 +371,7 @@ class Union: EventClass
     Icon     =  Styles.TextIcon("\u2A01");
   end
 
-  override function FormatNode(parent) = {
+  override FormatNode(parent) = {
     Marker: Group {
       Vertical: true,
       Background: Metrics.BoxColor,
@@ -380,13 +380,13 @@ class Union: EventClass
     }
   };
 
-  override function FindChildren(set, parent) begin
+  override FindChildren(set, parent) begin
     set.AddElement(Partner1);
     set.AddElement(Partner2);
     return Partner1.Parent == parent or Partner2.Parent == parent;
   end
 
-  override function DrawTimeline = {
+  override DrawTimeline = {
     Partner1.ShowFullLink(true),
     Space,
     "married",
@@ -394,7 +394,7 @@ class Union: EventClass
     Partner2.ShowFullLink(true),
   };
 
-  override function DrawListing(level) = Block {
+  override DrawListing(level) = Block {
     Styles.LevelPar(level) {
       Partner1.ShowListing,
     },
@@ -412,7 +412,7 @@ class Union: EventClass
     }
   };
 
-  function Title = Span {
+  Title = Span {
     Partner1.ShowFullName(false),
     " and ",
     Partner2.ShowFullName(false),
@@ -423,13 +423,13 @@ end
 class PassingClass: EventClass
   var Person;
 
-  function init(person) begin
+  init(person) begin
     super.init(person.Death);
     Person = person;
     Icon   = Styles.TextIcon("\u2A4D");
   end
 
-  override function DrawTimeline = Span {
+  override DrawTimeline = Span {
     Person.ShowFullLink(false),
     " died",
     Styles.DiedAtAge(Person)
@@ -442,25 +442,25 @@ class Story: EventClass
       Text,
       Title;
 
-  function init(toldby, title, date) begin
+  init(toldby, title, date) begin
     super.init(date);
     ToldBy = toldby;
     Title  = title;
     Icon   = Styles.TextIcon("\u25A4");
   end
 
-  override function DrawTimeline = Span {
+  override DrawTimeline = Span {
 //    Popup: Call(this, Popup),
     Link: this.Key,
     Title
   };
 
-  function Popup = Frame {
+  Popup = Frame {
     Width: Metrics.Content.Width - Metrics.StoryPicture.Width,
     Text,
   };
 
-  override function ShowFull = Block {
+  override ShowFull = Block {
     Paragraph {
       SpaceBefore: 16 pts,
       ParBackground: 90%,
