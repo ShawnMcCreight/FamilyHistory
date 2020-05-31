@@ -3,42 +3,42 @@
 // Size and color information
 //==============================================================================================================
 
-let OutputFile = IO.Folders.Main IO.FileName("Family History") IO.Extensions.PDF;
+OutputFile = IO.Folders.Main IO.FileName("Family History") IO.Extensions.PDF;
 
-let Main.Run = [
+Main.Run = [
   IO.Write(Watch, OutputFile),
   IO.OpenDocument(OutputFile),
 ];
 
 with Metrics
-  let CurrentDate    = System.Now;
-  let TreeText       = 5.8 pts;
-  let LevelIndent    = 0.25 inches;
-  let IconColor      = Color(73, 112, 163);
-  let LineColor      = Color(62, 94, 136);
-  let BoxColor       = Color(182, 199, 222);
-  let DateIndent     = 1.35 inches;
-  let MainMargin     = Margin(0.75 inches, 0.75 inches, 0.75 inches, 0.75 inches);
-  let TreeMargin     = Margin(0.5 inches, 0.125 inches, 0.125 inches, 0.5 inches);
-  let Paper          = Size(8.5 inches, 11 inches);
-  let Content        = Paper - MainMargin;
-  let TreeContent    = Paper - TreeMargin;
-  let StoryPicture   = Size(Content.Width, 3 inches);
-  let PersonPicture  = Size(1.5 inches);
-  let PortraitHeight = 1 inch;
-  let PortraitAngle  = 5 degrees;
+  CurrentDate    = System.Now;
+  TreeText       = 5.8 pts;
+  LevelIndent    = 0.25 inches;
+  IconColor      = Color(73, 112, 163);
+  LineColor      = Color(62, 94, 136);
+  BoxColor       = Color(182, 199, 222);
+  DateIndent     = 1.35 inches;
+  MainMargin     = Margin(0.75 inches, 0.75 inches, 0.75 inches, 0.75 inches);
+  TreeMargin     = Margin(0.5 inches, 0.125 inches, 0.125 inches, 0.5 inches);
+  Paper          = Size(8.5 inches, 11 inches);
+  Content        = Paper - MainMargin;
+  TreeContent    = Paper - TreeMargin;
+  StoryPicture   = Size(Content.Width, 3 inches);
+  PersonPicture  = Size(1.5 inches);
+  PortraitHeight = 1 inch;
+  PortraitAngle  = 5 degrees;
 end
 //=============================================================================================================
 
-let Picture = {
+Picture = {
   HasPicture: true,
 };
 
-let Nick(name) = {
+Nick(name) = {
   NickName: name
 };
 
-let Died(year, month=null, day=null) = {
+Died(year, month=null, day=null) = {
   if (year == 0)
     DeathDateUnknown: true,
   else
@@ -46,21 +46,21 @@ let Died(year, month=null, day=null) = {
   end
 };
 
-let Divorced(year, month=null, day=null) = {
+Divorced(year, month=null, day=null) = {
   DivorceDate: DateTime(year, month, day)
 };
 
-let DatePlace(year, month, day, place) = {
+DatePlace(year, month, day, place) = {
   if (year)
     Date: DateTime(year, month, day),
   end,
   Place: place,
 };
 
-let Born(year, month=null, day=null, place=null)    = DatePlace(year, month, day, place);
-let Married(year, month=null, day=null, place=null) = DatePlace(year, month, day, place);
+Born(year, month=null, day=null, place=null)    = DatePlace(year, month, day, place);
+Married(year, month=null, day=null, place=null) = DatePlace(year, month, day, place);
 
-let Formerly(name) = {
+Formerly(name) = {
   Ne: name,
 };
 
@@ -69,13 +69,13 @@ with Unions end
 with Persons end
 with Places end
 
-let AddPlace(city, state, country=null) = {
+AddPlace(city, state, country=null) = {
   Country: country ?? "USA",
   City: city,
   State: state
 };
 
-let Attendees(list, text) = Span {
+Attendees(list, text) = Span {
   Span {
     Separator: ", ",
     (each list).ShowLink,
@@ -83,35 +83,35 @@ let Attendees(list, text) = Span {
   text
 };
 
-let GatherEvent(event, list) begin
+GatherEvent(event, list) begin
   if (event.Date)
     event.AddEvent(list)
   end
 end
 
-let SortFunc(x, y) = Math.Compare(x.Date, y.Date);
+SortFunc(x, y) = Math.Compare(x.Date, y.Date);
 
-let SortEvents(events) begin
+SortEvents(events) begin
   var sortlist = List(256);
   GatherEvent(each events, sortlist);
   return sortlist.Sort(false, SortFunc);
 end
 
-let GatherPicture(list, union) begin
+GatherPicture(list, union) begin
   if (union.Partner1.HasPicture and union.Partner2.HasPicture)
     list.AddElement(union)
   end
 end
 
-let GatherPictures(unions) begin
+GatherPictures(unions) begin
   var list = List(256);
   GatherPicture(list, each unions);
   return list;
 end
 
-let PeopleAndUnions = Unions + People;
-let SortedEvents    = SortEvents(PeopleAndUnions + Stories);
-let PictureList     = GatherPictures(Unions);
+PeopleAndUnions = Unions + People;
+SortedEvents    = SortEvents(PeopleAndUnions + Stories);
+PictureList     = GatherPictures(Unions);
 
 //===============================================================================================================
 // Class definitions
@@ -155,7 +155,7 @@ class EventClass
 end
 //===============================================================================================================
 
-let ShowEachLink(child) = child.ShowFullLink(false);
+ShowEachLink(child) = child.ShowFullLink(false);
 
 class PersonClass: EventClass
   var Parent,
@@ -491,14 +491,14 @@ end
 //============================================================================================================
 
 with Styles
-  let Header1(text) = Paragraph {
+  Header1(text) = Paragraph {
     TextHeight: 18 pts,
     SpaceAfter: 12 pts,
     Bold,
     text
   };
 
-  let Header2(text) = Paragraph {
+  Header2(text) = Paragraph {
     BorderB: 0.5,
     TextFamily: TextFamilies.Garamond,
     TextHeight: 16 pts,
@@ -508,12 +508,12 @@ with Styles
     text
   };
 
-  let TextIcon(text) = Span {
+  TextIcon(text) = Span {
     TextFamily: TextFamilies.CambriaMath,
     text
   };
 
-  let ShowDate(d) = Span {
+  ShowDate(d) = Span {
     if (d.Precision == DatePrecisions.Year)
       TextFormat: "yyyy",
     else
@@ -526,7 +526,7 @@ with Styles
     d,
   };
 
-  let TimelineDate(d) = Span {
+  TimelineDate(d) = Span {
     if (d.Precision == DatePrecisions.Year)
       TextFormat: "yyyy",
     else
@@ -539,7 +539,7 @@ with Styles
     d,
   };
 
-  let TextDate(text, d) begin
+  TextDate(text, d) begin
     if (d)
       return Span {
         text,
@@ -551,24 +551,24 @@ with Styles
     end
   end
 
-  let ShowPlace(place) = Span {
+  ShowPlace(place) = Span {
     place.City,
     ", ",
     place.State,
   };
 
-  let DiedAge(person) = Span {
+  DiedAge(person) = Span {
     TextDate("Died ", person.Death),
     if (person.Date)
       DiedAtAge(person)
     end
   };
 
-  let DiedAtAge(person) = Span {
+  DiedAtAge(person) = Span {
      ", at age {0}"(Math.Floor((person.Death - person.Date).Years))
   };
 
-  let LevelPar(level, border=true) = Paragraph {
+  LevelPar(level, border=true) = Paragraph {
     LeftIndent: level*Metrics.LevelIndent + 12 pts,
     FirstIndent: -12 pts,
     if (border)
@@ -576,20 +576,20 @@ with Styles
     end
   };
 
-  let Story = Paragraph {
+  Story = Paragraph {
     FirstIndent: 16 pts,
   };
 end
 //============================================================================================================
 
-let FullPar = Paragraph {
+FullPar = Paragraph {
   LeftIndent: Metrics.LevelIndent,
 };
 
-let FindUnion(union, data) = union.Partner1 == data.Person or union.Partner2 == data.Person;
+FindUnion(union, data) = union.Partner1 == data.Person or union.Partner2 == data.Person;
 
 
-let ShowParents(union) = FullPar {
+ShowParents(union) = FullPar {
   "Parents: ",
   if (union.Partner1)
     union.Partner1.ShowFullLink(false),
@@ -604,13 +604,13 @@ let ShowParents(union) = FullPar {
 //============================================================================================================
 
 with Timeline
-  let MaxWidth   = Metrics.Content.Width pixels;
-  let RowHeight  = 9 pts;
-  let Edge       = 12 pts;
-  let InnerWidth = MaxWidth - Edge*2;
-  let MaxRows    = Math.Floor(Units.DivideUnits(Metrics.Content.Height pixels - 0.5 inches, RowHeight));
+  MaxWidth   = Metrics.Content.Width pixels;
+  RowHeight  = 9 pts;
+  Edge       = 12 pts;
+  InnerWidth = MaxWidth - Edge*2;
+  MaxRows    = Math.Floor(Units.DivideUnits(Metrics.Content.Height pixels - 0.5 inches, RowHeight));
 
-  let AddEvent(event, yearstart, yearend) begin
+  AddEvent(event, yearstart, yearend) begin
     var frac = (event.Date.Year - yearstart) / (yearend - yearstart + 1);
     var x    = InnerWidth * frac;
     if (frac > 0.5)
@@ -637,7 +637,7 @@ with Timeline
     end
   end
 
-  let ShowBlock(events) begin
+  ShowBlock(events) begin
     var yearstart  = (Math.Floor(events.FirstElement.Date.Year) div 10) * 10; // Round down to the nearest 10 years
     var yearend    = (Math.Floor(events.LastElement.Date.Year + 9) div 10) * 10; // Round up to the nearest 10 years
 
@@ -670,7 +670,7 @@ with Timeline
     };
   end
 
-  let AddRows(event) = Paragraph {
+  AddRows(event) = Paragraph {
     LeftIndent: Metrics.DateIndent,
     FirstIndent: -Metrics.DateIndent,
     Styles.TimelineDate(event.Date),
@@ -681,7 +681,7 @@ with Timeline
     event.DrawTimeline
   };
 
-  let Show = Block {
+  Show = Block {
     ShowBlock(each (SortedEvents / MaxRows)),
     Styles.Header2("Timeline Details"),
     AddRows(each SortedEvents),
@@ -691,16 +691,16 @@ end
 // Tree
 //============================================================================================================
 
-let FindChildData(c, data) begin
+FindChildData(c, data) begin
   c.FindChildren(data.Set, data.Parent)
 end
 
-let CollectChildren(list, c) begin
+CollectChildren(list, c) begin
   var set = Dictionary(PeopleAndUnions.Length);
   return FindSlice(list, FindChildData, {Parent: c, Set: set});
 end
 
-let TreePerson(parent, person) = Group {
+TreePerson(parent, person) = Group {
   VAlign: VAligns.Center,
   Span {
     Span {
@@ -718,7 +718,7 @@ let TreePerson(parent, person) = Group {
   }
 };
 
-let MakeTreeNodes(list, parent, event) = Node {
+MakeTreeNodes(list, parent, event) = Node {
   event.FormatNode(parent),
   MakeTreeNodes(list, event, each CollectChildren(list, event))
 };
@@ -726,16 +726,16 @@ let MakeTreeNodes(list, parent, event) = Node {
 //  Family member listing
 //============================================================================================================
 
-let BuildListing(list, event, level) = Block {
+BuildListing(list, event, level) = Block {
   event.DrawListing(level),
   BuildListing(list, each CollectChildren(list, event), level+1),
 };
 
-let Leaf = Node {
+Leaf = Node {
   Marker: Styles.TextIcon(Chars.WhiteCircle)
 };
 
-let IconTree = Node {
+IconTree = Node {
   Node {
     Leaf {Branch: 4},
     Node {
@@ -755,13 +755,13 @@ let IconTree = Node {
   }
 };
 
-let HeaderFormat = Paragraph {
+HeaderFormat = Paragraph {
   TextHeight: 10 pts,
   TextFamily: TextFamilies.TimesNewRoman,
   BorderBottom: 0.25 pts,
 };
 
-let DocSection(title, name) = Section {
+DocSection(title, name) = Section {
   SectionBreak: SectionBreaks.NextPage,
   Header: Block {
     Distance: 0.5 inches,
@@ -787,10 +787,10 @@ let DocSection(title, name) = Section {
   },
 };
 
-let TopColor    = 94%;
-let BottomColor = 80%;
+TopColor    = 94%;
+BottomColor = 80%;
 
-let PortraitFrame(person, angle) = Canvas {
+PortraitFrame(person, angle) = Canvas {
   BorderT: 4 pts {Color: TopColor..BottomColor {Vertical: true}},
   BorderLR: 4 pts {Color: TopColor..BottomColor},
   BorderB: 4 pts {Color: TopColor..BottomColor {Vertical: true}},
@@ -805,7 +805,7 @@ let PortraitFrame(person, angle) = Canvas {
   },
 };
 
-let ShowPortrait(union) = Group {
+ShowPortrait(union) = Group {
   VAlign: VAligns.Top,
   PortraitFrame(union.Partner1, -Metrics.PortraitAngle),
   Canvas {
@@ -817,12 +817,12 @@ let ShowPortrait(union) = Group {
   PortraitFrame(union.Partner2, Metrics.PortraitAngle),
 };
 
-let ShowPortraitLine(unions) = Group {
+ShowPortraitLine(unions) = Group {
   Separator: Space*3,
   ShowPortrait(each unions)
 };
 
-let AlbumTitlePage(title) = Section {
+AlbumTitlePage(title) = Section {
   SectionBreak: SectionBreaks.NextPage,
   ParAlignment: ParAlignments.Center,
   Paragraph {
@@ -855,9 +855,9 @@ let AlbumTitlePage(title) = Section {
   },
 };
 
-let ShowFullList(event) = event.ShowFull;
+ShowFullList(event) = event.ShowFull;
 
-let ShowFullEvents(list, title) begin
+ShowFullEvents(list, title) begin
   if (list.Length > 0)
     return Block {
       PageBreak,
@@ -868,26 +868,26 @@ let ShowFullEvents(list, title) begin
 end
 
 
-let ShowFamilyLine(title, union) = DocSection(title, union.Title) {
+ShowFamilyLine(title, union) = DocSection(title, union.Title) {
   SectionBreak: SectionBreaks.NextPage,
   Styles.Header2("Tree Details"),
   BuildListing(PeopleAndUnions, union, 0),
 };
 
-let ShowDetails(title) = DocSection(title, "Details") {
+ShowDetails(title) = DocSection(title, "Details") {
   Timeline.Show,
   ShowFullEvents(Stories, "Stories"),
   ShowFullEvents(People, "Family Members"),
 };
 
-let ShowSource(title) = DocSection(title, "Source Data") {
+ShowSource(title) = DocSection(title, "Source Data") {
   Paragraph {
     TextHeight: 8 pts,
     SourceSelection(System.SourceList[0])
   }
 };
 
-let ShowTree(title, union) = Section {
+ShowTree(title, union) = Section {
   SectionBreak: SectionBreaks.NextPage,
   Margin: Metrics.TreeMargin,
   Styles.Header1("The Descendants of " union.Title),
@@ -902,7 +902,7 @@ let ShowTree(title, union) = Section {
   ShowFamilyLine(title, union),
 };
 
-let FamilyAlbum(title, lines) = Document {
+FamilyAlbum(title, lines) = Document {
   Size: Metrics.Paper,
   Margin: Metrics.MainMargin,
   AlbumTitlePage(title),
