@@ -1,55 +1,55 @@
-using Format, Type, People
+using Format, Type, People;
 
-include "..\\History"
-include "WionFamily"
-include "NelsonFamily"
+include "..\\History";
+include "WionFamily";
+include "NelsonFamily";
 //======================================================================
 
-let Watch = FamilyAlbum("Family History", [Unions.DavidMary, Unions.MargretJohn, Unions.MarieJohan])
+let Watch = FamilyAlbum("Family History", [Unions.DavidMary, Unions.MargretJohn, Unions.MarieJohan]);
 
 //============================================================================================================
 
-let McCreight = "McCreight"
-let Hazelett  = "Hazelett"
-let Hamill    = "Hamill"
-let Yuncker   = "Yuncker"
-let Gofton    = "Gofton"
-let Varner    = "Varner"
-let Nelson    = "Nelson"
-let Jordan    = "Jordan"
+let McCreight = "McCreight";
+let Hazelett  = "Hazelett";
+let Hamill    = "Hamill";
+let Yuncker   = "Yuncker";
+let Gofton    = "Gofton";
+let Varner    = "Varner";
+let Nelson    = "Nelson";
+let Jordan    = "Jordan";
 
-let Pennsylvania = "Pennsylvania"
-let Michigan     = "Michigan"
-let California   = "California"
-let Indiana      = "Indiana"
+let Pennsylvania = "Pennsylvania";
+let Michigan     = "Michigan";
+let California   = "California";
+let Indiana      = "Indiana";
 
 with Places
-  let Ireland         = AddPlace(null, null, "Ireland")
-  let Glasgow         = AddPlace("Glasgow", null, "Scotland")
-  let NorthernIreland = AddPlace(null, null, "Northern Ireland")
-  let Charleston      = AddPlace("Charleston", "South Carolina")
-  let GeorgevillePA   = AddPlace("Georgeville", Pennsylvania)
-  let Shelocta        = AddPlace("Shelocta", Pennsylvania)
-  let PA              = AddPlace(null, Pennsylvania)
-  let CrookedCreekPA  = AddPlace("Crooked Creek", Pennsylvania)
-  let NewKensington   = AddPlace("New Kensington", Pennsylvania)
-  let Pasadena        = AddPlace("Pasadena", California)
-  let SanBernardino   = AddPlace("San Bernardino", California)
-  let Saginaw         = AddPlace("Saginaw", Michigan)
-  let Midland         = AddPlace("Midland", Michigan)
-  let Flushing        = AddPlace("Flushing", Michigan)
-  let Janesville      = AddPlace("Janesville", "Wisconsin")
-  let Madison         = AddPlace("Madison", "Wisconsin")
-  let FortWayne       = AddPlace("Fort Wayne", Indiana)
-  let Beresford       = AddPlace("Beresford", "South Dakota")
-  let Durban          = AddPlace("Durban", null, "South Africa")
-  let Norway          = AddPlace(null, null, "Norway")
-  let Bergan          = AddPlace("Bergan", null, "Norway")
-  let Voss            = AddPlace("Voss", null, "Norway")
-  let Hosanger        = AddPlace("Hosanger", null, "Norway")
-  let Laurel          = AddPlace("Laurel", "Nebraska")
-  let Applegate       = AddPlace("Applegate", Michigan)
-  let Oxford          = AddPlace("Oxford", null, "Canada")
+  let Ireland         = AddPlace(null, null, "Ireland");
+  let Glasgow         = AddPlace("Glasgow", null, "Scotland");
+  let NorthernIreland = AddPlace(null, null, "Northern Ireland");
+  let Charleston      = AddPlace("Charleston", "South Carolina");
+  let GeorgevillePA   = AddPlace("Georgeville", Pennsylvania);
+  let Shelocta        = AddPlace("Shelocta", Pennsylvania);
+  let PA              = AddPlace(null, Pennsylvania);
+  let CrookedCreekPA  = AddPlace("Crooked Creek", Pennsylvania);
+  let NewKensington   = AddPlace("New Kensington", Pennsylvania);
+  let Pasadena        = AddPlace("Pasadena", California);
+  let SanBernardino   = AddPlace("San Bernardino", California);
+  let Saginaw         = AddPlace("Saginaw", Michigan);
+  let Midland         = AddPlace("Midland", Michigan);
+  let Flushing        = AddPlace("Flushing", Michigan);
+  let Janesville      = AddPlace("Janesville", "Wisconsin");
+  let Madison         = AddPlace("Madison", "Wisconsin");
+  let FortWayne       = AddPlace("Fort Wayne", Indiana);
+  let Beresford       = AddPlace("Beresford", "South Dakota");
+  let Durban          = AddPlace("Durban", null, "South Africa");
+  let Norway          = AddPlace(null, null, "Norway");
+  let Bergan          = AddPlace("Bergan", null, "Norway");
+  let Voss            = AddPlace("Voss", null, "Norway");
+  let Hosanger        = AddPlace("Hosanger", null, "Norway");
+  let Laurel          = AddPlace("Laurel", "Nebraska");
+  let Applegate       = AddPlace("Applegate", Michigan);
+  let Oxford          = AddPlace("Oxford", null, "Canada");
 end
 //============================================================================================================
 
@@ -68,7 +68,7 @@ let MajorIsraelStory = Story(null, "Major Israel", DateTime(1888)) {
       "He was interested in genealogy and published three booklets on McCreights in the U.S. ",
     },
   },
-}
+};
 
 let LostCousin = Story(FlorenceJaneGofton, "My Long Lost Cousin", DateTime(1939)) {
   Text: Block {
@@ -92,7 +92,7 @@ let LostCousin = Story(FlorenceJaneGofton, "My Long Lost Cousin", DateTime(1939)
       "Needless to say Dad did spend more time with Major's family over the years. "
     }
   },
-}
+};
 
 let WhiteHouseTrip = Story(FlorenceJaneGofton, "Trip to the White House", DateTime(1989)) {
   Picture,
@@ -101,7 +101,7 @@ let WhiteHouseTrip = Story(FlorenceJaneGofton, "Trip to the White House", DateTi
     " and I met in Virginia for the retirement of my cousin Jerry Reynolds from the Pentagon. ",
     " Jerry got us into the the press briefing room, and the Situation Room at the White House."
   }
-}
+};
 
 let BobSnowPlow = Story(FlorenceJaneGofton, "Poor Man's Snow Plow", DateTime(2013, 1, 26)) {
   Picture,
@@ -109,7 +109,7 @@ let BobSnowPlow = Story(FlorenceJaneGofton, "Poor Man's Snow Plow", DateTime(201
     "Never one to shirk his household responsibilities, even in the face of injury, ", RobertJohnGofton.ShowLink("Bob"),
     " crafted a clever tool to get the job done. ",
   }
-}
+};
 
 let ReunionAtNelsons = Story(PeggyLeeNelson, "Reunion at the Nelson House", DateTime(2003, 8, 24)) {
   Picture,
@@ -131,7 +131,7 @@ let ReunionAtNelsons = Story(PeggyLeeNelson, "Reunion at the Nelson House", Date
     ],
     " were there to enjoy the family time."),
   }
-}
+};
 
 let McCreightSparklerSign = Story(KatherineMarieMcCreight, "Sparkler Sign", DateTime(2014, 9, 13)) {
   Picture,
@@ -151,7 +151,7 @@ let McCreightSparklerSign = Story(KatherineMarieMcCreight, "Sparkler Sign", Date
     ],
     " helped make the picture."),
   }
-}
+};
 
 let SnowmobileTrip1 = Story(ShawnHamillMcCreight, "First Annual Michigan Snowmobile Trip", DateTime(2019, 1)) {
   Picture,
@@ -163,7 +163,7 @@ let SnowmobileTrip1 = Story(ShawnHamillMcCreight, "First Annual Michigan Snowmob
     " The conditions were perfect, and a great time was had by all. ",
     Attendees([ThomasDanielMcCreight], " was there to enjoy the snow as well."),
   }
-}
+};
 
 end
 //============================================================================================================
@@ -172,335 +172,334 @@ end
 let People.MaryMcCreight = Female("Mary", null, McCreight) {
   Born(null, null, null, Places.Ireland),
   Died(1780, 1, 19)
-}
+};
 
 let People.DavidMcCreight = Male("David", null, McCreight) {
   Born(1709, null, null, Places.Ireland),
   Died(1799, 9, 14)
-}
+};
 
 let Unions.DavidMary = Union(MaryMcCreight, DavidMcCreight) {
   Married(1730)
-}
+};
 //============================================================================================================
 
 let People.WilliamMcCreight = Male("William", null, McCreight, Unions.DavidMary) {
   Born(1736, 12, null, Places.Ireland)
-}
+};
 //============================================================================================================
 
 let People.JamesMcCreight = Male("James", null, McCreight, Unions.DavidMary) {
   Born(1745, 12, null, Places.Glasgow)
-}
+};
 
 let People.SallyDunnMcCreight = Female("Sally", "Dunn", McCreight) {
-}
+};
 
 let Unions.JamesSally = Union(SallyDunnMcCreight, JamesMcCreight) {
   Married(1730)
-}
+};
 //============================================================================================================
 
 let People.DavidJrMcCreight = Male("David", null, McCreight, Unions.DavidMary) {
   Born(1749, 12, null, Places.Ireland),
   Died(1817, 2, 7),
-}
+};
 
 let People.MarthaMcCreight = Female("Martha", null, McCreight, Unions.DavidMary) {
   Born(1748),
   Died(1815, 9, 13),
-}
+};
 
 let People.DavidDaughter = Female("?", null, McCreight, Unions.DavidMary) {
-}
+};
 //============================================================================================================
 
 let People.AndrewMcCreight1 = Male("Andrew", null, McCreight, Unions.JamesSally) {
   Born(1787, 5, 5, Places.Shelocta),
   Died(1861, 5, 23),
-}
+};
 
 let People.AnnSharpMcCreight = Female("Ann", "Sharp", McCreight) {
   Born(1794, 6, 27),
-}
+};
 
 let Unions.AnnAndrew = Union(AnnSharpMcCreight, AndrewMcCreight1) {
   Married(1812, 1, 7)
-}
+};
 //============================================================================================================
 
 let People.JamesEdwardMcCreight = Male("James", "Edward", McCreight, Unions.AnnAndrew) {
-}
+};
 
 let People.AndrewSharpMcCreight = Male("Andrew", "Sharp", McCreight, Unions.AnnAndrew) {
   Born(1815, 1, 10, Places.CrookedCreekPA)
-}
+};
 
 let Unions.JaneAndrew = Union(JaneJohnsonMcCreight, AndrewSharpMcCreight) {
   //First cousins!
   Married(1843, 6, 6)
-}
+};
 
 let People.JaneJohnsonMcCreight = Female("Jane", null, McCreight) {
   Formerly("Johnson")
-}
+};
 
 
 let People.SallieMcCreight = Female("Sallie", null, McCreight, Unions.AnnAndrew) {
-}
+};
 
 let People.JosephMcCreight = Male("Joseph", null, McCreight, Unions.AnnAndrew) {
-}
-
+};
 
 let People.JohnWinslowMcCreight = Male("John", "Winslow", McCreight, Unions.AnnAndrew) {
   Picture,
   Born(1821, 7, 11),
   Died(1900, 7, 23)
-}
+};
 
 let People.ElizaUncapherMcCreight = Female("Eliza", null, McCreight) {
   Picture,
   Formerly("Uncapher"),
   Born(1830, 5, 10),
   Died(1918, 7, 2)
-}
+};
 
-let Unions.ElizaJohn = Union(ElizaUncapherMcCreight, JohnWinslowMcCreight)
+let Unions.ElizaJohn = Union(ElizaUncapherMcCreight, JohnWinslowMcCreight);
 
 let People.AnneSMcCreight = Female("Anne", "S", McCreight, Unions.AnnAndrew) {
-}
+};
 
 let People.JaneMcCreight = Female("Jane", null, McCreight, Unions.AnnAndrew) {
-}
+};
 
 let People.PollyRMcCreight = Female("Polly", "R", McCreight, Unions.AnnAndrew) {
-}
+};
 
 let People.ThomasSMcCreight = Male("Thomas", "S", McCreight, Unions.AnnAndrew) {
-}
+};
 
 let People.SmithMcCreight = Male("Smith", null, McCreight, Unions.AnnAndrew) {
-}
+};
 
 let People.NancySMcCreight = Female("Nancy", "S", McCreight, Unions.AnnAndrew) {
   Born(1834, 7, 10),
   Died(1891, 6, 3)
-}
+};
 
 let People.JamiesonMcCreight = Male("Jamieson", null, McCreight, Unions.AnnAndrew) {
-}
+};
 
 let People.HannaLMcCreight = Female("Hanna", "L", McCreight, Unions.AnnAndrew) {
   Born(1839, 11, 26),
-}
+};
 //=====================================
 
 let People.AnnaMarieMcCreight = Female("Anna", "Marie", McCreight, Unions.ElizaJohn) {
   Born(1852, 10, 26),
   Died(1860, 7, 10)
-}
+};
 
 let People.SusanMcCreight = Female("Susan", null, McCreight, Unions.ElizaJohn) {
   Born(1854, 8, 23),
   Died(1932, 1, 17),
-}
+};
 
 let People.JosephSamuelMcCreight = Male("Joseph", "Samuel", McCreight, Unions.ElizaJohn) {
   Picture,
   Born(1858, 1, 2),
   Died(1954, 1, 15)
-}
+};
 
 let People.WilliamHenryMcCreight = Male("William", "Henry", McCreight, Unions.ElizaJohn) {
   Born(1860, 1, 20),
-}
+};
 
 let People.AndrewSharpMcCreight2 = Male("Andrew", "Sharp", McCreight, Unions.ElizaJohn) {
   Born(1863, 3, 18),
   Died(1867, 3, 19)
-}
+};
 
 let People.MajorIsraelMcCreight = Male("Israel", null, McCreight, Unions.ElizaJohn) {
   Picture,
   Born(1866, 4, 21),
   Died(1958, 11, 13)
-}
+};
 
 let People.AliceMcCreight = Female("Alice", null, McCreight) {
   Picture,
   Born(1866, 4, 21),
   Died(1958, 11, 13)
-}
+};
 
 let Unions.AliceIsrael = Union(AliceMcCreight, MajorIsraelMcCreight) {
   Married(1860)
-}
+};
 
 let People.EdithPriscillaMcCreight = Female("Edith", "Priscilla", McCreight, Unions.ElizaJohn) {
-}
+};
 
 let People.BenjaminBruceMcCreight = Male("Benjamin", "Bruce", McCreight, Unions.ElizaJohn) {
-}
+};
 
 let People.OliveBerthaMcCreight = Female("Olive", "Bertha", McCreight, Unions.ElizaJohn) {
-}
+};
 
 let People.MaryLillibelMcCreight = Female("Mary", "Lillibell", McCreight, Unions.ElizaJohn) {
   Picture,
-}
+};
 //=====================================
 
-let People.MaryHamill = Female("Mary", null, Hamill)
-let People.HughHamill = Male("Hugh", null, Hamill)
-let Unions.MaryHughHamill = Union(MaryHamill, HughHamill)
+let People.MaryHamill = Female("Mary", null, Hamill);
+let People.HughHamill = Male("Hugh", null, Hamill);
+let Unions.MaryHughHamill = Union(MaryHamill, HughHamill);
 //=====================================
 
 let People.SarahMcCreight = Female("Sarah", null, McCreight, Unions.JaneAndrew) {
   Born(1844, 7, 1, Places.PA),
   Died(1945)
-}
+};
 
-let People.GeorgeWarnick = Male("George", null, "Warnick")
+let People.GeorgeWarnick = Male("George", null, "Warnick");
 
 let Unions.SarahGeorge = Union(SarahMcCreight, GeorgeWarnick) {
   Married(1860)
-}
+};
 //=====================================
 
 let People.NancyJaneMcCreight = Female("Nancy", "Jane", McCreight, Unions.JaneAndrew) {
   Born(1856, 10, 21),
   Died(1860, 7, 20)
-}
+};
 
 let People.OrrelElizabethMcCreight = Female("Orrel", "Elizabeth", McCreight, Unions.JaneAndrew) {
   Born(1863, 11, 6),
-}
+};
 //=====================================
 
 let People.MarthaJaneNorth = Female("Martha", "Jane", "North") {
   Born(1859, 10, 19)
-}
+};
 
 let People.AndrewSmithMcCreight = Male("Andrew", "Smith", McCreight, Unions.JaneAndrew) {
   Born(1851, 3, 24)
-}
+};
 
-let Unions.MarthaAndrew = Union(MarthaJaneNorth, AndrewSmithMcCreight)
+let Unions.MarthaAndrew = Union(MarthaJaneNorth, AndrewSmithMcCreight);
 
 let People.OliveMyrtleMcCreight = Female("Olive", "Myrtle", McCreight, Unions.MarthaAndrew) {
-}
+};
 
 let People.JessieIreneMcCreight = Female("Jesse", "Irene", McCreight, Unions.MarthaAndrew) {
-}
+};
 
 let People.WalterAndrewNorthMcCreight = Male("Walter", "Andrew North", McCreight, Unions.MarthaAndrew) {
-}
+};
 
 let People.JohnEugeneMcCreight = Male("John", "Eugene", McCreight, Unions.MarthaAndrew) {
-}
+};
 //=====================================
 
 let People.SallyBelleWalker = Male("Sally", "Belle", McCreight) {
   Formerly("Walker"),
   Died(1933)
-}
+};
 
 let People.JamesAlexanderMcCreight = Male("James", "Alexander", McCreight, Unions.JaneAndrew) {
   Born(1853, 4, 3),
   Died(1937, 7, 11)
-}
+};
 
 let Unions.SallyJames = Union(SallyBelleWalker, JamesAlexanderMcCreight) {
   Married(1888, 9, 20)
-}
+};
 
 let People.HazelMcCreight = Female("Hazel", null, McCreight, Unions.SallyJames) {
   Born(1892)
-}
+};
 
 let People.JamesMarlinMcCreight = Male("James", "Marlin", McCreight, Unions.SallyJames) {
   Born(1894, 11, 6)
-}
+};
 
 let People.ElizabethMcCreight = Female("Elizabeth", null, McCreight, Unions.SallyJames) {
   Born(1897)
-}
+};
 //=====================================
 
-let People.MaryDonegan = Female("Mary", null, "Donegan")
+let People.MaryDonegan = Female("Mary", null, "Donegan");
 let People.CyrilMcCreight = Male("Cyril", null, McCreight, Unions.SallyJames) {
   Born(1900),
   Died(1972)
-}
-let Unions.MaryCyril = Union(MaryDonegan, CyrilMcCreight)
+};
+let Unions.MaryCyril = Union(MaryDonegan, CyrilMcCreight);
 
 //=====================================
 
-let People.WilliamMcCreight2 = Male("William", null, McCreight, Unions.JaneAndrew)
+let People.WilliamMcCreight2 = Male("William", null, McCreight, Unions.JaneAndrew);
 
-let People.JohnSharpWarnick = Male("John", "Sharp", "Warnick", Unions.SarahGeorge)
+let People.JohnSharpWarnick = Male("John", "Sharp", "Warnick", Unions.SarahGeorge);
 
 let People.AngusJaneWarnick = Female("Angus", "Jane", "Warnick", Unions.SarahGeorge) {
   Born(1869, 3, 13)
-}
+};
 
 let People.AnnHMcCreight = Female("Ann", "H", McCreight, Unions.JaneAndrew) {
   Born(1848, 9, 12),
   Died(1860, 6, 25)
-}
+};
 //=====================================
 
 let People.JohnJamiesonMcCreight = Male("John", "Jamieson", McCreight, Unions.JaneAndrew) {
   Picture,
   Born(1846, 8, 22),
   Died(1923, 12, 5)
-}
+};
 
 let People.JennieAdelphiaMcCreight = Female("Jennie", "Adelphia", McCreight, Unions.MaryHughHamill) {
   Picture,
   Formerly(Hamill),
   Born(1875, 11, 1, Places.GeorgevillePA),
   Died(1950, 1, 3),
-}
+};
 
 let Unions.JennieJohn = Union(JennieAdelphiaMcCreight, JohnJamiesonMcCreight) {
-}
+};
 //=====================================
 
 let People.HarryHazelett = Male("Harry", null, Hazelett) {
-}
+};
 
 let People.BerthaHazelett = Female("Bertha", null, Hazelett) {
   Formerly("Wolfe"),
-}
+};
 
-let Unions.HarryBertha = Union(BerthaHazelett, HarryHazelett)
+let Unions.HarryBertha = Union(BerthaHazelett, HarryHazelett);
 //=====================================
 
 let People.AnneMcCreight = Male("Anne", null, McCreight) {
-}
+};
 
 let People.WendleButlerMcCreight = Male("Wendle", "Butler", McCreight, Unions.JennieJohn) {
   Picture,
   Born(1905, 12, 17),
   Died(1998, 8, 23),
-}
+};
 
-let Unions.AnneWendle = Union(AnneMcCreight, WendleButlerMcCreight)
+let Unions.AnneWendle = Union(AnneMcCreight, WendleButlerMcCreight);
 //=====================================
 
 let People.ThelmaEllenFaust = Female("Thelma", "Ellen", "Faust") {
   Picture,
-}
+};
 
 let People.JamesClarkMcCreight = Male("James", "Clark", McCreight, Unions.JennieJohn) {
   Picture,
   Born(1909, 4, 16),
   Died(0),
-}
+};
 
-let Unions.ThelmaJames = Union(ThelmaEllenFaust, JamesClarkMcCreight)
+let Unions.ThelmaJames = Union(ThelmaEllenFaust, JamesClarkMcCreight);
 //=====================================
 
 let People.InezMargaretKerr = Female("Inez", "Margaret", "Kerr", Unions.JennieJohn) {
@@ -508,31 +507,31 @@ let People.InezMargaretKerr = Female("Inez", "Margaret", "Kerr", Unions.JennieJo
   Formerly(McCreight),
   Born(1902, 4, 22),
   Died(1992),
-}
+};
 
 let People.ClarenceGrantKerr = Male("Clarence", "Grant", "Kerr") {
   Born(1897),
   Died(1964),
-}
+};
 
 let Unions.InezClarence = Union(InezMargaretKerr, ClarenceGrantKerr) {
   Married(1921, 3, 31)
-}
+};
 //=====================================
 
 let People.FlorenceHazelettMcCreight  = Female("Florence", null, McCreight, Unions.HarryBertha) {
   Picture,
   Formerly(Hazelett),
-}
+};
 
 let People.JohnHamillMcCreight = Male("John", Hamill, McCreight, Unions.JennieJohn) {
   Picture,
   Died(1965, 10, 9),
   Born(1904, 5, 21)
-}
+};
 
 let Unions.FloJohn = Union(FlorenceHazelettMcCreight, JohnHamillMcCreight) {
-}
+};
 //=====================================
 
 let People.MaryJoanMcCreight = Female("Mary", "Joan", McCreight) {
@@ -541,35 +540,35 @@ let People.MaryJoanMcCreight = Female("Mary", "Joan", McCreight) {
   Formerly("Plowe"),
   Born(1934, 6, 4),
   Died(2011, 4, 1)
-}
+};
 
 let People.JohnHarryMcCreight = Male("John", "Harry", McCreight, Unions.FloJohn) {
   Nick("Jack"),
   Picture,
   Born(1931, 8, 9),
   Died(1976, 4, 23)
-}
+};
 
 let Unions.JoanJack = Union(MaryJoanMcCreight, JohnHarryMcCreight) {
   Married(1958, 12, 2)
-}
+};
 //=====================================
 
 let People.RalphEmersonMcCreight = Male("Ralph", "Emerson", McCreight, Unions.FloJohn) {
   Nick("Whitey"),
   Born(1936, 12, 26),
   Died(2003, 10, 9)
-}
+};
 
 let People.JanetMcCreight = Female("Janet", null, McCreight) {
   Born(1939, 8, 18),
   Formerly("Johnson"),
   Picture,
-}
+};
 
 let Unions.JanetRalph = Union(JanetMcCreight, RalphEmersonMcCreight) {
   Married(1959, 11, 28)
-}
+};
 //=====================================
 
 let People.FlorenceJaneGofton = Female("Florence", "Jane", Gofton, Unions.FloJohn) {
@@ -577,181 +576,181 @@ let People.FlorenceJaneGofton = Female("Florence", "Jane", Gofton, Unions.FloJoh
   Picture,
   Born(1930, 8, 22, Places.NewKensington),
   Formerly(McCreight),
-}
+};
 
 let People.RobertJohnGofton = Male("Robert", "John", Gofton, Unions.LoisClaude) {
   Nick("Bob"),
   Picture,
   Born(1927, 3, 11, Places.Flushing),
   Died(2015, 6, 13),
-}
+};
 
 let Unions.FloBob = Union(FlorenceJaneGofton, RobertJohnGofton) {
   Married(1950, 12, 21)
-}
+};
 //=====================================
 
 let People.CassandraVarner = Female("Cassandra", "Marie", Varner, Unions.JoannTobey) {
   Nick("Cass"),
   Born(1975, 4, 30),
-}
+};
 
 let People.SheriFolta = Female("Sheri", null, "Folta") {
-}
+};
 
-let Unions.CassSheri = Union(CassandraVarner, SheriFolta)
+let Unions.CassSheri = Union(CassandraVarner, SheriFolta);
 
 //=====================================
 
 let People.MeaganVarner = Female("Megan", null, Varner) {
   Formerly("Martin")
-}
+};
 
 let People.JoshuaLeeVarner = Male("Joshua", "Lee", Varner, Unions.JoannTobey) {
   Nick("Josh"),
   Born(1976, 4, 7),
-}
+};
 
-let Unions.MeganJoshua = Union(MeaganVarner, JoshuaLeeVarner)
+let Unions.MeganJoshua = Union(MeaganVarner, JoshuaLeeVarner);
 
 let People.SawyerVarner = Male("Sawyer", null, Varner, Unions.MeganJoshua) {
   Born(2008, 11, 25),
-}
+};
 
 let People.ReeseVarner = Male("Reese", null, Varner, Unions.MeganJoshua) {
   Born(2011, 11, 10),
-}
+};
 //=====================================
 
 let People.TylerJamesGofton = Male("Tyler", "James", Gofton, Unions.JamesSharon) {
   Born(1979, 6, 19),
   Died(2020, 4, 18)
-}
+};
 
 let People.AdamRussellGofton = Male("Adam", "Russell", Gofton, Unions.JamesSharon) {
   Born(1987, 3, 12)
-}
+};
 
 let People.LisaJoanMcCreight = Female("Lisa", "Joan", McCreight, Unions.JoanJack) {
   Born(1959),
   Died(1963, 10, 4)
-}
+};
 //=====================================
 
 let People.LoriChun = Female("Lori", null, "Chun") {
   Picture,
-}
+};
 
 let People.JohnCraigMcCreight = Male("John", "Craig", McCreight, Unions.JoanJack) {
   Picture,
   Born(1962, 7, 2)
-}
+};
 
 let Unions.LoriJohn = Union(LoriChun, JohnCraigMcCreight) {
   Married(2005, 6, 25)
-}
+};
 //=====================================
 
 let People.JoannaMcCreight = Female("Joanna", null, McCreight, Unions.LoriJohn) {
-}
+};
 
 let People.AmandaMcCreight = Female("Amanda", null, McCreight, Unions.LoriJohn) {
-}
+};
 //=====================================
 
 let People.CraigJohnMcCreight = Male("Craig", "John", McCreight, Unions.JoanJack) {
   Picture,
   Born(1964, 8, 17, Places.SanBernardino)
-}
+};
 
 let People.TheresaMaryMcCreight = Female("Theresa", "Mary", McCreight) {
   Picture,
   Nick("Terry"),
   Formerly("Furlong"),
   Born(1960)
-}
+};
 
 let People.MarianneElizabethFrontino = Female("Marianne", "Elizabeth", "Frontino") {
-}
+};
 
 let Unions.MarianneCraig = Union(MarianneElizabethFrontino, CraigJohnMcCreight) {
   Married(1986, 9, 6)
-}
+};
 
 let Unions.TerryCraig = Union(TheresaMaryMcCreight, CraigJohnMcCreight) {
   Married(2017, 7, 21)
-}
+};
 //=====================================
 
 let People.AllisaMcCreight = Female("Allisa", null, McCreight) {
   Formerly("Boote"),
   Born(1992, 12, 28),
-}
+};
 
 let People.ThomasDanielMcCreight = Male("Thomas", "Daniel", McCreight, Unions.MarianneCraig) {
   Nick("Tom"),
   Born(1993, 4, 23),
-}
+};
 
 let Unions.AllisaTom = Union(AllisaMcCreight, ThomasDanielMcCreight) {
-}
+};
 //=====================================
 
 let People.KatherineMarieMcCreight = Female("Katherine", "Marie", McCreight, Unions.MarianneCraig) {
   Born(1990, 9, 6),
-}
+};
 //=====================================
 
 let People.MichelleNicholeMcCreight = Female("Michelle", "Nichole", McCreight, Unions.MarianneCraig) {
   Born(1988, 1, 21)
-}
+};
 
 let People.RobertCalderoni = Male("Robert", null, "Calderoni") {
   Nick("Bobby"),
   Born(1988, 1, 21)
-}
+};
 
 let Unions.MichelleBobby = Union(MichelleNicholeMcCreight, RobertCalderoni) {
   Married(2019, 7, 8)
-}
+};
 //=====================================
 
 let People.ShawnHamillMcCreight = Male("Shawn", Hamill, McCreight, Unions.JoanJack) {
   Picture,
   Born(1966, 2, 5, Places.SanBernardino)
-}
+};
 
 let People.JenniferLynnMcCreight = Female("Jennifer", "Lynn", McCreight, Unions.CharlotteCharlesWion) {
   Picture,
   Nick("Jen")
   Formerly("Wion"),
   Born(1968, 2, 16)
-}
+};
 
 let Unions.JenniferShawn = Union(JenniferLynnMcCreight, ShawnHamillMcCreight) {
   Married(1995, 6, 17)
-}
+};
 //=====================================
 
 let People.MeganCharlotteMcCreight = Female("Megan", "Charlotte", McCreight, Unions.JenniferShawn) {
   Picture,
   Born(1999, 1, 14, Places.Pasadena),
-}
+};
 
 let People.NolanHamillMcCreight = Male("Nolan", Hamill, McCreight, Unions.JenniferShawn) {
   Picture,
   Born(2001, 7, 30, Places.Pasadena),
-}
+};
 
 let People.LaurenLynnMcCreight = Female("Lauren", "Lynn", McCreight, Unions.JenniferShawn) {
   Picture,
   Born(2004, 7, 26, Places.Pasadena),
-}
+};
 
 let People.ShannonReneeMcCreight = Female("Shannon", "Renee", McCreight, Unions.JoanJack) {
   Picture,
   Born(1968, 8, 10, Places.SanBernardino)
-}
+};
 //=====================================
 
 let People.LisaLouiseMcCreight = Female("Lisa", "Louise", McCreight) {
@@ -759,84 +758,84 @@ let People.LisaLouiseMcCreight = Female("Lisa", "Louise", McCreight) {
   //edward evelen
   Formerly("Huber"),
   Picture,
-}
+};
 
 let People.ClaytonAlanMcCreight = Male("Clayton", "Alan", McCreight, Unions.JanetRalph) {
   Nick("Clay"),
   Born(1963, 4, 4),
   Picture,
-}
+};
 
 let Unions.LisaClay = Union(LisaLouiseMcCreight, ClaytonAlanMcCreight) {
   Married(1987, 5, 9)
-}
+};
 //=====================================
 
 let People.RanaedaMarieYuncker = Female("Ranaeda", "Marie", Yuncker, Unions.LisaClay) {
   Formerly(McCreight),
   Born(1988, 6, 10),
-}
+};
 
 let People.AnthonyYuncker = Male("Anthony", "Francis", Yuncker) {
   Born(1986, 7, 1),
-}
+};
 
 let Unions.RenaedaAnthony = Union(RanaedaMarieYuncker, AnthonyYuncker) {
   Married(2016, 1, 22)
-}
+};
 //=====================================
 
 let People.ScarletteYuncker = Female("Scarlett", "Mae", Yuncker, Unions.RenaedaAnthony) {
   Born(2018, 9, 9),
-}
+};
 
 let People.AmeliaMcCreight = Female("Amelia", "Mae", McCreight, Unions.LisaClay) {
   Born(1990, 6, 11),
-}
+};
 
 let People.KathyAnneMcCreight = Female("Kathy", "Anne", McCreight, Unions.JanetRalph) {
   Picture,
   Born(1961, 7, 13),
-}
+};
 //=====================================
 
 let People.JamesRobertGofton = Male("James", "Robert", Gofton, Unions.FloBob) {
   Nick("Jim"),
   Picture,
   Born(1951, 12, 17),
-}
+};
 
 let People.SharonParks = Female("Sharon", "Kay", "Parks") {
   Nick("Sherri"),
-}
+};
 
-let People.MollyJohnson = Female("Molly", null, "Johnson")
+let People.MollyJohnson = Female("Molly", null, "Johnson");
 
-let People.GailEnglish = Female("Gail", null, "English")
+let People.GailEnglish = Female("Gail", null, "English");
 
-let People.DebbieGofton = Female("Debbie", null, "Gofton")
+let People.DebbieGofton = Female("Debbie", null, "Gofton");
 
 let Unions.JamesSharon = Union(SharonParks, JamesRobertGofton) {
   Married(1971, 4, 17)
-}
+};
 
-let Unions.JoanneJamesGofton = Union(MollyJohnson, JamesRobertGofton)
+let Unions.JoanneJamesGofton = Union(MollyJohnson, JamesRobertGofton);
 
-let Unions.GailEnglishJamesGofton = Union(GailEnglish, JamesRobertGofton)
+let Unions.GailEnglishJamesGofton = Union(GailEnglish, JamesRobertGofton);
 
-let Unions.DebbieGoftonJamesGofton = Union(DebbieGofton, JamesRobertGofton)
+let Unions.DebbieGoftonJamesGofton = Union(DebbieGofton, JamesRobertGofton);
 //=====================================
 
 let People.JoannMarieVarner = Female("Joann", "Marie", Varner, Unions.FloBob) {
   Formerly(Gofton),
-}
+};
 
 let People.TobeyVarner = Male("Tobey", null, Varner) {
-}
+};
 
 let Unions.JoannTobey = Union(JoannMarieVarner, TobeyVarner) {
   Married(1974, 7, 29)
-}
+};
 //============================================================================================================
 
 

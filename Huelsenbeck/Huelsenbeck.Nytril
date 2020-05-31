@@ -1,97 +1,97 @@
-using Type, Format, Units, People
+using Type, Format, Units, People;
 
-include "..\\History"
+include "..\\History";
 //======================================================================
 
-let Watch = FamilyAlbum("Family History", [Unions.PeteNikki, Unions.MartinBarbara])
+let Watch = FamilyAlbum("Family History", [Unions.PeteNikki, Unions.MartinBarbara]);
 //===============================================================================================================
 
-let Huelsenbeck = "Huelsenbeck"
-let Grant       = "Grant"
-let Burke       = "Burke"
-let Pratt       = "Pratt"
-let Kramer      = "Kramer"
-let NJ          = "New Jersey"
-let NY          = "New York"
-let CA          = "California"
+let Huelsenbeck = "Huelsenbeck";
+let Grant       = "Grant";
+let Burke       = "Burke";
+let Pratt       = "Pratt";
+let Kramer      = "Kramer";
+let NJ          = "New Jersey";
+let NY          = "New York";
+let CA          = "California";
 
 with Places
-  let NewarkNJ   = AddPlace("Newark", NJ)
-  let Berkeley   = AddPlace("Berkeley", CA)
-  let RedBankNJ  = AddPlace("Red Bank", NJ)
-  let NYNY       = AddPlace("New York City", NY)
-  let SF         = AddPlace("San Francisco", CA)
-  let Oakland    = AddPlace("Oakland", CA)
-  let Rochester  = AddPlace("Rochester", NY)
-  let Ellensburg = AddPlace("Ellensburg", "Washington")
+  let NewarkNJ   = AddPlace("Newark", NJ);
+  let Berkeley   = AddPlace("Berkeley", CA);
+  let RedBankNJ  = AddPlace("Red Bank", NJ);
+  let NYNY       = AddPlace("New York City", NY);
+  let SF         = AddPlace("San Francisco", CA);
+  let Oakland    = AddPlace("Oakland", CA);
+  let Rochester  = AddPlace("Rochester", NY);
+  let Ellensburg = AddPlace("Ellensburg", "Washington");
 end
 
 //=====================================
 
 let People.PeterWilfredHuelsenbeck = Male("Peter", "Wilfred", Huelsenbeck) {
   Born(1942, 8, 2)
-}
+};
 
 let People.NikkiSueGrant = Female("Nikki", "Sue", Grant) {
   Born(1945, 3, 30),
   Died(2016, 10,22)
-}
+};
 
 let Unions.PeteNikki = Union(NikkiSueGrant, PeterWilfredHuelsenbeck) {
   Married(1965, 2, 5)
-}
+};
 //=====================================
 
 let People.MartinKramer = Male("Martin", null, Kramer) {
   Born(1966, 4, 18, Places.RedBankNJ)
-}
+};
 
 let People.BarbaraKramer = Female("Barbara", null, Kramer) {
   Born(1967, 10, 27, Places.RedBankNJ)
-}
+};
 
 let Unions.MartinBarbara = Union(BarbaraKramer, MartinKramer) {
   Married(2015, 4, 29, Places.SF)
-}
+};
 //=====================================
 
 let People.JohnPeterHuelsenbeck = Male("John", "Peter", Huelsenbeck, Unions.PeteNikki) {
   Picture,
   Born(1966, 4, 18, Places.RedBankNJ)
-}
+};
 
 let People.KimberlyBurkeHuelsenbeck = Female("Kimberly", "Burke", Huelsenbeck, Unions.PeteNikki) {
   Born(1967, 10, 27, Places.RedBankNJ)
-}
+};
 
 let People.SoniaHuelsenbeck = Female("Sonia", null, Huelsenbeck, Unions.MartinBarbara) {
   Picture,
   Formerly(Kramer),
   Born(1964, 8, 17, Places.RedBankNJ)
-}
+};
 
 let People.EdnaTelanYeh = Female("Edna", "Telan", "Yeh") {
   Born(1966, 6, 4, Places.Ellensburg)
-}
+};
 
 let Unions.EdnaJohn = Union(EdnaTelanYeh, JohnPeterHuelsenbeck) {
   Married(1990, 7, 21, Places.Ellensburg),
   Divorced(2014, 12, 19)
-}
+};
 
 let Unions.SoniaJohn = Union(SoniaHuelsenbeck, JohnPeterHuelsenbeck) {
   Married(2015, 4, 29, Places.SF)
-}
+};
 
 //=====================================
 
 let People.MatthewJohnHuelsenbeck = Male("Matthew", "John", Huelsenbeck, Unions.EdnaJohn) {
   Born(1996, 12, 29, Places.Oakland)
-}
+};
 
 let People.ElizabethClaireHuelsenbeck = Female("Elizabeth", "Claire", Huelsenbeck, Unions.EdnaJohn) {
   Born(1999, 4, 27, Places.Rochester)
-}
+};
 //=====================================
 
 with Stories
@@ -103,7 +103,7 @@ let SoniaAndJohnMet = Story(JohnPeterHuelsenbeck, "When Sonia met John", DateTim
       "I met " SoniaHuelsenbeck.ShowLink " in the biology building at UC Berkeley.",
     },
   },
-}
+};
 
 end
 //=====================================

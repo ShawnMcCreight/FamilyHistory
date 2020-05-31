@@ -1,42 +1,42 @@
-﻿using Type, Format, Units
+﻿using Type, Format, Units;
 //==============================================================================================================
 // Size and color information
 //==============================================================================================================
 
-let OutputFile = IO.Folders.Main IO.FileName("Family History") IO.Extensions.PDF
+let OutputFile = IO.Folders.Main IO.FileName("Family History") IO.Extensions.PDF;
 
 let Main.Run = [
   IO.Write(Watch, OutputFile),
   IO.OpenDocument(OutputFile),
-]
+];
 
 with Metrics
-  let CurrentDate    = System.Now
-  let TreeText       = 5.8 pts
-  let LevelIndent    = 0.25 inches
-  let IconColor      = Color(73, 112, 163)
-  let LineColor      = Color(62, 94, 136)
-  let BoxColor       = Color(182, 199, 222)
-  let DateIndent     = 1.35 inches
-  let MainMargin     = Margin(0.75 inches, 0.75 inches, 0.75 inches, 0.75 inches)
-  let TreeMargin     = Margin(0.5 inches, 0.125 inches, 0.125 inches, 0.5 inches)
-  let Paper          = Size(8.5 inches, 11 inches)
-  let Content        = Paper - MainMargin
-  let TreeContent    = Paper - TreeMargin
-  let StoryPicture   = Size(Content.Width, 3 inches)
-  let PersonPicture  = Size(1.5 inches)
-  let PortraitHeight = 1 inch
-  let PortraitAngle  = 5 degrees
+  let CurrentDate    = System.Now;
+  let TreeText       = 5.8 pts;
+  let LevelIndent    = 0.25 inches;
+  let IconColor      = Color(73, 112, 163);
+  let LineColor      = Color(62, 94, 136);
+  let BoxColor       = Color(182, 199, 222);
+  let DateIndent     = 1.35 inches;
+  let MainMargin     = Margin(0.75 inches, 0.75 inches, 0.75 inches, 0.75 inches);
+  let TreeMargin     = Margin(0.5 inches, 0.125 inches, 0.125 inches, 0.5 inches);
+  let Paper          = Size(8.5 inches, 11 inches);
+  let Content        = Paper - MainMargin;
+  let TreeContent    = Paper - TreeMargin;
+  let StoryPicture   = Size(Content.Width, 3 inches);
+  let PersonPicture  = Size(1.5 inches);
+  let PortraitHeight = 1 inch;
+  let PortraitAngle  = 5 degrees;
 end
 //=============================================================================================================
 
 let Picture = {
   HasPicture: true,
-}
+};
 
 let Nick(name) = {
   NickName: name
-}
+};
 
 let Died(year, month=null, day=null) = {
   if (year == 0)
@@ -44,25 +44,25 @@ let Died(year, month=null, day=null) = {
   else
     Death: DateTime(year, month, day)
   end
-}
+};
 
 let Divorced(year, month=null, day=null) = {
   DivorceDate: DateTime(year, month, day)
-}
+};
 
 let DatePlace(year, month, day, place) = {
   if (year)
     Date: DateTime(year, month, day),
   end,
   Place: place,
-}
+};
 
-let Born(year, month=null, day=null, place=null)    = DatePlace(year, month, day, place)
-let Married(year, month=null, day=null, place=null) = DatePlace(year, month, day, place)
+let Born(year, month=null, day=null, place=null)    = DatePlace(year, month, day, place);
+let Married(year, month=null, day=null, place=null) = DatePlace(year, month, day, place);
 
 let Formerly(name) = {
   Ne: name,
-}
+};
 
 with Stories end
 with Unions end
@@ -73,7 +73,7 @@ let AddPlace(city, state, country=null) = {
   Country: country ?? "USA",
   City: city,
   State: state
-}
+};
 
 let Attendees(list, text) = Span {
   Span {
@@ -81,7 +81,7 @@ let Attendees(list, text) = Span {
     (each list).ShowLink,
   },
   text
-}
+};
 
 let GatherEvent(event, list) begin
   if (event.Date)
@@ -89,7 +89,7 @@ let GatherEvent(event, list) begin
   end
 end
 
-let SortFunc(x, y) = Math.Compare(x.Date, y.Date)
+let SortFunc(x, y) = Math.Compare(x.Date, y.Date);
 
 let SortEvents(events) begin
   var sortlist = List(256);
@@ -109,9 +109,9 @@ let GatherPictures(unions) begin
   return list;
 end
 
-let PeopleAndUnions = Unions + People
-let SortedEvents    = SortEvents(PeopleAndUnions + Stories)
-let PictureList     = GatherPictures(Unions)
+let PeopleAndUnions = Unions + People;
+let SortedEvents    = SortEvents(PeopleAndUnions + Stories);
+let PictureList     = GatherPictures(Unions);
 
 //===============================================================================================================
 // Class definitions
@@ -604,11 +604,11 @@ let ShowParents(union) = FullPar {
 //============================================================================================================
 
 with Timeline
-  let MaxWidth   = Metrics.Content.Width pixels
-  let RowHeight  = 9 pts
-  let Edge       = 12 pts
-  let InnerWidth = MaxWidth - Edge*2
-  let MaxRows    = Math.Floor(Units.DivideUnits(Metrics.Content.Height pixels - 0.5 inches, RowHeight))
+  let MaxWidth   = Metrics.Content.Width pixels;
+  let RowHeight  = 9 pts;
+  let Edge       = 12 pts;
+  let InnerWidth = MaxWidth - Edge*2;
+  let MaxRows    = Math.Floor(Units.DivideUnits(Metrics.Content.Height pixels - 0.5 inches, RowHeight));
 
   let AddEvent(event, yearstart, yearend) begin
     var frac = (event.Date.Year - yearstart) / (yearend - yearstart + 1);
@@ -855,7 +855,7 @@ let AlbumTitlePage(title) = Section {
   },
 };
 
-let ShowFullList(event) = event.ShowFull
+let ShowFullList(event) = event.ShowFull;
 
 let ShowFullEvents(list, title) begin
   if (list.Length > 0)
