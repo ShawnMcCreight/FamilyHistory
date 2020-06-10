@@ -185,7 +185,7 @@ class PersonClass: EventClass
   override FindChildren(set, parent) = set.AddElement(this) && Parent == parent;
 
   override FormatNode(parent) = {
-    Label: TreePerson(null, this)
+    Label: TreePerson(null)
   };
 
   override DrawTimeline = {
@@ -220,7 +220,7 @@ class PersonClass: EventClass
 
   override ShowLink(text=null) = Span {
     Link: this.Key,
-//    Popup: Call(this, Popup),
+//    Popup: Delegate(ref Popup),
     TextColor: Colors.Blue,
     text ?? (NickName ?? First)
   };
@@ -238,7 +238,7 @@ class PersonClass: EventClass
 
   ShowFullLink(former) = ShowFullName(former) {
     Link: this.Key,
-//    Popup: Call(this, Popup),
+//    Popup: Delegate(ref Popup),
   };
 
   override ShowListing = Span {
@@ -254,6 +254,24 @@ class PersonClass: EventClass
         Styles.TextDate(", died ", Death),
       }
     end
+  };
+
+  TreePerson(parent) = Group {
+    VAlign: VAligns.Center,
+    Span {
+      Span {
+        if (parent == Parent)
+          TextColor: Colors.White,
+        else
+          TextColor: Metrics.IconColor,
+        end
+        Icon,
+      },
+      Space,
+      Link: this.Key,
+//      Popup: Delegate(ref Popup),
+      NickName ?? First,
+    }
   };
 
   ShowFullPersonData = Block {
@@ -327,7 +345,7 @@ class PersonClass: EventClass
             LastSeparator: " and ",
             ShowEachLink(each children),
           }
-        }
+        };
       end
     end
     return null;
@@ -340,6 +358,21 @@ class PersonClass: EventClass
       Width: Metrics.Content.Width - Metrics.PersonPicture.Width,
     end,
     ShowFull
+  };
+
+  PortraitFrame(angle) = Canvas {
+    BorderT: 4 pts {Color: TopColor..BottomColor {Vertical: true}},
+    BorderLR: 4 pts {Color: TopColor..BottomColor},
+    BorderB: 4 pts {Color: TopColor..BottomColor {Vertical: true}},
+
+    Transform: Rotate(angle) Skew(angle, angle),
+    TransformFit: true,
+    IO.Read(ImagePath) {
+      Link: this.Key,
+  //    Popup: person.Delegate(ref person.Popup),
+      Size: Size(Metrics.PortraitHeight),
+      Proportional: true,
+    },
   };
 end
 //===============================================================================================================
@@ -375,8 +408,8 @@ class Union: EventClass
     Marker: Group {
       Vertical: true,
       Background: Metrics.BoxColor,
-      TreePerson(parent, Partner1),
-      TreePerson(parent, Partner2),
+      Partner1.TreePerson(parent),
+      Partner2.TreePerson(parent),
     }
   };
 
@@ -417,6 +450,18 @@ class Union: EventClass
     " and ",
     Partner2.ShowFullName(false),
   };
+
+  ShowPortrait = Group {
+    VAlign: VAligns.Top,
+    Partner1.PortraitFrame(-Metrics.PortraitAngle),
+    Canvas {
+      MarginTB: 8 pts,
+      Width: 2 pts,
+      Height: Metrics.PortraitHeight,
+      Background: 60%,
+    },
+    Partner2.PortraitFrame(Metrics.PortraitAngle),
+  };
 end
 //===============================================================================================================
 
@@ -450,9 +495,9 @@ class Story: EventClass
   end
 
   override DrawTimeline = Span {
-//    Popup: Call(this, Popup),
+//    Popup: Delegate(ref Popup),
     Link: this.Key,
-    Title
+    Title,
   };
 
   Popup = Frame {
@@ -608,7 +653,7 @@ with Timeline
   RowHeight  = 9 pts;
   Edge       = 12 pts;
   InnerWidth = MaxWidth - Edge*2;
-  MaxRows    = Math.Floor(Units.DivideUnits(Metrics.Content.Height pixels - 0.5 inches, RowHeight));
+  MaxRows    = Math.Floor((Metrics.Content.Height pixels - 0.5 inches).DivideUnits(RowHeight));
 
   AddEvent(event, yearstart, yearend) begin
     var frac = (event.Date.Year - yearstart) / (yearend - yearstart + 1);
@@ -697,26 +742,8 @@ end
 
 CollectChildren(list, c) begin
   var set = Dictionary(PeopleAndUnions.Length);
-  return FindSlice(list, FindChildData, {Parent: c, Set: set});
+  return list.FindSlice(FindChildData, {Parent: c, Set: set});
 end
-
-TreePerson(parent, person) = Group {
-  VAlign: VAligns.Center,
-  Span {
-    Span {
-      if (parent == person.Parent)
-        TextColor: Colors.White,
-      else
-        TextColor: Metrics.IconColor,
-      end
-      person.Icon,
-    },
-    Space,
-    Link: person.Key,
-//    Popup: Person.Call(person),
-    person.NickName ?? person.First,
-  }
-};
 
 MakeTreeNodes(list, parent, event) = Node {
   event.FormatNode(parent),
@@ -790,36 +817,9 @@ DocSection(title, name) = Section {
 TopColor    = 94%;
 BottomColor = 80%;
 
-PortraitFrame(person, angle) = Canvas {
-  BorderT: 4 pts {Color: TopColor..BottomColor {Vertical: true}},
-  BorderLR: 4 pts {Color: TopColor..BottomColor},
-  BorderB: 4 pts {Color: TopColor..BottomColor {Vertical: true}},
-
-  Transform: Rotate(angle) Skew(angle, angle),
-  TransformFit: true,
-  IO.Read(person.ImagePath) {
-    Link: person.Key,
-//    Popup: PersonPopup.Call(person),
-    Size: Size(Metrics.PortraitHeight),
-    Proportional: true,
-  },
-};
-
-ShowPortrait(union) = Group {
-  VAlign: VAligns.Top,
-  PortraitFrame(union.Partner1, -Metrics.PortraitAngle),
-  Canvas {
-    MarginTB: 8 pts,
-    Width: 2 pts,
-    Height: Metrics.PortraitHeight,
-    Background: 60%,
-  },
-  PortraitFrame(union.Partner2, Metrics.PortraitAngle),
-};
-
 ShowPortraitLine(unions) = Group {
   Separator: Space*3,
-  ShowPortrait(each unions)
+  (each unions).ShowPortrait
 };
 
 AlbumTitlePage(title) = Section {
