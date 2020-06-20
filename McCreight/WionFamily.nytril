@@ -5,25 +5,25 @@ Wion = "Wion";
 
 with People
 
-CharlotteWion = Female("Charlotte", "June", Wion) {
+CharlotteWion = new Female("Charlotte", "June", Wion) {
   Formerly("Rafior"),
   Born(1944, 8, 19)
 };
 
-CharlesWion = Male("Charles", "Wesley", Wion) {
+CharlesWion = new Male("Charles", "Wesley", Wion) {
   Nick("Chuck"),
   Born(1942, 12, 19),
 };
 
-RichardWion = Male("Richard", "Charles", Wion, Unions.CharlotteCharlesWion) {
+RichardWion = new Male("Richard", "Charles", Wion, Unions.CharlotteCharlesWion) {
   Nick("Rich"),
   Born(1969, 10, 23)
 };
 
-Jeanine = Female("Jeanine", null, "Cline") {
+Jeanine = new Female("Jeanine", null, "Cline") {
 };
 
-HalieWion = Female("Hailie", "Jane", Wion, Unions.JeanineRichardWion) {
+HalieWion = new Female("Hailie", "Jane", Wion, Unions.JeanineRichardWion) {
   Born(2003, 12, 31)
 };
 
@@ -32,8 +32,8 @@ end
 
 
 with Unions
-  JeanineRichardWion = Union(RichardWion, Jeanine);
-  CharlotteCharlesWion = Union(CharlotteWion, CharlesWion, DateTime(1964, 3, 8));
+  JeanineRichardWion = new Union(RichardWion, Jeanine);
+  CharlotteCharlesWion = new Union(CharlotteWion, CharlesWion, DateTime(1964, 3, 8));
 end
 //============================================================================================================
 

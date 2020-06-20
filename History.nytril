@@ -92,7 +92,7 @@ end
 SortFunc(x, y) = Math.Compare(x.Date, y.Date);
 
 SortEvents(events) begin
-  var sortlist = List(256);
+  var sortlist = Type.List(256);
   GatherEvent(each events, sortlist);
   return sortlist.Sort(false, SortFunc);
 end
@@ -104,7 +104,7 @@ GatherPicture(list, union) begin
 end
 
 GatherPictures(unions) begin
-  var list = List(256);
+  var list = Type.List(256);
   GatherPicture(list, each unions);
   return list;
 end
@@ -178,7 +178,7 @@ class PersonClass: EventClass
   override AddEvent(list) begin
     list.AddElement(this);
     if (Death)
-      list.AddElement(PassingClass(this));
+      list.AddElement(new PassingClass(this));
     end
   end
 
@@ -741,7 +741,7 @@ FindChildData(c, data) begin
 end
 
 CollectChildren(list, c) begin
-  var set = Dictionary(PeopleAndUnions.Length);
+  var set = Type.Dictionary(PeopleAndUnions.Length);
   return list.FindSlice(FindChildData, {Parent: c, Set: set});
 end
 
