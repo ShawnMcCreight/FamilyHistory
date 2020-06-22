@@ -23,7 +23,7 @@ Michigan     = "Michigan";
 California   = "California";
 Indiana      = "Indiana";
 
-with Places
+with Places {
   Ireland         = AddPlace(null, null, "Ireland");
   Glasgow         = AddPlace("Glasgow", null, "Scotland");
   NorthernIreland = AddPlace(null, null, "Northern Ireland");
@@ -50,12 +50,10 @@ with Places
   Laurel          = AddPlace("Laurel", "Nebraska");
   Applegate       = AddPlace("Applegate", Michigan);
   Oxford          = AddPlace("Oxford", null, "Canada");
-end
+}
 //============================================================================================================
 
-with Stories
-
-MajorIsraelStory = new Story(null, "Major Israel", DateTime(1888)) {
+Stories.MajorIsraelstory = new Story(null, "Major Israel", DateTime(1888)) {
   Picture,
   Text: Block {
     Styles.Story {
@@ -70,7 +68,7 @@ MajorIsraelStory = new Story(null, "Major Israel", DateTime(1888)) {
   },
 };
 
-LostCousin = new Story(FlorenceJaneGofton, "My Long Lost Cousin", DateTime(1939)) {
+Stories.LostCousin = new Story(FlorenceJaneGofton, "My Long Lost Cousin", DateTime(1939)) {
   Text: Block {
     Styles.Story {
       "It was 1939 and I was in the 4th grade. ",
@@ -94,7 +92,7 @@ LostCousin = new Story(FlorenceJaneGofton, "My Long Lost Cousin", DateTime(1939)
   },
 };
 
-WhiteHouseTrip = new Story(FlorenceJaneGofton, "Trip to the White House", DateTime(1989)) {
+Stories.WhiteHouseTrip = new Story(FlorenceJaneGofton, "Trip to the White House", DateTime(1989)) {
   Picture,
   Text: Styles.Story {
     ShawnHamillMcCreight.ShowLink,
@@ -103,7 +101,7 @@ WhiteHouseTrip = new Story(FlorenceJaneGofton, "Trip to the White House", DateTi
   }
 };
 
-BobSnowPlow = new Story(FlorenceJaneGofton, "Poor Man's Snow Plow", DateTime(2013, 1, 26)) {
+Stories.BobSnowPlow = new Story(FlorenceJaneGofton, "Poor Man's Snow Plow", DateTime(2013, 1, 26)) {
   Picture,
   Text: Styles.Story {
     "Never one to shirk his household responsibilities, even in the face of injury, ", RobertJohnGofton.ShowLink("Bob"),
@@ -111,7 +109,7 @@ BobSnowPlow = new Story(FlorenceJaneGofton, "Poor Man's Snow Plow", DateTime(201
   }
 };
 
-ReunionAtNelsons = new Story(PeggyLeeNelson, "Reunion at the Nelson House", DateTime(2003, 8, 24)) {
+Stories.ReunionAtNelsons = new Story(PeggyLeeNelson, "Reunion at the Nelson House", DateTime(2003, 8, 24)) {
   Picture,
   Text: Styles.Story {
     JeffreyPNelson.ShowLink " and I hosted a family reunion at our house in Harlan, Indiana. ",
@@ -133,7 +131,7 @@ ReunionAtNelsons = new Story(PeggyLeeNelson, "Reunion at the Nelson House", Date
   }
 };
 
-McCreightSparklerSign = new Story(KatherineMarieMcCreight, "Sparkler Sign", DateTime(2014, 9, 13)) {
+Stories.McCreightSparklerSign = new Story(KatherineMarieMcCreight, "Sparkler Sign", DateTime(2014, 9, 13)) {
   Picture,
   Text: Styles.Story {
     "One night at a family camping trip, I did time-lapse photographs of everyone waving a sparkler around in the shape of a letter. ",
@@ -153,7 +151,7 @@ McCreightSparklerSign = new Story(KatherineMarieMcCreight, "Sparkler Sign", Date
   }
 };
 
-SnowmobileTrip1 = new Story(ShawnHamillMcCreight, "First Annual Michigan Snowmobile Trip", DateTime(2019, 1)) {
+Stories.SnowmobileTrip1 = new Story(ShawnHamillMcCreight, "First Annual Michigan Snowmobile Trip", DateTime(2019, 1)) {
   Picture,
   Text: Styles.Story {
     ClaytonAlanMcCreight.ShowLink,
@@ -164,8 +162,6 @@ SnowmobileTrip1 = new Story(ShawnHamillMcCreight, "First Annual Michigan Snowmob
     Attendees([ThomasDanielMcCreight], " was there to enjoy the snow as well."),
   }
 };
-
-end
 //============================================================================================================
 
 

@@ -15,7 +15,7 @@ NJ          = "New Jersey";
 NY          = "New York";
 CA          = "California";
 
-with Places
+with Places {
   NewarkNJ   = AddPlace("Newark", NJ);
   Berkeley   = AddPlace("Berkeley", CA);
   RedBankNJ  = AddPlace("Red Bank", NJ);
@@ -24,7 +24,7 @@ with Places
   Oakland    = AddPlace("Oakland", CA);
   Rochester  = AddPlace("Rochester", NY);
   Ellensburg = AddPlace("Ellensburg", "Washington");
-end
+}
 
 //=====================================
 
@@ -94,7 +94,7 @@ People.ElizabethClaireHuelsenbeck = new Female("Elizabeth", "Claire", Huelsenbec
 };
 //=====================================
 
-with Stories
+with Stories {
 
 SoniaAndJohnMet = new Story(JohnPeterHuelsenbeck, "When Sonia met John", DateTime(2015)) {
   Picture,
@@ -105,6 +105,6 @@ SoniaAndJohnMet = new Story(JohnPeterHuelsenbeck, "When Sonia met John", DateTim
   },
 };
 
-end
+}
 //=====================================
 
