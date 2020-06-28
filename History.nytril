@@ -146,8 +146,6 @@ class EventClass {
 }
 //===============================================================================================================
 
-ShowEachLink(child) = child.ShowFullLink(false);
-
 class PersonClass: EventClass {
   var Parent,
       Death,
@@ -210,8 +208,8 @@ class PersonClass: EventClass {
   };
 
   override ShowLink(text=null) = Span {
-    Link: this.Key,
-//    Popup: Delegate(ref Popup),
+    Link: Key,
+    Popup: ref Popup,
     TextColor: Colors.Blue,
     text ?? (NickName ?? First)
   };
@@ -227,8 +225,8 @@ class PersonClass: EventClass {
   };
 
   ShowFullLink(former) = ShowFullName(former) {
-    Link: this.Key,
-//    Popup: Delegate(ref Popup),
+    Link: Key,
+    Popup: ref Popup,
   };
 
   override ShowListing = Span {
@@ -257,15 +255,15 @@ class PersonClass: EventClass {
         Icon,
       },
       Space,
-      Link: this.Key,
-//      Popup: Delegate(ref Popup),
+      Link: Key,
+      Popup: ref Popup,
       NickName ?? First,
     }
   };
 
   ShowFullPersonData = Block {
     FullPar {
-      LocationMark: this.Key,
+      LocationMark: Key,
       LeftIndent: Metrics.LevelIndent,
       FirstIndent: -Metrics.LevelIndent,
       TextHeight: 16 pts,
@@ -317,10 +315,11 @@ class PersonClass: EventClass {
       },
     }
 
-    if (Parent)
-      ShowParents(Parent);
+    Parent?.ShowParents,
     ShowChildren,
   };
+
+  static FindUnion(union, data) = union.Partner1 == data.Person or union.Partner2 == data.Person;
 
   ShowChildren {
     var unions = Unions.FindSlice(FindUnion, {Person: this});
@@ -332,12 +331,13 @@ class PersonClass: EventClass {
           Span {
             Separator: ", ",
             LastSeparator: " and ",
-            ShowEachLink(each children),
+            (each children).ShowFullLink(false),
           }
         };
       }
     }
-    return null;
+    else
+      return null;
   }
 
   Popup = Frame {
@@ -345,8 +345,7 @@ class PersonClass: EventClass {
       Width: Metrics.Content.Width;
     else
       Width: Metrics.Content.Width - Metrics.PersonPicture.Width;
-
-    ShowFull
+    ShowFull,
   };
 
   PortraitFrame(angle) = Canvas {
@@ -357,8 +356,8 @@ class PersonClass: EventClass {
     Transform: Rotate(angle) Skew(angle, angle),
     TransformFit: true,
     IO.Read(ImagePath) {
-      Link: this.Key,
-  //    Popup: person.Delegate(ref person.Popup),
+      Link: Key,
+      Popup: ref Popup,
       Size: Size(Metrics.PortraitHeight),
       Proportional: true,
     },
@@ -440,6 +439,15 @@ class Union: EventClass {
     Partner2.ShowFullName(false),
   };
 
+  ShowParents = FullPar {
+    "Parents: ",
+    if (Partner1) {
+      Partner1.ShowFullLink(false),
+      " and ",
+    }
+    Partner2?.ShowFullLink(false)
+  };
+
   ShowPortrait = Group {
     VAlign: VAligns.Top,
     Partner1.PortraitFrame(-Metrics.PortraitAngle),
@@ -484,8 +492,8 @@ class Story: EventClass {
   }
 
   override DrawTimeline = Span {
-//    Popup: Delegate(ref Popup),
-    Link: this.Key,
+    Popup: ref Popup,
+    Link: Key,
     Title,
   };
 
@@ -498,7 +506,7 @@ class Story: EventClass {
     Paragraph {
       SpaceBefore: 16 pts,
       ParBackground: 90%,
-      LocationMark: this.Key,
+      LocationMark: Key,
       Styles.ShowDate(Date),
       ": ",
       Span {
@@ -612,18 +620,6 @@ with Styles {
 
 FullPar = Paragraph {
   LeftIndent: Metrics.LevelIndent,
-};
-
-FindUnion(union, data) = union.Partner1 == data.Person or union.Partner2 == data.Person;
-
-
-ShowParents(union) = FullPar {
-  "Parents: ",
-  if (union.Partner1)
-    union.Partner1.ShowFullLink(false);
-  " and ",
-  if (union.Partner2)
-    union.Partner2.ShowFullLink(false);
 };
 //============================================================================================================
 // Timeline
@@ -837,17 +833,16 @@ AlbumTitlePage(title) = Section {
   },
 };
 
-ShowFullList(event) = event.ShowFull;
-
 ShowFullEvents(list, title) {
   if (list.Length > 0) {
     return Block {
       PageBreak,
       Styles.Header2(title),
-      ShowFullList(each list),
+      (each list).ShowFull,
     };
   }
-  return null;
+  else
+    return null;
 }
 
 
@@ -870,19 +865,20 @@ ShowSource(title) = DocSection(title, "Source Data") {
   }
 };
 
-ShowTree(title, union) = Section {
+ShowTree(title, line) = Section {
   SectionBreak: SectionBreaks.NextPage,
   Margin: Metrics.TreeMargin,
-  Styles.Header1("The Descendants of " union.Title),
+  Styles.Header1("The Descendants of " line.Root.Title),
   Tree {
-    TextHeight: Metrics.TreeText,
+    TextHeight: line.TextHeight,
+    NodeGap: line.NodeGap,
     Width: Metrics.TreeContent.Width,
     Bevel: 10%,
     Curvature: 10%,
     Stroke: 0.25 pts {Color: Metrics.LineColor},
-    MakeTreeNodes(PeopleAndUnions, null, union),
+    MakeTreeNodes(PeopleAndUnions, null, line.Root),
   },
-  ShowFamilyLine(title, union),
+  ShowFamilyLine(title, line.Root),
 };
 
 FamilyAlbum(title, lines) = Document {

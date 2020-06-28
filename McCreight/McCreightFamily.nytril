@@ -1,12 +1,33 @@
-using Format, Type, People;
+using Format, Type, People, Units;
 
 include "..\\History";
 include "WionFamily";
 include "NelsonFamily";
 //======================================================================
 
-Watch = FamilyAlbum("Family History", [Unions.DavidMary, Unions.MargretJohn, Unions.MarieJohan]);
+Watch = FamilyAlbum("Family History", FamilyLines);
 
+//======================================================================
+
+with FamilyLines {
+  with McCreightLine {
+    Root       = Unions.DavidMary;
+    TextHeight = 5.8 pts;
+    NodeGap    = 0;
+  }
+
+  with GoftonLine {
+    Root       = Unions.MargretJohn;
+    TextHeight = 12 pts;
+    NodeGap    = 6 pts;
+  }
+
+  with NelsonLine {
+    Root       = Unions.MarieJohan;
+    TextHeight = 14 pts;
+    NodeGap    = 10 pts;
+  }
+}
 //============================================================================================================
 
 McCreight = "McCreight";
