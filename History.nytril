@@ -84,18 +84,18 @@ GatherEvent(event, list) {
 SortFunc(x, y) = Math.Compare(x.Date, y.Date);
 
 SortEvents(events) {
-  var sortlist = Type.List(256);
+  var sortlist = new ListClass(256);
   GatherEvent(each events, sortlist);
   return sortlist.Sort(false, SortFunc);
 }
 
 GatherPicture(list, union) {
   if (union.Partner1.HasPicture and union.Partner2.HasPicture)
-    list.AddElement(union);
+    list.Add(union);
 }
 
 GatherPictures(unions) {
-  var list = Type.List(256);
+  var list = new ListClass(256);
   GatherPicture(list, each unions);
   return list;
 }
@@ -108,7 +108,7 @@ PictureList     = GatherPictures(Unions);
 // Class definitions
 //===============================================================================================================
 
-class EventClass {
+abstract class EventClass {
   var Date,
       Icon,
       Place,
@@ -118,11 +118,12 @@ class EventClass {
     Date = date;
   }
 
-  virtual DrawTimeline {
-  }
+  virtual ShowFullEvent = null;
+
+  abstract DrawTimeline;
 
   virtual AddEvent(list) {
-    list.AddElement(this)
+    list.Add(this)
   }
 
   virtual DrawListing(level) {
@@ -134,7 +135,7 @@ class EventClass {
   virtual FormatNode(parent) {
   }
 
-  virtual ShowFull {
+  virtual ShowParents {
   }
 
   ImagePath = IO.Folders.Main IO.FileName(this.Name) IO.Extensions.JPG;
@@ -165,12 +166,12 @@ class PersonClass: EventClass {
   }
 
   override AddEvent(list) {
-    list.AddElement(this);
+    list.Add(this);
     if (Death)
-      list.AddElement(new PassingClass(this));
+      list.Add(new PassingClass(this));
   }
 
-  override FindChildren(set, parent) = set.AddElement(this) && Parent == parent;
+  override FindChildren(set, parent) = set.Add(this) && Parent == parent;
 
   override FormatNode(parent) = {
     Label: TreePerson(null)
@@ -186,7 +187,7 @@ class PersonClass: EventClass {
     ShowListing,
   };
 
-  override ShowFull = Block {
+  override ShowFullEvent = Block {
     if (HasPicture) {
       Paragraph {
         SpaceAfter: 10 pts,
@@ -195,7 +196,9 @@ class PersonClass: EventClass {
           VAlign: VAligns.Top,
           Frame {
             Width: Metrics.Content.Width - Metrics.PersonPicture.Width,
-            ShowFullPersonData,
+            Block {
+              ShowFullPersonData,
+            },
           },
           AddPicture(Metrics.PersonPicture),
         }
@@ -207,9 +210,9 @@ class PersonClass: EventClass {
     }
   };
 
-  override ShowLink(text=null) = Span {
+  ShowLink(text=null) = Span {
     Link: Key,
-    Popup: ref Popup,
+    Popup: Delegate(Popup),
     TextColor: Colors.Blue,
     text ?? (NickName ?? First)
   };
@@ -226,10 +229,10 @@ class PersonClass: EventClass {
 
   ShowFullLink(former) = ShowFullName(former) {
     Link: Key,
-    Popup: ref Popup,
+    Popup: Delegate(Popup),
   };
 
-  override ShowListing = Span {
+  ShowListing = Span {
     Icon,
     Space,
     ShowFullLink(false),
@@ -256,7 +259,7 @@ class PersonClass: EventClass {
       },
       Space,
       Link: Key,
-      Popup: ref Popup,
+      Popup: Delegate(Popup),
       NickName ?? First,
     }
   };
@@ -290,15 +293,15 @@ class PersonClass: EventClass {
       if (DeathDateUnknown) {
         FullPar {
           "Unknown time of death",
-        },
+        }
       }
       else {
         if (not Death and (Metrics.CurrentDate - Date).Years < 100) {
           FullPar {
             "{0} years old"(Math.Floor((Metrics.CurrentDate - Date).Years))
           },
-        },
-      },
+        }
+      }
       FullPar {
         if (Date)
           Styles.TextDate("Born ", Date);
@@ -306,12 +309,12 @@ class PersonClass: EventClass {
         if (Death) {
           LineBreak,
           Styles.DiedAge(this)
-        },
+        }
 
         if (Place) {
           " in ",
           Styles.ShowPlace(Place),
-        },
+        }
       },
     }
 
@@ -340,12 +343,12 @@ class PersonClass: EventClass {
       return null;
   }
 
-  Popup = Frame {
+  Popup(data) = Frame {
     if (HasPicture)
       Width: Metrics.Content.Width;
     else
       Width: Metrics.Content.Width - Metrics.PersonPicture.Width;
-    ShowFull,
+    ShowFullEvent,
   };
 
   PortraitFrame(angle) = Canvas {
@@ -357,7 +360,7 @@ class PersonClass: EventClass {
     TransformFit: true,
     IO.Read(ImagePath) {
       Link: Key,
-      Popup: ref Popup,
+      Popup: Delegate(ref Popup),
       Size: Size(Metrics.PortraitHeight),
       Proportional: true,
     },
@@ -402,8 +405,8 @@ class Union: EventClass {
   };
 
   override FindChildren(set, parent) {
-    set.AddElement(Partner1);
-    set.AddElement(Partner2);
+    set.Add(Partner1);
+    set.Add(Partner2);
     return Partner1.Parent == parent or Partner2.Parent == parent;
   }
 
@@ -439,7 +442,7 @@ class Union: EventClass {
     Partner2.ShowFullName(false),
   };
 
-  ShowParents = FullPar {
+  override ShowParents = FullPar {
     "Parents: ",
     if (Partner1) {
       Partner1.ShowFullLink(false),
@@ -454,7 +457,7 @@ class Union: EventClass {
     Canvas {
       MarginTB: 8 pts,
       Width: 2 pts,
-      Height: Metrics.PortraitHeight,
+      Height: Metrics.PortraitHeight - 8 pts,
       Background: 60%,
     },
     Partner2.PortraitFrame(Metrics.PortraitAngle),
@@ -492,7 +495,7 @@ class Story: EventClass {
   }
 
   override DrawTimeline = Span {
-    Popup: ref Popup,
+    Popup: Delegate(ref Popup),
     Link: Key,
     Title,
   };
@@ -502,7 +505,7 @@ class Story: EventClass {
     Text,
   };
 
-  override ShowFull = Block {
+  override ShowFullEvent = Block {
     Paragraph {
       SpaceBefore: 16 pts,
       ParBackground: 90%,
@@ -719,7 +722,7 @@ FindChildData(c, data) {
 }
 
 CollectChildren(list, c) {
-  var set = Type.Dictionary(PeopleAndUnions.Length);
+  var set = new DictionaryClass(PeopleAndUnions.Length);
   return list.FindSlice(FindChildData, {Parent: c, Set: set});
 }
 
@@ -838,7 +841,7 @@ ShowFullEvents(list, title) {
     return Block {
       PageBreak,
       Styles.Header2(title),
-      (each list).ShowFull,
+      (each list).ShowFullEvent,
     };
   }
   else

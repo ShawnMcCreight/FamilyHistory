@@ -107,7 +107,7 @@ Stories.LostCousin = new Story(FlorenceJaneGofton, "My Long Lost Cousin", DateTi
     Styles.Story {
       "We both went home and told our parents and my folks invited them to dinner. "
       "Years before my Grandfather had a falling out with his brothers over a bank deal and consequently my " JohnHamillMcCreight.ShowLink("Dad"), " never met his aunts, uncles or cousins.  ",
-      "These two ladies were my Dad's first cousins and they all went to DuBois, PA to meet Major McCreight and some of the family. ",
+      "These two ladies were my Dad's first cousins and they all went to DuBois, PA to meet ", MajorIsraelMcCreight.ShowLink("Major McCreight")",  and some of the family. ",
       "Needless to say Dad did spend more time with Major's family over the years. "
     }
   },
