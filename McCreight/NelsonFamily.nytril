@@ -90,7 +90,7 @@ People.KristyLeeJordan = new Female("Kristy", "Lee", Jordan, Unions.PeggyJeff) {
 };
 
 People.JasonWJordan = new Male("Jason", "W.", Jordan) {
-  Born(1973, 5, 5, Places.FortWayne),
+  Born(1973, 5, 5, Places.Freemont),
 };
 
 Unions.KristyJason = new Union(KristyLeeJordan, JasonWJordan) {
@@ -147,11 +147,11 @@ People.ChadMaroney = new Male("Chad", null, "Maroney") {
 };
 
 Unions.LisaPhillip = new Union(LisaAnnMaroney, PhillipRosier) {
-  Married(2019, 4, 29)
+  Married(2003, 8, 23)
 };
 
 Unions.LisaChad = new Union(LisaAnnMaroney, ChadMaroney) {
-  Married(2003, 8, 23)
+  Married(2019, 4, 29)
 };
 
 People.ClaytonPRosier = new Male("Clayton", "P.", "Rosier", Unions.LisaPhillip) {

@@ -71,6 +71,7 @@ with Places {
   Laurel          = AddPlace("Laurel", "Nebraska");
   Applegate       = AddPlace("Applegate", Michigan);
   Oxford          = AddPlace("Oxford", null, "Canada");
+  Freemont        = AddPlace("Freemont", "Ohio");
 }
 //============================================================================================================
 
@@ -473,9 +474,9 @@ People.JennieAdelphiaMcCreight = new Female("Jennie", "Adelphia", McCreight, Uni
 Unions.JennieJohn = new Union(JennieAdelphiaMcCreight, JohnJamiesonMcCreight);
 //=====================================
 
-People.HarryHazelett = new Male("Harry", null, Hazelett);
+People.HarryHazelett = new Male("Harry", "White", Hazelett);
 
-People.BerthaHazelett = new Female("Bertha", null, Hazelett) {
+People.BerthaHazelett = new Female("Bertha", "Pearl", Hazelett) {
   Formerly("Wolfe"),
 };
 
@@ -524,7 +525,7 @@ Unions.InezClarence = new Union(InezMargaretKerr, ClarenceGrantKerr) {
 };
 //=====================================
 
-People.FlorenceHazelettMcCreight  = new Female("Florence", null, McCreight, Unions.HarryBertha) {
+People.FlorenceHazelettMcCreight  = new Female("Florence", "Gertrude", McCreight, Unions.HarryBertha) {
   Picture,
   Formerly(Hazelett),
 };
@@ -617,11 +618,11 @@ People.JoshuaLeeVarner = new Male("Joshua", "Lee", Varner, Unions.JoannTobey) {
 
 Unions.MeganJoshua = new Union(MeaganVarner, JoshuaLeeVarner);
 
-People.SawyerVarner = new Male("Sawyer", null, Varner, Unions.MeganJoshua) {
+People.SawyerVarner = new Male("Sawyer", "Lee", Varner, Unions.MeganJoshua) {
   Born(2008, 11, 25),
 };
 
-People.ReeseVarner = new Male("Reese", null, Varner, Unions.MeganJoshua) {
+People.ReeseVarner = new Male("Reese", "Patricia", Varner, Unions.MeganJoshua) {
   Born(2011, 11, 10),
 };
 //=====================================
@@ -655,10 +656,12 @@ Unions.LoriJohn = new Union(LoriChun, JohnCraigMcCreight) {
 };
 //=====================================
 
-People.JoannaMcCreight = new Female("Joanna", null, McCreight, Unions.LoriJohn) {
+People.JoannaMcCreight = new Female("Joanna", "Marie", McCreight, Unions.LoriJohn) {
+  Born(2004, 1, 8)
 };
 
-People.AmandaMcCreight = new Female("Amanda", null, McCreight, Unions.LoriJohn) {
+People.AmandaMcCreight = new Female("Amanda", "Rose", McCreight, Unions.LoriJohn) {
+  Born(2007, 5, 2)
 };
 //=====================================
 
@@ -686,7 +689,7 @@ Unions.TerryCraig = new Union(TheresaMaryMcCreight, CraigJohnMcCreight) {
 };
 //=====================================
 
-People.AllisaMcCreight = new Female("Allisa", null, McCreight) {
+People.AllisaMcCreight = new Female("Allisa", "Marie", McCreight) {
   Formerly("Boote"),
   Born(1992, 12, 28),
 };
@@ -697,6 +700,7 @@ People.ThomasDanielMcCreight = new Male("Thomas", "Daniel", McCreight, Unions.Ma
 };
 
 Unions.AllisaTom = new Union(AllisaMcCreight, ThomasDanielMcCreight) {
+  Married(2020, 7, 10)
 };
 //=====================================
 
@@ -778,10 +782,12 @@ Unions.LisaClay = new Union(LisaLouiseMcCreight, ClaytonAlanMcCreight) {
 People.RanaedaMarieYuncker = new Female("Ranaeda", "Marie", Yuncker, Unions.LisaClay) {
   Formerly(McCreight),
   Born(1988, 6, 10),
+  Picture
 };
 
 People.AnthonyYuncker = new Male("Anthony", "Francis", Yuncker) {
   Born(1986, 7, 1),
+  Picture
 };
 
 Unions.RenaedaAnthony = new Union(RanaedaMarieYuncker, AnthonyYuncker) {
@@ -791,10 +797,12 @@ Unions.RenaedaAnthony = new Union(RanaedaMarieYuncker, AnthonyYuncker) {
 
 People.ScarletteYuncker = new Female("Scarlett", "Mae", Yuncker, Unions.RenaedaAnthony) {
   Born(2018, 9, 9),
+  Picture
 };
 
 People.AmeliaMcCreight = new Female("Amelia", "Mae", McCreight, Unions.LisaClay) {
   Born(1990, 6, 11),
+  Picture
 };
 
 People.KathyAnneMcCreight = new Female("Kathy", "Anne", McCreight, Unions.JanetRalph) {
@@ -834,11 +842,11 @@ People.JoannMarieVarner = new Female("Joann", "Marie", Varner, Unions.FloBob) {
   Formerly(Gofton),
 };
 
-People.TobeyVarner = new Male("Tobey", null, Varner) {
+People.TobeyVarner = new Male("Toby", null, Varner) {
 };
 
 Unions.JoannTobey = new Union(JoannMarieVarner, TobeyVarner) {
-  Married(1974, 7, 29)
+  Married(1974, 6, 29)
 };
 //============================================================================================================
 
