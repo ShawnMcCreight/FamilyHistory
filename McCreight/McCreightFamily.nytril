@@ -38,6 +38,7 @@ Gofton    = "Gofton";
 Varner    = "Varner";
 Nelson    = "Nelson";
 Jordan    = "Jordan";
+Calderoni = "Calderoni";
 
 Pennsylvania = "Pennsylvania";
 Michigan     = "Michigan";
@@ -75,19 +76,55 @@ with Places {
 }
 //============================================================================================================
 
-Stories.MajorIsraelstory = new Story(null, "Major Israel", DateTime(1888)) {
+
+Stories.AlyssaTomWedding = new Story(null, "The wedding of Alyssa and Tom", Unions.AlyssaTom.Date) {
   Picture,
   Text: Block {
     Styles.Story {
-      MajorIsraelMcCreight.ShowLink " was named after Major Israel Uncapher. ",
-      "Neighbors thought it was cute to call the infant Major when he was born, so he went through life with that name. ",
-      "In 1888 he helped start a Deposit Bank in Dubois, Pa., and was manager for 50 years. ",
-      "He was a friend of Buffalo Bill Cody and in June 1908 was installed by Chief Irontail as a Chief of the Sioux Tribe. ",
-      "His Indian name was Tchanta Tanks. ",
-      "His home in Dubois was known as \"The Wigwam\". ",
-      "He was interested in genealogy and published three booklets on McCreights in the U.S. ",
-    },
-  },
+      "The wedding of " ThomasDanielMcCreight.ShowLink " and " AlyssaMarieMcCreight.ShowLink " took place at St. Joseph Catholic Church in Dexter, Michigan. ",
+      "It was a beautiful ceremony, and the reception took place in fancy converted barn. ",
+      "It was also the occasion for a big McCreight-Gofton family reunion. ",
+    }
+  }
+};
+
+Stories.WeddingReunion2020 = new Story(ShawnHamillMcCreight, "Reunion at JoAnn and Toby's place", DateTime(2020, 7, 11)) {
+  Picture,
+  Text: Block {
+    Styles.Story {
+      "The day after the wedding, we got together at the home of " JoannMarieVarner.ShowLink " and " TobyVarner.ShowLink " for an afternoon of food, games and great conversation. ",
+      FlorenceJaneGofton.ShowLink("Aunt Flo") " was the guest of honor. "
+      Attendees("Pictured, from the top left ", [
+        KathyAnneMcCreight,
+        JenniferLynnMcCreight,
+        CraigJohnMcCreight,
+        TheresaMaryMcCreight,
+        JeffreyPNelson,
+        TobyVarner,
+        JohnCraigMcCreight,
+        JoannMarieVarner,
+        NolanHamillMcCreight,
+        LaurenLynnMcCreight,
+        MeganCharlotteMcCreight,
+        PeggyLeeNelson,
+        FlorenceJaneGofton,
+        ShawnHamillMcCreight,
+        MichelleNicholeCalderoni,
+        ShannonReneeMcCreight,
+        ClaytonAlanMcCreight,
+        LisaLouiseMcCreight,
+      ]),
+    }
+  }
+};
+
+Stories.SnowmobileTrip1 = new Story(ShawnHamillMcCreight, "First Annual Michigan Snowmobile Trip", DateTime(2019, 1)) {
+  Picture,
+  Text: Styles.Story {
+    Attendees(null, [ClaytonAlanMcCreight, CraigJohnMcCreight, ThomasDanielMcCreight, ShawnHamillMcCreight],
+    " enjoyed the snow at the first annual McCreight-Johnson sledding trip to the Johnson family cabin. "),
+    " The conditions were perfect, and a great time was had by all. ",
+  }
 };
 
 Stories.LostCousin = new Story(FlorenceJaneGofton, "My Long Lost Cousin", DateTime(1939)) {
@@ -114,15 +151,6 @@ Stories.LostCousin = new Story(FlorenceJaneGofton, "My Long Lost Cousin", DateTi
   },
 };
 
-Stories.WhiteHouseTrip = new Story(FlorenceJaneGofton, "Trip to the White House", DateTime(1989)) {
-  Picture,
-  Text: Styles.Story {
-    ShawnHamillMcCreight.ShowLink,
-    " and I met in Virginia for the retirement of my cousin Jerry Reynolds from the Pentagon. ",
-    " Jerry got us into the the press briefing room, and the Situation Room at the White House."
-  }
-};
-
 Stories.BobSnowPlow = new Story(FlorenceJaneGofton, "Poor Man's Snow Plow", DateTime(2013, 1, 26)) {
   Picture,
   Text: Styles.Story {
@@ -135,7 +163,7 @@ Stories.ReunionAtNelsons = new Story(PeggyLeeNelson, "Reunion at the Nelson Hous
   Picture,
   Text: Styles.Story {
     JeffreyPNelson.ShowLink " and I hosted a family reunion at our house in Harlan, Indiana. ",
-    Attendees([
+    Attendees("Pictured from the left, ", [
       RalphEmersonMcCreight,
       RobertJohnGofton,
       JenniferLynnMcCreight,
@@ -158,7 +186,7 @@ Stories.McCreightSparklerSign = new Story(KatherineMarieMcCreight, "Sparkler Sig
   Text: Styles.Story {
     "One night at a family camping trip, I did time-lapse photographs of everyone waving a sparkler around in the shape of a letter. ",
     "I combined those together to spell out the family name. ",
-    Attendees([
+    Attendees("Pictured from the left, ", [
       ShawnHamillMcCreight,
       ClaytonAlanMcCreight,
       ShannonReneeMcCreight,
@@ -167,23 +195,36 @@ Stories.McCreightSparklerSign = new Story(KatherineMarieMcCreight, "Sparkler Sig
       PeggyLeeNelson,
       CraigJohnMcCreight,
       KathyAnneMcCreight,
-      MichelleNicholeMcCreight,
+      MichelleNicholeCalderoni,
     ],
     " helped make the picture."),
   }
 };
 
-Stories.SnowmobileTrip1 = new Story(ShawnHamillMcCreight, "First Annual Michigan Snowmobile Trip", DateTime(2019, 1)) {
+Stories.WhiteHouseTrip = new Story(FlorenceJaneGofton, "Trip to the White House", DateTime(1989)) {
   Picture,
   Text: Styles.Story {
-    ClaytonAlanMcCreight.ShowLink,
-    " and ",
-    CraigJohnMcCreight.ShowLink,
-    " arranged the first annual McCreight-Johnson sledding trip to the Johnson family cabin. ",
-    " The conditions were perfect, and a great time was had by all. ",
-    Attendees([ThomasDanielMcCreight], " was there to enjoy the snow as well."),
+    ShawnHamillMcCreight.ShowLink,
+    " and I met in Virginia for the retirement of my cousin Jerry Reynolds from the Pentagon. ",
+    " Jerry got us into the the press briefing room, and the Situation Room at the White House."
   }
 };
+
+Stories.MajorIsraelstory = new Story(null, "Major Israel", DateTime(1888)) {
+  Picture,
+  Text: Block {
+    Styles.Story {
+      MajorIsraelMcCreight.ShowLink " was named after Major Israel Uncapher. ",
+      "Neighbors thought it was cute to call the infant Major when he was born, so he went through life with that name. ",
+      "In 1888 he helped start a Deposit Bank in Dubois, Pa., and was manager for 50 years. ",
+      "He was a friend of Buffalo Bill Cody and in June 1908 was installed by Chief Irontail as a Chief of the Sioux Tribe. ",
+      "His Indian name was Tchanta Tanks. ",
+      "His home in Dubois was known as \"The Wigwam\". ",
+      "He was interested in genealogy and published three booklets on McCreights in the U.S. ",
+    },
+  },
+};
+
 //============================================================================================================
 
 
@@ -643,7 +684,6 @@ People.LisaJoanMcCreight = new Female("Lisa", "Joan", McCreight, Unions.JoanJack
 //=====================================
 
 People.LoriChun = new Female("Lori", null, "Chun") {
-  Picture,
 };
 
 People.JohnCraigMcCreight = new Male("John", "Craig", McCreight, Unions.JoanJack) {
@@ -652,7 +692,8 @@ People.JohnCraigMcCreight = new Male("John", "Craig", McCreight, Unions.JoanJack
 };
 
 Unions.LoriJohn = new Union(LoriChun, JohnCraigMcCreight) {
-  Married(2005, 6, 25)
+  Married(2005, 6, 25),
+  Divorced(2010)
 };
 //=====================================
 
@@ -689,17 +730,19 @@ Unions.TerryCraig = new Union(TheresaMaryMcCreight, CraigJohnMcCreight) {
 };
 //=====================================
 
-People.AllisaMcCreight = new Female("Allisa", "Marie", McCreight) {
+People.AlyssaMarieMcCreight = new Female("Alyssa", "Marie", McCreight) {
+  Picture,
   Formerly("Boote"),
   Born(1992, 12, 28),
 };
 
 People.ThomasDanielMcCreight = new Male("Thomas", "Daniel", McCreight, Unions.MarianneCraig) {
+  Picture,
   Nick("Tom"),
   Born(1993, 4, 23),
 };
 
-Unions.AllisaTom = new Union(AllisaMcCreight, ThomasDanielMcCreight) {
+Unions.AlyssaTom = new Union(AlyssaMarieMcCreight, ThomasDanielMcCreight) {
   Married(2020, 7, 10)
 };
 //=====================================
@@ -709,16 +752,19 @@ People.KatherineMarieMcCreight = new Female("Katherine", "Marie", McCreight, Uni
 };
 //=====================================
 
-People.MichelleNicholeMcCreight = new Female("Michelle", "Nichole", McCreight, Unions.MarianneCraig) {
+People.MichelleNicholeCalderoni = new Female("Michelle", "Nichole", Calderoni, Unions.MarianneCraig) {
+  Picture,
+  Formerly(McCreight),
   Born(1988, 1, 21)
 };
 
-People.RobertCalderoni = new Male("Robert", null, "Calderoni") {
+People.RobertCalderoni = new Male("Robert", null, Calderoni) {
+  Picture,
   Nick("Bobby"),
   Born(1988, 1, 21)
 };
 
-Unions.MichelleBobby = new Union(MichelleNicholeMcCreight, RobertCalderoni) {
+Unions.MichelleBobby = new Union(MichelleNicholeCalderoni, RobertCalderoni) {
   Married(2019, 7, 8)
 };
 //=====================================
@@ -842,10 +888,10 @@ People.JoannMarieVarner = new Female("Joann", "Marie", Varner, Unions.FloBob) {
   Formerly(Gofton),
 };
 
-People.TobeyVarner = new Male("Toby", null, Varner) {
+People.TobyVarner = new Male("Toby", null, Varner) {
 };
 
-Unions.JoannTobey = new Union(JoannMarieVarner, TobeyVarner) {
+Unions.JoannTobey = new Union(JoannMarieVarner, TobyVarner) {
   Married(1974, 6, 29)
 };
 //============================================================================================================

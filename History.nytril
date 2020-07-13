@@ -68,12 +68,14 @@ AddPlace(city, state, country=null) = {
   State: state
 };
 
-Attendees(list, text) = Span {
+Attendees(begin, list, end=null) = Span {
+  begin,
   Span {
     Separator: ", ",
+    LastSeparator: " and ",
     (each list).ShowLink,
   },
-  text
+  end ?? ". "
 };
 
 GatherEvent(event, list) {
