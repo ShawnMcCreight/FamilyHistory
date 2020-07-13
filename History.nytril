@@ -19,7 +19,7 @@ with Metrics {
   BoxColor       = Color(182, 199, 222);
   DateIndent     = 1.35 inches;
   MainMargin     = Margin(0.75 inches, 0.75 inches, 0.75 inches, 0.75 inches);
-  TreeMargin     = Margin(0.5 inches, 0.125 inches, 0.125 inches, 0.5 inches);
+  TreeMargin     = Margin(0.5 inches, 0.125 inches, 0.5 inches, 0.5 inches);
   Paper          = Size(8.5 inches, 11 inches);
   Content        = Paper - MainMargin;
   TreeContent    = Paper - TreeMargin;
@@ -671,12 +671,6 @@ with Timeline {
       SpaceAfter: 10 pts,
       Group {
         Vertical: true,
-        Paragraph {
-          HAlignment: HAligns.Center,
-          TextHeight: 12 pts,
-          Bold,
-          "Event Timeline",
-        },
         Group {
           Vertical: true,
           ChartAxis {
@@ -707,10 +701,10 @@ with Timeline {
     event.DrawTimeline
   };
 
-  Show = Block {
+  Show = DocSection("Timeline") {
     ShowBlock(each (SortedEvents / MaxRows)),
-    Styles.Header2("Timeline Details"),
-    AddRows(each SortedEvents),
+//    Styles.Header2("Timeline Details"),
+//    AddRows(each SortedEvents),
   };
 }
 //============================================================================================================
@@ -739,8 +733,14 @@ BuildListing(list, event, level) = Block {
   BuildListing(list, each CollectChildren(list, event), level+1),
 };
 
+WhiteCircle = Span {
+  TextFamily: TextFamilies.CambriaMath,
+  TextBackground: Colors.White,
+  Chars.WhiteCircle
+};
+
 Leaf = Node {
-  Marker: Styles.TextIcon(Chars.WhiteCircle)
+  Marker: WhiteCircle
 };
 
 IconTree = Node {
@@ -769,22 +769,14 @@ HeaderFormat = Paragraph {
   BorderBottom: 0.25 pts,
 };
 
-DocSection(title, name) = Section {
+DocSection(title) = Section {
   SectionBreak: SectionBreaks.NextPage,
   Header: Block {
     Distance: 0.5 inches,
     HeaderFormat {
       ParAlignment: ParAlignments.Right,
-      name
+      title
     },
-    Even: Block {
-      HeaderFormat {
-        ParAlignment: ParAlignments.Left,
-        title
-      }
-    },
-    First: Block {
-    }
   },
   Footer: Block {
     Distance: 0.5 inches,
@@ -836,36 +828,10 @@ AlbumTitlePage(title) = Section {
   },
 };
 
-ShowFullEvents(list, title) {
-  if (list.Length > 0) {
-    return Block {
-      PageBreak,
-      Styles.Header2(title),
-      (each list).ShowFullEvent,
-    };
-  }
-  else
-    return null;
-}
-
-
-ShowFamilyLine(title, union) = DocSection(title, union.Title) {
+ShowFamilyLine(union) = DocSection(union.Title) {
   SectionBreak: SectionBreaks.NextPage,
   Styles.Header2("Tree Details"),
   BuildListing(PeopleAndUnions, union, 0),
-};
-
-ShowDetails(title) = DocSection(title, "Details") {
-  Timeline.Show,
-  ShowFullEvents(Stories, "Stories"),
-  ShowFullEvents(People, "Family Members"),
-};
-
-ShowSource(title) = DocSection(title, "Source Data") {
-  Paragraph {
-    TextHeight: 8 pts,
-    SourceSelection(System.SourceList[0])
-  }
 };
 
 ShowTree(title, line) = Section {
@@ -881,7 +847,19 @@ ShowTree(title, line) = Section {
     Stroke: 0.25 pts {Color: Metrics.LineColor},
     MakeTreeNodes(PeopleAndUnions, null, line.Root),
   },
-  ShowFamilyLine(title, line.Root),
+//  ShowFamilyLine(title, line.Root),
+};
+
+NameSort(p1, p2) {
+  var last = Math.Compare(p1.Last, p2.Last);
+  if (last == 0)
+    return Math.Compare(p1.First, p2.First);
+  return last;
+}
+
+ShowFamilyMembers(title) = DocSection(title) {
+  Styles.Header2(title),
+  (each People.Sort(true, NameSort)).ShowFullEvent,
 };
 
 FamilyAlbum(title, lines) = Document {
@@ -889,8 +867,15 @@ FamilyAlbum(title, lines) = Document {
   Margin: Metrics.MainMargin,
   AlbumTitlePage(title),
   ShowTree(title, each lines),
-  ShowDetails(title),
-//  ShowSource(title),
+  if (Stories.Length > 0) {
+    DocSection("Stories") {
+      Styles.Header2(title),
+      (each Stories).ShowFullEvent,
+    }
+  }
+
+  Timeline.Show,
+  ShowFamilyMembers("Family Members"),
 };
 //============================================================================================================
 
