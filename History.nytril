@@ -83,7 +83,7 @@ GatherEvent(event, list) {
     event.AddEvent(list);
 }
 
-SortFunc(x, y) = Math.Compare(x.Date, y.Date);
+SortFunc(x, y) = x.Date.Compare(y.Date);
 
 SortEvents(events) {
   var sortlist = new ListClass(256);
@@ -324,10 +324,8 @@ class PersonClass: EventClass {
     ShowChildren,
   };
 
-  static FindUnion(union, data) = union.Partner1 == data.Person or union.Partner2 == data.Person;
-
   ShowChildren {
-    var unions = Unions.FindSlice(FindUnion, {Person: this});
+    var unions = Unions.FindSlice(union => union.Partner1 == this or union.Partner2 == this);
     if (unions.Length > 0) {
       var children = CollectChildren(People, unions[0]);
       if (children.Length > 0) {
@@ -390,7 +388,7 @@ class Union: EventClass {
       Partner2;
 
   init(partner1, partner2, date=null) {
-    Assert(partner1 and partner2, "Expecting both partners");
+    System.Assert(partner1 and partner2, "Expecting both partners");
     super.init(date);
     Partner1 = partner1;
     Partner2 = partner2;
@@ -502,9 +500,9 @@ class Story: EventClass {
     Title,
   };
 
-  Popup = Frame {
-    Width: Metrics.Content.Width - Metrics.StoryPicture.Width,
-    Text,
+  Popup(data) = Frame {
+    Width: Metrics.StoryPicture.Width,
+    ShowFullEvent,
   };
 
   override ShowFullEvent = Block {
@@ -713,13 +711,9 @@ with Timeline {
 // Tree
 //============================================================================================================
 
-FindChildData(c, data) {
-  c.FindChildren(data.Set, data.Parent)
-}
-
 CollectChildren(list, c) {
   var set = new DictionaryClass(PeopleAndUnions.Length);
-  return list.FindSlice(FindChildData, {Parent: c, Set: set});
+  return list.FindSlice(person => person.FindChildren(set, c));
 }
 
 MakeTreeNodes(list, parent, event) = Node {
@@ -853,9 +847,9 @@ ShowTree(title, line) = Section {
 };
 
 NameSort(p1, p2) {
-  var last = Math.Compare(p1.Last, p2.Last);
+  var last = p1.Last.Compare(p2.Last);
   if (last == 0)
-    return Math.Compare(p1.First, p2.First);
+    return p1.First.Compare(p2.First);
   return last;
 }
 
