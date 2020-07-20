@@ -23,7 +23,7 @@ with Metrics {
   Paper          = Size(8.5 inches, 11 inches);
   Content        = Paper - MainMargin;
   TreeContent    = Paper - TreeMargin;
-  StoryPicture   = Size(Content.Width, 3 inches);
+  StoryPicture   = Size(Content.Width, 2.5 inches);
   PersonPicture  = Size(1.5 inches);
   PortraitHeight = 1 inch;
   PortraitAngle  = 5 degrees;
@@ -68,13 +68,17 @@ AddPlace(city, state, country=null) = {
   State: state
 };
 
-Attendees(begin, list, end=null) = Span {
-  begin,
+ListPeople(list) = Span {
   Span {
     Separator: ", ",
     LastSeparator: " and ",
     (each list).ShowLink,
   },
+};
+
+Attendees(begin, list, end=null) = Span {
+  begin,
+  ListPeople(list),
   end ?? ". "
 };
 
@@ -487,7 +491,7 @@ class Story: EventClass {
       Text,
       Title;
 
-  init(toldby, title, date) {
+  init(toldby, title, date=null) {
     super.init(date);
     ToldBy = toldby;
     Title  = title;
@@ -510,8 +514,10 @@ class Story: EventClass {
       SpaceBefore: 16 pts,
       ParBackground: 90%,
       LocationMark: Key,
-      Styles.ShowDate(Date),
-      ": ",
+      if (Date) {
+        Styles.ShowDate(Date),
+        ": ",
+      }
       Span {
         Bold, Italic,
         Title
