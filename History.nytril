@@ -216,13 +216,6 @@ class PersonClass: EventClass {
     }
   };
 
-  ShowLink(text=null) = Span {
-    Link: Key,
-    Popup: Delegate(Popup),
-    TextColor: Colors.Blue,
-    text ?? (NickName ?? First)
-  };
-
   ShowFullName(former) = Span {
     Separator: Space,
     First,
@@ -235,7 +228,7 @@ class PersonClass: EventClass {
 
   ShowFullLink(former) = ShowFullName(former) {
     Link: Key,
-    Popup: Delegate(Popup),
+    Popup: ref Popup,
   };
 
   ShowListing = Span {
@@ -265,7 +258,7 @@ class PersonClass: EventClass {
       },
       Space,
       Link: Key,
-      Popup: Delegate(Popup),
+      Popup: ref Popup,
       NickName ?? First,
     }
   };
@@ -347,14 +340,6 @@ class PersonClass: EventClass {
       return null;
   }
 
-  Popup(data) = Frame {
-    if (HasPicture)
-      Width: Metrics.Content.Width;
-    else
-      Width: Metrics.Content.Width - Metrics.PersonPicture.Width;
-    ShowFullEvent,
-  };
-
   PortraitFrame(angle) = Canvas {
     BorderT: 4 pts {Color: TopColor..BottomColor {Vertical: true}},
     BorderLR: 4 pts {Color: TopColor..BottomColor},
@@ -364,10 +349,25 @@ class PersonClass: EventClass {
     TransformFit: true,
     IO.Read(ImagePath) {
       Link: Key,
-      Popup: Delegate(ref Popup),
+      Popup: ref Popup,
       Size: Size(Metrics.PortraitHeight),
       Proportional: true,
     },
+  };
+
+  Popup = Frame {
+    if (HasPicture)
+      Width: Metrics.Content.Width;
+    else
+      Width: Metrics.Content.Width - Metrics.PersonPicture.Width;
+    ShowFullEvent,
+  };
+
+  ShowLink(text=null) = Span {
+    Link: Key,
+    Popup: ref Popup,
+    TextColor: Colors.Blue,
+    text ?? (NickName ?? First)
   };
 }
 //===============================================================================================================
@@ -499,18 +499,19 @@ class Story: EventClass {
   }
 
   override DrawTimeline = Span {
-    Popup: Delegate(ref Popup),
+    Popup: ref Popup,
     Link: Key,
     Title,
   };
 
-  Popup(data) = Frame {
+  Popup = Frame {
     Width: Metrics.StoryPicture.Width,
     ShowFullEvent,
   };
 
   override ShowFullEvent = Block {
     Paragraph {
+      KeepWithNext: true,
       SpaceBefore: 16 pts,
       ParBackground: 90%,
       LocationMark: Key,
@@ -527,14 +528,16 @@ class Story: EventClass {
         ToldBy.ShowFullLink(false)
       }
     },
-    Block {
-      Text,
-      if (HasPicture) {
-        Paragraph {
-          AddPicture(Metrics.StoryPicture),
-        }
+    if (HasPicture) {
+      Paragraph {
+        Text
+      },
+      Paragraph {
+        AddPicture(Metrics.StoryPicture),
       }
     }
+    else
+      Text
   };
 }
 //============================================================================================================
