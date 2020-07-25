@@ -78,21 +78,21 @@ with Places {
 
 
 Stories.AlyssaTomWedding = new Story(null, "The wedding of Alyssa and Tom", Unions.AlyssaTom.Date) {
-  Picture,
+  Picture;
   Text: Block {
     Styles.Story {
-      "The wedding of " ListPeople([ThomasDanielMcCreight, AlyssaMarieMcCreight]) " took place at St. Joseph Catholic Church in Dexter, Michigan. ",
-      "It was a beautiful ceremony, and the reception took place in fancy converted barn. ",
-      "It was also the occasion for a big McCreight-Gofton family reunion. ",
+      "The wedding of " ListPeople([ThomasDanielMcCreight, AlyssaMarieMcCreight]) " took place at St. Joseph Catholic Church in Dexter, Michigan. ";
+      "It was a beautiful ceremony, and the reception took place in fancy converted barn. ";
+      "It was also the occasion for a big McCreight-Gofton family reunion. ";
     }
   }
 };
 
 Stories.WeddingReunion2020 = new Story(ShawnHamillMcCreight, "Reunion at JoAnn and Toby's place", DateTime(2020, 7, 11)) {
-  Picture,
+  Picture;
   Text: Block {
     Styles.Story {
-      "The day after the wedding, we got together at the home of " ListPeople([JoannMarieVarner, TobyVarner]) " for an afternoon of food, games and great conversation. ",
+      "The day after the wedding, we got together at the home of " ListPeople([JoannMarieVarner, TobyVarner]) " for an afternoon of food, games and great conversation. ";
       FlorenceJaneGofton.ShowLink("Aunt Flo") " was the guest of honor. "
       Attendees("Pictured, from the top left ", [
         KathyAnneMcCreight,
@@ -113,57 +113,62 @@ Stories.WeddingReunion2020 = new Story(ShawnHamillMcCreight, "Reunion at JoAnn a
         ShannonReneeMcCreight,
         ClaytonAlanMcCreight,
         LisaLouiseMcCreight,
-      ]),
+      ]);
     }
   }
 };
 
 Stories.SnowmobileTrip1 = new Story(ShawnHamillMcCreight, "First Annual Michigan Snowmobile Trip", DateTime(2019, 1)) {
-  Picture,
+  Picture;
   Text: Styles.Story {
-    Attendees(null, [ClaytonAlanMcCreight, CraigJohnMcCreight, ThomasDanielMcCreight, ShawnHamillMcCreight],
-    " enjoyed the snow at the first annual McCreight-Johnson sledding trip to the Johnson family cabin. "),
-    " The conditions were perfect, and a great time was had by all. ",
+    ListPeople([ClaytonAlanMcCreight, CraigJohnMcCreight, ThomasDanielMcCreight, ShawnHamillMcCreight]);
+    " enjoyed the snow at the first annual McCreight-Johnson sledding trip to the Johnson family cabin. ";
+    " The conditions were perfect, and a great time was had by all. ";
   }
 };
 
 Stories.LostCousin = new Story(FlorenceJaneGofton, "My Long Lost Cousin", DateTime(1939)) {
   Text: Block {
     Styles.Story {
-      "It was 1939 and I was in the 4th grade. ",
-      "I had to walk a mile to school because in the old days we didn't have buses. ",
-      "We had to take our lunch and after we ate, we could go out on the playground. ",
-      "While I was out there I saw a girl sitting under a tree. ",
-      "I found out that she had stepped on a needle and it broke off in her foot. ",
-    },
+      "It was 1939 and I was in the 4th grade. ";
+      "I had to walk a mile to school because in the old days we didn't have buses. ";
+      "We had to take our lunch and after we ate, we could go out on the playground. ";
+      "While I was out there I saw a girl sitting under a tree. ";
+      "I found out that she had stepped on a needle and it broke off in her foot. ";
+    };
     Styles.Story {
-      "We exchanged names and I told her that my last name was 'McCreight'. ",
-      "Her name was Leone Phillips. She said that was her aunt's name.  ",
-      "The aunt (Mary McCreight) lived with them. Leone's mother was Mary's sister. ",
-      "Leone and I were in different 4th grade rooms, but we became very good friends and I stood up in her wedding and kept in touch until she passed away with cancer. ",
-    },
+      "We exchanged names and I told her that my last name was 'McCreight'. ";
+      "Her name was Leone Phillips. She said that was her aunt's name.  ";
+      "The aunt (Mary McCreight) lived with them. Leone's mother was Mary's sister. ";
+      "Leone and I were in different 4th grade rooms, but we became very good friends and I stood up in her wedding and kept in touch until she passed away with cancer. ";
+    };
     Styles.Story {
       "We both went home and told our parents and my folks invited them to dinner. "
-      "Years before my Grandfather had a falling out with his brothers over a bank deal and consequently my " JohnHamillMcCreight.ShowLink("Dad"), " never met his aunts, uncles or cousins.  ",
-      "These two ladies were my Dad's first cousins and they all went to DuBois, PA to meet ", MajorIsraelMcCreight.ShowLink("Major McCreight")",  and some of the family. ",
-      "Needless to say Dad did spend more time with Major's family over the years. "
-    }
-  },
+      "Years before my Grandfather had a falling out with his brothers over a bank deal and consequently my ";
+       JohnHamillMcCreight.ShowLink("Dad");
+       " never met his aunts, uncles or cousins.  ";
+      "These two ladies were my Dad's first cousins and they all went to DuBois, PA to meet ";
+      MajorIsraelMcCreight.ShowLink("Major McCreight");
+      ",  and some of the family. ";
+      "Needless to say Dad did spend more time with Major's family over the years. ";
+    };
+  };
 };
 
 Stories.BobSnowPlow = new Story(FlorenceJaneGofton, "Poor Man's Snow Plow", DateTime(2013, 1, 26)) {
-  Picture,
+  Picture;
   Text: Styles.Story {
-    "Never one to shirk his household responsibilities, even in the face of injury, ", RobertJohnGofton.ShowLink("Bob"),
-    " crafted a clever tool to get the job done. ",
+    "Never one to shirk his household responsibilities, even in the face of injury, "; RobertJohnGofton.ShowLink("Bob");
+    " crafted a clever tool to get the job done. ";
   }
 };
 
 Stories.ReunionAtNelsons = new Story(PeggyLeeNelson, "Reunion at the Nelson House", DateTime(2003, 8, 24)) {
-  Picture,
+  Picture;
   Text: Styles.Story {
-    JeffreyPNelson.ShowLink " and I hosted a family reunion at our house in Harlan, Indiana. ",
-    Attendees("Pictured from the left, ", [
+    JeffreyPNelson.ShowLink " and I hosted a family reunion at our house in Harlan, Indiana. ";
+    "Pictured from the left, ";
+    ListPeople([
       RalphEmersonMcCreight,
       RobertJohnGofton,
       JenniferLynnMcCreight,
@@ -176,17 +181,18 @@ Stories.ReunionAtNelsons = new Story(PeggyLeeNelson, "Reunion at the Nelson Hous
       JohnCraigMcCreight,
       JamesRobertGofton,
       FlorenceGertrudeMcCreight,
-    ],
-    " were there to enjoy the family time."),
+    ]);
+    " were there to enjoy the family time.";
   }
 };
 
 Stories.McCreightSparklerSign = new Story(KatherineMarieMcCreight, "Sparkler Sign", DateTime(2014, 9, 13)) {
-  Picture,
+  Picture;
   Text: Styles.Story {
-    "One night at a family camping trip, I did time-lapse photographs of everyone waving a sparkler around in the shape of a letter. ",
-    "I combined those together to spell out the family name. ",
-    Attendees("Pictured from the left, ", [
+    "One night at a family camping trip, I did time-lapse photographs of everyone waving a sparkler around in the shape of a letter. ";
+    "I combined those together to spell out the family name. ";
+    "Pictured from the left, ";
+    ListPeople([
       ShawnHamillMcCreight,
       ClaytonAlanMcCreight,
       ShannonReneeMcCreight,
@@ -196,205 +202,206 @@ Stories.McCreightSparklerSign = new Story(KatherineMarieMcCreight, "Sparkler Sig
       CraigJohnMcCreight,
       KathyAnneMcCreight,
       MichelleNicholeCalderoni,
-    ],
-    " helped make the picture."),
+    ]);
+    " helped make the picture.";
   }
 };
 
 Stories.WhiteHouseTrip = new Story(FlorenceJaneGofton, "Trip to the White House", DateTime(1989)) {
-  Picture,
+  Picture;
   Text: Styles.Story {
-    ShawnHamillMcCreight.ShowLink,
-    " and I met in Virginia for the retirement of my cousin Jerry Reynolds from the Pentagon. ",
-    " Jerry got us into the the press briefing room, and the Situation Room at the White House."
+    ShawnHamillMcCreight.ShowLink;
+    " and I met in Virginia for the retirement of my cousin Jerry Reynolds from the Pentagon. ";
+    " Jerry got us into the the press briefing room, and the Situation Room at the White House.";
   }
 };
 
 Stories.McCreightHeadstone = new Story(KathyAnneMcCreight, "McCreight Headstone", DateTime(1954, 7)) {
-  Picture,
+  Picture;
   Text: Block {
     Styles.Story {
-      "The headstone of "  ListPeople([JohnJamiesonMcCreight, JennieAdelphiaMcCreight]) ". ",
-      "The identity of the person in the photo is not known. "
-    },
-  },
+      "The headstone of "  ListPeople([JohnJamiesonMcCreight, JennieAdelphiaMcCreight]) ". ";
+      "The identity of the person in the photo is not known. ";
+    };
+  };
 };
 
 Stories.KerrFamily = new Story(FlorenceJaneGofton, "Inez Kerr Family") {
-  Picture,
+  Picture;
   Text: Block {
     Styles.Story {
-      "The family of " ListPeople([InezMargaretKerr, ClarenceGrantKerr]) " outside their house in Redlands, CA? ",
-      "Jack in uniform, Vera May, ?, Betty Jane. The two little ones are ",
-      ListPeople([PeggyLeeKerr, GaryKerr]) ". "
-    },
-  },
+      "The family of " ListPeople([InezMargaretKerr, ClarenceGrantKerr]) " outside their house in Redlands, CA? ";
+      "Jack in uniform, Vera May, ?, Betty Jane. The two little ones are ";
+      ListPeople([PeggyLeeKerr, GaryKerr]) ". ";
+    };
+  };
 };
 
 Stories.InezAt9 = new Story(KathyAnneMcCreight, "Inez at 9 years old", DateTime(1911)) {
-  Picture,
+  Picture;
   Text: Block {
     Styles.Story {
-      InezMargaretKerr.ShowLink, " at 9 years old"
-    },
-  },
+      ListPeople([InezMargaretKerr]);
+      " at 9 years old";
+    };
+  };
 };
 
 Stories.JimArmyPicture = new Story(KathyAnneMcCreight, "", DateTime(1942)) {
-  Picture,
+  Picture;
   Text: Block {
     Styles.Story {
-       "I think this is " JamesClarkMcCreight.ShowLink("Uncle Jim") ", " JohnHamillMcCreight.ShowLink("Grandpa’s") " brother."
-    },
-  },
+       "I think this is " JamesClarkMcCreight.ShowLink("Uncle Jim") ", " JohnHamillMcCreight.ShowLink("Grandpa’s") " brother.";
+    };
+  };
 };
 
 Stories.AnnAndWendleMcCreight = new Story(KathyAnneMcCreight, "", DateTime(1942)) {
-  Picture,
+  Picture;
   Text: Block {
     Styles.Story {
        ListPeople([AnnKatherineMcCreight, WendellButlerMcCreight])
-    },
-  },
+    };
+  };
 };
 
 Stories.JamesClarkPostcard = new Story(KathyAnneMcCreight, "James Clark McCreight postcard", DateTime(1942, 11, 18)) {
-  Picture,
+  Picture;
   Text: Block {
     Styles.Story {
-      ListPeople([JamesClarkMcCreight]) " in a postcard home."
-    },
-  },
+      ListPeople([JamesClarkMcCreight]) " in a postcard home.";
+    };
+  };
 };
 
 Stories.AnnAndThelmaMcCreight = new Story(KathyAnneMcCreight, "Ann and Thelma McCreight") {
-  Picture,
+  Picture;
   Text: Block {
     Styles.Story {
-       ListPeople([AnnKatherineMcCreight, ThelmaEllenFaust]) " were sister-in-laws and the wives of "
-       ListPeople([WendellButlerMcCreight, JamesClarkMcCreight]) ", respectively. ",
-      "I remember meeting both of them. Ann was blind, but still living in her house when we went to visit."
-    },
-  },
+       ListPeople([AnnKatherineMcCreight, ThelmaEllenFaust]) " were sister-in-laws and the wives of ";
+       ListPeople([WendellButlerMcCreight, JamesClarkMcCreight]) ", respectively. ";
+      "I remember meeting both of them. Ann was blind, but still living in her house when we went to visit.";
+    };
+  };
 };
 
 Stories.JennieAndChildren = new Story(KathyAnneMcCreight, "Jennie McCreight and children", DateTime(1911, 7)) {
-  Picture,
+  Picture;
   Text: Block {
     Styles.Story {
-       ListPeople([JennieAdelphiaMcCreight, JohnHamillMcCreight, WendellButlerMcCreight, InezMargaretKerr])
-    },
-  },
+       ListPeople([JennieAdelphiaMcCreight, JohnHamillMcCreight, WendellButlerMcCreight, InezMargaretKerr]);
+    };
+  };
 };
 
 Stories.JohnAndFlorenceMcCreight = new Story(KathyAnneMcCreight, "John and Florence McCreight", DateTime(1901, 7)) {
-  Picture,
+  Picture;
   Text: Block {
     Styles.Story {
-       "Rare photo of " ListPeople([FlorenceGertrudeMcCreight, JohnHamillMcCreight]) " together."
-    },
-  },
+       "Rare photo of "; ListPeople([FlorenceGertrudeMcCreight, JohnHamillMcCreight]); " together.";
+    };
+  };
 };
 
 Stories.JennieHoldingFlorenceJane = new Story(FlorenceJaneGofton, "Jennie holding Florence Jane") {
-  Picture,
+  Picture;
   Text: Block {
     Styles.Story {
        ListPeople([JennieAdelphiaMcCreight, FlorenceJaneGofton])
-    },
-  },
+    };
+  };
 };
 
 Stories.InezaAndJohnAsChildren = new Story(FlorenceJaneGofton, "Baby Portrait", DateTime(1904)) {
-  Picture,
+  Picture;
   Text: Block {
     Styles.Story {
-       ListPeople([InezMargaretKerr, JohnHamillMcCreight]) " as children."
-    },
-  },
+       ListPeople([InezMargaretKerr, JohnHamillMcCreight]); " as children.";
+    };
+  };
 };
 
 Stories.JohnHamillMcCreightOnHorse = new Story(FlorenceJaneGofton, "John Hamill McCreight on a Horse") {
-  Picture,
+  Picture;
   Text: Block {
     Styles.Story {
-       ListPeople([JohnHamillMcCreight])
-    },
-  },
+       ListPeople([JohnHamillMcCreight]);
+    };
+  };
 };
 
 Stories.MyThreeSons = new Story(FlorenceJaneGofton, "My Three Sons", DateTime(1924)) {
-  Picture,
+  Picture;
   Text: Block {
     Styles.Story {
-       ListPeople([JamesClarkMcCreight, WendellButlerMcCreight, JohnHamillMcCreight, JennieAdelphiaMcCreight])
-    },
-  },
+       ListPeople([JamesClarkMcCreight, WendellButlerMcCreight, JohnHamillMcCreight, JennieAdelphiaMcCreight]);
+    };
+  };
 };
 
 Stories.JohnHamillAtWork = new Story(FlorenceJaneGofton, "Johnn Hamill McCreight at work") {
-  Picture,
+  Picture;
   Text: Block {
     Styles.Story {
-       ListPeople([JohnHamillMcCreight]) " is shown forth from the left."
-    },
-  },
+       ListPeople([JohnHamillMcCreight]) " is shown forth from the left.";
+    };
+  };
 };
 
 Stories.FlorenceAndJohnHoldingFlorenceJane = new Story(FlorenceJaneGofton, "Mom and Dad holding me as a baby") {
-  Picture,
+  Picture;
   Text: Block {
     Styles.Story {
-       ListPeople([FlorenceGertrudeMcCreight, FlorenceJaneGofton, JohnHamillMcCreight]) ". Don't know who is standing inside."
-    },
-  },
+       ListPeople([FlorenceGertrudeMcCreight, FlorenceJaneGofton, JohnHamillMcCreight]) ". Don't know who is standing inside.";
+    };
+  };
 };
 
 Stories.RalphFloInGroup = new Story(FlorenceJaneGofton, "Mom and Dad holding me as a baby") {
-  Picture,
+  Picture;
   Text: Block {
     Styles.Story {
-       ListPeople([ThelmaEllenFaust, RalphEmersonMcCreight, FlorenceGertrudeMcCreight, FlorenceJaneGofton, WendellButlerMcCreight]) ". Location?"
-    },
-  },
+      ListPeople([ThelmaEllenFaust, RalphEmersonMcCreight, FlorenceGertrudeMcCreight, FlorenceJaneGofton, WendellButlerMcCreight]) ". Location?";
+    };
+  };
 };
 
 Stories.McCreightKerr = new Story(FlorenceJaneGofton, "McCreight-Kerr") {
-  Picture,
+  Picture;
   Text: Block {
     Styles.Story {
-       ListPeople([JohnHamillMcCreight, FlorenceGertrudeMcCreight, InezMargaretKerr, PeggyLeeKerr, GaryKerr]) ". Location?"
-    },
-  },
+       ListPeople([JohnHamillMcCreight, FlorenceGertrudeMcCreight, InezMargaretKerr, PeggyLeeKerr, GaryKerr]) ". Location?";
+    };
+  };
 };
 
 
 
 Stories.MajorIsraelstory = new Story(null, "Major Israel", DateTime(1888)) {
-  Picture,
+  Picture;
   Text: Block {
     Styles.Story {
-      MajorIsraelMcCreight.ShowLink " was named after Major Israel Uncapher. ",
-      "Neighbors thought it was cute to call the infant Major when he was born, so he went through life with that name. ",
-      "In 1888 he helped start a Deposit Bank in Dubois, Pa., and was manager for 50 years. ",
-      "He was a friend of Buffalo Bill Cody and in June 1908 was installed by Chief Irontail as a Chief of the Sioux Tribe. ",
-      "His Indian name was Tchanta Tanks. ",
-      "His home in Dubois was known as \"The Wigwam\". ",
-      "He was interested in genealogy and published three booklets on McCreights in the U.S. ",
-    },
-  },
+      MajorIsraelMcCreight.ShowLink " was named after Major Israel Uncapher. ";
+      "Neighbors thought it was cute to call the infant Major when he was born, so he went through life with that name. ";
+      "In 1888 he helped start a Deposit Bank in Dubois, Pa., and was manager for 50 years. ";
+      "He was a friend of Buffalo Bill Cody and in June 1908 was installed by Chief Irontail as a Chief of the Sioux Tribe. ";
+      "His Indian name was Tchanta Tanks. ";
+      "His home in Dubois was known as \"The Wigwam\". ";
+      "He was interested in genealogy and published three booklets on McCreights in the U.S. ";
+    };
+  };
 };
 
 //============================================================================================================
 
 
 People.MaryMcCreight = new Female("Mary", null, McCreight) {
-  Born(null, null, null, Places.Ireland),
+  Born(null, null, null, Places.Ireland);
   Died(1780, 1, 19)
 };
 
 People.DavidMcCreight = new Male("David", null, McCreight) {
-  Born(1709, null, null, Places.Ireland),
+  Born(1709, null, null, Places.Ireland);
   Died(1799, 9, 14)
 };
 
@@ -421,25 +428,25 @@ Unions.JamesSally = new Union(SallyDunnMcCreight, JamesMcCreight) {
 //============================================================================================================
 
 People.DavidJrMcCreight = new Male("David", null, McCreight, Unions.DavidMary) {
-  Born(1749, 12, null, Places.Ireland),
-  Died(1817, 2, 7),
+  Born(1749, 12, null, Places.Ireland);
+  Died(1817, 2, 7);
 };
 
 People.MarthaMcCreight = new Female("Martha", null, McCreight, Unions.DavidMary) {
-  Born(1748),
-  Died(1815, 9, 13),
+  Born(1748);
+  Died(1815, 9, 13);
 };
 
 People.DavidDaughter = new Female("?", null, McCreight, Unions.DavidMary);
 //============================================================================================================
 
 People.AndrewMcCreight1 = new Male("Andrew", null, McCreight, Unions.JamesSally) {
-  Born(1787, 5, 5, Places.Shelocta),
-  Died(1861, 5, 23),
+  Born(1787, 5, 5, Places.Shelocta);
+  Died(1861, 5, 23);
 };
 
 People.AnnSharpMcCreight = new Female("Ann", "Sharp", McCreight) {
-  Born(1794, 6, 27),
+  Born(1794, 6, 27);
 };
 
 Unions.AnnAndrew = new Union(AnnSharpMcCreight, AndrewMcCreight1) {
@@ -471,15 +478,15 @@ People.JosephMcCreight = new Male("Joseph", null, McCreight, Unions.AnnAndrew) {
 };
 
 People.JohnWinslowMcCreight = new Male("John", "Winslow", McCreight, Unions.AnnAndrew) {
-  Picture,
-  Born(1821, 7, 11),
+  Picture;
+  Born(1821, 7, 11);
   Died(1900, 7, 23)
 };
 
 People.ElizaUncapherMcCreight = new Female("Eliza", null, McCreight) {
-  Picture,
-  Formerly("Uncapher"),
-  Born(1830, 5, 10),
+  Picture;
+  Formerly("Uncapher");
+  Born(1830, 5, 10);
   Died(1918, 7, 2)
 };
 
@@ -496,51 +503,51 @@ People.ThomasSMcCreight = new Male("Thomas", "S", McCreight, Unions.AnnAndrew);
 People.SmithMcCreight = new Male("Smith", null, McCreight, Unions.AnnAndrew);
 
 People.NancySMcCreight = new Female("Nancy", "S", McCreight, Unions.AnnAndrew) {
-  Born(1834, 7, 10),
+  Born(1834, 7, 10);
   Died(1891, 6, 3)
 };
 
 People.JamiesonMcCreight = new Male("Jamieson", null, McCreight, Unions.AnnAndrew);
 
 People.HannaLMcCreight = new Female("Hanna", "L", McCreight, Unions.AnnAndrew) {
-  Born(1839, 11, 26),
+  Born(1839, 11, 26);
 };
 //=====================================
 
 People.AnnaMarieMcCreight = new Female("Anna", "Marie", McCreight, Unions.ElizaJohn) {
-  Born(1852, 10, 26),
+  Born(1852, 10, 26);
   Died(1860, 7, 10)
 };
 
 People.SusanMcCreight = new Female("Susan", null, McCreight, Unions.ElizaJohn) {
-  Born(1854, 8, 23),
-  Died(1932, 1, 17),
+  Born(1854, 8, 23);
+  Died(1932, 1, 17);
 };
 
 People.JosephSamuelMcCreight = new Male("Joseph", "Samuel", McCreight, Unions.ElizaJohn) {
-  Picture,
-  Born(1858, 1, 2),
+  Picture;
+  Born(1858, 1, 2);
   Died(1954, 1, 15)
 };
 
 People.WilliamHenryMcCreight = new Male("William", "Henry", McCreight, Unions.ElizaJohn) {
-  Born(1860, 1, 20),
+  Born(1860, 1, 20);
 };
 
 People.AndrewSharpMcCreight2 = new Male("Andrew", "Sharp", McCreight, Unions.ElizaJohn) {
-  Born(1863, 3, 18),
+  Born(1863, 3, 18);
   Died(1867, 3, 19)
 };
 
 People.MajorIsraelMcCreight = new Male("Israel", null, McCreight, Unions.ElizaJohn) {
-  Picture,
-  Born(1866, 4, 21),
+  Picture;
+  Born(1866, 4, 21);
   Died(1958, 11, 13)
 };
 
 People.AliceMcCreight = new Female("Alice", null, McCreight) {
-  Picture,
-  Born(1866, 4, 21),
+  Picture;
+  Born(1866, 4, 21);
   Died(1958, 11, 13)
 };
 
@@ -555,7 +562,7 @@ People.BenjaminBruceMcCreight = new Male("Benjamin", "Bruce", McCreight, Unions.
 People.OliveBerthaMcCreight = new Female("Olive", "Bertha", McCreight, Unions.ElizaJohn);
 
 People.MaryLillibelMcCreight = new Female("Mary", "Lillibell", McCreight, Unions.ElizaJohn) {
-  Picture,
+  Picture;
 };
 //=====================================
 
@@ -565,7 +572,7 @@ Unions.MaryHughHamill = new Union(MaryHamill, HughHamill);
 //=====================================
 
 People.SarahMcCreight = new Female("Sarah", null, McCreight, Unions.JaneAndrew) {
-  Born(1844, 7, 1, Places.PA),
+  Born(1844, 7, 1, Places.PA);
   Died(1945)
 };
 
@@ -577,12 +584,12 @@ Unions.SarahGeorge = new Union(SarahMcCreight, GeorgeWarnick) {
 //=====================================
 
 People.NancyJaneMcCreight = new Female("Nancy", "Jane", McCreight, Unions.JaneAndrew) {
-  Born(1856, 10, 21),
+  Born(1856, 10, 21);
   Died(1860, 7, 20)
 };
 
 People.OrrelElizabethMcCreight = new Female("Orrel", "Elizabeth", McCreight, Unions.JaneAndrew) {
-  Born(1863, 11, 6),
+  Born(1863, 11, 6);
 };
 //=====================================
 
@@ -610,12 +617,12 @@ People.JohnEugeneMcCreight = new Male("John", "Eugene", McCreight, Unions.Martha
 //=====================================
 
 People.SallyBelleWalker = new Male("Sally", "Belle", McCreight) {
-  Formerly("Walker"),
+  Formerly("Walker");
   Died(1933)
 };
 
 People.JamesAlexanderMcCreight = new Male("James", "Alexander", McCreight, Unions.JaneAndrew) {
-  Born(1853, 4, 3),
+  Born(1853, 4, 3);
   Died(1937, 7, 11)
 };
 
@@ -638,7 +645,7 @@ People.ElizabethMcCreight = new Female("Elizabeth", null, McCreight, Unions.Sall
 
 People.MaryDonegan = new Female("Mary", null, "Donegan");
 People.CyrilMcCreight = new Male("Cyril", null, McCreight, Unions.SallyJames) {
-  Born(1900),
+  Born(1900);
   Died(1972)
 };
 Unions.MaryCyril = new Union(MaryDonegan, CyrilMcCreight);
@@ -654,22 +661,22 @@ People.AngusJaneWarnick = new Female("Angus", "Jane", "Warnick", Unions.SarahGeo
 };
 
 People.AnnHMcCreight = new Female("Ann", "H", McCreight, Unions.JaneAndrew) {
-  Born(1848, 9, 12),
+  Born(1848, 9, 12);
   Died(1860, 6, 25)
 };
 //=====================================
 
 People.JohnJamiesonMcCreight = new Male("John", "Jamieson", McCreight, Unions.JaneAndrew) {
-  Picture,
-  Born(1846, 8, 22),
+  Picture;
+  Born(1846, 8, 22);
   Died(1923, 12, 5)
 };
 
 People.JennieAdelphiaMcCreight = new Female("Jennie", "Adelphia", McCreight, Unions.MaryHughHamill) {
-  Picture,
-  Formerly(Hamill),
-  Born(1875, 11, 1, Places.GeorgevillePA),
-  Died(1950, 1, 3),
+  Picture;
+  Formerly(Hamill);
+  Born(1875, 11, 1, Places.GeorgevillePA);
+  Died(1950, 1, 3);
 };
 
 Unions.JennieJohn = new Union(JennieAdelphiaMcCreight, JohnJamiesonMcCreight);
@@ -678,51 +685,51 @@ Unions.JennieJohn = new Union(JennieAdelphiaMcCreight, JohnJamiesonMcCreight);
 People.HarryHazelett = new Male("Harry", "White", Hazelett);
 
 People.BerthaHazelett = new Female("Bertha", "Pearl", Hazelett) {
-  Formerly("Wolfe"),
+  Formerly("Wolfe");
 };
 
 Unions.HarryBertha = new Union(BerthaHazelett, HarryHazelett);
 //=====================================
 
 People.AnnKatherineMcCreight = new Male("Ann", "Katherine", McCreight) {
-  Picture,
-  Formerly("Russell"),
+  Picture;
+  Formerly("Russell");
   Born(1908, 1, 30)
 };
 
 People.WendellButlerMcCreight = new Male("Wendell", "Butler", McCreight, Unions.JennieJohn) {
-  Picture,
-  Born(1905, 12, 17),
-  Died(1998, 8, 23),
+  Picture;
+  Born(1905, 12, 17);
+  Died(1998, 8, 23);
 };
 
 Unions.AnnWendle = new Union(AnnKatherineMcCreight, WendellButlerMcCreight);
 //=====================================
 
 People.ThelmaEllenFaust = new Female("Thelma", "Ellen", "Faust") {
-  Picture,
+  Picture;
 };
 
 People.JamesClarkMcCreight = new Male("James", "Clark", McCreight, Unions.JennieJohn) {
-  Picture,
-  Born(1909, 4, 16),
-  Died(0),
+  Picture;
+  Born(1909, 4, 16);
+  Died(0);
 };
 
 Unions.ThelmaJames = new Union(ThelmaEllenFaust, JamesClarkMcCreight);
 //=====================================
 
 People.InezMargaretKerr = new Female("Inez", "Margaret", "Kerr", Unions.JennieJohn) {
-  Nick("Betty"),
-  Picture,
-  Formerly(McCreight),
-  Born(1902, 4, 22),
-  Died(1992),
+  Nick("Betty");
+  Picture;
+  Formerly(McCreight);
+  Born(1902, 4, 22);
+  Died(1992);
 };
 
 People.ClarenceGrantKerr = new Male("Clarence", "Grant", "Kerr") {
-  Born(1897),
-  Died(1964),
+  Born(1897);
+  Died(1964);
 };
 
 Unions.InezClarence = new Union(InezMargaretKerr, ClarenceGrantKerr) {
@@ -740,13 +747,13 @@ People.GaryKerr = new Female("Gary", null, "Kerr", Unions.InezClarence) {
 //=====================================
 
 People.FlorenceGertrudeMcCreight  = new Female("Florence", "Gertrude", McCreight, Unions.HarryBertha) {
-  Picture,
-  Formerly(Hazelett),
+  Picture;
+  Formerly(Hazelett);
 };
 
 People.JohnHamillMcCreight = new Male("John", Hamill, McCreight, Unions.JennieJohn) {
-  Picture,
-  Died(1965, 10, 9),
+  Picture;
+  Died(1965, 10, 9);
   Born(1904, 5, 21)
 };
 
@@ -755,17 +762,17 @@ Unions.FloJohn = new Union(FlorenceGertrudeMcCreight, JohnHamillMcCreight) {
 //=====================================
 
 People.MaryJoanMcCreight = new Female("Mary", "Joan", McCreight) {
-  Nick("Joanie"),
-  Picture,
-  Formerly("Plowe"),
-  Born(1934, 6, 4),
+  Nick("Joanie");
+  Picture;
+  Formerly("Plowe");
+  Born(1934, 6, 4);
   Died(2011, 4, 1)
 };
 
 People.JohnHarryMcCreight = new Male("John", "Harry", McCreight, Unions.FloJohn) {
-  Nick("Jack"),
-  Picture,
-  Born(1931, 8, 9),
+  Nick("Jack");
+  Picture;
+  Born(1931, 8, 9);
   Died(1976, 4, 23)
 };
 
@@ -775,15 +782,15 @@ Unions.JoanJack = new Union(MaryJoanMcCreight, JohnHarryMcCreight) {
 //=====================================
 
 People.RalphEmersonMcCreight = new Male("Ralph", "Emerson", McCreight, Unions.FloJohn) {
-  Nick("Whitey"),
-  Born(1936, 12, 26),
+  Nick("Whitey");
+  Born(1936, 12, 26);
   Died(2003, 10, 9)
 };
 
 People.JanetMcCreight = new Female("Janet", null, McCreight) {
-  Born(1939, 8, 18),
-  Formerly("Johnson"),
-  Picture,
+  Born(1939, 8, 18);
+  Formerly("Johnson");
+  Picture;
 };
 
 Unions.JanetRalph = new Union(JanetMcCreight, RalphEmersonMcCreight) {
@@ -792,17 +799,17 @@ Unions.JanetRalph = new Union(JanetMcCreight, RalphEmersonMcCreight) {
 //=====================================
 
 People.FlorenceJaneGofton = new Female("Florence", "Jane", Gofton, Unions.FloJohn) {
-  Nick("Flo"),
-  Picture,
-  Born(1930, 8, 22, Places.NewKensington),
-  Formerly(McCreight),
+  Nick("Flo");
+  Picture;
+  Born(1930, 8, 22, Places.NewKensington);
+  Formerly(McCreight);
 };
 
 People.RobertJohnGofton = new Male("Robert", "John", Gofton, Unions.LoisClaude) {
-  Nick("Bob"),
-  Picture,
-  Born(1927, 3, 11, Places.Flushing),
-  Died(2015, 6, 13),
+  Nick("Bob");
+  Picture;
+  Born(1927, 3, 11, Places.Flushing);
+  Died(2015, 6, 13);
 };
 
 Unions.FloBob = new Union(FlorenceJaneGofton, RobertJohnGofton) {
@@ -811,8 +818,8 @@ Unions.FloBob = new Union(FlorenceJaneGofton, RobertJohnGofton) {
 //=====================================
 
 People.CassandraVarner = new Female("Cassandra", "Marie", Varner, Unions.JoannTobey) {
-  Nick("Cass"),
-  Born(1975, 4, 30),
+  Nick("Cass");
+  Born(1975, 4, 30);
 };
 
 People.SheriFolta = new Female("Sheri", null, "Folta");
@@ -826,23 +833,23 @@ People.MeaganVarner = new Female("Megan", null, Varner) {
 };
 
 People.JoshuaLeeVarner = new Male("Joshua", "Lee", Varner, Unions.JoannTobey) {
-  Nick("Josh"),
-  Born(1976, 4, 7),
+  Nick("Josh");
+  Born(1976, 4, 7);
 };
 
 Unions.MeganJoshua = new Union(MeaganVarner, JoshuaLeeVarner);
 
 People.SawyerVarner = new Male("Sawyer", "Lee", Varner, Unions.MeganJoshua) {
-  Born(2008, 11, 25),
+  Born(2008, 11, 25);
 };
 
 People.ReeseVarner = new Male("Reese", "Patricia", Varner, Unions.MeganJoshua) {
-  Born(2011, 11, 10),
+  Born(2011, 11, 10);
 };
 //=====================================
 
 People.TylerJamesGofton = new Male("Tyler", "James", Gofton, Unions.JamesSharon) {
-  Born(1979, 6, 19),
+  Born(1979, 6, 19);
   Died(2020, 4, 18)
 };
 
@@ -851,7 +858,7 @@ People.AdamRussellGofton = new Male("Adam", "Russell", Gofton, Unions.JamesSharo
 };
 
 People.LisaJoanMcCreight = new Female("Lisa", "Joan", McCreight, Unions.JoanJack) {
-  Born(1959),
+  Born(1959);
   Died(1963, 10, 4)
 };
 //=====================================
@@ -860,12 +867,12 @@ People.LoriChun = new Female("Lori", null, "Chun") {
 };
 
 People.JohnCraigMcCreight = new Male("John", "Craig", McCreight, Unions.JoanJack) {
-  Picture,
+  Picture;
   Born(1962, 7, 2)
 };
 
 Unions.LoriJohn = new Union(LoriChun, JohnCraigMcCreight) {
-  Married(2005, 6, 25),
+  Married(2005, 6, 25);
   Divorced(2010)
 };
 //=====================================
@@ -880,14 +887,14 @@ People.AmandaMcCreight = new Female("Amanda", "Rose", McCreight, Unions.LoriJohn
 //=====================================
 
 People.CraigJohnMcCreight = new Male("Craig", "John", McCreight, Unions.JoanJack) {
-  Picture,
+  Picture;
   Born(1964, 8, 17, Places.SanBernardino)
 };
 
 People.TheresaMaryMcCreight = new Female("Theresa", "Mary", McCreight) {
-  Picture,
-  Nick("Terry"),
-  Formerly("Furlong"),
+  Picture;
+  Nick("Terry");
+  Formerly("Furlong");
   Born(1960)
 };
 
@@ -904,15 +911,15 @@ Unions.TerryCraig = new Union(TheresaMaryMcCreight, CraigJohnMcCreight) {
 //=====================================
 
 People.AlyssaMarieMcCreight = new Female("Alyssa", "Marie", McCreight) {
-  Picture,
-  Formerly("Boote"),
-  Born(1992, 12, 28),
+  Picture;
+  Formerly("Boote");
+  Born(1992, 12, 28);
 };
 
 People.ThomasDanielMcCreight = new Male("Thomas", "Daniel", McCreight, Unions.MarianneCraig) {
-  Picture,
-  Nick("Tom"),
-  Born(1993, 4, 23),
+  Picture;
+  Nick("Tom");
+  Born(1993, 4, 23);
 };
 
 Unions.AlyssaTom = new Union(AlyssaMarieMcCreight, ThomasDanielMcCreight) {
@@ -921,19 +928,19 @@ Unions.AlyssaTom = new Union(AlyssaMarieMcCreight, ThomasDanielMcCreight) {
 //=====================================
 
 People.KatherineMarieMcCreight = new Female("Katherine", "Marie", McCreight, Unions.MarianneCraig) {
-  Born(1990, 9, 6),
+  Born(1990, 9, 6);
 };
 //=====================================
 
 People.MichelleNicholeCalderoni = new Female("Michelle", "Nichole", Calderoni, Unions.MarianneCraig) {
-  Picture,
-  Formerly(McCreight),
+  Picture;
+  Formerly(McCreight);
   Born(1988, 1, 21)
 };
 
 People.RobertCalderoni = new Male("Robert", null, Calderoni) {
-  Picture,
-  Nick("Bobby"),
+  Picture;
+  Nick("Bobby");
   Born(1988, 1, 21)
 };
 
@@ -943,14 +950,14 @@ Unions.MichelleBobby = new Union(MichelleNicholeCalderoni, RobertCalderoni) {
 //=====================================
 
 People.ShawnHamillMcCreight = new Male("Shawn", Hamill, McCreight, Unions.JoanJack) {
-  Picture,
+  Picture;
   Born(1966, 2, 5, Places.SanBernardino)
 };
 
 People.JenniferLynnMcCreight = new Female("Jennifer", "Lynn", McCreight, Unions.CharlotteCharlesWion) {
-  Picture,
+  Picture;
   Nick("Jen")
-  Formerly("Wion"),
+  Formerly("Wion");
   Born(1968, 2, 16)
 };
 
@@ -960,37 +967,37 @@ Unions.JenniferShawn = new Union(JenniferLynnMcCreight, ShawnHamillMcCreight) {
 //=====================================
 
 People.MeganCharlotteMcCreight = new Female("Megan", "Charlotte", McCreight, Unions.JenniferShawn) {
-  Picture,
-  Born(1999, 1, 14, Places.Pasadena),
+  Picture;
+  Born(1999, 1, 14, Places.Pasadena);
 };
 
 People.NolanHamillMcCreight = new Male("Nolan", Hamill, McCreight, Unions.JenniferShawn) {
-  Picture,
-  Born(2001, 7, 30, Places.Pasadena),
+  Picture;
+  Born(2001, 7, 30, Places.Pasadena);
 };
 
 People.LaurenLynnMcCreight = new Female("Lauren", "Lynn", McCreight, Unions.JenniferShawn) {
-  Picture,
-  Born(2004, 7, 26, Places.Pasadena),
+  Picture;
+  Born(2004, 7, 26, Places.Pasadena);
 };
 
 People.ShannonReneeMcCreight = new Female("Shannon", "Renee", McCreight, Unions.JoanJack) {
-  Picture,
+  Picture;
   Born(1968, 8, 10, Places.SanBernardino)
 };
 //=====================================
 
 People.LisaLouiseMcCreight = new Female("Lisa", "Louise", McCreight) {
-  Born(1966, 8, 16),
+  Born(1966, 8, 16);
   //edward evelen
-  Formerly("Huber"),
-  Picture,
+  Formerly("Huber");
+  Picture;
 };
 
 People.ClaytonAlanMcCreight = new Male("Clayton", "Alan", McCreight, Unions.JanetRalph) {
-  Nick("Clay"),
-  Born(1963, 4, 4),
-  Picture,
+  Nick("Clay");
+  Born(1963, 4, 4);
+  Picture;
 };
 
 Unions.LisaClay = new Union(LisaLouiseMcCreight, ClaytonAlanMcCreight) {
@@ -999,13 +1006,13 @@ Unions.LisaClay = new Union(LisaLouiseMcCreight, ClaytonAlanMcCreight) {
 //=====================================
 
 People.RanaedaMarieYuncker = new Female("Ranaeda", "Marie", Yuncker, Unions.LisaClay) {
-  Formerly(McCreight),
-  Born(1988, 6, 10),
+  Formerly(McCreight);
+  Born(1988, 6, 10);
   Picture
 };
 
 People.AnthonyYuncker = new Male("Anthony", "Francis", Yuncker) {
-  Born(1986, 7, 1),
+  Born(1986, 7, 1);
   Picture
 };
 
@@ -1015,29 +1022,29 @@ Unions.RenaedaAnthony = new Union(RanaedaMarieYuncker, AnthonyYuncker) {
 //=====================================
 
 People.ScarletteYuncker = new Female("Scarlett", "Mae", Yuncker, Unions.RenaedaAnthony) {
-  Born(2018, 9, 9),
+  Born(2018, 9, 9);
   Picture
 };
 
 People.AmeliaMcCreight = new Female("Amelia", "Mae", McCreight, Unions.LisaClay) {
-  Born(1990, 6, 11),
+  Born(1990, 6, 11);
   Picture
 };
 
 People.KathyAnneMcCreight = new Female("Kathy", "Anne", McCreight, Unions.JanetRalph) {
-  Picture,
-  Born(1961, 7, 13),
+  Picture;
+  Born(1961, 7, 13);
 };
 //=====================================
 
 People.JamesRobertGofton = new Male("James", "Robert", Gofton, Unions.FloBob) {
-  Nick("Jim"),
-  Picture,
-  Born(1951, 12, 17),
+  Nick("Jim");
+  Picture;
+  Born(1951, 12, 17);
 };
 
 People.SharonParks = new Female("Sharon", "Kay", "Parks") {
-  Nick("Shari"),
+  Nick("Shari");
 };
 
 People.MollyJohnson = new Female("Molly", null, "Johnson");
@@ -1058,7 +1065,7 @@ Unions.DebbieGoftonJamesGofton = new Union(DebbieGofton, JamesRobertGofton);
 //=====================================
 
 People.JoannMarieVarner = new Female("JoAnn", "Marie", Varner, Unions.FloBob) {
-  Formerly(Gofton),
+  Formerly(Gofton);
 };
 
 People.TobyVarner = new Male("Toby", null, Varner) {

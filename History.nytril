@@ -31,7 +31,7 @@ with Metrics {
 //=============================================================================================================
 
 Picture = {
-  HasPicture: true,
+  HasPicture: true;
 };
 
 Nick(name) = {
@@ -52,33 +52,33 @@ Divorced(year, month=null, day=null) = {
 DatePlace(year, month, day, place) = {
   if (year)
     Date: DateTime(year, month, day);
-  Place: place,
+  Place: place;
 };
 
 Born(year, month=null, day=null, place=null)    = DatePlace(year, month, day, place);
 Married(year, month=null, day=null, place=null) = DatePlace(year, month, day, place);
 
 Formerly(name) = {
-  Ne: name,
+  Nee: name;
 };
 
 AddPlace(city, state, country=null) = {
-  Country: country ?? "USA",
-  City: city,
+  Country: country ?? "USA";
+  City: city;
   State: state
 };
 
 ListPeople(list) = Span {
   Span {
-    Separator: ", ",
-    LastSeparator: " and ",
-    (each list).ShowLink,
-  },
+    Separator: ", ";
+    LastSeparator: " and ";
+    (each list).ShowLink;
+  };
 };
 
 Attendees(begin, list, end=null) = Span {
-  begin,
-  ListPeople(list),
+  begin;
+  ListPeople(list);
   end ?? ". "
 };
 
@@ -129,7 +129,7 @@ abstract class EventClass {
   abstract DrawTimeline;
 
   virtual AddEvent(list) {
-    list.Add(this)
+    list.Add(this);
   }
 
   virtual DrawListing(level) {
@@ -147,8 +147,8 @@ abstract class EventClass {
   ImagePath = IO.Folders.Main IO.FileName(this.Name) IO.Extensions.JPG;
 
   AddPicture(size) = IO.Read(ImagePath) {
-    Size: size,
-    Proportional: true
+    Size: size;
+    Proportional: true;
   };
 }
 //===============================================================================================================
@@ -159,7 +159,7 @@ class PersonClass: EventClass {
       First,
       Middle,
       Last,
-      Ne,
+      Nee,
       NickName,
       DeathDateUnknown;
 
@@ -184,106 +184,106 @@ class PersonClass: EventClass {
   };
 
   override DrawTimeline = {
-    ShowFullLink(false),
-    Space,
+    ShowFullLink(false);
+    Space;
     "was born"
   };
 
   override DrawListing(level) = Styles.LevelPar(level, false) {
-    ShowListing,
+    ShowListing;
   };
 
   override ShowFullEvent = Block {
     if (HasPicture) {
       Paragraph {
-        SpaceAfter: 10 pts,
+        SpaceAfter: 10 pts;
         Group {
-          Padding: 2 pts,
-          VAlign: VAligns.Top,
+          Padding: 2 pts;
+          VAlign: VAligns.Top;
           Frame {
-            Width: Metrics.Content.Width - Metrics.PersonPicture.Width,
+            Width: Metrics.Content.Width - Metrics.PersonPicture.Width;
             Block {
-              ShowFullPersonData,
-            },
-          },
-          AddPicture(Metrics.PersonPicture),
+              ShowFullPersonData;
+            };
+          };
+          AddPicture(Metrics.PersonPicture);
         }
       }
     }
     else {
-      ShowFullPersonData,
-      Paragraph,
+      ShowFullPersonData;
+      Paragraph;
     }
   };
 
   ShowFullName(former) = Span {
-    Separator: Space,
-    First,
-    Middle,
+    Separator: Space;
+    First;
+    Middle;
     if (former)
-      Ne ?? Last;
+      Nee ?? Last;
     else
       Last;
   };
 
   ShowFullLink(former) = ShowFullName(former) {
-    Link: Key,
-    Popup: ref Popup,
+    Link: Key;
+    Popup: ref Popup;
   };
 
   ShowListing = Span {
-    Icon,
-    Space,
-    ShowFullLink(false),
-    if (Ne)
-      " (né {0})"(Ne);
+    Icon;
+    Space;
+    ShowFullLink(false);
+    if (Nee)
+      " (neé {0})"(Nee);
 
     if (Death) {
       Span {
-        TextColor: Colors.DarkGray,
-        Styles.TextDate(", died ", Death),
+        TextColor: Colors.DarkGray;
+        Styles.TextDate(", died ", Death);
       }
     }
   };
 
   TreePerson(parent) = Group {
-    VAlign: VAligns.Center,
+    VAlign: VAligns.Center;
     Span {
       Span {
         if (parent == Parent)
           TextColor: Colors.White;
         else
           TextColor: Metrics.IconColor;
-        Icon,
-      },
-      Space,
-      Link: Key,
-      Popup: ref Popup,
-      NickName ?? First,
+        Icon;
+      };
+      Space;
+      Link: Key;
+      Popup: ref Popup;
+      NickName ?? First;
     }
   };
 
   ShowFullPersonData = Block {
     FullPar {
-      LocationMark: Key,
-      LeftIndent: Metrics.LevelIndent,
-      FirstIndent: -Metrics.LevelIndent,
-      TextHeight: 16 pts,
-      Icon,
-      Tab,
+      LocationMark: Key;
+      LeftIndent: Metrics.LevelIndent;
+      FirstIndent: -Metrics.LevelIndent;
+      TextHeight: 16 pts;
+      Icon;
+      Tab;
       ShowFullName(false) {
         if (NickName) {
           Span {
-            " - \"",
-            NickName,
+            " - \"";
+            NickName;
             "\""
-          },
+          };
         }
-      },
-    },
-    if (Ne) {
+      };
+    };
+    if (Nee) {
       FullPar {
-        Italic "né ",
+        Italic "neé ";
         ShowFullName(true)
       }
     }
@@ -291,14 +291,14 @@ class PersonClass: EventClass {
     if (Date) {
       if (DeathDateUnknown) {
         FullPar {
-          "Unknown time of death",
+          "Unknown time of death";
         }
       }
       else {
         if (not Death and (Metrics.CurrentDate - Date).Years < 100) {
           FullPar {
             "{0} years old"(Math.Floor((Metrics.CurrentDate - Date).Years))
-          },
+          };
         }
       }
       FullPar {
@@ -306,19 +306,19 @@ class PersonClass: EventClass {
           Styles.TextDate("Born ", Date);
 
         if (Death) {
-          LineBreak,
+          LineBreak;
           Styles.DiedAge(this)
         }
 
         if (Place) {
-          " in ",
-          Styles.ShowPlace(Place),
+          " in ";
+          Styles.ShowPlace(Place);
         }
-      },
+      };
     }
 
-    Parent?.ShowParents,
-    ShowChildren,
+    Parent?.ShowParents;
+    ShowChildren;
   };
 
   ShowChildren {
@@ -327,11 +327,11 @@ class PersonClass: EventClass {
       var children = CollectChildren(People, unions[0]);
       if (children.Length > 0) {
         return FullPar {
-          "Children: ",
+          "Children: ";
           Span {
-            Separator: ", ",
-            LastSeparator: " and ",
-            (each children).ShowFullLink(false),
+            Separator: ", ";
+            LastSeparator: " and ";
+            (each children).ShowFullLink(false);
           }
         };
       }
@@ -341,18 +341,18 @@ class PersonClass: EventClass {
   }
 
   PortraitFrame(angle) = Canvas {
-    BorderT: 4 pts {Color: TopColor..BottomColor {Vertical: true}},
-    BorderLR: 4 pts {Color: TopColor..BottomColor},
-    BorderB: 4 pts {Color: TopColor..BottomColor {Vertical: true}},
+    BorderT: 4 pts {Color: TopColor..BottomColor {Vertical: true}};
+    BorderLR: 4 pts {Color: TopColor..BottomColor};
+    BorderB: 4 pts {Color: TopColor..BottomColor {Vertical: true}};
 
-    Transform: Rotate(angle) Skew(angle, angle),
-    TransformFit: true,
+    Transform: Rotate(angle) Skew(angle, angle);
+    TransformFit: true;
     IO.Read(ImagePath) {
-      Link: Key,
-      Popup: ref Popup,
-      Size: Size(Metrics.PortraitHeight),
-      Proportional: true,
-    },
+      Link: Key;
+      Popup: ref Popup;
+      Size: Size(Metrics.PortraitHeight);
+      Proportional: true;
+    };
   };
 
   Popup = Frame {
@@ -360,14 +360,14 @@ class PersonClass: EventClass {
       Width: Metrics.Content.Width;
     else
       Width: Metrics.Content.Width - Metrics.PersonPicture.Width;
-    ShowFullEvent,
+    ShowFullEvent;
   };
 
   ShowLink(text=null) = Span {
-    Link: Key,
-    Popup: ref Popup,
-    TextColor: Colors.Blue,
-    text ?? (NickName ?? First)
+    Link: Key;
+    Popup: ref Popup;
+    TextColor: Colors.Blue;
+    text ?? (NickName ?? First);
   };
 }
 //===============================================================================================================
@@ -401,11 +401,11 @@ class Union: EventClass {
 
   override FormatNode(parent) = {
     Marker: Group {
-      Vertical: true,
-      Background: Metrics.BoxColor,
-      Partner1.TreePerson(parent),
-      Partner2.TreePerson(parent),
-    }
+      Vertical: true;
+      Background: Metrics.BoxColor;
+      Partner1.TreePerson(parent);
+      Partner2.TreePerson(parent);
+    };
   };
 
   override FindChildren(set, parent) {
@@ -415,56 +415,56 @@ class Union: EventClass {
   }
 
   override DrawTimeline = {
-    Partner1.ShowFullLink(true),
-    Space,
-    "married",
-    Space,
-    Partner2.ShowFullLink(true),
+    Partner1.ShowFullLink(true);
+    Space;
+    "married";
+    Space;
+    Partner2.ShowFullLink(true);
   };
 
   override DrawListing(level) = Block {
     Styles.LevelPar(level) {
-      Partner1.ShowListing,
-    },
+      Partner1.ShowListing;
+    };
     Styles.LevelPar(level) {
-      Tab,
+      Tab;
       Span {
-        Icon,
-        Space,
+        Icon;
+        Space;
         TextColor: Metrics.IconColor
-      },
-      Styles.TextDate(Space, Date),
-    },
+      };
+      Styles.TextDate(Space, Date);
+    };
     Styles.LevelPar(level) {
-      Partner2.ShowListing,
+      Partner2.ShowListing;
     }
   };
 
   Title = Span {
-    Partner1.ShowFullName(false),
-    " and ",
-    Partner2.ShowFullName(false),
+    Partner1.ShowFullName(false);
+    " and ";
+    Partner2.ShowFullName(false);
   };
 
   override ShowParents = FullPar {
-    "Parents: ",
+    "Parents: ";
     if (Partner1) {
-      Partner1.ShowFullLink(false),
-      " and ",
+      Partner1.ShowFullLink(false);
+      " and ";
     }
     Partner2?.ShowFullLink(false)
   };
 
   ShowPortrait = Group {
-    VAlign: VAligns.Top,
-    Partner1.PortraitFrame(-Metrics.PortraitAngle),
+    VAlign: VAligns.Top;
+    Partner1.PortraitFrame(-Metrics.PortraitAngle);
     Canvas {
-      MarginTB: 8 pts,
-      Width: 2 pts,
-      Height: Metrics.PortraitHeight - 8 pts,
-      Background: 60%,
-    },
-    Partner2.PortraitFrame(Metrics.PortraitAngle),
+      MarginTB: 8 pts;
+      Width: 2 pts;
+      Height: Metrics.PortraitHeight - 8 pts;
+      Background: 60%;
+    };
+    Partner2.PortraitFrame(Metrics.PortraitAngle);
   };
 }
 //===============================================================================================================
@@ -479,8 +479,8 @@ class PassingClass: EventClass {
   }
 
   override DrawTimeline = Span {
-    Person.ShowFullLink(false),
-    " died",
+    Person.ShowFullLink(false);
+    " died";
     Styles.DiedAtAge(Person)
   };
 }
@@ -499,45 +499,45 @@ class Story: EventClass {
   }
 
   override DrawTimeline = Span {
-    Popup: ref Popup,
-    Link: Key,
-    Title,
+    Popup: ref Popup;
+    Link: Key;
+    Title;
   };
 
   Popup = Frame {
-    Width: Metrics.StoryPicture.Width,
-    ShowFullEvent,
+    Width: Metrics.StoryPicture.Width;
+    ShowFullEvent;
   };
 
   override ShowFullEvent = Block {
     Paragraph {
-      KeepWithNext: true,
-      SpaceBefore: 16 pts,
-      ParBackground: 90%,
-      LocationMark: Key,
+      KeepWithNext: true;
+      SpaceBefore: 16 pts;
+      ParBackground: 90%;
+      LocationMark: Key;
       if (Date) {
-        Styles.ShowDate(Date),
-        ": ",
+        Styles.ShowDate(Date);
+        ": ";
       }
       Span {
-        Bold, Italic,
-        Title
-      },
+        Bold Italic;
+        Title;
+      };
       if (ToldBy) {
-        " as told by ",
+        " as told by ";
         ToldBy.ShowFullLink(false)
       }
-    },
+    };
     if (HasPicture) {
       Paragraph {
         Text
-      },
+      };
       Paragraph {
-        AddPicture(Metrics.StoryPicture),
-      }
+        AddPicture(Metrics.StoryPicture);
+      };
     }
     else
-      Text
+      Text;
   };
 }
 //============================================================================================================
@@ -546,24 +546,24 @@ class Story: EventClass {
 
 with Styles {
   Header1(text) = Paragraph {
-    TextHeight: 18 pts,
-    SpaceAfter: 12 pts,
-    Bold,
+    TextHeight: 18 pts;
+    SpaceAfter: 12 pts;
+    Bold;
     text
   };
 
   Header2(text) = Paragraph {
-    BorderB: 0.5,
-    TextFamily: TextFamilies.Garamond,
-    TextHeight: 16 pts,
-    SpaceBefore: 12 pts,
-    SpaceAfter: 6 pts,
-    Bold,
+    BorderB: 0.5;
+    TextFamily: TextFamilies.Garamond;
+    TextHeight: 16 pts;
+    SpaceBefore: 12 pts;
+    SpaceAfter: 6 pts;
+    Bold;
     text
   };
 
   TextIcon(text) = Span {
-    TextFamily: TextFamilies.CambriaMath,
+    TextFamily: TextFamilies.CambriaMath;
     text
   };
 
@@ -576,7 +576,7 @@ with Styles {
       else
         TextFormat: "MMMM dd, yyyy";
     }
-    d,
+    d;
   };
 
   TimelineDate(d) = Span {
@@ -586,15 +586,15 @@ with Styles {
       TextFormat: "yyyy, MMMM";
     else
       TextFormat: "yyyy, MMMM dd";
-    d,
+    d;
   };
 
   TextDate(text, d) {
     if (d) {
       return Span {
-        text,
-        Space,
-        ShowDate(d),
+        text;
+        Space;
+        ShowDate(d);
       };
     }
     else
@@ -602,13 +602,13 @@ with Styles {
   }
 
   ShowPlace(place) = Span {
-    place.City,
-    ", ",
-    place.State,
+    place.City;
+    ", ";
+    place.State;
   };
 
   DiedAge(person) = Span {
-    TextDate("Died ", person.Death),
+    TextDate("Died ", person.Death);
     if (person.Date)
       DiedAtAge(person);
   };
@@ -618,20 +618,20 @@ with Styles {
   };
 
   LevelPar(level, border=true) = Paragraph {
-    LeftIndent: level*Metrics.LevelIndent + 12 pts,
-    FirstIndent: -12 pts,
+    LeftIndent: level*Metrics.LevelIndent + 12 pts;
+    FirstIndent: -12 pts;
     if (border)
-      BorderL: 3 pts {Color: 90%, Padding: 3 pts};
+      BorderL: 3 pts {Color: 90%; Padding: 3 pts};
   };
 
   Story = Paragraph {
-    FirstIndent: 16 pts,
+    FirstIndent: 16 pts;
   };
 }
 //============================================================================================================
 
 FullPar = Paragraph {
-  LeftIndent: Metrics.LevelIndent,
+  LeftIndent: Metrics.LevelIndent;
 };
 //============================================================================================================
 // Timeline
@@ -649,24 +649,24 @@ with Timeline {
     var x    = InnerWidth * frac;
     if (frac > 0.5) {
       return Canvas {
-        Y: RowHeight * EachIndex,
-        Width: x,
-        HAlign: HAligns.Right,
+        Y: RowHeight * EachIndex;
+        Width: x;
+        HAlign: HAligns.Right;
         Span {
-          event.DrawTimeline,
-          Space,
-          event.Icon {TextColor: Metrics.IconColor},
+          event.DrawTimeline;
+          Space;
+          event.Icon {TextColor: Metrics.IconColor};
         }
       };
     }
     else {
       return Canvas {
-        X: x,
-        Y: RowHeight * EachIndex,
+        X: x;
+        Y: RowHeight * EachIndex;
         Span {
-          event.Icon {TextColor: Metrics.IconColor},
-          Space,
-          event.DrawTimeline
+          event.Icon {TextColor: Metrics.IconColor};
+          Space;
+          event.DrawTimeline;
         }
       };
     }
@@ -677,43 +677,43 @@ with Timeline {
     var yearend    = (Math.Floor(events.LastElement.Date.Year + 9) div 10) * 10; // Round up to the nearest 10 years
 
     return Paragraph {
-      SpaceAfter: 10 pts,
+      SpaceAfter: 10 pts;
       Group {
-        Vertical: true,
+        Vertical: true;
         Group {
-          Vertical: true,
+          Vertical: true;
           ChartAxis {
-            Width: MaxWidth,
-            Start: yearstart,
-            Stop: yearend,
-          },
-        },
+            Width: MaxWidth;
+            Start: yearstart;
+            Stop: yearend;
+          };
+        };
         Canvas {
-          X: Edge,
-          Width: InnerWidth,
-          Border: 0.25 pts,
-          TextHeight: 8 pts,
-          AddEvent(each events, yearstart, yearend),
+          X: Edge;
+          Width: InnerWidth;
+          Border: 0.25 pts;
+          TextHeight: 8 pts;
+          AddEvent(each events, yearstart, yearend);
         }
       }
     };
   }
 
   AddRows(event) = Paragraph {
-    LeftIndent: Metrics.DateIndent,
-    FirstIndent: -Metrics.DateIndent,
-    Styles.TimelineDate(event.Date),
-    Tab,
-    Tab,
-    event.Icon {TextColor: Metrics.IconColor},
-    Space,
+    LeftIndent: Metrics.DateIndent;
+    FirstIndent: -Metrics.DateIndent;
+    Styles.TimelineDate(event.Date);
+    Tab;
+    Tab;
+    event.Icon {TextColor: Metrics.IconColor};
+    Space;
     event.DrawTimeline
   };
 
   Show = DocSection("Timeline") {
-    ShowBlock(each (SortedEvents / MaxRows)),
-//    Styles.Header2("Timeline Details"),
-//    AddRows(each SortedEvents),
+    ShowBlock(each (SortedEvents / MaxRows));
+//    Styles.Header2("Timeline Details");
+//    AddRows(each SortedEvents);
   };
 }
 //============================================================================================================
@@ -726,7 +726,7 @@ CollectChildren(list, c) {
 }
 
 MakeTreeNodes(list, parent, event) = Node {
-  event.FormatNode(parent),
+  event.FormatNode(parent);
   MakeTreeNodes(list, event, each CollectChildren(list, event))
 };
 //============================================================================================================
@@ -734,13 +734,13 @@ MakeTreeNodes(list, parent, event) = Node {
 //============================================================================================================
 
 BuildListing(list, event, level) = Block {
-  event.DrawListing(level),
-  BuildListing(list, each CollectChildren(list, event), level+1),
+  event.DrawListing(level);
+  BuildListing(list, each CollectChildren(list, event), level+1);
 };
 
 WhiteCircle = Span {
-  TextFamily: TextFamilies.CambriaMath,
-  TextBackground: Colors.White,
+  TextFamily: TextFamilies.CambriaMath;
+  TextBackground: Colors.White;
   Chars.WhiteCircle
 };
 
@@ -750,109 +750,111 @@ Leaf = Node {
 
 IconTree = Node {
   Node {
-    Leaf {Branch: 4},
+    Leaf {Branch: 4};
     Node {
-      Branch: 2,
-      Leaf {Branch: 2},
+      Branch: 2;
+      Leaf {Branch: 2};
       Node {
-        Leaf, Leaf
+        Leaf;
+        Leaf;
       }
     }
-  },
+  };
   Node {
-    Branch: 3,
+    Branch: 3;
     Node {
-      Leaf, Leaf
-    },
+      Leaf;
+      Leaf;
+    };
     Leaf {Branch: 2}
   }
 };
 
 HeaderFormat = Paragraph {
-  TextHeight: 10 pts,
-  TextFamily: TextFamilies.TimesNewRoman,
-  BorderBottom: 0.25 pts,
+  TextHeight: 10 pts;
+  TextFamily: TextFamilies.TimesNewRoman;
+  BorderBottom: 0.25 pts;
 };
 
 DocSection(title) = Section {
-  SectionBreak: SectionBreaks.NextPage,
+  SectionBreak: SectionBreaks.NextPage;
   Header: Block {
-    Distance: 0.5 inches,
+    Distance: 0.5 inches;
     HeaderFormat {
-      ParAlignment: ParAlignments.Right,
+      ParAlignment: ParAlignments.Right;
       title
-    },
-  },
+    };
+  };
   Footer: Block {
-    Distance: 0.5 inches,
+    Distance: 0.5 inches;
     Paragraph {
-      ParAlignment: ParAlignments.Center,
+      ParAlignment: ParAlignments.Center;
       PageNumber
-    },
-  },
+    };
+  };
 };
 
 TopColor    = 94%;
 BottomColor = 80%;
 
 ShowPortraitLine(unions) = Group {
-  Separator: Space*3,
+  Separator: Space*3;
   (each unions).ShowPortrait
 };
 
 AlbumTitlePage(title) = Section {
-  SectionBreak: SectionBreaks.NextPage,
-  ParAlignment: ParAlignments.Center,
+  SectionBreak: SectionBreaks.NextPage;
+  ParAlignment: ParAlignments.Center;
   Paragraph {
-    TextHeight: 36 pts,
-    title,
-  },
+    TextHeight: 36 pts;
+    title;
+  };
   Paragraph {
     Tree {
-      Height: 60 pts,
-      Marker: Styles.TextIcon(Chars.Square) {TextColor: Metrics.BoxColor},
-      Vertical: true,
-      Reverse: true,
-      Stroke: 2 pts {Color: Metrics.LineColor},
-      Curvature: 20%,
-      Bevel: 20%,
-      NodeGap: 20 pts,
+      Height: 60 pts;
+      Marker: Styles.TextIcon(Chars.Square) {TextColor: Metrics.BoxColor};
+      Vertical: true;
+      Reverse: true;
+      Stroke: 2 pts {Color: Metrics.LineColor};
+      Curvature: 20%;
+      Bevel: 20%;
+      NodeGap: 20 pts;
       IconTree
-    },
-  },
+    };
+  };
   Paragraph {
-    TextHeight: 16 pts,
+    TextHeight: 16 pts;
     Styles.ShowDate(Metrics.CurrentDate)
-  },
+  };
   Paragraph {
     Group {
-      Vertical: true,
-      HAlign: HAligns.Center,
+      Vertical: true;
+      HAlign: HAligns.Center;
       ShowPortraitLine(each (PictureList / 4))
     }
-  },
+  };
 };
 
 ShowFamilyLine(union) = DocSection(union.Title) {
-  SectionBreak: SectionBreaks.NextPage,
-  Styles.Header2("Tree Details"),
-  BuildListing(PeopleAndUnions, union, 0),
+  SectionBreak: SectionBreaks.NextPage;
+  Styles.Header2("Tree Details");
+  BuildListing(PeopleAndUnions, union, 0);
 };
 
 ShowTree(title, line) = Section {
-  SectionBreak: SectionBreaks.NextPage,
-  Margin: Metrics.TreeMargin,
-  Styles.Header1("The Descendants of " line.Root.Title),
+  SectionBreak: SectionBreaks.NextPage;
+  Margin: Metrics.TreeMargin;
+  Styles.Header1("The Descendants of " line.Root.Title);
   Tree {
-    TextHeight: line.TextHeight,
-    NodeGap: line.NodeGap,
-    Width: Metrics.TreeContent.Width,
-    Bevel: 10%,
-    Curvature: 10%,
-    Stroke: 0.25 pts {Color: Metrics.LineColor},
-    MakeTreeNodes(PeopleAndUnions, null, line.Root),
-  },
-//  ShowFamilyLine(title, line.Root),
+    TextHeight: line.TextHeight;
+    NodeGap: line.NodeGap;
+    Width: Metrics.TreeContent.Width;
+    Bevel: 10%;
+    Curvature: 10%;
+    Stroke: 0.25 pts {Color: Metrics.LineColor};
+    MakeTreeNodes(PeopleAndUnions, null, line.Root);
+  };
+//  ShowFamilyLine(title, line.Root);
 };
 
 NameSort(p1, p2) {
@@ -863,24 +865,24 @@ NameSort(p1, p2) {
 }
 
 ShowFamilyMembers(title) = DocSection(title) {
-  Styles.Header2(title),
-  (each People.Sort(true, NameSort)).ShowFullEvent,
+  Styles.Header2(title);
+  (each People.Sort(true, NameSort)).ShowFullEvent;
 };
 
 FamilyAlbum(title, lines) = Document {
-  Size: Metrics.Paper,
-  Margin: Metrics.MainMargin,
-  AlbumTitlePage(title),
-  ShowTree(title, each lines),
+  Size: Metrics.Paper;
+  Margin: Metrics.MainMargin;
+  AlbumTitlePage(title);
+  ShowTree(title, each lines);
   if (Stories.Length > 0) {
     DocSection("Stories") {
-      Styles.Header2(title),
-      (each Stories).ShowFullEvent,
+      Styles.Header2(title);
+      (each Stories).ShowFullEvent;
     }
   }
 
-  Timeline.Show,
-  ShowFamilyMembers("Family Members"),
+  Timeline.Show;
+  ShowFamilyMembers("Family Members");
 };
 //============================================================================================================
 
