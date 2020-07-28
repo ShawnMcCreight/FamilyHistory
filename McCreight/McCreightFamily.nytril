@@ -27,18 +27,25 @@ with FamilyLines {
     TextHeight = 14 pts;
     NodeGap    = 10 pts;
   }
+
+  with WolfeLine {
+    Root       = Unions.LouisaGrandpa;
+    TextHeight = 9 pts;
+    NodeGap    = 2 pts;
+  }
 }
 //============================================================================================================
 
-McCreight = "McCreight";
-Hazelett  = "Hazelett";
-Hamill    = "Hamill";
-Yuncker   = "Yuncker";
-Gofton    = "Gofton";
-Varner    = "Varner";
-Nelson    = "Nelson";
-Jordan    = "Jordan";
 Calderoni = "Calderoni";
+Hamill    = "Hamill";
+Hazelett  = "Hazelett";
+McCreight = "McCreight";
+Gofton    = "Gofton";
+Jordan    = "Jordan";
+Nelson    = "Nelson";
+Varner    = "Varner";
+Wolfe     = "Wolfe";
+Yuncker   = "Yuncker";
 
 Pennsylvania = "Pennsylvania";
 Michigan     = "Michigan";
@@ -375,7 +382,17 @@ Stories.McCreightKerr = new Story(FlorenceJaneGofton, "McCreight-Kerr") {
   };
 };
 
+Stories.WomenOfWolfeFamily = new Story(null, "Mother Louisa and her 8 daughters", DateTime(1888)) {
+  Picture;
+  Text: Block {
+    Styles.Story {
+      "Standing: " ListPeople([HazelWolfeFrance, BessieWolfeLawrence, ViolaWolfeKnepsheild, MargretWolfeSlack]);
+      ": Sitting: " ListPeople([MollieWolfeWolfe, LottieWolfeEckersley, LouisaWolfe, EssieWolfe, BerthaPearlHazelett]);
+      ": (Not shown) are her sons: " ListPeople([OrrieHowardWolfe, ElvieLemuelWolfe, ClaueWolfe, JohnElmerWolfe]);
 
+    };
+  };
+};
 
 Stories.MajorIsraelstory = new Story(null, "Major Israel", DateTime(1888)) {
   Picture;
@@ -682,13 +699,90 @@ People.JennieAdelphiaMcCreight = new Female("Jennie", "Adelphia", McCreight, Uni
 Unions.JennieJohn = new Union(JennieAdelphiaMcCreight, JohnJamiesonMcCreight);
 //=====================================
 
-People.HarryHazelett = new Male("Harry", "White", Hazelett);
-
-People.BerthaHazelett = new Female("Bertha", "Pearl", Hazelett) {
-  Formerly("Wolfe");
+People.GrandpaWolfe = new Female("Grandpa", null, Wolfe) {
 };
 
-Unions.HarryBertha = new Union(BerthaHazelett, HarryHazelett);
+People.LouisaWolfe = new Female("Louisa", null, Wolfe) {
+  Picture;
+  Born(1862);
+  Died(1940, 6, 6);
+};
+
+Unions.LouisaGrandpa = new Union(LouisaWolfe, GrandpaWolfe);
+//=====================================
+
+People.HarryWhiteHazelett = new Male("Harry", "White", Hazelett);
+
+People.BerthaPearlHazelett = new Female("Bertha", "Pearl", Hazelett, Unions.LouisaGrandpa) {
+  Picture;
+  Born(1886, 1, 6);
+  Formerly(Wolfe);
+};
+
+Unions.HarryBertha = new Union(BerthaPearlHazelett, HarryWhiteHazelett);
+//=====================================
+
+People.MollieWolfeWolfe = new Female("Mollie", Wolfe, Wolfe, Unions.LouisaGrandpa) {
+  Picture;
+  Born(1884, 2, 5);
+  Died(1957, 12, 6);
+};
+
+People.LottieWolfeEckersley = new Female("Lottie", Wolfe, "Eckersley", Unions.LouisaGrandpa) {
+  Picture;
+  Formerly(Wolfe);
+  Born(1898, 4, 16);
+};
+
+People.EssieWolfe = new Female("Essie", null, Wolfe, Unions.LouisaGrandpa) {
+  Picture;
+  Born(1902, 7, 2);
+  Died(1963, 7, 7);
+};
+
+People.HazelWolfeFrance = new Female("Hazel", Wolfe, "France", Unions.LouisaGrandpa) {
+  Picture;
+  Formerly(Wolfe);
+  Born(1893, 9, 28);
+  Died(1961, 3, 8);
+};
+
+People.BessieWolfeLawrence = new Female("Bessie", Wolfe, "Lawrence", Unions.LouisaGrandpa) {
+  Picture;
+  Formerly(Wolfe);
+  Born(1887, 2, 20);
+};
+
+People.ViolaWolfeKnepsheild = new Female("Viola", Wolfe, "Knepsheild", Unions.LouisaGrandpa) {
+  Picture;
+  Formerly(Wolfe);
+  Born(1889, 4, 15);
+};
+
+People.MargretWolfeSlack = new Female("Margret", Wolfe, "Slack", Unions.LouisaGrandpa) {
+  Picture;
+  Formerly(Wolfe);
+  Born(1900, 5, 29);
+  Died(1964, 2, 29);
+};
+
+People.OrrieHowardWolfe = new Male("Orrie", "Howard", Wolfe, Unions.LouisaGrandpa) {
+  Born(1886, 1, 6);
+  Died(1959, 2, 21);
+};
+
+People.ElvieLemuelWolfe = new Male("Elvie", "Lemuel", Wolfe, Unions.LouisaGrandpa) {
+  Born(1882, 5, 6);
+  Died(1928, 8, 4);
+};
+
+People.ClaueWolfe = new Male("Claeie", null, Wolfe, Unions.LouisaGrandpa) {
+  Born(1892, 6, 4);
+};
+
+People.JohnElmerWolfe = new Male("John", "Elmer", Wolfe, Unions.LouisaGrandpa) {
+  Born(1896, 4, 8);
+};
 //=====================================
 
 People.AnnKatherineMcCreight = new Male("Ann", "Katherine", McCreight) {
