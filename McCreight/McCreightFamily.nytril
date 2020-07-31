@@ -342,8 +342,8 @@ Stories.MyThreeSons = new Story(FlorenceJaneGofton, "My Three Sons", DateTime(19
   Text: Block {
     Styles.Story {
        ListPeople([JamesClarkMcCreight, WendellButlerMcCreight, JohnHamillMcCreight, JennieAdelphiaMcCreight]);
-    };
-  };
+    }
+  }
 };
 
 Stories.JohnHamillAtWork = new Story(FlorenceJaneGofton, "Johnn Hamill McCreight at work") {
@@ -351,8 +351,8 @@ Stories.JohnHamillAtWork = new Story(FlorenceJaneGofton, "Johnn Hamill McCreight
   Text: Block {
     Styles.Story {
        ListPeople([JohnHamillMcCreight]) " is shown forth from the left.";
-    };
-  };
+    }
+  }
 };
 
 Stories.FlorenceAndJohnHoldingFlorenceJane = new Story(FlorenceJaneGofton, "Mom and Dad holding me as a baby") {
@@ -360,8 +360,8 @@ Stories.FlorenceAndJohnHoldingFlorenceJane = new Story(FlorenceJaneGofton, "Mom 
   Text: Block {
     Styles.Story {
        ListPeople([FlorenceGertrudeMcCreight, FlorenceJaneGofton, JohnHamillMcCreight]) ". Don't know who is standing inside.";
-    };
-  };
+    }
+  }
 };
 
 Stories.RalphFloInGroup = new Story(FlorenceJaneGofton, "Mom and Dad holding me as a baby") {
@@ -369,8 +369,8 @@ Stories.RalphFloInGroup = new Story(FlorenceJaneGofton, "Mom and Dad holding me 
   Text: Block {
     Styles.Story {
       ListPeople([ThelmaEllenFaust, RalphEmersonMcCreight, FlorenceGertrudeMcCreight, FlorenceJaneGofton, WendellButlerMcCreight]) ". Location?";
-    };
-  };
+    }
+  }
 };
 
 Stories.McCreightKerr = new Story(FlorenceJaneGofton, "McCreight-Kerr") {
@@ -378,8 +378,8 @@ Stories.McCreightKerr = new Story(FlorenceJaneGofton, "McCreight-Kerr") {
   Text: Block {
     Styles.Story {
        ListPeople([JohnHamillMcCreight, FlorenceGertrudeMcCreight, InezMargaretKerr, PeggyLeeKerr, GaryKerr]) ". Location?";
-    };
-  };
+    }
+  }
 };
 
 Stories.WomenOfWolfeFamily = new Story(null, "Mother Louisa and her 8 daughters", DateTime(1888)) {
@@ -389,9 +389,184 @@ Stories.WomenOfWolfeFamily = new Story(null, "Mother Louisa and her 8 daughters"
       "Standing: " ListPeople([HazelWolfeFrance, BessieWolfeLawrence, ViolaWolfeKnepsheild, MargretWolfeSlack]);
       ": Sitting: " ListPeople([MollieWolfeWolfe, LottieWolfeEckersley, LouisaWolfe, EssieWolfe, BerthaPearlHazelett]);
       ": (Not shown) are her sons: " ListPeople([OrrieHowardWolfe, ElvieLemuelWolfe, ClaueWolfe, JohnElmerWolfe]);
-
-    };
+    }
   };
+};
+
+Stories.FlorenceJaneAt3 = new Story(PeggyLeeNelson, "Florence Jane at 3 years", DateTime(1933)) {
+  Picture;
+  Text: Block {
+    Styles.Story {
+      ListPeople([FlorenceJaneGofton])
+    }
+  }
+};
+
+Stories.FlorenceJaneAt9 = new Story(PeggyLeeNelson, "Florence Jane at 9 years", DateTime(1939)) {
+  Picture;
+  Text: Block {
+    Styles.Story {
+      ListPeople([FlorenceJaneGofton])
+    }
+  }
+};
+
+Stories.JackFloAndRalph = new Story(PeggyLeeNelson, "Florence Jane's Siblings", DateTime(1944)) {
+  Picture;
+  Text: Block {
+    Styles.Story {
+      ListPeople([JohnHarryMcCreight, FlorenceJaneGofton, RalphEmersonMcCreight])
+    }
+  }
+};
+
+Stories.FloAndFather = new Story(PeggyLeeNelson, "Florence Jane and Dad", DateTime(1945)) {
+  Picture;
+  Text: Block {
+    Styles.Story {
+      ListPeople([FlorenceJaneGofton, JohnHamillMcCreight])
+    }
+  }
+};
+
+Stories.FlorenceJaneGraduation = new Story(PeggyLeeNelson, "Florence Jane's Graduation", DateTime(1948)) {
+  Picture;
+  Text: Block {
+    Styles.Story {
+      ListPeople([FlorenceJaneGofton])
+    }
+  }
+};
+
+Stories.FloAndBobWedding = new Story(PeggyLeeNelson, "Bob & Flo's wedding", DateTime(1950)) {
+  Picture;
+  Text: Block {
+    Styles.Story {
+      ListPeople([JohnHamillMcCreight, FlorenceGertrudeMcCreight, FlorenceJaneGofton, RobertJohnGofton, LoisLelandGofton, ClaudeGofton])
+    }
+  }
+};
+
+Stories.FloAndBob1971 = new Story(PeggyLeeNelson, "Bob & Flo's wedding", DateTime(1971)) {
+  Picture;
+  Text: Block {
+    Styles.Story {
+      ListPeople([RobertJohnGofton, FlorenceJaneGofton])
+    }
+  }
+};
+
+Stories.FloAndBob2013 = new Story(ShawnHamillMcCreight, "At Shawn's house in Pasadena", DateTime(2013)) {
+  Picture;
+  Text: Block {
+    Styles.Story {
+      ListPeople([RobertJohnGofton, FlorenceJaneGofton, ShawnHamillMcCreight]) " went to a dinner at the Twilight Club in Pasadena, CA. ";
+      "Bob was thrilled to meet the head coach of the USC football team. Bob made sure that the coach knew that he was NOT a USC fan."
+    }
+  }
+};
+
+Stories.FloAtJoshAndMeganWedding = new Story(ShawnHamillMcCreight, "Josh & Megan's wedding", DateTime(2001)) {
+  Picture;
+  Text: Block {
+    Styles.Story {
+      ListPeople([FlorenceJaneGofton]) " whooping it up!"
+    }
+  }
+};
+
+Stories.FloAndBobWithGrandkids = new Story(PeggyLeeNelson, "Flo And Bob with the grandkids", DateTime(1982)) {
+  Picture;
+  Text: Block {
+    Styles.Story {
+      ListPeople([RobertJohnGofton, CassandraMarieVarner, FlorenceJaneGofton, JoshuaLeeVarner]);
+      ". Are the others - "
+      ListPeople([LisaAnnMaroney, KevinMichaelNelson, KristyLeeJordan]) "?"
+    }
+  }
+};
+
+Stories.BobGofton1930 = new Story(PeggyLeeNelson, "Bob", DateTime(1930)) {
+  Picture;
+  Text: Block {
+    Styles.Story {
+      ListPeople([RobertJohnGofton]) "  location??"
+    }
+  }
+};
+
+Stories.FourGoftonGenerations = new Story(PeggyLeeNelson, "Four Generations of Gofton", DateTime(1927)) {
+  Picture;
+  Text: Block {
+    Styles.Story {
+      ListPeople([JohnGofton, NathanialGofton, ClaudeGofton, RobertJohnGofton])
+    }
+  }
+};
+
+Stories.GoftonFamily1959 = new Story(PeggyLeeNelson, "The Gofton Family", DateTime(1959)) {
+  Picture;
+  Text: Block {
+    Styles.Story {
+      ListPeople([RobertJohnGofton, FlorenceJaneGofton, JamesRobertGofton, JoannMarieVarner, PeggyLeeNelson]);
+    }
+  }
+};
+
+Stories.Bobs80thBirthday = new Story(PeggyLeeNelson, "Bobs80thBirthday", DateTime(2007, 3, 11)) {
+  Picture;
+  Text: Block {
+    Styles.Story {
+      ListPeople([PeggyLeeNelson, TobyVarner, JoannMarieVarner, RobertJohnGofton, FlorenceJaneGofton, JamesRobertGofton, JeffreyPNelson]) " -- Unknown Person at right";
+    }
+  }
+};
+
+Stories.BobsSiblings1935 = new Story(PeggyLeeNelson, "Bob's Siblings", DateTime(1935)) {
+  Picture;
+  Text: Block {
+    Styles.Story {
+      ListPeople([RobertJohnGofton, RichardGofton, AnnGofton]);
+    }
+  }
+};
+
+Stories.BobsSiblings2002 = new Story(PeggyLeeNelson, "Bob's Siblings", DateTime(2002)) {
+  Picture;
+  Text: Block {
+    Styles.Story {
+      ListPeople([RichardGofton, AnnGofton, RobertJohnGofton]);
+    }
+  }
+};
+
+Stories.BobAndToby1985 = new Story(PeggyLeeNelson, "Bob and Toby", DateTime(1985)) {
+  Picture;
+  Text: Block {
+    Styles.Story {
+      ListPeople([RobertJohnGofton, TobyVarner]);
+    }
+  }
+};
+
+Stories.VeteransDayCelebration2009 = new Story(PeggyLeeNelson, "Veteran's Day Celebration", DateTime(2009)) {
+  Picture;
+  Text: Block {
+    Styles.Story {
+      ListPeople([RobertJohnGofton]);
+      " in Harlan, IN with his three great grand kids ";
+      ListPeople([JustinAJordan, DelaneyNJordan, AlexisAJordan])
+    }
+  }
+};
+
+Stories.BobAtBearCreekLodge = new Story(PeggyLeeNelson, "Bob at Bear Creek Lodge, MI", DateTime(2006)) {
+  Picture;
+  Text: Block {
+    Styles.Story {
+      ListPeople([RobertJohnGofton]);
+    }
+  }
 };
 
 Stories.MajorIsraelstory = new Story(null, "Major Israel", DateTime(1888)) {
@@ -405,8 +580,8 @@ Stories.MajorIsraelstory = new Story(null, "Major Israel", DateTime(1888)) {
       "His Indian name was Tchanta Tanks. ";
       "His home in Dubois was known as \"The Wigwam\". ";
       "He was interested in genealogy and published three booklets on McCreights in the U.S. ";
-    };
-  };
+    }
+  }
 };
 
 //============================================================================================================
@@ -911,14 +1086,14 @@ Unions.FloBob = new Union(FlorenceJaneGofton, RobertJohnGofton) {
 };
 //=====================================
 
-People.CassandraVarner = new Female("Cassandra", "Marie", Varner, Unions.JoannTobey) {
+People.CassandraMarieVarner = new Female("Cassandra", "Marie", Varner, Unions.JoannTobey) {
   Nick("Cass");
   Born(1975, 4, 30);
 };
 
 People.SheriFolta = new Female("Sheri", null, "Folta");
 
-Unions.CassSheri = new Union(CassandraVarner, SheriFolta);
+Unions.CassSheri = new Union(CassandraMarieVarner, SheriFolta);
 
 //=====================================
 
@@ -1159,10 +1334,12 @@ Unions.DebbieGoftonJamesGofton = new Union(DebbieGofton, JamesRobertGofton);
 //=====================================
 
 People.JoannMarieVarner = new Female("JoAnn", "Marie", Varner, Unions.FloBob) {
+  Picture;
   Formerly(Gofton);
 };
 
 People.TobyVarner = new Male("Toby", null, Varner) {
+  Picture;
 };
 
 Unions.JoannTobey = new Union(JoannMarieVarner, TobyVarner) {

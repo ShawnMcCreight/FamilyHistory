@@ -25,7 +25,7 @@ with Metrics {
   TreeContent    = Paper - TreeMargin;
   StoryPicture   = Size(Content.Width, 2.5 inches);
   PersonPicture  = Size(1.5 inches);
-  PortraitHeight = 1 inch;
+  PortraitHeight = 1.4 inch;
   PortraitAngle  = 5 degrees;
 }
 //=============================================================================================================
@@ -512,19 +512,22 @@ class Story: EventClass {
   override ShowFullEvent = Block {
     Paragraph {
       KeepWithNext: true;
+      TabStops: [Metrics.Content.Width {Type: TabTypes.Right}];
       SpaceBefore: 16 pts;
       ParBackground: 90%;
       LocationMark: Key;
-      if (Date) {
-        Styles.ShowDate(Date);
-        ": ";
-      }
       Span {
-        Bold Italic;
+        Bold;
+        TextHeight: 14 pts;
         Title;
       };
+      if (Date) {
+        " - ";
+        Styles.ShowDate(Date);
+      }
       if (ToldBy) {
-        " as told by ";
+        Tab;
+        "by ";
         ToldBy.ShowFullLink(false)
       }
     };
@@ -797,15 +800,18 @@ DocSection(title) = Section {
 TopColor    = 94%;
 BottomColor = 80%;
 
-ShowPortraitLine(unions) = Group {
-  Separator: Space*3;
-  (each unions).ShowPortrait
+ShowPortraitLine(unions) = Paragraph {
+  Group {
+    Separator: Space*3;
+    (each unions).ShowPortrait
+  }
 };
 
 AlbumTitlePage(title) = Section {
   SectionBreak: SectionBreaks.NextPage;
   ParAlignment: ParAlignments.Center;
   Paragraph {
+    SpaceBefore: 1 inch;
     TextHeight: 36 pts;
     title;
   };
@@ -823,16 +829,11 @@ AlbumTitlePage(title) = Section {
     };
   };
   Paragraph {
+    SpaceAfter: 24 pts;
     TextHeight: 16 pts;
-    Styles.ShowDate(Metrics.CurrentDate)
+    Styles.ShowDate(Metrics.CurrentDate);
   };
-  Paragraph {
-    Group {
-      Vertical: true;
-      HAlign: HAligns.Center;
-      ShowPortraitLine(each (PictureList / 4))
-    }
-  };
+  ShowPortraitLine(each (PictureList / 3));
 };
 
 ShowFamilyLine(union) = DocSection(union.Title) {
@@ -854,7 +855,6 @@ ShowTree(title, line) = Section {
     Stroke: 0.25 pts {Color: Metrics.LineColor};
     MakeTreeNodes(PeopleAndUnions, null, line.Root);
   };
-//  ShowFamilyLine(title, line.Root);
 };
 
 NameSort(p1, p2) {

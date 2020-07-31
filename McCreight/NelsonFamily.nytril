@@ -105,10 +105,12 @@ People.JustinAJordan = new Male("Justin", "A.", Jordan, Unions.KristyJason) {
 
 People.AlexisAJordan = new Female("Alexis", "A.", Jordan, Unions.KristyJason) {
   Picture;
+  Nick("Lexi");
   Born(2000, 11, 8, Places.FortWayne);
 };
 
 People.DelaneyNJordan = new Female("Delaney", "N.", Jordan, Unions.KristyJason) {
+  Nick("Lani");
   Picture;
   Born(2003, 3, 11, Places.FortWayne);
 };
@@ -181,6 +183,7 @@ People.MargretGofton = new Female("Margret", null, Gofton, Unions.JeannieThomas)
 };
 
 People.JohnGofton = new Male("John", null, Gofton) {
+  Picture;
   Born(1848, 10, 23, Places.Oxford);
   Died(1931, 4, 26);
 };
@@ -197,6 +200,7 @@ People.MaryAGofton = new Female("Mary", "A.", Gofton) {
 };
 
 People.NathanialGofton = new Male("Nathanial", null, Gofton, Unions.MargretJohn) {
+  Picture;
   Born(1872, 1, 3, Places.Oxford);
   Died(1928, 1, 18);
 };
@@ -219,6 +223,15 @@ People.ClaudeGofton = new Male("Claude", null, Gofton, Unions.MaryNathanial) {
 
 Unions.LoisClaude = new Union(LoisLelandGofton, ClaudeGofton) {
   Married(1899, 1, 23);
+};
+
+People.RichardGofton = new Male("Richard", null, Gofton, Unions.LoisClaude) {
+  Nick("Dick");
+  Picture;
+};
+
+People.AnnGofton = new Female("Ann", null, Gofton, Unions.LoisClaude) {
+  Picture;
 };
 //============================================================================================================
 
