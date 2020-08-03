@@ -461,7 +461,7 @@ Stories.FloAndBob2013 = new Story(ShawnHamillMcCreight, "At Shawn's house in Pas
   Text: Block {
     Styles.Story {
       ListPeople([RobertJohnGofton, FlorenceJaneGofton, ShawnHamillMcCreight]) " went to a dinner at the Twilight Club in Pasadena, CA. ";
-      "Bob was thrilled to meet the head coach of the USC football team. Bob made sure that the coach knew that he was NOT a USC fan."
+      "Bob was thrilled to meet the head coach of the USC football team. Bob made sure that the coach knew that he himself was "; Bold "not"; " a USC fan."
     }
   }
 };
@@ -479,9 +479,8 @@ Stories.FloAndBobWithGrandkids = new Story(PeggyLeeNelson, "Flo And Bob with the
   Picture;
   Text: Block {
     Styles.Story {
-      ListPeople([RobertJohnGofton, CassandraMarieVarner, FlorenceJaneGofton, JoshuaLeeVarner]);
-      ". Are the others - "
-      ListPeople([LisaAnnMaroney, KevinMichaelNelson, KristyLeeJordan]) "?"
+      ListPeople([RobertJohnGofton, TylerJamesGofton]); LineBreak;
+      ListPeople([CassandraMarieVarner, FlorenceJaneGofton, KevinMichaelNelson, JoshuaLeeVarner, KristyLeeJordan])
     }
   }
 };
@@ -490,7 +489,7 @@ Stories.BobGofton1930 = new Story(PeggyLeeNelson, "Bob", DateTime(1930)) {
   Picture;
   Text: Block {
     Styles.Story {
-      ListPeople([RobertJohnGofton]) "  location??"
+      ListPeople([RobertJohnGofton]) " in Flushing, MI"
     }
   }
 };
@@ -517,7 +516,7 @@ Stories.Bobs80thBirthday = new Story(PeggyLeeNelson, "Bobs80thBirthday", DateTim
   Picture;
   Text: Block {
     Styles.Story {
-      ListPeople([PeggyLeeNelson, TobyVarner, JoannMarieVarner, RobertJohnGofton, FlorenceJaneGofton, JamesRobertGofton, JeffreyPNelson]) " -- Unknown Person at right";
+      ListPeople([PeggyLeeNelson, TobyVarner, JoannMarieVarner, RobertJohnGofton, FlorenceJaneGofton, JamesRobertGofton, JeffreyPNelson, DebbieGofton])
     }
   }
 };
@@ -555,7 +554,13 @@ Stories.VeteransDayCelebration2009 = new Story(PeggyLeeNelson, "Veteran's Day Ce
     Styles.Story {
       ListPeople([RobertJohnGofton]);
       " in Harlan, IN with his three great grand kids ";
-      ListPeople([JustinAJordan, DelaneyNJordan, AlexisAJordan])
+      ListPeople([DelaneyNJordan, AlexisAJordan, JustinAJordan]); ". ";
+      "He was thrilled that Justin called him to come to his school for the celebration. ";
+      "H borrowed Toby's old Navy uniform for that day. ";
+      "He walk in the gym of the school so proud, and he's chest popped out some, when some of the other Vets, said to him \"Wow you can still fit in your uniform?\" "
+      "Dad would laugh and was honest, \"Nope, it belongs to my son in law.\" "
+      "He had tears in his eyes several times that day. He was so proud of serving his country.";
+
     }
   }
 };
