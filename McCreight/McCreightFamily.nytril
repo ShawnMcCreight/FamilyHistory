@@ -86,42 +86,39 @@ with Places {
 
 Stories.AlyssaTomWedding = new Story(null, "The wedding of Alyssa and Tom", Unions.AlyssaTom.Date) {
   Picture;
-  Text: Block {
-    Styles.Story {
-      "The wedding of " ListPeople([ThomasDanielMcCreight, AlyssaMarieMcCreight]) " took place at St. Joseph Catholic Church in Dexter, Michigan. ";
-      "It was a beautiful ceremony, and the reception took place in fancy converted barn. ";
-      "It was also the occasion for a big McCreight-Gofton family reunion. ";
-    }
+  Text: Styles.Story {
+    "The wedding of " ListPeople([ThomasDanielMcCreight, AlyssaMarieMcCreight]) " took place at St. Joseph Catholic Church in Dexter, Michigan. ";
+    "It was a beautiful ceremony, and the reception took place in fancy converted barn. ";
+    "It was also the occasion for a big McCreight-Gofton family reunion. ";
   }
 };
 
 Stories.WeddingReunion2020 = new Story(ShawnHamillMcCreight, "Reunion at JoAnn and Toby's place", DateTime(2020, 7, 11)) {
   Picture;
-  Text: Block {
-    Styles.Story {
-      "The day after the wedding, we got together at the home of " ListPeople([JoannMarieVarner, TobyVarner]) " for an afternoon of food, games and great conversation. ";
-      FlorenceJaneGofton.ShowLink("Aunt Flo") " was the guest of honor. "
-      Attendees("Pictured, from the top left ", [
-        KathyAnneMcCreight,
-        JenniferLynnMcCreight,
-        CraigJohnMcCreight,
-        TheresaMaryMcCreight,
-        JeffreyPNelson,
-        TobyVarner,
-        JohnCraigMcCreight,
-        JoannMarieVarner,
-        NolanHamillMcCreight,
-        LaurenLynnMcCreight,
-        MeganCharlotteMcCreight,
-        PeggyLeeNelson,
-        FlorenceJaneGofton,
-        ShawnHamillMcCreight,
-        MichelleNicholeCalderoni,
-        ShannonReneeMcCreight,
-        ClaytonAlanMcCreight,
-        LisaLouiseMcCreight,
-      ]);
-    }
+  Text: Styles.Story {
+    "The day after the wedding, we got together at the home of " ListPeople([JoannMarieVarner, TobyVarner]) " for an afternoon of food, games and great conversation. ";
+    FlorenceJaneGofton.ShowLink("Aunt Flo") " was the guest of honor. "
+    "Pictured, from the top left ";
+    ListPeople([
+      KathyAnneMcCreight,
+      JenniferLynnMcCreight,
+      CraigJohnMcCreight,
+      TheresaMaryMcCreight,
+      JeffreyPNelson,
+      TobyVarner,
+      JohnCraigMcCreight,
+      JoannMarieVarner,
+      NolanHamillMcCreight,
+      LaurenLynnMcCreight,
+      MeganCharlotteMcCreight,
+      PeggyLeeNelson,
+      FlorenceJaneGofton,
+      ShawnHamillMcCreight,
+      MichelleNicholeCalderoni,
+      ShannonReneeMcCreight,
+      ClaytonAlanMcCreight,
+      LisaLouiseMcCreight,
+    ]);
   }
 };
 
@@ -135,31 +132,27 @@ Stories.SnowmobileTrip1 = new Story(ShawnHamillMcCreight, "First Annual Michigan
 };
 
 Stories.LostCousin = new Story(FlorenceJaneGofton, "My Long Lost Cousin", DateTime(1939)) {
-  Text: Block {
-    Styles.Story {
-      "It was 1939 and I was in the 4th grade. ";
-      "I had to walk a mile to school because in the old days we didn't have buses. ";
-      "We had to take our lunch and after we ate, we could go out on the playground. ";
-      "While I was out there I saw a girl sitting under a tree. ";
-      "I found out that she had stepped on a needle and it broke off in her foot. ";
-    };
-    Styles.Story {
-      "We exchanged names and I told her that my last name was 'McCreight'. ";
-      "Her name was Leone Phillips. She said that was her aunt's name.  ";
-      "The aunt (Mary McCreight) lived with them. Leone's mother was Mary's sister. ";
-      "Leone and I were in different 4th grade rooms, but we became very good friends and I stood up in her wedding and kept in touch until she passed away with cancer. ";
-    };
-    Styles.Story {
-      "We both went home and told our parents and my folks invited them to dinner. "
-      "Years before my Grandfather had a falling out with his brothers over a bank deal and consequently my ";
-       JohnHamillMcCreight.ShowLink("Dad");
-       " never met his aunts, uncles or cousins.  ";
-      "These two ladies were my Dad's first cousins and they all went to DuBois, PA to meet ";
-      MajorIsraelMcCreight.ShowLink("Major McCreight");
-      ",  and some of the family. ";
-      "Needless to say Dad did spend more time with Major's family over the years. ";
-    };
-  };
+  Text: Styles.Story {
+    "It was 1939 and I was in the 4th grade. ";
+    "I had to walk a mile to school because in the old days we didn't have buses. ";
+    "We had to take our lunch and after we ate, we could go out on the playground. ";
+    "While I was out there I saw a girl sitting under a tree. ";
+    "I found out that she had stepped on a needle and it broke off in her foot. ";
+    LineBreak;
+    "We exchanged names and I told her that my last name was 'McCreight'. ";
+    "Her name was Leone Phillips. She said that was her aunt's name.  ";
+    "The aunt (Mary McCreight) lived with them. Leone's mother was Mary's sister. ";
+    "Leone and I were in different 4th grade rooms, but we became very good friends and I stood up in her wedding and kept in touch until she passed away with cancer. ";
+    LineBreak;
+    "We both went home and told our parents and my folks invited them to dinner. "
+    "Years before my Grandfather had a falling out with his brothers over a bank deal and consequently my ";
+     JohnHamillMcCreight.ShowLink("Dad");
+     " never met his aunts, uncles or cousins.  ";
+    "These two ladies were my Dad's first cousins and they all went to DuBois, PA to meet ";
+    MajorIsraelMcCreight.ShowLink("Major McCreight");
+    ",  and some of the family. ";
+    "Needless to say Dad did spend more time with Major's family over the years. ";
+  }
 };
 
 Stories.BobSnowPlow = new Story(FlorenceJaneGofton, "Poor Man's Snow Plow", DateTime(2013, 1, 26)) {
@@ -225,225 +218,179 @@ Stories.WhiteHouseTrip = new Story(FlorenceJaneGofton, "Trip to the White House"
 
 Stories.McCreightHeadstone = new Story(KathyAnneMcCreight, "McCreight Headstone", DateTime(1954, 7)) {
   Picture;
-  Text: Block {
-    Styles.Story {
-      "The headstone of "  ListPeople([JohnJamiesonMcCreight, JennieAdelphiaMcCreight]) ". ";
-      "The identity of the person in the photo is not known. ";
-    };
-  };
+  Text: Styles.Story {
+    "The headstone of "  ListPeople([JohnJamiesonMcCreight, JennieAdelphiaMcCreight]) ". ";
+    "The identity of the person in the photo is not known. ";
+  }
 };
 
 Stories.KerrFamily = new Story(FlorenceJaneGofton, "Inez Kerr Family") {
   Picture;
-  Text: Block {
-    Styles.Story {
-      "The family of " ListPeople([InezMargaretKerr, ClarenceGrantKerr]) " outside their house in Redlands, CA? ";
-      "Jack in uniform, Vera May, ?, Betty Jane. The two little ones are ";
-      ListPeople([PeggyLeeKerr, GaryKerr]) ". ";
-    };
-  };
+  Text: Styles.Story {
+    "The family of " ListPeople([InezMargaretKerr, ClarenceGrantKerr]) " outside their house in Redlands, CA? ";
+    "Jack in uniform, Vera May, ?, Betty Jane. The two little ones are ";
+    ListPeople([PeggyLeeKerr, GaryKerr]) ". ";
+  }
 };
 
 Stories.InezAt9 = new Story(KathyAnneMcCreight, "Inez at 9 years old", DateTime(1911)) {
   Picture;
-  Text: Block {
-    Styles.Story {
-      ListPeople([InezMargaretKerr]);
-      " at 9 years old";
-    };
+  Text: Styles.Story {
+    ListPeople([InezMargaretKerr]);
+    " at 9 years old";
   };
 };
 
 Stories.JimArmyPicture = new Story(KathyAnneMcCreight, "", DateTime(1942)) {
   Picture;
-  Text: Block {
-    Styles.Story {
-       "I think this is " JamesClarkMcCreight.ShowLink("Uncle Jim") ", " JohnHamillMcCreight.ShowLink("Grandpa’s") " brother.";
-    };
+  Text: Styles.Story {
+    "I think this is " JamesClarkMcCreight.ShowLink("Uncle Jim") ", " JohnHamillMcCreight.ShowLink("Grandpa’s") " brother.";
   };
 };
 
 Stories.AnnAndWendleMcCreight = new Story(KathyAnneMcCreight, "", DateTime(1942)) {
   Picture;
-  Text: Block {
-    Styles.Story {
-       ListPeople([AnnKatherineMcCreight, WendellButlerMcCreight])
-    };
-  };
+  Text: Styles.Story {
+    ListPeople([AnnKatherineMcCreight, WendellButlerMcCreight])
+  }
 };
 
 Stories.JamesClarkPostcard = new Story(KathyAnneMcCreight, "James Clark McCreight postcard", DateTime(1942, 11, 18)) {
   Picture;
-  Text: Block {
-    Styles.Story {
-      ListPeople([JamesClarkMcCreight]) " in a postcard home.";
-    };
-  };
+  Text: Styles.Story {
+    ListPeople([JamesClarkMcCreight]) " in a postcard home.";
+  }
 };
 
 Stories.AnnAndThelmaMcCreight = new Story(KathyAnneMcCreight, "Ann and Thelma McCreight") {
   Picture;
-  Text: Block {
-    Styles.Story {
-       ListPeople([AnnKatherineMcCreight, ThelmaEllenFaust]) " were sister-in-laws and the wives of ";
-       ListPeople([WendellButlerMcCreight, JamesClarkMcCreight]) ", respectively. ";
-      "I remember meeting both of them. Ann was blind, but still living in her house when we went to visit.";
-    };
-  };
+  Text: Styles.Story {
+    ListPeople([AnnKatherineMcCreight, ThelmaEllenFaust]) " were sister-in-laws and the wives of ";
+    ListPeople([WendellButlerMcCreight, JamesClarkMcCreight]) ", respectively. ";
+    "I remember meeting both of them. Ann was blind, but still living in her house when we went to visit.";
+  }
 };
 
 Stories.JennieAndChildren = new Story(KathyAnneMcCreight, "Jennie McCreight and children", DateTime(1911, 7)) {
   Picture;
-  Text: Block {
-    Styles.Story {
-       ListPeople([JennieAdelphiaMcCreight, JohnHamillMcCreight, WendellButlerMcCreight, InezMargaretKerr]);
-    };
-  };
+  Text: Styles.Story {
+    ListPeople([JennieAdelphiaMcCreight, JohnHamillMcCreight, WendellButlerMcCreight, InezMargaretKerr]);
+  }
 };
 
 Stories.JohnAndFlorenceMcCreight = new Story(KathyAnneMcCreight, "John and Florence McCreight", DateTime(1901, 7)) {
   Picture;
-  Text: Block {
-    Styles.Story {
-       "Rare photo of "; ListPeople([FlorenceGertrudeMcCreight, JohnHamillMcCreight]); " together.";
-    };
+  Text: Styles.Story {
+    "Rare photo of "; ListPeople([FlorenceGertrudeMcCreight, JohnHamillMcCreight]); " together.";
   };
 };
 
 Stories.JennieHoldingFlorenceJane = new Story(FlorenceJaneGofton, "Jennie holding Florence Jane") {
   Picture;
-  Text: Block {
-    Styles.Story {
-       ListPeople([JennieAdelphiaMcCreight, FlorenceJaneGofton])
-    };
+  Text: Styles.Story {
+    ListPeople([JennieAdelphiaMcCreight, FlorenceJaneGofton])
   };
 };
 
 Stories.InezaAndJohnAsChildren = new Story(FlorenceJaneGofton, "Baby Portrait", DateTime(1904)) {
   Picture;
-  Text: Block {
-    Styles.Story {
-       ListPeople([InezMargaretKerr, JohnHamillMcCreight]); " as children.";
-    };
+  Text: Styles.Story {
+    ListPeople([InezMargaretKerr, JohnHamillMcCreight]); " as children.";
   };
 };
 
 Stories.JohnHamillMcCreightOnHorse = new Story(FlorenceJaneGofton, "John Hamill McCreight on a Horse") {
   Picture;
-  Text: Block {
-    Styles.Story {
-       ListPeople([JohnHamillMcCreight]);
-    };
-  };
+  Text: Styles.Story {
+    ListPeople([JohnHamillMcCreight]);
+  }
 };
 
 Stories.MyThreeSons = new Story(FlorenceJaneGofton, "My Three Sons", DateTime(1924)) {
   Picture;
-  Text: Block {
-    Styles.Story {
-       ListPeople([JamesClarkMcCreight, WendellButlerMcCreight, JohnHamillMcCreight, JennieAdelphiaMcCreight]);
-    }
+  Text: Styles.Story {
+    ListPeople([JamesClarkMcCreight, WendellButlerMcCreight, JohnHamillMcCreight, JennieAdelphiaMcCreight]);
   }
 };
 
 Stories.JohnHamillAtWork = new Story(FlorenceJaneGofton, "Johnn Hamill McCreight at work") {
   Picture;
-  Text: Block {
-    Styles.Story {
-       ListPeople([JohnHamillMcCreight]) " is shown forth from the left.";
-    }
+  Text: Styles.Story {
+    ListPeople([JohnHamillMcCreight]) " is shown forth from the left.";
   }
 };
 
 Stories.FlorenceAndJohnHoldingFlorenceJane = new Story(FlorenceJaneGofton, "Mom and Dad holding me as a baby") {
   Picture;
-  Text: Block {
-    Styles.Story {
-       ListPeople([FlorenceGertrudeMcCreight, FlorenceJaneGofton, JohnHamillMcCreight]) ". Don't know who is standing inside.";
-    }
+  Text: Styles.Story {
+    ListPeople([FlorenceGertrudeMcCreight, FlorenceJaneGofton, JohnHamillMcCreight]) ". Don't know who is standing inside.";
   }
 };
 
 Stories.RalphFloInGroup = new Story(FlorenceJaneGofton, "Mom and Dad holding me as a baby") {
   Picture;
-  Text: Block {
-    Styles.Story {
-      ListPeople([ThelmaEllenFaust, RalphEmersonMcCreight, FlorenceGertrudeMcCreight, FlorenceJaneGofton, WendellButlerMcCreight]) ". Location?";
-    }
+  Text: Styles.Story {
+    ListPeople([ThelmaEllenFaust, RalphEmersonMcCreight, FlorenceGertrudeMcCreight, FlorenceJaneGofton, WendellButlerMcCreight]) ". Location?";
   }
 };
 
 Stories.McCreightKerr = new Story(FlorenceJaneGofton, "McCreight-Kerr") {
   Picture;
-  Text: Block {
-    Styles.Story {
-       ListPeople([JohnHamillMcCreight, FlorenceGertrudeMcCreight, InezMargaretKerr, PeggyLeeKerr, GaryKerr]) ". Location?";
-    }
+  Text: Styles.Story {
+    ListPeople([JohnHamillMcCreight, FlorenceGertrudeMcCreight, InezMargaretKerr, PeggyLeeKerr, GaryKerr]) ". Location?";
   }
 };
 
 Stories.WomenOfWolfeFamily = new Story(null, "Mother Louisa and her 8 daughters", DateTime(1888)) {
   Picture;
-  Text: Block {
-    Styles.Story {
-      "Standing: " ListPeople([HazelWolfeFrance, BessieWolfeLawrence, ViolaWolfeKnepsheild, MargretWolfeSlack]);
-      ": Sitting: " ListPeople([MollieWolfeWolfe, LottieWolfeEckersley, LouisaWolfe, EssieWolfe, BerthaPearlHazelett]);
-      ": (Not shown) are her sons: " ListPeople([OrrieHowardWolfe, ElvieLemuelWolfe, ClaueWolfe, JohnElmerWolfe]);
-    }
+  Text: Styles.Story {
+    "Standing: " ListPeople([HazelWolfeFrance, BessieWolfeLawrence, ViolaWolfeKnepsheild, MargretWolfeSlack]);
+    LineBreak;
+    "Sitting: " ListPeople([MollieWolfeWolfe, LottieWolfeEckersley, LouisaWolfe, EssieWolfe, BerthaPearlHazelett]);
+    LineBreak;
+    "Not shown are her sons: " ListPeople([OrrieHowardWolfe, ElvieLemuelWolfe, ClaueWolfe, JohnElmerWolfe]);
   };
 };
 
 Stories.FlorenceJaneAt3 = new Story(PeggyLeeNelson, "Florence Jane at 3 years", DateTime(1933)) {
   Picture;
-  Text: Block {
-    Styles.Story {
-      ListPeople([FlorenceJaneGofton])
-    }
+  Text: Styles.Story {
+    ListPeople([FlorenceJaneGofton])
   }
 };
 
 Stories.FlorenceJaneAt9 = new Story(PeggyLeeNelson, "Florence Jane at 9 years", DateTime(1939)) {
   Picture;
-  Text: Block {
-    Styles.Story {
-      ListPeople([FlorenceJaneGofton])
-    }
+  Text: Styles.Story {
+    ListPeople([FlorenceJaneGofton])
   }
 };
 
 Stories.JackFloAndRalph = new Story(PeggyLeeNelson, "Florence Jane's Siblings", DateTime(1944)) {
   Picture;
-  Text: Block {
-    Styles.Story {
-      ListPeople([JohnHarryMcCreight, FlorenceJaneGofton, RalphEmersonMcCreight])
-    }
+  Text: Styles.Story {
+    ListPeople([JohnHarryMcCreight, FlorenceJaneGofton, RalphEmersonMcCreight])
   }
 };
 
 Stories.FloAndFather = new Story(PeggyLeeNelson, "Florence Jane and Dad", DateTime(1945)) {
   Picture;
-  Text: Block {
-    Styles.Story {
-      ListPeople([FlorenceJaneGofton, JohnHamillMcCreight])
-    }
+  Text: Styles.Story {
+    ListPeople([FlorenceJaneGofton, JohnHamillMcCreight])
   }
 };
 
 Stories.FlorenceJaneGraduation = new Story(PeggyLeeNelson, "Florence Jane's Graduation", DateTime(1948)) {
   Picture;
-  Text: Block {
-    Styles.Story {
-      ListPeople([FlorenceJaneGofton])
-    }
+  Text: Styles.Story {
+    ListPeople([FlorenceJaneGofton])
   }
 };
 
 Stories.FloAndBobWedding = new Story(PeggyLeeNelson, "Bob & Flo's wedding", DateTime(1950)) {
   Picture;
-  Text: Block {
-    Styles.Story {
-      ListPeople([JohnHamillMcCreight, FlorenceGertrudeMcCreight, FlorenceJaneGofton, RobertJohnGofton, LoisLelandGofton, ClaudeGofton])
-    }
+  Text: Styles.Story {
+    ListPeople([JohnHamillMcCreight, FlorenceGertrudeMcCreight, FlorenceJaneGofton, RobertJohnGofton, LoisLelandGofton, ClaudeGofton])
   }
 };
 
@@ -458,30 +405,24 @@ Stories.FloAndBob1971 = new Story(PeggyLeeNelson, "Bob & Flo's wedding", DateTim
 
 Stories.FloAndBob2013 = new Story(ShawnHamillMcCreight, "At Shawn's house in Pasadena", DateTime(2013)) {
   Picture;
-  Text: Block {
-    Styles.Story {
-      ListPeople([RobertJohnGofton, FlorenceJaneGofton, ShawnHamillMcCreight]) " went to a dinner at the Twilight Club in Pasadena, CA. ";
-      "Bob was thrilled to meet the head coach of the USC football team. Bob made sure that the coach knew that he himself was "; Bold "not"; " a USC fan."
-    }
+  Text: Styles.Story {
+    ListPeople([RobertJohnGofton, FlorenceJaneGofton, ShawnHamillMcCreight]) " went to a dinner at the Twilight Club in Pasadena, CA. ";
+    "Bob was thrilled to meet the head coach of the USC football team. Bob made sure that the coach knew that he himself was "; Bold "not"; " a USC fan."
   }
 };
 
 Stories.FloAtJoshAndMeganWedding = new Story(ShawnHamillMcCreight, "Josh & Megan's wedding", DateTime(2001)) {
   Picture;
-  Text: Block {
-    Styles.Story {
-      ListPeople([FlorenceJaneGofton]) " whooping it up!"
-    }
+  Text: Styles.Story {
+    ListPeople([FlorenceJaneGofton]) " whooping it up!"
   }
 };
 
 Stories.FloAndBobWithGrandkids = new Story(PeggyLeeNelson, "Flo And Bob with the grandkids", DateTime(1982)) {
   Picture;
-  Text: Block {
-    Styles.Story {
-      ListPeople([RobertJohnGofton, TylerJamesGofton]); LineBreak;
-      ListPeople([CassandraMarieVarner, FlorenceJaneGofton, KevinMichaelNelson, JoshuaLeeVarner, KristyLeeJordan])
-    }
+  Text: Styles.Story {
+    ListPeople([RobertJohnGofton, TylerJamesGofton]); LineBreak;
+    ListPeople([CassandraMarieVarner, FlorenceJaneGofton, KevinMichaelNelson, JoshuaLeeVarner, KristyLeeJordan])
   }
 };
 
@@ -496,99 +437,79 @@ Stories.BobGofton1930 = new Story(PeggyLeeNelson, "Bob", DateTime(1930)) {
 
 Stories.FourGoftonGenerations = new Story(PeggyLeeNelson, "Four Generations of Gofton", DateTime(1927)) {
   Picture;
-  Text: Block {
-    Styles.Story {
-      ListPeople([JohnGofton, NathanialGofton, ClaudeGofton, RobertJohnGofton])
-    }
+  Text: Styles.Story {
+    ListPeople([JohnGofton, NathanialGofton, ClaudeGofton, RobertJohnGofton])
   }
 };
 
 Stories.GoftonFamily1959 = new Story(PeggyLeeNelson, "The Gofton Family", DateTime(1959)) {
   Picture;
-  Text: Block {
-    Styles.Story {
-      ListPeople([RobertJohnGofton, FlorenceJaneGofton, JamesRobertGofton, JoannMarieVarner, PeggyLeeNelson]);
-    }
+  Text: Styles.Story {
+    ListPeople([RobertJohnGofton, FlorenceJaneGofton, JamesRobertGofton, JoannMarieVarner, PeggyLeeNelson]);
   }
 };
 
 Stories.Bobs80thBirthday = new Story(PeggyLeeNelson, "Bobs80thBirthday", DateTime(2007, 3, 11)) {
   Picture;
-  Text: Block {
-    Styles.Story {
-      ListPeople([PeggyLeeNelson, TobyVarner, JoannMarieVarner, RobertJohnGofton, FlorenceJaneGofton, JamesRobertGofton, JeffreyPNelson, DebbieGofton])
-    }
+  Text: Styles.Story {
+    ListPeople([PeggyLeeNelson, TobyVarner, JoannMarieVarner, RobertJohnGofton, FlorenceJaneGofton, JamesRobertGofton, JeffreyPNelson, DebbieGofton])
   }
 };
 
 Stories.BobsSiblings1935 = new Story(PeggyLeeNelson, "Bob's Siblings", DateTime(1935)) {
   Picture;
-  Text: Block {
-    Styles.Story {
-      ListPeople([RobertJohnGofton, RichardGofton, AnnGofton]);
-    }
+  Text: Styles.Story {
+    ListPeople([RobertJohnGofton, RichardGofton, AnnGofton]);
   }
 };
 
 Stories.BobsSiblings2002 = new Story(PeggyLeeNelson, "Bob's Siblings", DateTime(2002)) {
   Picture;
-  Text: Block {
-    Styles.Story {
-      ListPeople([RichardGofton, AnnGofton, RobertJohnGofton]);
-    }
+  Text: Styles.Story {
+    ListPeople([RichardGofton, AnnGofton, RobertJohnGofton]);
   }
 };
 
 Stories.BobAndToby1985 = new Story(PeggyLeeNelson, "Bob and Toby", DateTime(1985)) {
   Picture;
-  Text: Block {
-    Styles.Story {
-      ListPeople([RobertJohnGofton, TobyVarner]);
-    }
+  Text: Styles.Story {
+    ListPeople([RobertJohnGofton, TobyVarner]);
   }
 };
 
 Stories.VeteransDayCelebration2009 = new Story(PeggyLeeNelson, "Veteran's Day Celebration", DateTime(2009)) {
   Picture;
-  Text: Block {
-    Styles.Story {
-      ListPeople([RobertJohnGofton]);
-      " in Harlan, IN with his three great grand kids ";
-      ListPeople([DelaneyNJordan, AlexisAJordan, JustinAJordan]); ". ";
-      "He was thrilled that Justin called him to come to his school for the celebration. ";
-      "H borrowed Toby's old Navy uniform for that day. ";
-      "He walk in the gym of the school so proud, and he's chest popped out some, when some of the other Vets, said to him \"Wow you can still fit in your uniform?\" "
-      "Dad would laugh and was honest, \"Nope, it belongs to my son in law.\" "
-      "He had tears in his eyes several times that day. He was so proud of serving his country.";
-
-    }
+  Text: Styles.Story {
+    ListPeople([RobertJohnGofton]);
+    " in Harlan, IN with his three great grand kids ";
+    ListPeople([DelaneyNJordan, AlexisAJordan, JustinAJordan]); ". ";
+    "He was thrilled that Justin called him to come to his school for the celebration. ";
+    "H borrowed Toby's old Navy uniform for that day. ";
+    "He walk in the gym of the school so proud, and he's chest popped out some, when some of the other Vets, said to him \"Wow you can still fit in your uniform?\" "
+    "Dad would laugh and was honest, \"Nope, it belongs to my son in law.\" "
+    "He had tears in his eyes several times that day. He was so proud of serving his country.";
   }
 };
 
 Stories.BobAtBearCreekLodge = new Story(PeggyLeeNelson, "Bob at Bear Creek Lodge, MI", DateTime(2006)) {
   Picture;
-  Text: Block {
-    Styles.Story {
-      ListPeople([RobertJohnGofton]);
-    }
+  Text: Styles.Story {
+    ListPeople([RobertJohnGofton]);
   }
 };
 
 Stories.MajorIsraelstory = new Story(null, "Major Israel", DateTime(1888)) {
   Picture;
-  Text: Block {
-    Styles.Story {
-      MajorIsraelMcCreight.ShowLink " was named after Major Israel Uncapher. ";
-      "Neighbors thought it was cute to call the infant Major when he was born, so he went through life with that name. ";
-      "In 1888 he helped start a Deposit Bank in Dubois, Pa., and was manager for 50 years. ";
-      "He was a friend of Buffalo Bill Cody and in June 1908 was installed by Chief Irontail as a Chief of the Sioux Tribe. ";
-      "His Indian name was Tchanta Tanks. ";
-      "His home in Dubois was known as \"The Wigwam\". ";
-      "He was interested in genealogy and published three booklets on McCreights in the U.S. ";
-    }
+  Text: Styles.Story {
+    MajorIsraelMcCreight.ShowLink " was named after Major Israel Uncapher. ";
+    "Neighbors thought it was cute to call the infant Major when he was born, so he went through life with that name. ";
+    "In 1888 he helped start a Deposit Bank in Dubois, Pa., and was manager for 50 years. ";
+    "He was a friend of Buffalo Bill Cody and in June 1908 was installed by Chief Irontail as a Chief of the Sioux Tribe. ";
+    "His Indian name was Tchanta Tanks. ";
+    "His home in Dubois was known as \"The Wigwam\". ";
+    "He was interested in genealogy and published three booklets on McCreights in the U.S. ";
   }
 };
-
 //============================================================================================================
 
 

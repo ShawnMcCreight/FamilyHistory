@@ -23,7 +23,7 @@ with Metrics {
   Paper          = Size(8.5 inches, 11 inches);
   Content        = Paper - MainMargin;
   TreeContent    = Paper - TreeMargin;
-  StoryPicture   = Size(Content.Width, 2.5 inches);
+  StoryPicture   = Size(Content.Width, 3.55 inches);
   PersonPicture  = Size(1.5 inches);
   PortraitHeight = 1.4 inch;
   PortraitAngle  = 5 degrees;
@@ -74,12 +74,6 @@ ListPeople(list) = Span {
     LastSeparator: " and ";
     (each list).ShowLink;
   };
-};
-
-Attendees(begin, list, end=null) = Span {
-  begin;
-  ListPeople(list);
-  end ?? ". "
 };
 
 GatherEvent(event, list) {
@@ -144,7 +138,7 @@ abstract class EventClass {
   virtual ShowParents {
   }
 
-  ImagePath = IO.Folders.Main IO.FileName(this.Name) IO.Extensions.JPG;
+  ImagePath = IO.Folders.Main IO.FileName(this.GlobalVariableName) IO.Extensions.JPG;
 
   AddPicture(size) = IO.Read(ImagePath) {
     Size: size;
@@ -227,7 +221,7 @@ class PersonClass: EventClass {
   };
 
   ShowFullLink(former) = ShowFullName(former) {
-    Link: Key;
+    Link: GlobalVariablePath;
     Popup: ref Popup;
   };
 
@@ -257,7 +251,7 @@ class PersonClass: EventClass {
         Icon;
       };
       Space;
-      Link: Key;
+      Link: GlobalVariablePath;
       Popup: ref Popup;
       NickName ?? First;
     }
@@ -265,7 +259,7 @@ class PersonClass: EventClass {
 
   ShowFullPersonData = Block {
     FullPar {
-      LocationMark: Key;
+      LocationMark: GlobalVariablePath;
       LeftIndent: Metrics.LevelIndent;
       FirstIndent: -Metrics.LevelIndent;
       TextHeight: 16 pts;
@@ -348,7 +342,7 @@ class PersonClass: EventClass {
     Transform: Rotate(angle) Skew(angle, angle);
     TransformFit: true;
     IO.Read(ImagePath) {
-      Link: Key;
+      Link: GlobalVariablePath;
       Popup: ref Popup;
       Size: Size(Metrics.PortraitHeight);
       Proportional: true;
@@ -364,7 +358,7 @@ class PersonClass: EventClass {
   };
 
   ShowLink(text=null) = Span {
-    Link: Key;
+    Link: GlobalVariablePath;
     Popup: ref Popup;
     TextColor: Colors.Blue;
     text ?? (NickName ?? First);
@@ -500,7 +494,7 @@ class Story: EventClass {
 
   override DrawTimeline = Span {
     Popup: ref Popup;
-    Link: Key;
+    Link: GlobalVariablePath;
     Title;
   };
 
@@ -509,38 +503,33 @@ class Story: EventClass {
     ShowFullEvent;
   };
 
-  override ShowFullEvent = Block {
-    Paragraph {
-      KeepWithNext: true;
-      TabStops: [Metrics.Content.Width {Type: TabTypes.Right}];
-      SpaceBefore: 16 pts;
-      ParBackground: 90%;
-      LocationMark: Key;
-      Span {
-        Bold;
-        TextHeight: 14 pts;
-        Title;
-      };
-      if (Date) {
-        " - ";
-        Styles.ShowDate(Date);
-      }
-      if (ToldBy) {
-        Tab;
-        "by ";
-        ToldBy.ShowFullLink(false)
-      }
-    };
-    if (HasPicture) {
+  override ShowFullEvent = Paragraph {
+    Frame {
+      Width: Metrics.Content.Width;
       Paragraph {
-        Text
+        TabStops: [Metrics.Content.Width {Type: TabTypes.Right}];
+        SpaceBefore: 16 pts;
+        ParBackground: 90%;
+        LocationMark: GlobalVariablePath;
+        Span {
+          Bold;
+          TextHeight: 14 pts;
+          Title;
+        };
+        if (Date) {
+          " - ";
+          Styles.ShowDate(Date);
+        }
+        if (ToldBy) {
+          Tab;
+          "by ";
+          ToldBy.ShowFullLink(false)
+        }
       };
-      Paragraph {
-        AddPicture(Metrics.StoryPicture);
-      };
-    }
-    else
       Text;
+      if (HasPicture)
+        AddPicture(Metrics.StoryPicture);
+    }
   };
 }
 //============================================================================================================
@@ -628,7 +617,7 @@ with Styles {
   };
 
   Story = Paragraph {
-    FirstIndent: 16 pts;
+    KeepWithNext: true;
   };
 }
 //============================================================================================================
