@@ -71,7 +71,6 @@ Unions.MartinBarbara = new Union(BarbaraKramer, MartinKramer) {
 //=====================================
 
 People.JohnPeterHuelsenbeck = new Male("John", "Peter", Huelsenbeck, Unions.PeteNikki) {
-  Picture;
   Born(1966, 4, 18, Places.RedBankNJ)
 };
 
@@ -80,7 +79,6 @@ People.KimberlyBurkeHuelsenbeck = new Female("Kimberly", "Burke", Huelsenbeck, U
 };
 
 People.SoniaHuelsenbeck = new Female("Sonia", null, Huelsenbeck, Unions.MartinBarbara) {
-  Picture;
   Formerly(Kramer);
   Born(1964, 8, 17, Places.RedBankNJ)
 };
@@ -110,11 +108,8 @@ People.ElizabethClaireHuelsenbeck = new Female("Elizabeth", "Claire", Huelsenbec
 //=====================================
 
 Stories.SoniaAndJohnMet = new Story(JohnPeterHuelsenbeck, "When Sonia met John", DateTime(2015)) {
-  Picture;
-  Text: Block {
-    Styles.Story {
-      "I met " SoniaHuelsenbeck.ShowLink " in the biology building at UC Berkeley.";
-    };
+  Text: Styles.Story {
+    "I met " ListPeople([SoniaHuelsenbeck]) " in the biology building at UC Berkeley.";
   };
 };
 //=====================================

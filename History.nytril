@@ -22,6 +22,7 @@ with Metrics {
   TreeMargin     = Margin(0.5 inches, 0.125 inches, 0.5 inches, 0.5 inches);
   Paper          = Size(8.5 inches, 11 inches);
   Content        = Paper - MainMargin;
+  Popup          = Size(5 inches, 6 inches);
   TreeContent    = Paper - TreeMargin;
   StoryPicture   = Size(Content.Width, 3.55 inches);
   PersonPicture  = Size(1.5 inches);
@@ -29,10 +30,6 @@ with Metrics {
   PortraitAngle  = 5 degrees;
 }
 //=============================================================================================================
-
-Picture = {
-  HasPicture: true;
-};
 
 Nick(name) = {
   NickName: name
@@ -90,7 +87,7 @@ SortEvents(events) {
 }
 
 GatherPicture(list, union) {
-  if (union.Partner1.HasPicture and union.Partner2.HasPicture)
+  if (union.Partner1.Picture and union.Partner2.Picture)
     list.Add(union);
 }
 
@@ -112,13 +109,13 @@ abstract class EventClass {
   var Date,
       Icon,
       Place,
-      HasPicture;
+      Picture;
 
   init(date) {
     Date = date;
   }
 
-  virtual ShowFullEvent = null;
+  virtual ShowFullEvent(width) = null;
 
   abstract DrawTimeline;
 
@@ -135,12 +132,13 @@ abstract class EventClass {
   virtual FormatNode(parent) {
   }
 
-  virtual ShowParents {
+  CheckPicture {
+    var path = IO.Folders.Main IO.FileName(this.GlobalVariableName) IO.Extensions.JPG;
+    if (IO.FileExists(path))
+      Picture = IO.Read(path)
   }
 
-  ImagePath = IO.Folders.Main IO.FileName(this.GlobalVariableName) IO.Extensions.JPG;
-
-  AddPicture(size) = IO.Read(ImagePath) {
+  AddPicture(size) = Picture {
     Size: size;
     Proportional: true;
   };
@@ -185,29 +183,6 @@ class PersonClass: EventClass {
 
   override DrawListing(level) = Styles.LevelPar(level, false) {
     ShowListing;
-  };
-
-  override ShowFullEvent = Block {
-    if (HasPicture) {
-      Paragraph {
-        SpaceAfter: 10 pts;
-        Group {
-          Padding: 2 pts;
-          VAlign: VAligns.Top;
-          Frame {
-            Width: Metrics.Content.Width - Metrics.PersonPicture.Width;
-            Block {
-              ShowFullPersonData;
-            };
-          };
-          AddPicture(Metrics.PersonPicture);
-        }
-      }
-    }
-    else {
-      ShowFullPersonData;
-      Paragraph;
-    }
   };
 
   ShowFullName(former) = Span {
@@ -257,26 +232,27 @@ class PersonClass: EventClass {
     }
   };
 
-  ShowFullPersonData = Block {
-    FullPar {
-      LocationMark: GlobalVariablePath;
-      LeftIndent: Metrics.LevelIndent;
-      FirstIndent: -Metrics.LevelIndent;
-      TextHeight: 16 pts;
-      Icon;
-      Tab;
-      ShowFullName(false) {
-        if (NickName) {
-          Span {
-            " - \"";
-            NickName;
-            "\""
-          };
-        }
-      };
+  ShowName = Paragraph {
+    LocationMark: GlobalVariablePath;
+    LeftIndent: Metrics.LevelIndent;
+    FirstIndent: -Metrics.LevelIndent;
+    TextHeight: 16 pts;
+    Icon;
+    Tab;
+    ShowFullName(false) {
+      if (NickName) {
+        Span {
+          " - \"";
+          NickName;
+          "\""
+        };
+      }
     };
+  };
+
+  ShowPersonalData = Block {
     if (Nee) {
-      FullPar {
+      Paragraph {
         Italic "neé ";
         ShowFullName(true)
       }
@@ -284,18 +260,18 @@ class PersonClass: EventClass {
 
     if (Date) {
       if (DeathDateUnknown) {
-        FullPar {
+        Paragraph {
           "Unknown time of death";
         }
       }
       else {
         if (not Death and (Metrics.CurrentDate - Date).Years < 100) {
-          FullPar {
+          Paragraph {
             "{0} years old"(Math.Floor((Metrics.CurrentDate - Date).Years))
           };
         }
       }
-      FullPar {
+      Paragraph {
         if (Date)
           Styles.TextDate("Born ", Date);
 
@@ -311,8 +287,39 @@ class PersonClass: EventClass {
       };
     }
 
-    Parent?.ShowParents;
+    if (Parent) {
+      Paragraph {
+        Bold;
+        "Parents";
+      };
+      Paragraph {
+        LeftIndent: 12 pts;
+        Parent.Partner1?.ShowFullLink(false);
+        LineBreak;
+        Parent.Partner2?.ShowFullLink(false);
+      };
+    }
+
     ShowChildren;
+  };
+
+  override ShowFullEvent(width) = Block {
+    ShowName;
+    if (Picture) {
+      Group {
+        VAlign: VAligns.Top;
+        AddPicture(Metrics.PersonPicture);
+        Space;
+        Frame {
+          Width: width - Metrics.PersonPicture.Width;
+          ShowPersonalData;
+        }
+      }
+    }
+    else Frame {
+      Width: width;
+      ShowPersonalData;
+    }
   };
 
   ShowChildren {
@@ -320,12 +327,18 @@ class PersonClass: EventClass {
     if (unions.Length > 0) {
       var children = CollectChildren(People, unions[0]);
       if (children.Length > 0) {
-        return FullPar {
-          "Children: ";
-          Span {
-            Separator: ", ";
-            LastSeparator: " and ";
-            (each children).ShowFullLink(false);
+        return Block {
+          Paragraph {
+            Bold;
+            "Children";
+          };
+          Paragraph {
+            LeftIndent: 12 pts;
+            Span {
+              Separator: ", ";
+              LastSeparator: " and ";
+              (each children).ShowFullLink(false);
+            }
           }
         };
       }
@@ -341,7 +354,7 @@ class PersonClass: EventClass {
 
     Transform: Rotate(angle) Skew(angle, angle);
     TransformFit: true;
-    IO.Read(ImagePath) {
+    Picture {
       Link: GlobalVariablePath;
       Popup: ref Popup;
       Size: Size(Metrics.PortraitHeight);
@@ -350,11 +363,11 @@ class PersonClass: EventClass {
   };
 
   Popup = Frame {
-    if (HasPicture)
+    if (Picture)
       Width: Metrics.Content.Width;
     else
       Width: Metrics.Content.Width - Metrics.PersonPicture.Width;
-    ShowFullEvent;
+    ShowFullEvent(Metrics.Popup.Width);
   };
 
   ShowLink(text=null) = Span {
@@ -440,15 +453,6 @@ class Union: EventClass {
     Partner2.ShowFullName(false);
   };
 
-  override ShowParents = FullPar {
-    "Parents: ";
-    if (Partner1) {
-      Partner1.ShowFullLink(false);
-      " and ";
-    }
-    Partner2?.ShowFullLink(false)
-  };
-
   ShowPortrait = Group {
     VAlign: VAligns.Top;
     Partner1.PortraitFrame(-Metrics.PortraitAngle);
@@ -500,14 +504,14 @@ class Story: EventClass {
 
   Popup = Frame {
     Width: Metrics.StoryPicture.Width;
-    ShowFullEvent;
+    ShowFullEvent(Metrics.Popup.Width);
   };
 
-  override ShowFullEvent = Paragraph {
+  override ShowFullEvent(width) = Paragraph {
     Frame {
-      Width: Metrics.Content.Width;
+      Width: width;
       Paragraph {
-        TabStops: [Metrics.Content.Width {Type: TabTypes.Right}];
+        TabStops: [width {Type: TabTypes.Right}];
         SpaceBefore: 16 pts;
         ParBackground: 90%;
         LocationMark: GlobalVariablePath;
@@ -527,7 +531,7 @@ class Story: EventClass {
         }
       };
       Text;
-      if (HasPicture)
+      if (Picture)
         AddPicture(Metrics.StoryPicture);
     }
   };
@@ -855,24 +859,42 @@ NameSort(p1, p2) {
 
 ShowFamilyMembers(title) = DocSection(title) {
   Styles.Header2(title);
-  (each People.Sort(true, NameSort)).ShowFullEvent;
-};
+  var width = Metrics.Content.Width * 0.5;
 
-FamilyAlbum(title, lines) = Document {
-  Size: Metrics.Paper;
-  Margin: Metrics.MainMargin;
-  AlbumTitlePage(title);
-  ShowTree(title, each lines);
-  if (Stories.Length > 0) {
-    DocSection("Stories") {
-      Styles.Header2(title);
-      (each Stories).ShowFullEvent;
+  Table {
+    Columns: [width]*2;
+    var groups = People.Sort(true, NameSort) / 2;
+    foreach (var g in groups) {
+      Row {
+        PaddingT: 20 pts;
+        (each g).ShowFullEvent(width);
+      }
     }
-  }
-
-  Timeline.Show;
-  ShowFamilyMembers("Family Members");
+  };
 };
+
+FamilyAlbum(title, lines) {
+  foreach (var p in People)
+    p.CheckPicture;
+  foreach (var s in Stories)
+    s.CheckPicture;
+
+  return Document {
+    Size: Metrics.Paper;
+    Margin: Metrics.MainMargin;
+    AlbumTitlePage(title);
+    ShowTree(title, each lines);
+    if (Stories.Length > 0) {
+      DocSection("Stories") {
+        Styles.Header2(title);
+        (each Stories).ShowFullEvent(Metrics.Content.Width);
+      }
+    }
+
+    Timeline.Show;
+    ShowFamilyMembers("Family Members");
+  };
+}
 //============================================================================================================
 
 
