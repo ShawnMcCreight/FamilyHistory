@@ -31,7 +31,7 @@ with FamilyLines {
   with WolfeLine {
     Root       = Unions.LouisaGrandpa;
     TextHeight = 9 pts;
-    NodeGap    = 2 pts;
+    NodeGap    = 1 pts;
   }
 }
 //============================================================================================================
@@ -83,6 +83,12 @@ with Places {
 }
 //============================================================================================================
 
+
+Stories.LucaRobertCalderoni = new Story(null, "Luca Calderoni is born", LucaRobertCalderoni.Date) {
+  Text: Styles.Story {
+    ListPeople([LucaRobertCalderoni]) " was born happy and healthy on his " CraigJohnMcCreight.ShowLink("grandpa's") " birthday."
+  }
+};
 
 Stories.AlyssaTomWedding = new Story(null, "The wedding of Alyssa and Tom", Unions.AlyssaTom.Date) {
   Text: Styles.Story {
@@ -293,7 +299,7 @@ Stories.MyThreeSons = new Story(FlorenceJaneGofton, "My Three Sons", DateTime(19
   }
 };
 
-Stories.JohnHamillAtWork = new Story(FlorenceJaneGofton, "Johnn Hamill McCreight at work") {
+Stories.JohnHamillAtWork = new Story(FlorenceJaneGofton, "John Hamill McCreight at work") {
   Text: Styles.Story {
     ListPeople([JohnHamillMcCreight]) " is shown forth from the left.";
   }
@@ -1057,6 +1063,11 @@ People.RobertCalderoni = new Male("Robert", null, Calderoni) {
 Unions.MichelleBobby = new Union(MichelleNicholeCalderoni, RobertCalderoni) {
   Married(2019, 7, 8)
 };
+
+People.LucaRobertCalderoni = new Male("Luca", "Robert", Calderoni, Unions.MichelleBobby) {
+  Born(2020, 8, 17)
+};
+
 //=====================================
 
 People.ShawnHamillMcCreight = new Male("Shawn", Hamill, McCreight, Unions.JoanJack) {
