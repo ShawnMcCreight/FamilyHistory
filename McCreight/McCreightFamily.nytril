@@ -12,7 +12,7 @@ Watch = FamilyAlbum("Family History", FamilyLines);
 with FamilyLines {
   with McCreightLine {
     Root       = Unions.DavidMary;
-    TextHeight = 5.8 pts;
+    TextHeight = 5.6 pts;
     NodeGap    = 0;
   }
 
