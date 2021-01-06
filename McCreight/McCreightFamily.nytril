@@ -1,6 +1,6 @@
-﻿using Format, Type, People, Units;
+﻿using Format, People, Units;
 
-include "..\\..\\Nytril\\Deploy\\Examples\\Family Tree\\Family Tree";
+include "../../Nytril/Deploy/Examples/Family Tree/Family Tree";
 include "WionFamily";
 include "NelsonFamily";
 //======================================================================
