@@ -86,7 +86,13 @@ with Places {
 
 Stories.LucaRobertCalderoni = new Story(null, "Luca Calderoni is born", LucaRobertCalderoni.Date) {
   Text: Styles.Story {
-    ListPeople([LucaRobertCalderoni]) " was born happy and healthy on his " CraigJohnMcCreight.ShowLink("grandpa's") " birthday."
+    ListPeople([MichelleNicholeCalderoni, RobertCalderoni]) " are overjoyed at the birth of " ListPeople([LucaRobertCalderoni]) ", who was born happy and healthy on his " CraigJohnMcCreight.ShowLink("grandpa's") " birthday."
+  }
+};
+
+Stories.ScarlettMaeYunckerBaby = new Story(null, "Scarlett Yuncker is born", ScarlettMaeYuncker.Date) {
+  Text: Styles.Story {
+    ListPeople([RanaedaMarieYuncker, AnthonyYuncker]) " celebrate the birth of " ListPeople([ScarlettMaeYuncker]) "."
   }
 };
 
@@ -301,7 +307,7 @@ Stories.MyThreeSons = new Story(FlorenceJaneGofton, "My Three Sons", DateTime(19
 
 Stories.JohnHamillAtWork = new Story(FlorenceJaneGofton, "John Hamill McCreight at work") {
   Text: Styles.Story {
-    ListPeople([JohnHamillMcCreight]) " is shown forth from the left.";
+    ListPeople([JohnHamillMcCreight]) " is shown 4th from the left.";
   }
 };
 
@@ -447,7 +453,7 @@ Stories.VeteransDayCelebration2009 = new Story(PeggyLeeNelson, "Veteran's Day Ce
     " in Harlan, IN with his three great grand kids ";
     ListPeople([DelaneyNJordan, AlexisAJordan, JustinAJordan]); ". ";
     "He was thrilled that Justin called him to come to his school for the celebration. ";
-    "H borrowed Toby's old Navy uniform for that day. ";
+    "He borrowed Toby's old Navy uniform for that day. ";
     "He walk in the gym of the school so proud, and he's chest popped out some, when some of the other Vets, said to him \"Wow you can still fit in your uniform?\" "
     "Dad would laugh and was honest, \"Nope, it belongs to my son in law.\" "
     "He had tears in his eyes several times that day. He was so proud of serving his country.";
@@ -1132,7 +1138,7 @@ Unions.RenaedaAnthony = new Union(RanaedaMarieYuncker, AnthonyYuncker) {
 };
 //=====================================
 
-People.ScarletteYuncker = new Female("Scarlett", "Mae", Yuncker, Unions.RenaedaAnthony) {
+People.ScarlettMaeYuncker = new Female("Scarlett", "Mae", Yuncker, Unions.RenaedaAnthony) {
   Born(2018, 9, 9);
 };
 
