@@ -18,15 +18,14 @@ People.RichardWion = new Male("Richard", "Charles", Wion, Unions.CharlotteCharle
   Born(1969, 10, 23)
 };
 
-People.Jeanine = new Female("Jeanine", null, "Cline") {
-};
+People.JeanineCline = new Female("Jeanine", null, "Cline");
 
-People.HalieWion = new Female("Hailie", "Jane", Wion, Unions.JeanineRichardWion) {
+People.HalieJaneWion = new Female("Hailie", "Jane", Wion, Unions.JeanineRichardWion) {
   Born(2003, 12, 31)
 };
 //============================================================================================================
 
-Unions.JeanineRichardWion = new Union(RichardWion, Jeanine);
+Unions.JeanineRichardWion   = new Union(RichardWion, JeanineCline);
 Unions.CharlotteCharlesWion = new Union(CharlotteWion, CharlesWion, DateTime(1964, 3, 8));
 //============================================================================================================
 

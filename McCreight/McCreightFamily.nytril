@@ -5,7 +5,11 @@ include "WionFamily";
 include "NelsonFamily";
 //======================================================================
 
-Watch = FamilyAlbum("Family History", FamilyLines);
+Main.Documents = [
+  new DocumentViewClass("Family History", ref FamilyHistory)
+];
+
+FamilyHistory = FamilyAlbum("Family History", FamilyLines);
 
 //======================================================================
 
@@ -84,9 +88,9 @@ with Places {
 //============================================================================================================
 
 
-Stories.LucaRobertCalderoni = new Story(null, "Luca Calderoni is born", LucaRobertCalderoni.Date) {
+Stories.LucaRobertCalderoni = new Story(null, "Luca Calderoni is born", People.LucaRobertCalderoni.Date) {
   Text: Styles.Story {
-    ListPeople([MichelleNicholeCalderoni, RobertCalderoni]) " are overjoyed at the birth of " ListPeople([LucaRobertCalderoni]) ", who was born happy and healthy on his " CraigJohnMcCreight.ShowLink("grandpa's") " birthday."
+    ListPeople([MichelleNicholeCalderoni, RobertCalderoni]) " are overjoyed at the birth of " ListPeople([People.LucaRobertCalderoni]) ", who was born happy and healthy on his " CraigJohnMcCreight.ShowLink("grandpa's") " birthday."
   }
 };
 
