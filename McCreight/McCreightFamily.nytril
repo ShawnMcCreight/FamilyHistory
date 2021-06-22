@@ -88,6 +88,12 @@ with Places {
 //============================================================================================================
 
 
+Stories.AbigailMarieMcCreight = new Story(null, "Abigail McCreight is born", People.AbigailMarieMcCreight.Date) {
+  Text: Styles.Story {
+    ListPeople([AlyssaMarieMcCreight, ThomasDanielMcCreight]) " welcomed their daughter " ListPeople([People.AbigailMarieMcCreight]) " into the world. Tom kept everyone informed as events were unfolding."
+  }
+};
+
 Stories.LucaRobertCalderoni = new Story(null, "Luca Calderoni is born", People.LucaRobertCalderoni.Date) {
   Text: Styles.Story {
     ListPeople([MichelleNicholeCalderoni, RobertCalderoni]) " are overjoyed at the birth of " ListPeople([People.LucaRobertCalderoni]) ", who was born happy and healthy on his " CraigJohnMcCreight.ShowLink("grandpa's") " birthday."
@@ -936,6 +942,7 @@ Unions.JanetRalph = new Union(JanetMcCreight, RalphEmersonMcCreight) {
 People.FlorenceJaneGofton = new Female("Florence", "Jane", Gofton, Unions.FloJohn) {
   Nick("Flo");
   Born(1930, 8, 22, Places.NewKensington);
+  Died(2021, 4, 26);
   Formerly(McCreight);
 };
 
@@ -1052,6 +1059,10 @@ People.ThomasDanielMcCreight = new Male("Thomas", "Daniel", McCreight, Unions.Ma
 
 Unions.AlyssaTom = new Union(AlyssaMarieMcCreight, ThomasDanielMcCreight) {
   Married(2020, 7, 10)
+};
+
+People.AbigailMarieMcCreight = new Female("Abigail", "Marie", "McCreight", Unions.AlyssaTom) {
+  Born(2021, 6, 19)
 };
 //=====================================
 
