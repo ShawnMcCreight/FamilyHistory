@@ -3,14 +3,14 @@ using Format, Units, People;
 include "..\\..\\Nytril\\Deploy\\Examples\\Family Tree\\Family Tree";
 //======================================================================
 
-with FamilyLines {
-  with HuelsenbeckLine {
+namespace FamilyLines {
+  namespace HuelsenbeckLine {
     Root       = Unions.PeteNikki;
     TextHeight = 14 pts;
     NodeGap    = 10 pts;
   }
 
-  with KramerLine {
+  namespace KramerLine {
     Root       = Unions.MartinBarbara;
     TextHeight = 14 pts;
     NodeGap    = 10 pts;
@@ -30,7 +30,7 @@ NJ          = "New Jersey";
 NY          = "New York";
 CA          = "California";
 
-with Places {
+namespace Places {
   NewarkNJ   = AddPlace("Newark", NJ);
   Berkeley   = AddPlace("Berkeley", CA);
   RedBankNJ  = AddPlace("Red Bank", NJ);

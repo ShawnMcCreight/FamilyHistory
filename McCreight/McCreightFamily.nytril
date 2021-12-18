@@ -6,35 +6,35 @@ include "NelsonFamily";
 //======================================================================
 
 Main.Documents = [
-  new DocumentViewClass("Family History", ref FamilyHistory)
+  new DocumentVarClass(#9a522083-429b-43b9-839f-1caf7c448183#, "Family History", ref FamilyHistory)
 ];
 
 FamilyHistory = FamilyAlbum("Family History", FamilyLines);
 
 //======================================================================
 
-with FamilyLines {
-  with McCreightLine {
+namespace FamilyLines {
+  namespace McCreightLine {
     Root       = Unions.DavidMary;
     TextHeight = 5.6 pts;
     NodeGap    = 0;
   }
 
-  with GoftonLine {
+  namespace GoftonLine {
     Root       = Unions.MargretJohn;
     TextHeight = 12 pts;
     NodeGap    = 6 pts;
   }
 
-  with NelsonLine {
+  namespace NelsonLine {
     Root       = Unions.MarieJohan;
     TextHeight = 14 pts;
     NodeGap    = 10 pts;
   }
 
-  with WolfeLine {
+  namespace WolfeLine {
     Root       = Unions.LouisaGrandpa;
-    TextHeight = 9 pts;
+    TextHeight = 8 pts;
     NodeGap    = 1 pts;
   }
 }
@@ -56,7 +56,7 @@ Michigan     = "Michigan";
 California   = "California";
 Indiana      = "Indiana";
 
-with Places {
+namespace Places {
   Ireland         = AddPlace(null, null, "Ireland");
   Glasgow         = AddPlace("Glasgow", null, "Scotland");
   NorthernIreland = AddPlace(null, null, "Northern Ireland");
@@ -160,17 +160,17 @@ Stories.LostCousin = new Story(FlorenceJaneGofton, "My Long Lost Cousin", DateTi
     LineBreak;
     "We exchanged names and I told her that my last name was 'McCreight'. ";
     "Her name was Leone Phillips. She said that was her aunt's name.  ";
-    "The aunt (Mary McCreight) lived with them. Leone's mother was Mary's sister. ";
-    "Leone and I were in different 4th grade rooms, but we became very good friends and I stood up in her wedding and kept in touch until she passed away with cancer. ";
+    "The aunt (Mary McCreight) lived namespace them. Leone's mother was Mary's sister. ";
+    "Leone and I were in different 4th grade rooms, but we became very good friends and I stood up in her wedding and kept in touch until she passed away namespace cancer. ";
     LineBreak;
     "We both went home and told our parents and my folks invited them to dinner. "
-    "Years before my Grandfather had a falling out with his brothers over a bank deal and consequently my ";
+    "Years before my Grandfather had a falling out namespace his brothers over a bank deal and consequently my ";
      JohnHamillMcCreight.ShowLink("Dad");
      " never met his aunts, uncles or cousins.  ";
     "These two ladies were my Dad's first cousins and they all went to DuBois, PA to meet ";
     MajorIsraelMcCreight.ShowLink("Major McCreight");
     ",  and some of the family. ";
-    "Needless to say Dad did spend more time with Major's family over the years. ";
+    "Needless to say Dad did spend more time namespace Major's family over the years. ";
   }
 };
 
@@ -203,7 +203,7 @@ Stories.ReunionAtNelsons = new Story(PeggyLeeNelson, "Reunion at the Nelson Hous
   }
 };
 
-Stories.McCreightSparklerSign = new Story(KatherineMarieMcCreight, "Sparkler Sign", DateTime(2014, 9, 13)) {
+Stories.McCreightSparklerSign = new Story(KatherineMarieStanifer, "Sparkler Sign", DateTime(2014, 9, 13)) {
   Text: Styles.Story {
     "One night at a family camping trip, I did time-lapse photographs of everyone waving a sparkler around in the shape of a letter. ";
     "I combined those together to spell out the family name. ";
@@ -406,7 +406,7 @@ Stories.FloAtJoshAndMeganWedding = new Story(ShawnHamillMcCreight, "Josh & Megan
   }
 };
 
-Stories.FloAndBobWithGrandkids = new Story(PeggyLeeNelson, "Flo And Bob with the grandkids", DateTime(1982)) {
+Stories.FloAndBobWithGrandkids = new Story(PeggyLeeNelson, "Flo And Bob namespace the grandkids", DateTime(1982)) {
   Text: Styles.Story {
     ListPeople([RobertJohnGofton, TylerJamesGofton]); LineBreak;
     ListPeople([CassandraMarieVarner, FlorenceJaneGofton, KevinMichaelNelson, JoshuaLeeVarner, KristyLeeJordan])
@@ -460,7 +460,7 @@ Stories.BobAndToby1985 = new Story(PeggyLeeNelson, "Bob and Toby", DateTime(1985
 Stories.VeteransDayCelebration2009 = new Story(PeggyLeeNelson, "Veteran's Day Celebration", DateTime(2009)) {
   Text: Styles.Story {
     ListPeople([RobertJohnGofton]);
-    " in Harlan, IN with his three great grand kids ";
+    " in Harlan, IN namespace his three great grand kids ";
     ListPeople([DelaneyNJordan, AlexisAJordan, JustinAJordan]); ". ";
     "He was thrilled that Justin called him to come to his school for the celebration. ";
     "He borrowed Toby's old Navy uniform for that day. ";
@@ -479,7 +479,7 @@ Stories.BobAtBearCreekLodge = new Story(PeggyLeeNelson, "Bob at Bear Creek Lodge
 Stories.MajorIsraelstory = new Story(null, "Major Israel", DateTime(1888)) {
   Text: Styles.Story {
     MajorIsraelMcCreight.ShowLink " was named after Major Israel Uncapher. ";
-    "Neighbors thought it was cute to call the infant Major when he was born, so he went through life with that name. ";
+    "Neighbors thought it was cute to call the infant Major when he was born, so he went through life namespace that name. ";
     "In 1888 he helped start a Deposit Bank in Dubois, Pa., and was manager for 50 years. ";
     "He was a friend of Buffalo Bill Cody and in June 1908 was installed by Chief Irontail as a Chief of the Sioux Tribe. ";
     "His Indian name was Tchanta Tanks. ";
@@ -1066,9 +1066,24 @@ People.AbigailMarieMcCreight = new Female("Abigail", "Marie", "McCreight", Union
 };
 //=====================================
 
-People.KatherineMarieMcCreight = new Female("Katherine", "Marie", McCreight, Unions.MarianneCraig) {
+People.KatherineMarieStanifer = new Female("Katherine", "Marie", "Stanifer", Unions.MarianneCraig) {
+  Formerly(McCreight);
   Born(1990, 9, 6);
 };
+
+People.WilliamStanifer = new Female("Bill", null, "Stanifer") {
+  Nick("Bill")
+};
+
+
+Unions.KatherineBill = new Union(KatherineMarieStanifer, WilliamStanifer) {
+  Married(2020)  // ???
+};
+
+People.LibertyFaithStanifer = new Female("Liberty", "Faith", "Stanifer", Unions.KatherineBill) {
+  Born(2021, 8); // ???
+};
+
 //=====================================
 
 People.MichelleNicholeCalderoni = new Female("Michelle", "Nichole", Calderoni, Unions.MarianneCraig) {
