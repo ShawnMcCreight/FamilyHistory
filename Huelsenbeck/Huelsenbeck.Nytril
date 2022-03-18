@@ -3,22 +3,19 @@ using Format, Units, People;
 include "..\\..\\Nytril\\Deploy\\Examples\\Family Tree\\Family Tree";
 //======================================================================
 
-namespace FamilyLines {
-  namespace HuelsenbeckLine {
-    Root       = Unions.PeteNikki;
-    TextHeight = 14 pts;
-    NodeGap    = 10 pts;
-  }
+Main.Documents = [
+  new DocumentVarClass(#9a522083-429b-43b9-839f-1caf7c448183#, "Family History", ref FamilyHistory)
+];
 
-  namespace KramerLine {
-    Root       = Unions.MartinBarbara;
-    TextHeight = 14 pts;
-    NodeGap    = 10 pts;
-  }
+FamilyHistory = FamilyAlbum("Family History", FamilyLines);
+
+//======================================================================
+
+namespace FamilyLines {
+  HuelsenbeckLine = new FamilyLineClass(Unions.PeteNikki, 14 pts, 10 pts);
+  KramerLine      = new FamilyLineClass(Unions.MartinBarbara, 14 pts, 10 pts);
 }
 
-
-Watch = FamilyAlbum("Family History", FamilyLines);
 //===============================================================================================================
 
 Huelsenbeck = "Huelsenbeck";
@@ -52,7 +49,7 @@ People.NikkiSueGrant = new Female("Nikki", "Sue", Grant) {
   Died(2016, 10,22)
 };
 
-Unions.PeteNikki = new Union(NikkiSueGrant, PeterWilfredHuelsenbeck) {
+Unions.PeteNikki = new UnionClass(NikkiSueGrant, PeterWilfredHuelsenbeck) {
   Married(1965, 2, 5)
 };
 //=====================================
@@ -65,7 +62,7 @@ People.BarbaraKramer = new Female("Barbara", null, Kramer) {
   Born(1967, 10, 27, Places.RedBankNJ)
 };
 
-Unions.MartinBarbara = new Union(BarbaraKramer, MartinKramer) {
+Unions.MartinBarbara = new UnionClass(BarbaraKramer, MartinKramer) {
   Married(2015, 4, 29, Places.SF)
 };
 //=====================================
@@ -87,12 +84,12 @@ People.EdnaTelanYeh = new Female("Edna", "Telan", "Yeh") {
   Born(1966, 6, 4, Places.Ellensburg)
 };
 
-Unions.EdnaJohn = new Union(EdnaTelanYeh, JohnPeterHuelsenbeck) {
+Unions.EdnaJohn = new UnionClass(EdnaTelanYeh, JohnPeterHuelsenbeck) {
   Married(1990, 7, 21, Places.Ellensburg);
   Divorced(2014, 12, 19)
 };
 
-Unions.SoniaJohn = new Union(SoniaHuelsenbeck, JohnPeterHuelsenbeck) {
+Unions.SoniaJohn = new UnionClass(SoniaHuelsenbeck, JohnPeterHuelsenbeck) {
   Married(2015, 4, 29, Places.SF)
 };
 

@@ -14,29 +14,10 @@ FamilyHistory = FamilyAlbum("Family History", FamilyLines);
 //======================================================================
 
 namespace FamilyLines {
-  namespace McCreightLine {
-    Root       = Unions.DavidMary;
-    TextHeight = 5.6 pts;
-    NodeGap    = 0;
-  }
-
-  namespace GoftonLine {
-    Root       = Unions.MargretJohn;
-    TextHeight = 12 pts;
-    NodeGap    = 6 pts;
-  }
-
-  namespace NelsonLine {
-    Root       = Unions.MarieJohan;
-    TextHeight = 14 pts;
-    NodeGap    = 10 pts;
-  }
-
-  namespace WolfeLine {
-    Root       = Unions.LouisaGrandpa;
-    TextHeight = 8 pts;
-    NodeGap    = 1 pts;
-  }
+  McCreightLine = new FamilyLineClass(Unions.DavidMary, 5.6 pts, 0);
+  GoftonLine    = new FamilyLineClass(Unions.MargretJohn, 12 pts, 6 pts);
+  NelsonLine    = new FamilyLineClass(Unions.MarieJohan, 14 pts, 10 pts);
+  WolfeLine     = new FamilyLineClass(Unions.LouisaGrandpa, 8 pts, 1 pts);
 }
 //============================================================================================================
 
@@ -317,7 +298,7 @@ Stories.MyThreeSons = new Story(FlorenceJaneGofton, "My Three Sons", DateTime(19
 
 Stories.JohnHamillAtWork = new Story(FlorenceJaneGofton, "John Hamill McCreight at work") {
   Text: Styles.Story {
-    ListPeople([JohnHamillMcCreight]) " is shown 4th from the left.";
+    ListPeople([JohnHamillMcCreight]) " is shown 4th from the right.";
   }
 };
 
@@ -500,7 +481,7 @@ People.DavidMcCreight = new Male("David", null, McCreight) {
   Died(1799, 9, 14)
 };
 
-Unions.DavidMary = new Union(MaryMcCreight, DavidMcCreight) {
+Unions.DavidMary = new UnionClass(MaryMcCreight, DavidMcCreight) {
   Married(1730)
 };
 //============================================================================================================
@@ -517,7 +498,7 @@ People.JamesMcCreight = new Male("James", null, McCreight, Unions.DavidMary) {
 People.SallyDunnMcCreight = new Female("Sally", "Dunn", McCreight) {
 };
 
-Unions.JamesSally = new Union(SallyDunnMcCreight, JamesMcCreight) {
+Unions.JamesSally = new UnionClass(SallyDunnMcCreight, JamesMcCreight) {
   Married(1730)
 };
 //============================================================================================================
@@ -544,7 +525,7 @@ People.AnnSharpMcCreight = new Female("Ann", "Sharp", McCreight) {
   Born(1794, 6, 27);
 };
 
-Unions.AnnAndrew = new Union(AnnSharpMcCreight, AndrewMcCreight1) {
+Unions.AnnAndrew = new UnionClass(AnnSharpMcCreight, AndrewMcCreight1) {
   Married(1812, 1, 7)
 };
 //============================================================================================================
@@ -556,7 +537,7 @@ People.AndrewSharpMcCreight = new Male("Andrew", "Sharp", McCreight, Unions.AnnA
   Born(1815, 1, 10, Places.CrookedCreekPA)
 };
 
-Unions.JaneAndrew = new Union(JaneJohnsonMcCreight, AndrewSharpMcCreight) {
+Unions.JaneAndrew = new UnionClass(JaneJohnsonMcCreight, AndrewSharpMcCreight) {
   //First cousins!
   Married(1843, 6, 6)
 };
@@ -583,7 +564,7 @@ People.ElizaUncapherMcCreight = new Female("Eliza", null, McCreight) {
   Died(1918, 7, 2)
 };
 
-Unions.ElizaJohn = new Union(ElizaUncapherMcCreight, JohnWinslowMcCreight);
+Unions.ElizaJohn = new UnionClass(ElizaUncapherMcCreight, JohnWinslowMcCreight);
 
 People.AnneSMcCreight = new Female("Anne", "S", McCreight, Unions.AnnAndrew);
 
@@ -641,7 +622,7 @@ People.AliceMcCreight = new Female("Alice", null, McCreight) {
   Died(1958, 11, 13)
 };
 
-Unions.AliceIsrael = new Union(AliceMcCreight, MajorIsraelMcCreight) {
+Unions.AliceIsrael = new UnionClass(AliceMcCreight, MajorIsraelMcCreight) {
   Married(1860)
 };
 
@@ -656,7 +637,7 @@ People.MaryLillibelMcCreight = new Female("Mary", "Lillibell", McCreight, Unions
 
 People.MaryHamill = new Female("Mary", null, Hamill);
 People.HughHamill = new Male("Hugh", null, Hamill);
-Unions.MaryHughHamill = new Union(MaryHamill, HughHamill);
+Unions.MaryHughHamill = new UnionClass(MaryHamill, HughHamill);
 //=====================================
 
 People.SarahMcCreight = new Female("Sarah", null, McCreight, Unions.JaneAndrew) {
@@ -666,7 +647,7 @@ People.SarahMcCreight = new Female("Sarah", null, McCreight, Unions.JaneAndrew) 
 
 People.GeorgeWarnick = new Male("George", null, "Warnick");
 
-Unions.SarahGeorge = new Union(SarahMcCreight, GeorgeWarnick) {
+Unions.SarahGeorge = new UnionClass(SarahMcCreight, GeorgeWarnick) {
   Married(1860)
 };
 //=====================================
@@ -689,7 +670,7 @@ People.AndrewSmithMcCreight = new Male("Andrew", "Smith", McCreight, Unions.Jane
   Born(1851, 3, 24)
 };
 
-Unions.MarthaAndrew = new Union(MarthaJaneNorth, AndrewSmithMcCreight);
+Unions.MarthaAndrew = new UnionClass(MarthaJaneNorth, AndrewSmithMcCreight);
 
 People.OliveMyrtleMcCreight = new Female("Olive", "Myrtle", McCreight, Unions.MarthaAndrew) {
 };
@@ -714,7 +695,7 @@ People.JamesAlexanderMcCreight = new Male("James", "Alexander", McCreight, Union
   Died(1937, 7, 11)
 };
 
-Unions.SallyJames = new Union(SallyBelleWalker, JamesAlexanderMcCreight) {
+Unions.SallyJames = new UnionClass(SallyBelleWalker, JamesAlexanderMcCreight) {
   Married(1888, 9, 20)
 };
 
@@ -736,7 +717,7 @@ People.CyrilMcCreight = new Male("Cyril", null, McCreight, Unions.SallyJames) {
   Born(1900);
   Died(1972)
 };
-Unions.MaryCyril = new Union(MaryDonegan, CyrilMcCreight);
+Unions.MaryCyril = new UnionClass(MaryDonegan, CyrilMcCreight);
 
 //=====================================
 
@@ -765,7 +746,7 @@ People.JennieAdelphiaMcCreight = new Female("Jennie", "Adelphia", McCreight, Uni
   Died(1950, 1, 3);
 };
 
-Unions.JennieJohn = new Union(JennieAdelphiaMcCreight, JohnJamiesonMcCreight);
+Unions.JennieJohn = new UnionClass(JennieAdelphiaMcCreight, JohnJamiesonMcCreight);
 //=====================================
 
 People.GrandpaWolfe = new Female("Grandpa", null, Wolfe) {
@@ -776,7 +757,7 @@ People.LouisaWolfe = new Female("Louisa", null, Wolfe) {
   Died(1940, 6, 6);
 };
 
-Unions.LouisaGrandpa = new Union(LouisaWolfe, GrandpaWolfe);
+Unions.LouisaGrandpa = new UnionClass(LouisaWolfe, GrandpaWolfe);
 //=====================================
 
 People.HarryWhiteHazelett = new Male("Harry", "White", Hazelett);
@@ -786,7 +767,7 @@ People.BerthaPearlHazelett = new Female("Bertha", "Pearl", Hazelett, Unions.Loui
   Formerly(Wolfe);
 };
 
-Unions.HarryBertha = new Union(BerthaPearlHazelett, HarryWhiteHazelett);
+Unions.HarryBertha = new UnionClass(BerthaPearlHazelett, HarryWhiteHazelett);
 //=====================================
 
 People.MollieWolfeWolfe = new Female("Mollie", Wolfe, Wolfe, Unions.LouisaGrandpa) {
@@ -855,7 +836,7 @@ People.WendellButlerMcCreight = new Male("Wendell", "Butler", McCreight, Unions.
   Died(1998, 8, 23);
 };
 
-Unions.AnnWendle = new Union(AnnKatherineMcCreight, WendellButlerMcCreight);
+Unions.AnnWendle = new UnionClass(AnnKatherineMcCreight, WendellButlerMcCreight);
 //=====================================
 
 People.ThelmaEllenFaust = new Female("Thelma", "Ellen", "Faust");
@@ -865,7 +846,7 @@ People.JamesClarkMcCreight = new Male("James", "Clark", McCreight, Unions.Jennie
   Died(0);
 };
 
-Unions.ThelmaJames = new Union(ThelmaEllenFaust, JamesClarkMcCreight);
+Unions.ThelmaJames = new UnionClass(ThelmaEllenFaust, JamesClarkMcCreight);
 //=====================================
 
 People.InezMargaretKerr = new Female("Inez", "Margaret", "Kerr", Unions.JennieJohn) {
@@ -880,7 +861,7 @@ People.ClarenceGrantKerr = new Male("Clarence", "Grant", "Kerr") {
   Died(1964);
 };
 
-Unions.InezClarence = new Union(InezMargaretKerr, ClarenceGrantKerr) {
+Unions.InezClarence = new UnionClass(InezMargaretKerr, ClarenceGrantKerr) {
   Married(1921, 3, 31)
 };
 //=====================================
@@ -901,7 +882,7 @@ People.JohnHamillMcCreight = new Male("John", Hamill, McCreight, Unions.JennieJo
   Born(1904, 5, 21)
 };
 
-Unions.FloJohn = new Union(FlorenceGertrudeMcCreight, JohnHamillMcCreight) {
+Unions.FloJohn = new UnionClass(FlorenceGertrudeMcCreight, JohnHamillMcCreight) {
 };
 //=====================================
 
@@ -918,7 +899,7 @@ People.JohnHarryMcCreight = new Male("John", "Harry", McCreight, Unions.FloJohn)
   Died(1976, 4, 23)
 };
 
-Unions.JoanJack = new Union(MaryJoanMcCreight, JohnHarryMcCreight) {
+Unions.JoanJack = new UnionClass(MaryJoanMcCreight, JohnHarryMcCreight) {
   Married(1958, 12, 2)
 };
 //=====================================
@@ -929,12 +910,13 @@ People.RalphEmersonMcCreight = new Male("Ralph", "Emerson", McCreight, Unions.Fl
   Died(2003, 10, 9)
 };
 
-People.JanetMcCreight = new Female("Janet", null, McCreight) {
+People.JanetMcCreight = new Female("Janet", "Jane", McCreight) {
   Born(1939, 8, 18);
+  Died(2022, 1, 10);
   Formerly("Johnson");
 };
 
-Unions.JanetRalph = new Union(JanetMcCreight, RalphEmersonMcCreight) {
+Unions.JanetRalph = new UnionClass(JanetMcCreight, RalphEmersonMcCreight) {
   Married(1959, 11, 28)
 };
 //=====================================
@@ -952,7 +934,7 @@ People.RobertJohnGofton = new Male("Robert", "John", Gofton, Unions.LoisClaude) 
   Died(2015, 6, 13);
 };
 
-Unions.FloBob = new Union(FlorenceJaneGofton, RobertJohnGofton) {
+Unions.FloBob = new UnionClass(FlorenceJaneGofton, RobertJohnGofton) {
   Married(1950, 12, 21)
 };
 //=====================================
@@ -964,7 +946,7 @@ People.CassandraMarieVarner = new Female("Cassandra", "Marie", Varner, Unions.Jo
 
 People.SheriFolta = new Female("Sheri", null, "Folta");
 
-Unions.CassSheri = new Union(CassandraMarieVarner, SheriFolta);
+Unions.CassSheri = new UnionClass(CassandraMarieVarner, SheriFolta);
 
 //=====================================
 
@@ -977,7 +959,7 @@ People.JoshuaLeeVarner = new Male("Joshua", "Lee", Varner, Unions.JoannTobey) {
   Born(1976, 4, 7);
 };
 
-Unions.MeganJoshua = new Union(MeaganVarner, JoshuaLeeVarner);
+Unions.MeganJoshua = new UnionClass(MeaganVarner, JoshuaLeeVarner);
 
 People.SawyerVarner = new Male("Sawyer", "Lee", Varner, Unions.MeganJoshua) {
   Born(2008, 11, 25);
@@ -1010,7 +992,7 @@ People.JohnCraigMcCreight = new Male("John", "Craig", McCreight, Unions.JoanJack
   Born(1962, 7, 2)
 };
 
-Unions.LoriJohn = new Union(LoriChun, JohnCraigMcCreight) {
+Unions.LoriJohn = new UnionClass(LoriChun, JohnCraigMcCreight) {
   Married(2005, 6, 25);
   Divorced(2010)
 };
@@ -1038,11 +1020,11 @@ People.TheresaMaryMcCreight = new Female("Theresa", "Mary", McCreight) {
 People.MarianneElizabethFrontino = new Female("Marianne", "Elizabeth", "Frontino") {
 };
 
-Unions.MarianneCraig = new Union(MarianneElizabethFrontino, CraigJohnMcCreight) {
+Unions.MarianneCraig = new UnionClass(MarianneElizabethFrontino, CraigJohnMcCreight) {
   Married(1986, 9, 6)
 };
 
-Unions.TerryCraig = new Union(TheresaMaryMcCreight, CraigJohnMcCreight) {
+Unions.TerryCraig = new UnionClass(TheresaMaryMcCreight, CraigJohnMcCreight) {
   Married(2017, 7, 21)
 };
 //=====================================
@@ -1057,7 +1039,7 @@ People.ThomasDanielMcCreight = new Male("Thomas", "Daniel", McCreight, Unions.Ma
   Born(1993, 4, 23);
 };
 
-Unions.AlyssaTom = new Union(AlyssaMarieMcCreight, ThomasDanielMcCreight) {
+Unions.AlyssaTom = new UnionClass(AlyssaMarieMcCreight, ThomasDanielMcCreight) {
   Married(2020, 7, 10)
 };
 
@@ -1076,7 +1058,7 @@ People.WilliamStanifer = new Female("Bill", null, "Stanifer") {
 };
 
 
-Unions.KatherineBill = new Union(KatherineMarieStanifer, WilliamStanifer) {
+Unions.KatherineBill = new UnionClass(KatherineMarieStanifer, WilliamStanifer) {
   Married(2020)  // ???
 };
 
@@ -1096,7 +1078,7 @@ People.RobertCalderoni = new Male("Robert", null, Calderoni) {
   Born(1988, 1, 21)
 };
 
-Unions.MichelleBobby = new Union(MichelleNicholeCalderoni, RobertCalderoni) {
+Unions.MichelleBobby = new UnionClass(MichelleNicholeCalderoni, RobertCalderoni) {
   Married(2019, 7, 8)
 };
 
@@ -1116,7 +1098,7 @@ People.JenniferLynnMcCreight = new Female("Jennifer", "Lynn", McCreight, Unions.
   Born(1968, 2, 16)
 };
 
-Unions.JenniferShawn = new Union(JenniferLynnMcCreight, ShawnHamillMcCreight) {
+Unions.JenniferShawn = new UnionClass(JenniferLynnMcCreight, ShawnHamillMcCreight) {
   Married(1995, 6, 17)
 };
 //=====================================
@@ -1149,7 +1131,7 @@ People.ClaytonAlanMcCreight = new Male("Clayton", "Alan", McCreight, Unions.Jane
   Born(1963, 4, 4);
 };
 
-Unions.LisaClay = new Union(LisaLouiseMcCreight, ClaytonAlanMcCreight) {
+Unions.LisaClay = new UnionClass(LisaLouiseMcCreight, ClaytonAlanMcCreight) {
   Married(1987, 5, 9)
 };
 //=====================================
@@ -1163,7 +1145,7 @@ People.AnthonyYuncker = new Male("Anthony", "Francis", Yuncker) {
   Born(1986, 7, 1);
 };
 
-Unions.RenaedaAnthony = new Union(RanaedaMarieYuncker, AnthonyYuncker) {
+Unions.RenaedaAnthony = new UnionClass(RanaedaMarieYuncker, AnthonyYuncker) {
   Married(2016, 1, 22)
 };
 //=====================================
@@ -1196,15 +1178,15 @@ People.GailEnglish = new Female("Gail", null, "English");
 
 People.DebbieGofton = new Female("Debbie", null, "Gofton");
 
-Unions.JamesSharon = new Union(SharonParks, JamesRobertGofton) {
+Unions.JamesSharon = new UnionClass(SharonParks, JamesRobertGofton) {
   Married(1971, 4, 17)
 };
 
-Unions.JoanneJamesGofton = new Union(MollyJohnson, JamesRobertGofton);
+Unions.JoanneJamesGofton = new UnionClass(MollyJohnson, JamesRobertGofton);
 
-Unions.GailEnglishJamesGofton = new Union(GailEnglish, JamesRobertGofton);
+Unions.GailEnglishJamesGofton = new UnionClass(GailEnglish, JamesRobertGofton);
 
-Unions.DebbieGoftonJamesGofton = new Union(DebbieGofton, JamesRobertGofton);
+Unions.DebbieGoftonJamesGofton = new UnionClass(DebbieGofton, JamesRobertGofton);
 //=====================================
 
 People.JoannMarieVarner = new Female("JoAnn", "Marie", Varner, Unions.FloBob) {
@@ -1213,7 +1195,7 @@ People.JoannMarieVarner = new Female("JoAnn", "Marie", Varner, Unions.FloBob) {
 
 People.TobyVarner = new Male("Toby", null, Varner);
 
-Unions.JoannTobey = new Union(JoannMarieVarner, TobyVarner) {
+Unions.JoannTobey = new UnionClass(JoannMarieVarner, TobyVarner) {
   Married(1974, 6, 29)
 };
 //============================================================================================================

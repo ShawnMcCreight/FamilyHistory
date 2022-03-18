@@ -23,7 +23,7 @@ People.JohanNGrettveit = new Male("Johan", "N.", "Grettveit") {
   Died(1882, 10, 30)
 };
 
-Unions.MarieJohan = new Union(MarieOBortveit, JohanNGrettveit) {
+Unions.MarieJohan = new UnionClass(MarieOBortveit, JohanNGrettveit) {
   Married(1860, 4, 30, Places.Hosanger)
 };
 
@@ -32,7 +32,7 @@ People.OlaiNelson = new Male("Olai", null, Nelson, Unions.MarieJohan) {
   Died(1950, 7, 27)
 };
 
-Unions.AnnaOlai = new Union(AnnaVetheNelson, OlaiNelson) {
+Unions.AnnaOlai = new UnionClass(AnnaVetheNelson, OlaiNelson) {
   Married(1897, 3, 24, Places.Madison)
 };
 //=====================================
@@ -46,7 +46,7 @@ People.RichardTNelson = new Male("Richard", "T.", Nelson, Unions.AnnaOlai) {
   Died(1999, 12, 12)
 };
 
-Unions.ViolaRichard = new Union(ViolaMNelson, RichardTNelson) {
+Unions.ViolaRichard = new UnionClass(ViolaMNelson, RichardTNelson) {
   Married(1931, 6, 26, Places.Janesville)
 };
 //=====================================
@@ -55,7 +55,7 @@ People.MelvinENelson = new Male("Melvin", "E.", Nelson, Unions.ViolaRichard) {
   Born(1932, 2, 19, Places.Beresford);
 };
 
-Unions.CleoMelvin = new Union(CleoLNelson, MelvinENelson) {
+Unions.CleoMelvin = new UnionClass(CleoLNelson, MelvinENelson) {
   Married(1976, 7, 30, Places.Midland)
 };
 //=====================================
@@ -70,7 +70,7 @@ People.JeffreyPNelson = new Male("Jeffrey", "P.", Nelson, Unions.CleoMelvin) {
   Born(1955, 9, 7, Places.Midland);
 };
 
-Unions.PeggyJeff = new Union(PeggyLeeNelson, JeffreyPNelson) {
+Unions.PeggyJeff = new UnionClass(PeggyLeeNelson, JeffreyPNelson) {
   Married(1976, 7, 30, Places.Midland)
 };
 //=====================================
@@ -84,7 +84,7 @@ People.JasonWJordan = new Male("Jason", "W.", Jordan) {
   Born(1973, 5, 5, Places.Freemont);
 };
 
-Unions.KristyJason = new Union(KristyLeeJordan, JasonWJordan) {
+Unions.KristyJason = new UnionClass(KristyLeeJordan, JasonWJordan) {
   Married(2005, 2, 26);
   Divorced(2005, 9)
 };
@@ -112,7 +112,7 @@ People.TiffanyFrye = new Female("Tiffany", null, "Frye") {
   Born(2000, 11, 8, Places.FortWayne);
 };
 
-Unions.TiffanyKevin = new Union(TiffanyFrye, KevinMichaelNelson);
+Unions.TiffanyKevin = new UnionClass(TiffanyFrye, KevinMichaelNelson);
 
 People.CaitlinMNelson = new Female("Caitlin", "M.", Nelson, Unions.TiffanyKevin) {
   Born(2000, 11, 8, Places.FortWayne)
@@ -132,11 +132,11 @@ People.ChadMaroney = new Male("Chad", null, "Maroney") {
   Born(1971, 3, 28, Places.FortWayne)
 };
 
-Unions.LisaPhillip = new Union(LisaAnnMaroney, PhillipRosier) {
+Unions.LisaPhillip = new UnionClass(LisaAnnMaroney, PhillipRosier) {
   Married(2003, 8, 23)
 };
 
-Unions.LisaChad = new Union(LisaAnnMaroney, ChadMaroney) {
+Unions.LisaChad = new UnionClass(LisaAnnMaroney, ChadMaroney) {
   Married(2019, 4, 29)
 };
 
@@ -155,7 +155,7 @@ People.JeannieSmithProut = new Female("Jeannie", null, "Prout") {
 
 People.ThomasProut = new Male("Thomas", null, "Prout");
 
-Unions.JeannieThomas = new Union(JeannieSmithProut, ThomasProut);
+Unions.JeannieThomas = new UnionClass(JeannieSmithProut, ThomasProut);
 //=========================================
 
 People.MargretGofton = new Female("Margret", null, Gofton, Unions.JeannieThomas) {
@@ -169,7 +169,7 @@ People.JohnGofton = new Male("John", null, Gofton) {
   Died(1931, 4, 26);
 };
 
-Unions.MargretJohn = new Union(MargretGofton, JohnGofton) {
+Unions.MargretJohn = new UnionClass(MargretGofton, JohnGofton) {
   Married(1899, 1, 23);
 };
 //=========================================
@@ -185,7 +185,7 @@ People.NathanialGofton = new Male("Nathanial", null, Gofton, Unions.MargretJohn)
   Died(1928, 1, 18);
 };
 
-Unions.MaryNathanial = new Union(MaryAGofton, NathanialGofton) {
+Unions.MaryNathanial = new UnionClass(MaryAGofton, NathanialGofton) {
   Married(1899, 1, 23);
 };
 //===========================================
@@ -199,7 +199,7 @@ People.ClaudeGofton = new Male("Claude", null, Gofton, Unions.MaryNathanial) {
   Died(1952, 2, 16);
 };
 
-Unions.LoisClaude = new Union(LoisLelandGofton, ClaudeGofton) {
+Unions.LoisClaude = new UnionClass(LoisLelandGofton, ClaudeGofton) {
   Married(1899, 1, 23);
 };
 

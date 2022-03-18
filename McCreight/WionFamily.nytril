@@ -25,7 +25,7 @@ People.HalieJaneWion = new Female("Hailie", "Jane", Wion, Unions.JeanineRichardW
 };
 //============================================================================================================
 
-Unions.JeanineRichardWion   = new Union(RichardWion, JeanineCline);
-Unions.CharlotteCharlesWion = new Union(CharlotteWion, CharlesWion, DateTime(1964, 3, 8));
+Unions.JeanineRichardWion   = new UnionClass(RichardWion, JeanineCline);
+Unions.CharlotteCharlesWion = new UnionClass(CharlotteWion, CharlesWion, DateTime(1964, 3, 8));
 //============================================================================================================
 
