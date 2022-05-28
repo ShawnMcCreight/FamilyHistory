@@ -3,29 +3,29 @@ using People;
 
 Wion = "Wion";
 
-People.CharlotteWion = new Female("Charlotte", "June", Wion) {
+Female  People.CharlotteWion = new("Charlotte", "June", Wion) {
   Formerly("Rafior");
   Born(1944, 8, 19)
 };
 
-People.CharlesWion = new Male("Charles", "Wesley", Wion) {
+Male People.CharlesWion = new("Charles", "Wesley", Wion) {
   Nick("Chuck");
   Born(1942, 12, 19);
 };
 
-People.RichardWion = new Male("Richard", "Charles", Wion, Unions.CharlotteCharlesWion) {
+Male People.RichardWion = new("Richard", "Charles", Wion, Unions.CharlotteCharlesWion) {
   Nick("Rich");
   Born(1969, 10, 23)
 };
 
-People.JeanineCline = new Female("Jeanine", null, "Cline");
+Female  People.JeanineCline = new("Jeanine", null, "Cline");
 
-People.HalieJaneWion = new Female("Hailie", "Jane", Wion, Unions.JeanineRichardWion) {
+Female People.HalieJaneWion = new("Hailie", "Jane", Wion, Unions.JeanineRichardWion) {
   Born(2003, 12, 31)
 };
 //============================================================================================================
 
-Unions.JeanineRichardWion   = new UnionClass(RichardWion, JeanineCline);
-Unions.CharlotteCharlesWion = new UnionClass(CharlotteWion, CharlesWion, DateTime(1964, 3, 8));
+UnionClass Unions.JeanineRichardWion   = new(RichardWion, JeanineCline);
+UnionClass Unions.CharlotteCharlesWion = new(CharlotteWion, CharlesWion, new(1964, 3, 8));
 //============================================================================================================
 
