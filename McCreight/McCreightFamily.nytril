@@ -6,7 +6,12 @@ include "NelsonFamily";
 //======================================================================
 
 Main.Documents = [
-  new DocumentVarClass(#9a522083-429b-43b9-839f-1caf7c448183#, "Family History", ref FamilyHistory)
+  new FamilyDocumentClass(#64607616-5b43-4146-849a-5b9b58b3e051#, "McCreight-Gofton Family History", [
+    new(Unions.DavidMary, 5.3 pts, 0),
+    new(Unions.MargretJohn, 12 pts, 6 pts),
+    new(Unions.MarieJohan, 14 pts, 10 pts),
+    new(Unions.LouisaGrandpa, 8 pts, 1 pts),
+  ])
 ];
 
 Main.Facts = [
@@ -15,17 +20,8 @@ Main.Facts = [
 ];
 
 PictureFolder = IO.Folders.Source;
-FamilyHistory = FamilyAlbum("Family History", FamilyLines);
 
 //======================================================================
-
-namespace FamilyLines {
-  McCreightLine = new FamilyLineClass(Unions.DavidMary, 5.3 pts, 0);
-  GoftonLine    = new FamilyLineClass(Unions.MargretJohn, 12 pts, 6 pts);
-  NelsonLine    = new FamilyLineClass(Unions.MarieJohan, 14 pts, 10 pts);
-  WolfeLine     = new FamilyLineClass(Unions.LouisaGrandpa, 8 pts, 1 pts);
-}
-//============================================================================================================
 
 Calderoni = "Calderoni";
 Hamill    = "Hamill";
