@@ -7,7 +7,7 @@ include "NelsonFamily";
 
 Main.Documents = [
   new FamilyDocumentClass(#64607616-5b43-4146-849a-5b9b58b3e051#, "McCreight-Gofton Family History", [
-    new(Unions.DavidMary, 5.3 pts, 0),
+    new(Unions.DavidMary, 5.2 pts, 0),
     new(Unions.MargretJohn, 12 pts, 6 pts),
     new(Unions.MarieJohan, 14 pts, 10 pts),
     new(Unions.LouisaGrandpa, 8 pts, 1 pts),
@@ -177,7 +177,7 @@ StoryClass LostCousin = new(FlorenceJaneGofton, "My Long Lost Cousin", new(1939)
   }
 };
 
-StoryClass BobSnowPlow = new(FlorenceJaneGofton, "Poor Man's Snow Plow", new(2013, 1, 26)) {
+StoryClass BobSnowPlow = new(FlorenceJaneGofton, "Real Man's Snow Plow", new(2013, 1, 26)) {
   Text: Styles.Story {
     "Never one to shirk his household responsibilities, even in the face of injury, "; RobertJohnGofton.ShowLink("Bob");
     " crafted a clever tool to get the job done. ";
@@ -396,7 +396,7 @@ StoryClass FloAndBob1971 = new(PeggyLeeNelson, "Bob & Flo's wedding", new(1971))
   }
 };
 
-StoryClass FloAndBob2013 = new(ShawnHamillMcCreight, "At Shawn's house in Pasadena", new(2013)) {
+StoryClass FloAndBob2013 = new(ShawnHamillMcCreight, "At Shawn & Jen's house in Pasadena", new(2013)) {
   Text: Styles.Story {
     ListPeople([RobertJohnGofton, FlorenceJaneGofton, ShawnHamillMcCreight]) " went to a dinner at the Twilight Club in Pasadena, CA. ";
     "Bob was thrilled to meet the head coach of the USC football team. Bob made sure that the coach knew that he himself was "; Bold "not"; " a USC fan."
