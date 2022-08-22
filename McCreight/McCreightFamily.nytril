@@ -73,6 +73,12 @@ namespace Places {
 
 namespace Stories {
 
+StoryClass CraigLuca = new(null, "Luca gets a lift from Grandpa", new(2022, 8, 15)) {
+  Text: Styles.Story {
+    ListPeople([CraigJohnMcCreight]) " gives a lift to his grandson " ListPeople([People.LucaRobertCalderoni]) "."
+  }
+};
+
 StoryClass EmersonLouiseMyler = new(null, "Emerson Myler is born", People.EmersonLouiseMyler.Date) {
   Text: Styles.Story {
     ListPeople([AmeliaMaeMyler, WilliamCharlesMyler]) " welcomed their daughter " ListPeople([People.EmersonLouiseMyler]) " into the world."
@@ -97,7 +103,7 @@ StoryClass AbigailMarieMcCreight = new(null, "Abigail McCreight is born", People
   }
 };
 
-StoryClass LucaRobertCalderoni = new(null, "Luca Calderoni is born", People.LucaRobertCalderoni.Date) {
+StoryClass LucaRobertCalderoniBorn = new(null, "Luca Calderoni is born", People.LucaRobertCalderoni.Date) {
   Text: Styles.Story {
     ListPeople([MichelleNicholeCalderoni, RobertCalderoni]) " are overjoyed at the birth of " ListPeople([People.LucaRobertCalderoni]) ", who was born happy and healthy on his " CraigJohnMcCreight.ShowLink("grandpa's") " birthday."
   }
