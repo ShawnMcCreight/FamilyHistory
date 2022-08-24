@@ -75,13 +75,13 @@ namespace Stories {
 
 StoryClass CraigLuca = new(null, "Luca gets a lift from Grandpa", new(2022, 8, 15)) {
   Text: Styles.Story {
-    ListPeople([CraigJohnMcCreight]) " gives a lift to his grandson " ListPeople([People.LucaRobertCalderoni]) "."
+    ListPeople([CraigJohnMcCreight]) " gives a lift to his grandson " ListPeople([LucaRobertCalderoni]) "."
   }
 };
 
-StoryClass EmersonLouiseMyler = new(null, "Emerson Myler is born", People.EmersonLouiseMyler.Date) {
+StoryClass EmersonLouiseMylerBorn = new(null, "Emerson Myler is born", EmersonLouiseMyler.Date) {
   Text: Styles.Story {
-    ListPeople([AmeliaMaeMyler, WilliamCharlesMyler]) " welcomed their daughter " ListPeople([People.EmersonLouiseMyler]) " into the world."
+    ListPeople([AmeliaMaeMyler, WilliamCharlesMyler]) " welcomed their daughter " ListPeople([EmersonLouiseMyler]) " into the world."
   }
 };
 
@@ -97,19 +97,19 @@ StoryClass AmeliaBillyWedding = new(null, "The wedding of Amelia and Billy", Uni
   }
 };
 
-StoryClass AbigailMarieMcCreight = new(null, "Abigail McCreight is born", People.AbigailMarieMcCreight.Date) {
+StoryClass AbigailMarieMcCreightBorn = new(null, "Abigail McCreight is born", People.AbigailMarieMcCreight.Date) {
   Text: Styles.Story {
-    ListPeople([AlyssaMarieMcCreight, ThomasDanielMcCreight]) " welcomed their daughter " ListPeople([People.AbigailMarieMcCreight]) " into the world. Tom kept everyone informed as events were unfolding."
+    ListPeople([AlyssaMarieMcCreight, ThomasDanielMcCreight]) " welcomed their daughter " ListPeople([AbigailMarieMcCreight]) " into the world. Tom kept everyone informed as events were unfolding."
   }
 };
 
 StoryClass LucaRobertCalderoniBorn = new(null, "Luca Calderoni is born", People.LucaRobertCalderoni.Date) {
   Text: Styles.Story {
-    ListPeople([MichelleNicholeCalderoni, RobertCalderoni]) " are overjoyed at the birth of " ListPeople([People.LucaRobertCalderoni]) ", who was born happy and healthy on his " CraigJohnMcCreight.ShowLink("grandpa's") " birthday."
+    ListPeople([MichelleNicholeCalderoni, RobertCalderoni]) " are overjoyed at the birth of " ListPeople([LucaRobertCalderoni]) ", who was born happy and healthy on his " CraigJohnMcCreight.ShowLink("grandpa's") " birthday."
   }
 };
 
-StoryClass ScarlettMaeYunckerBaby = new(null, "Scarlett Yuncker is born", ScarlettMaeYuncker.Date) {
+StoryClass ScarlettMaeYunckerBorn = new(null, "Scarlett Yuncker is born", ScarlettMaeYuncker.Date) {
   Text: Styles.Story {
     ListPeople([RanaedaMarieYuncker, AnthonyYuncker]) " celebrate the birth of " ListPeople([ScarlettMaeYuncker]) "."
   }
