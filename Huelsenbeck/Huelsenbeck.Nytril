@@ -3,19 +3,12 @@ using Format, Units, People;
 include "..\\..\\Nytril\\Deploy\\Examples\\Family Tree\\Family Tree";
 //======================================================================
 
-Main.Documents = [
-  new DocumentVarClass(#9a522083-429b-43b9-839f-1caf7c448183#, "Family History", ref FamilyHistory)
-];
+Main.Documents = new FamilyDocumentClass(#552ccaf1-a60a-434e-ad89-b7ed877d6198#, "Family History", [
+  new(Unions.PeteNikki, 14 pts, 10 pts),
+  new(Unions.MartinBarbara, 14 pts, 10 pts),
+]);
 
-FamilyHistory = FamilyAlbum("Family History", FamilyLines);
 PictureFolder = IO.Folders.Source;
-
-//======================================================================
-
-namespace FamilyLines {
-  FamilyLineClass HuelsenbeckLine = new(Unions.PeteNikki, 14 pts, 10 pts);
-  FamilyLineClass KramerLine      = new(Unions.MartinBarbara, 14 pts, 10 pts);
-}
 
 //===============================================================================================================
 
