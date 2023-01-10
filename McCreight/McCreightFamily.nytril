@@ -1,4 +1,4 @@
-﻿using Format, People, Units;
+using Format, People, Units;
 
 include "../../Nytril/Deploy/Examples/Family Tree/Family Tree";
 include "WionFamily";
@@ -37,6 +37,7 @@ Pennsylvania = "Pennsylvania";
 Michigan     = "Michigan";
 California   = "California";
 Indiana      = "Indiana";
+
 
 namespace Places {
   Ireland         = AddPlace(null, null, "Ireland");
