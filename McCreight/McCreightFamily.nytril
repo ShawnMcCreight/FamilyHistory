@@ -1206,6 +1206,7 @@ UnionClass Unions.AmeliaBilly = new(AmeliaMaeMyler, WilliamCharlesMyler) {
 };
 
 Female People.EmersonLouiseMyler = new("Emerson", "Louise", Myler, Unions.AmeliaBilly) {
+  Nick("Emmy");
   Born(2022, 4, 4);
 };
 //=====================================
