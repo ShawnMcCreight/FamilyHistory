@@ -1023,7 +1023,7 @@ Male People.JohnCraigMcCreight = new("John", "Craig", McCreight, Unions.JoanJack
 
 UnionClass Unions.LoriJohn = new(LoriChun, JohnCraigMcCreight) {
   Married(2005, 6, 25);
-  Divorced(2010)
+  DivorceDate: #2010#
 };
 //=====================================
 
