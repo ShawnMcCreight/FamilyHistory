@@ -40,33 +40,33 @@ Indiana      = "Indiana";
 
 
 namespace Places {
-  Ireland         = AddPlace(null, null, "Ireland");
-  Glasgow         = AddPlace("Glasgow", null, "Scotland");
-  NorthernIreland = AddPlace(null, null, "Northern Ireland");
-  Charleston      = AddPlace("Charleston", "South Carolina");
-  GeorgevillePA   = AddPlace("Georgeville", Pennsylvania);
-  Shelocta        = AddPlace("Shelocta", Pennsylvania);
-  PA              = AddPlace(null, Pennsylvania);
-  CrookedCreekPA  = AddPlace("Crooked Creek", Pennsylvania);
-  NewKensington   = AddPlace("New Kensington", Pennsylvania);
-  Pasadena        = AddPlace("Pasadena", California);
-  SanBernardino   = AddPlace("San Bernardino", California);
-  Saginaw         = AddPlace("Saginaw", Michigan);
-  Midland         = AddPlace("Midland", Michigan);
-  Flushing        = AddPlace("Flushing", Michigan);
-  Janesville      = AddPlace("Janesville", "Wisconsin");
-  Madison         = AddPlace("Madison", "Wisconsin");
-  FortWayne       = AddPlace("Fort Wayne", Indiana);
-  Beresford       = AddPlace("Beresford", "South Dakota");
-  Durban          = AddPlace("Durban", null, "South Africa");
-  Norway          = AddPlace(null, null, "Norway");
-  Bergan          = AddPlace("Bergan", null, "Norway");
-  Voss            = AddPlace("Voss", null, "Norway");
-  Hosanger        = AddPlace("Hosanger", null, "Norway");
-  Laurel          = AddPlace("Laurel", "Nebraska");
-  Applegate       = AddPlace("Applegate", Michigan);
-  Oxford          = AddPlace("Oxford", null, "Canada");
-  Freemont        = AddPlace("Freemont", "Ohio");
+  PlaceClass Ireland         = new(null, null, "Ireland");
+  PlaceClass Glasgow         = new("Glasgow", null, "Scotland");
+  PlaceClass NorthernIreland = new(null, null, "Northern Ireland");
+  PlaceClass Charleston      = new("Charleston", "South Carolina");
+  PlaceClass GeorgevillePA   = new("Georgeville", Pennsylvania);
+  PlaceClass Shelocta        = new("Shelocta", Pennsylvania);
+  PlaceClass PA              = new(null, Pennsylvania);
+  PlaceClass CrookedCreekPA  = new("Crooked Creek", Pennsylvania);
+  PlaceClass NewKensington   = new("New Kensington", Pennsylvania);
+  PlaceClass Pasadena        = new("Pasadena", California);
+  PlaceClass SanBernardino   = new("San Bernardino", California);
+  PlaceClass Saginaw         = new("Saginaw", Michigan);
+  PlaceClass Midland         = new("Midland", Michigan);
+  PlaceClass Flushing        = new("Flushing", Michigan);
+  PlaceClass Janesville      = new("Janesville", "Wisconsin");
+  PlaceClass Madison         = new("Madison", "Wisconsin");
+  PlaceClass FortWayne       = new("Fort Wayne", Indiana);
+  PlaceClass Beresford       = new("Beresford", "South Dakota");
+  PlaceClass Durban          = new("Durban", null, "South Africa");
+  PlaceClass Norway          = new(null, null, "Norway");
+  PlaceClass Bergan          = new("Bergan", null, "Norway");
+  PlaceClass Voss            = new("Voss", null, "Norway");
+  PlaceClass Hosanger        = new("Hosanger", null, "Norway");
+  PlaceClass Laurel          = new("Laurel", "Nebraska");
+  PlaceClass Applegate       = new("Applegate", Michigan);
+  PlaceClass Oxford          = new("Oxford", null, "Canada");
+  PlaceClass Freemont        = new("Freemont", "Ohio");
 }
 //============================================================================================================
 
@@ -1093,6 +1093,11 @@ UnionClass Unions.KatherineBill = new(KatherineMarieStanifer, WilliamStanifer) {
 
 Female People.LibertyFaithStanifer = new("Liberty", "Faith", "Stanifer", Unions.KatherineBill) {
   Born(2021, 8); // ???
+};
+
+Male People.BenjaminJamesStanifer = new("Benjamin", "James", "Stanifer", Unions.KatherineBill) {
+  Nick("Benji");
+  Born(2023, 6, 6);
 };
 
 Female People.GraceStanifer = new("Grace", null, "Stanifer", Unions.KatherineBill);

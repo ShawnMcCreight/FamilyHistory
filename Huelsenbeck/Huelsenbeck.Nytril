@@ -22,14 +22,14 @@ NY          = "New York";
 CA          = "California";
 
 namespace Places {
-  NewarkNJ   = AddPlace("Newark", NJ);
-  Berkeley   = AddPlace("Berkeley", CA);
-  RedBankNJ  = AddPlace("Red Bank", NJ);
-  NYNY       = AddPlace("New York City", NY);
-  SF         = AddPlace("San Francisco", CA);
-  Oakland    = AddPlace("Oakland", CA);
-  Rochester  = AddPlace("Rochester", NY);
-  Ellensburg = AddPlace("Ellensburg", "Washington");
+  PlaceClass NewarkNJ   = new("Newark", NJ);
+  PlaceClass Berkeley   = new("Berkeley", CA);
+  PlaceClass RedBankNJ  = new("Red Bank", NJ);
+  PlaceClass NYNY       = new("New York City", NY);
+  PlaceClass SF         = new("San Francisco", CA);
+  PlaceClass Oakland    = new("Oakland", CA);
+  PlaceClass Rochester  = new("Rochester", NY);
+  PlaceClass Ellensburg = new("Ellensburg", "Washington");
 }
 
 //=====================================
