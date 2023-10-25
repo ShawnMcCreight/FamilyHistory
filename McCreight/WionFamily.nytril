@@ -1,31 +1,35 @@
-using People;
+using Information.People;
 //============================================================================================================
+
+readonly namespace Information;
 
 Wion = "Wion";
 
-Female  People.CharlotteWion = new("Charlotte", "June", Wion) {
+Female People.CharlotteWion = new(#2c84a0da-1afa-48a7-ac5a-d8ce9829f309#, "Charlotte", "June", Wion) {
   Formerly("Rafior");
-  Born(1944, 8, 19)
+  Born(#1944-8-19#)
 };
 
-Male People.CharlesWion = new("Charles", "Wesley", Wion) {
+Male People.CharlesWion = new(#7ccb0582-baee-4c7d-bb17-fdc24fb520d6#, "Charles", "Wesley", Wion) {
   Nick("Chuck");
-  Born(1942, 12, 19);
+  Born(#1942-12-19#);
 };
 
-Male People.RichardWion = new("Richard", "Charles", Wion, Unions.CharlotteCharlesWion) {
+Male People.RichardWion = new(#3f9fb7fb-4ab7-423d-bd3e-fb5a2fd9ba9e#, "Richard", "Charles", Wion, Unions.CharlotteCharlesWion) {
   Nick("Rich");
-  Born(1969, 10, 23)
+  Born(#1969-10-23#)
 };
 
-Female  People.JeanineCline = new("Jeanine", null, "Cline");
+Female People.JeanineCline = new(#82ef215a-4602-429b-800f-a4ff22ea5280#, "Jeanine", null, "Cline");
 
-Female People.HalieJaneWion = new("Hailie", "Jane", Wion, Unions.JeanineRichardWion) {
-  Born(2003, 12, 31)
+Female People.HalieJaneWion = new(#ada92f74-014c-47b7-ac6e-259266479b44#, "Hailie", "Jane", Wion, Unions.JeanineRichardWion) {
+  Born(#2003-12-31#)
 };
+
+
 //============================================================================================================
 
-UnionClass Unions.JeanineRichardWion   = new(RichardWion, JeanineCline);
-UnionClass Unions.CharlotteCharlesWion = new(CharlotteWion, CharlesWion, new(1964, 3, 8));
+UnionClass Unions.JeanineRichardWion   = new(#e966584d-57df-4010-99b3-a15008543389#, RichardWion, JeanineCline);
+UnionClass Unions.CharlotteCharlesWion = new(#e0314167-ef79-4372-a879-a7ab94526c55#, CharlotteWion, CharlesWion, #1964-3-8#);
 //============================================================================================================
 

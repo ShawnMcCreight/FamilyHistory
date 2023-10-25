@@ -1,15 +1,6 @@
-using Format, Units, People;
+using Format, Units, Information.People;
 
-include "..\\..\\Nytril\\Deploy\\Examples\\Family Tree\\Family Tree";
-//======================================================================
-
-Main.Documents = new FamilyDocumentClass(#552ccaf1-a60a-434e-ad89-b7ed877d6198#, "Family History", [
-  new(Unions.PeteNikki, 14 pts, 10 pts),
-  new(Unions.MartinBarbara, 14 pts, 10 pts),
-]);
-
-PictureFolder = IO.Folders.Source;
-
+readonly namespace Information;
 //===============================================================================================================
 
 Huelsenbeck = "Huelsenbeck";
@@ -34,71 +25,71 @@ namespace Places {
 
 //=====================================
 
-Male People.PeterWilfredHuelsenbeck = new("Peter", "Wilfred", Huelsenbeck) {
-  Born(1942, 8, 2)
+Male People.PeterWilfredHuelsenbeck = new(#04657035-2ae8-479e-a47c-2d20bef3d24b#, "Peter", "Wilfred", Huelsenbeck) {
+  Born(#1942-8-2#)
 };
 
-Female People.NikkiSueGrant = new("Nikki", "Sue", Grant) {
-  Born(1945, 3, 30);
-  Died(2016, 10,22)
+Female People.NikkiSueGrant = new(#9d7159cc-e079-404b-ac62-6831c14b1390#, "Nikki", "Sue", Grant) {
+  Born(#1945-3-30#);
+  Died(#2016-10-22#)
 };
 
-UnionClass Unions.PeteNikki = new(NikkiSueGrant, PeterWilfredHuelsenbeck) {
-  Married(1965, 2, 5)
-};
-//=====================================
-
-Male People.MartinKramer = new("Martin", null, Kramer) {
-  Born(1966, 4, 18, Places.RedBankNJ)
-};
-
-Female People.BarbaraKramer = new("Barbara", null, Kramer) {
-  Born(1967, 10, 27, Places.RedBankNJ)
-};
-
-UnionClass Unions.MartinBarbara = new(BarbaraKramer, MartinKramer) {
-  Married(2015, 4, 29, Places.SF)
+UnionClass Unions.PeteNikki = new(#e2902500-4ee8-469e-a07d-34aee40580ae#, NikkiSueGrant, PeterWilfredHuelsenbeck) {
+  Married(#1965-2-5#)
 };
 //=====================================
 
-Male People.JohnPeterHuelsenbeck = new("John", "Peter", Huelsenbeck, Unions.PeteNikki) {
-  Born(1966, 4, 18, Places.RedBankNJ)
+Male People.MartinKramer = new(#903d7c65-b6ef-4634-9b7e-76e1c0bafc3d#, "Martin", null, Kramer) {
+  Born(#1966-4-18#, Places.RedBankNJ)
 };
 
-Female People.KimberlyBurkeHuelsenbeck = new("Kimberly", "Burke", Huelsenbeck, Unions.PeteNikki) {
-  Born(1967, 10, 27, Places.RedBankNJ)
+Female People.BarbaraKramer = new(#6aa8f999-2582-4d85-a292-7e91e8fba357#, "Barbara", null, Kramer) {
+  Born(#1967-10-27#, Places.RedBankNJ)
 };
 
-Female People.SoniaHuelsenbeck = new("Sonia", null, Huelsenbeck, Unions.MartinBarbara) {
+UnionClass Unions.MartinBarbara = new(#f31850f3-bf42-4881-b8c4-ca7b875bc8f9#, BarbaraKramer, MartinKramer) {
+  Married(#2015-4-29#, Places.SF)
+};
+//=====================================
+
+Male People.JohnPeterHuelsenbeck = new(#38b6bcb1-cd3b-4274-adc5-312b57af0ed1#, "John", "Peter", Huelsenbeck, Unions.PeteNikki) {
+  Born(#1966-4-18#, Places.RedBankNJ)
+};
+
+Female People.KimberlyBurkeHuelsenbeck = new(#77d26d0c-43a7-4faa-a1b8-a71ef707802c#, "Kimberly", "Burke", Huelsenbeck, Unions.PeteNikki) {
+  Born(#1967-10-27#, Places.RedBankNJ)
+};
+
+Female People.SoniaHuelsenbeck = new(#9bbbe978-bd00-40b6-ac81-cac139e60031#, "Sonia", null, Huelsenbeck, Unions.MartinBarbara) {
   Formerly(Kramer);
-  Born(1964, 8, 17, Places.RedBankNJ)
+  Born(#1964-8-17#, Places.RedBankNJ)
 };
 
-Female People.EdnaTelanYeh = new("Edna", "Telan", "Yeh") {
-  Born(1966, 6, 4, Places.Ellensburg)
+Female People.EdnaTelanYeh = new(#928a47a4-9a62-4cf1-8709-b1a473e366bc#, "Edna", "Telan", "Yeh") {
+  Born(#1966-6-4#, Places.Ellensburg)
 };
 
-UnionClass Unions.EdnaJohn = new(EdnaTelanYeh, JohnPeterHuelsenbeck) {
-  Married(1990, 7, 21, Places.Ellensburg);
-  Divorced(2014, 12, 19)
+UnionClass Unions.EdnaJohn = new(#68118310-570d-4ba7-8a51-adbeee979ed3#, EdnaTelanYeh, JohnPeterHuelsenbeck) {
+  Married(#1990-7-21#, Places.Ellensburg);
+  Divorced(#2014-12-19#)
 };
 
-UnionClass Unions.SoniaJohn = new(SoniaHuelsenbeck, JohnPeterHuelsenbeck) {
-  Married(2015, 4, 29, Places.SF)
+UnionClass Unions.SoniaJohn = new(#493697c2-fbcb-4dfb-9f8d-a11f62f711fb#, SoniaHuelsenbeck, JohnPeterHuelsenbeck) {
+  Married(#2015-4-29#, Places.SF)
 };
 
 //=====================================
 
-Male People.MatthewJohnHuelsenbeck = new("Matthew", "John", Huelsenbeck, Unions.EdnaJohn) {
-  Born(1996, 12, 29, Places.Oakland)
+Male People.MatthewJohnHuelsenbeck = new(#eacead78-8ccd-464a-b5d9-8b612cf4d991#, "Matthew", "John", Huelsenbeck, Unions.EdnaJohn) {
+  Born(#1996-12-29#, Places.Oakland)
 };
 
-Female People.ElizabethClaireHuelsenbeck = new("Elizabeth", "Claire", Huelsenbeck, Unions.EdnaJohn) {
-  Born(1999, 4, 27, Places.Rochester)
+Female People.ElizabethClaireHuelsenbeck = new(#a1547890-a325-442a-8fcf-c81335edc75a#, "Elizabeth", "Claire", Huelsenbeck, Unions.EdnaJohn) {
+  Born(#1999-4-27#, Places.Rochester)
 };
 //=====================================
 
-StoryClass Stories.SoniaAndJohnMet = new(JohnPeterHuelsenbeck, "When Sonia met John", new(2015)) {
+StoryClass Stories.SoniaAndJohnMet = new(#2daaa206-c69f-4345-912b-f55c1eb540ce#, JohnPeterHuelsenbeck, "When Sonia met John", #2015#) {
   Text: Styles.Story {
     "I met " ListPeople([SoniaHuelsenbeck]) " in the biology building at UC Berkeley.";
   };

@@ -1,25 +1,9 @@
-using Format, People, Units;
-
-include "../../Nytril/Deploy/Examples/Family Tree/Family Tree";
-include "WionFamily";
-include "NelsonFamily";
-//======================================================================
-
-Main.Documents = new FamilyDocumentClass(#64607616-5b43-4146-849a-5b9b58b3e051#, "McCreight-Gofton Family History", [
-  new(Unions.DavidMary, 5.2 pts, 0),
-  new(Unions.MargretJohn, 12 pts, 6 pts),
-  new(Unions.MarieJohan, 14 pts, 10 pts),
-  new(Unions.LouisaGrandpa, 8 pts, 1 pts),
-]);
-
-Main.Facts = [
-  People,
-  Stories
-];
-
-PictureFolder = IO.Folders.Source;
+using Format, Information.People, Units;
 
 //======================================================================
+
+readonly namespace Information;
+
 
 Calderoni = "Calderoni";
 Hamill    = "Hamill";
@@ -72,49 +56,49 @@ namespace Places {
 
 namespace Stories {
 
-StoryClass CraigLuca = new(null, "Luca gets a lift from Grandpa", new(2022, 8, 15)) {
+StoryClass CraigLuca = new(#c40428dc-80a8-4328-a0db-eaca6ae759a1#, null, "Luca gets a lift from Grandpa", #2022-8-15#) {
   Text: Styles.Story {
     ListPeople([CraigJohnMcCreight]) " gives a lift to his grandson " ListPeople([LucaRobertCalderoni]) "."
   }
 };
 
-StoryClass EmersonLouiseMylerBorn = new(null, "Emerson Myler is born", EmersonLouiseMyler.Date) {
+StoryClass EmersonLouiseMylerBorn = new(#f5ae23fd-b437-45ae-8a48-555e72c75e03#, null, "Emerson Myler is born", EmersonLouiseMyler.Date) {
   Text: Styles.Story {
     ListPeople([AmeliaMaeMyler, WilliamCharlesMyler]) " welcomed their daughter " ListPeople([EmersonLouiseMyler]) " into the world."
   }
 };
 
-StoryClass CousinsMackinacIsland = new(null, "Cousins on Mackinac Island", new(2022, 3, 17)) {
+StoryClass CousinsMackinacIsland = new(#3a9cf1d8-ab73-49fb-b348-5087954b29fb#, null, "Cousins on Mackinac Island", new(2022, 3, 17)) {
   Text: Styles.Story {
     ListPeople([ClaytonAlanMcCreight, CraigJohnMcCreight, ShawnHamillMcCreight, ThomasDanielMcCreight]) " (taking photo) made a snowmobile trip to Mackinaw Island from St. Ignace across the ice bridge that forms on the Straits of Mackinac during especially long, cold periods in the winter."
   }
 };
 
-StoryClass AmeliaBillyWedding = new(null, "The wedding of Amelia and Billy", Unions.AmeliaBilly.Date) {
+StoryClass AmeliaBillyWedding = new(#2bbb32eb-ab08-45fe-9a9c-2d7e90aee0f6#, null, "The wedding of Amelia and Billy", Unions.AmeliaBilly.Date) {
   Text: Styles.Story {
     "The wedding of " ListPeople([AmeliaMaeMyler, WilliamCharlesMyler]) " took place on Mackinac Island, Michigan. ";
   }
 };
 
-StoryClass AbigailMarieMcCreightBorn = new(null, "Abigail McCreight is born", People.AbigailMarieMcCreight.Date) {
+StoryClass AbigailMarieMcCreightBorn = new(#21824b6b-cbfd-4cb0-8b25-6457d86b1fc7#, null, "Abigail McCreight is born", People.AbigailMarieMcCreight.Date) {
   Text: Styles.Story {
     ListPeople([AlyssaMarieMcCreight, ThomasDanielMcCreight]) " welcomed their daughter " ListPeople([AbigailMarieMcCreight]) " into the world. Tom kept everyone informed as events were unfolding."
   }
 };
 
-StoryClass LucaRobertCalderoniBorn = new(null, "Luca Calderoni is born", People.LucaRobertCalderoni.Date) {
+StoryClass LucaRobertCalderoniBorn = new(#590a0fa5-3011-481b-87a1-73e6cd41afc3#, null, "Luca Calderoni is born", People.LucaRobertCalderoni.Date) {
   Text: Styles.Story {
     ListPeople([MichelleNicholeCalderoni, RobertCalderoni]) " are overjoyed at the birth of " ListPeople([LucaRobertCalderoni]) ", who was born happy and healthy on his " CraigJohnMcCreight.ShowLink("grandpa's") " birthday."
   }
 };
 
-StoryClass ScarlettMaeYunckerBorn = new(null, "Scarlett Yuncker is born", ScarlettMaeYuncker.Date) {
+StoryClass ScarlettMaeYunckerBorn = new(#c78be850-001d-4af3-82b5-5381939b848a#, null, "Scarlett Yuncker is born", ScarlettMaeYuncker.Date) {
   Text: Styles.Story {
     ListPeople([RanaedaMarieYuncker, AnthonyYuncker]) " celebrate the birth of " ListPeople([ScarlettMaeYuncker]) "."
   }
 };
 
-StoryClass AlyssaTomWedding = new(null, "The wedding of Alyssa and Tom", Unions.AlyssaTom.Date) {
+StoryClass AlyssaTomWedding = new(#dfac800f-99a4-4435-8d7e-4bd5ab7f2a09#, null, "The wedding of Alyssa and Tom", Unions.AlyssaTom.Date) {
   Text: Styles.Story {
     "The wedding of " ListPeople([ThomasDanielMcCreight, AlyssaMarieMcCreight]) " took place at St. Joseph Catholic Church in Dexter, Michigan. ";
     "It was a beautiful ceremony, and the reception took place in fancy converted barn. ";
@@ -122,7 +106,7 @@ StoryClass AlyssaTomWedding = new(null, "The wedding of Alyssa and Tom", Unions.
   }
 };
 
-StoryClass WeddingReunion2020 = new(ShawnHamillMcCreight, "Reunion at JoAnn and Toby's place", new(2020, 7, 11)) {
+StoryClass WeddingReunion2020 = new(#942471dd-a42e-46ca-9110-717ca70b75e6#, ShawnHamillMcCreight, "Reunion at JoAnn and Toby's place", new(2020, 7, 11)) {
   Text: Styles.Story {
     "The day after the wedding, we got together at the home of " ListPeople([JoannMarieVarner, TobyVarner]) " for an afternoon of food, games and great conversation. ";
     FlorenceJaneGofton.ShowLink("Aunt Flo") " was the guest of honor. "
@@ -150,7 +134,7 @@ StoryClass WeddingReunion2020 = new(ShawnHamillMcCreight, "Reunion at JoAnn and 
   }
 };
 
-StoryClass SnowmobileTrip1 = new(ShawnHamillMcCreight, "First Annual Michigan Snowmobile Trip", new(2019, 1)) {
+StoryClass SnowmobileTrip1 = new(#73d433de-a4e4-4f74-9925-87db3731c490#, ShawnHamillMcCreight, "First Annual Michigan Snowmobile Trip", #2019-1#) {
   Text: Styles.Story {
     ListPeople([ClaytonAlanMcCreight, CraigJohnMcCreight, ThomasDanielMcCreight, ShawnHamillMcCreight]);
     " enjoyed the snow at the first annual McCreight-Johnson sledding trip to the Johnson family cabin. ";
@@ -158,7 +142,7 @@ StoryClass SnowmobileTrip1 = new(ShawnHamillMcCreight, "First Annual Michigan Sn
   }
 };
 
-StoryClass LostCousin = new(FlorenceJaneGofton, "My Long Lost Cousin", new(1939)) {
+StoryClass LostCousin = new(#e42acf34-0567-4715-9c45-3f7fca2eab19#, FlorenceJaneGofton, "My Long Lost Cousin", #1939#) {
   Text: Styles.Story {
     "It was 1939 and I was in the 4th grade. ";
     "I had to walk a mile to school because in the old days we didn't have buses. ";
@@ -182,14 +166,14 @@ StoryClass LostCousin = new(FlorenceJaneGofton, "My Long Lost Cousin", new(1939)
   }
 };
 
-StoryClass BobSnowPlow = new(FlorenceJaneGofton, "Real Man's Snow Plow", new(2013, 1, 26)) {
+StoryClass BobSnowPlow = new(#52ecfb59-8360-4dcd-a24c-82f8b192de39#, FlorenceJaneGofton, "Real Man's Snow Plow", #2013-1-26#) {
   Text: Styles.Story {
     "Never one to shirk his household responsibilities, even in the face of injury, "; RobertJohnGofton.ShowLink("Bob");
     " crafted a clever tool to get the job done. ";
   }
 };
 
-StoryClass ReunionAtNelsons = new(PeggyLeeNelson, "Reunion at the Nelson House", new(2003, 8, 24)) {
+StoryClass ReunionAtNelsons = new(#352b13a1-c0cb-49f8-8d3b-78422c02797c#, PeggyLeeNelson, "Reunion at the Nelson House", #2003-8-24#) {
   Text: Styles.Story {
     JeffreyPNelson.ShowLink " and I hosted a family reunion at our house in Harlan, Indiana. ";
     "Pictured from the left, ";
@@ -211,7 +195,7 @@ StoryClass ReunionAtNelsons = new(PeggyLeeNelson, "Reunion at the Nelson House",
   }
 };
 
-StoryClass McCreightSparklerSign = new(KatherineMarieStanifer, "Sparkler Sign", new(2014, 9, 13)) {
+StoryClass McCreightSparklerSign = new(#fa532c41-8da0-4228-9f41-ac4f014d9949#, KatherineMarieStanifer, "Sparkler Sign", #2014-9-13#) {
   Text: Styles.Story {
     "One night at a family camping trip, I did time-lapse photographs of everyone waving a sparkler around in the shape of a letter. ";
     "I combined those together to spell out the family name. ";
@@ -231,7 +215,7 @@ StoryClass McCreightSparklerSign = new(KatherineMarieStanifer, "Sparkler Sign", 
   }
 };
 
-StoryClass WhiteHouseTrip = new(FlorenceJaneGofton, "Trip to the White House", new(1989)) {
+StoryClass WhiteHouseTrip = new(#bd315c98-55f0-40ef-a23a-43c0efb80ee9#, FlorenceJaneGofton, "Trip to the White House", #1989#) {
   Text: Styles.Story {
     ShawnHamillMcCreight.ShowLink;
     " and I met in Virginia for the retirement of my cousin Jerry Reynolds from the Pentagon. ";
@@ -239,14 +223,14 @@ StoryClass WhiteHouseTrip = new(FlorenceJaneGofton, "Trip to the White House", n
   }
 };
 
-StoryClass McCreightHeadstone = new(KathyAnneMcCreight, "McCreight Headstone", new(1954, 7)) {
+StoryClass McCreightHeadstone = new(#be92743b-a552-42b1-af8b-27153cea253d#, KathyAnneMcCreight, "McCreight Headstone", #1954-7#) {
   Text: Styles.Story {
     "The headstone of "  ListPeople([JohnJamiesonMcCreight, JennieAdelphiaMcCreight]) ". ";
     "The identity of the person in the photo is not known. ";
   }
 };
 
-StoryClass KerrFamily = new(FlorenceJaneGofton, "Inez Kerr Family") {
+StoryClass KerrFamily = new(#74acaeb9-9ae6-44ef-9506-58cf4ff09d6c#, FlorenceJaneGofton, "Inez Kerr Family") {
   Text: Styles.Story {
     "The family of " ListPeople([InezMargaretKerr, ClarenceGrantKerr]) " outside their house in Redlands, CA? ";
     "Jack in uniform, Vera May, ?, Betty Jane. The two little ones are ";
@@ -254,32 +238,32 @@ StoryClass KerrFamily = new(FlorenceJaneGofton, "Inez Kerr Family") {
   }
 };
 
-StoryClass InezAt9 = new(KathyAnneMcCreight, "Inez at 9 years old", new(1911)) {
+StoryClass InezAt9 = new(#77d6f29a-d73c-416d-8a74-0fb8fc86007c#, KathyAnneMcCreight, "Inez at 9 years old", new(1911)) {
   Text: Styles.Story {
     ListPeople([InezMargaretKerr]);
     " at 9 years old";
   };
 };
 
-StoryClass JimArmyPicture = new(KathyAnneMcCreight, "Uncle Jim", new(1942)) {
+StoryClass JimArmyPicture = new(#c55d84c9-4b79-47e3-82ab-95240fb7afc3#, KathyAnneMcCreight, "Uncle Jim", new(1942)) {
   Text: Styles.Story {
     "I think this is " JamesClarkMcCreight.ShowLink("Uncle Jim") ", " JohnHamillMcCreight.ShowLink("Grandpa’s") " brother.";
   };
 };
 
-StoryClass AnnAndWendleMcCreight = new(KathyAnneMcCreight, "Picture of Ann and Wendle", new(1942)) {
+StoryClass AnnAndWendleMcCreight = new(#8c9cdfa6-621c-4a56-8dce-f4482df4a965#, KathyAnneMcCreight, "Picture of Ann and Wendle", new(1942)) {
   Text: Styles.Story {
     ListPeople([AnnKatherineMcCreight, WendellButlerMcCreight])
   }
 };
 
-StoryClass JamesClarkPostcard = new(KathyAnneMcCreight, "James Clark McCreight postcard", new(1942, 11, 18)) {
+StoryClass JamesClarkPostcard = new(#cbd1743e-86b6-4cc8-b2bd-d6f2678ca823#, KathyAnneMcCreight, "James Clark McCreight postcard", new(1942, 11, 18)) {
   Text: Styles.Story {
     ListPeople([JamesClarkMcCreight]) " in a postcard home.";
   }
 };
 
-StoryClass AnnAndThelmaMcCreight = new(KathyAnneMcCreight, "Ann and Thelma McCreight") {
+StoryClass AnnAndThelmaMcCreight = new(#f95c2f85-5ca2-4dea-b13e-e64922aa9af8#, KathyAnneMcCreight, "Ann and Thelma McCreight") {
   Text: Styles.Story {
     ListPeople([AnnKatherineMcCreight, ThelmaEllenFaust]) " were sister-in-laws and the wives of ";
     ListPeople([WendellButlerMcCreight, JamesClarkMcCreight]) ", respectively. ";
@@ -287,67 +271,67 @@ StoryClass AnnAndThelmaMcCreight = new(KathyAnneMcCreight, "Ann and Thelma McCre
   }
 };
 
-StoryClass JennieAndChildren = new(KathyAnneMcCreight, "Jennie McCreight and children", new(1911, 7)) {
+StoryClass JennieAndChildren = new(#eebf02fb-a974-433e-9be7-0db3f98f8fc0#, KathyAnneMcCreight, "Jennie McCreight and children", new(1911, 7)) {
   Text: Styles.Story {
     ListPeople([JennieAdelphiaMcCreight, JohnHamillMcCreight, WendellButlerMcCreight, InezMargaretKerr]);
   }
 };
 
-StoryClass JohnAndFlorenceMcCreight = new(KathyAnneMcCreight, "John and Florence McCreight", new(1901, 7)) {
+StoryClass JohnAndFlorenceMcCreight = new(#a32c4827-7483-4f0f-8c58-5bb343632ffc#, KathyAnneMcCreight, "John and Florence McCreight", new(1901, 7)) {
   Text: Styles.Story {
     "Rare photo of "; ListPeople([FlorenceGertrudeMcCreight, JohnHamillMcCreight]); " together.";
   };
 };
 
-StoryClass JennieHoldingFlorenceJane = new(FlorenceJaneGofton, "Jennie holding Florence Jane") {
+StoryClass JennieHoldingFlorenceJane = new(#f3ee9ad5-015a-470c-bdd1-8996f98bf7c0#, FlorenceJaneGofton, "Jennie holding Florence Jane") {
   Text: Styles.Story {
     ListPeople([JennieAdelphiaMcCreight, FlorenceJaneGofton])
   };
 };
 
-StoryClass InezaAndJohnAsChildren = new(FlorenceJaneGofton, "Baby Portrait", new(1904)) {
+StoryClass InezaAndJohnAsChildren = new(#f4284d46-11f1-4809-a681-8f9625f7554e#, FlorenceJaneGofton, "Baby Portrait", new(1904)) {
   Text: Styles.Story {
     ListPeople([InezMargaretKerr, JohnHamillMcCreight]); " as children.";
   };
 };
 
-StoryClass JohnHamillMcCreightOnHorse = new(FlorenceJaneGofton, "John Hamill McCreight on a Horse") {
+StoryClass JohnHamillMcCreightOnHorse = new(#782a2803-f1e8-4985-9ef4-d1d587ac3413#, FlorenceJaneGofton, "John Hamill McCreight on a Horse") {
   Text: Styles.Story {
     ListPeople([JohnHamillMcCreight]);
   }
 };
 
-StoryClass MyThreeSons = new(FlorenceJaneGofton, "My Three Sons", new(1924)) {
+StoryClass MyThreeSons = new(#d0db1782-7143-406f-a009-9f82e30889ea#, FlorenceJaneGofton, "My Three Sons", new(1924)) {
   Text: Styles.Story {
     ListPeople([JamesClarkMcCreight, WendellButlerMcCreight, JohnHamillMcCreight, JennieAdelphiaMcCreight]);
   }
 };
 
-StoryClass JohnHamillAtWork = new(FlorenceJaneGofton, "John Hamill McCreight at work") {
+StoryClass JohnHamillAtWork = new(#ce37f81f-a3ed-4eea-97be-48d04ee7cb30#, FlorenceJaneGofton, "John Hamill McCreight at work") {
   Text: Styles.Story {
     ListPeople([JohnHamillMcCreight]) " is shown 4th from the right.";
   }
 };
 
-StoryClass FlorenceAndJohnHoldingFlorenceJane = new(FlorenceJaneGofton, "Mom and Dad holding me as a baby") {
+StoryClass FlorenceAndJohnHoldingFlorenceJane = new(#f73148c1-78e3-4d62-972e-b32942e68d8e#, FlorenceJaneGofton, "Mom and Dad holding me as a baby") {
   Text: Styles.Story {
     ListPeople([FlorenceGertrudeMcCreight, FlorenceJaneGofton, JohnHamillMcCreight]) ". Don't know who is standing inside.";
   }
 };
 
-StoryClass RalphFloInGroup = new(FlorenceJaneGofton, "Mom and Dad holding me as a baby") {
+StoryClass RalphFloInGroup = new(#ee1b7010-8f4f-445c-9152-6103073ce1ab#, FlorenceJaneGofton, "Mom and Dad holding me as a baby") {
   Text: Styles.Story {
     ListPeople([ThelmaEllenFaust, RalphEmersonMcCreight, FlorenceGertrudeMcCreight, FlorenceJaneGofton, WendellButlerMcCreight]) ". Location?";
   }
 };
 
-StoryClass McCreightKerr = new(FlorenceJaneGofton, "McCreight-Kerr") {
+StoryClass McCreightKerr = new(#a9a8f4b2-40e9-4979-b145-d1b9d2b2a85e#, FlorenceJaneGofton, "McCreight-Kerr") {
   Text: Styles.Story {
     ListPeople([JohnHamillMcCreight, FlorenceGertrudeMcCreight, InezMargaretKerr, PeggyLeeKerr, GaryKerr]) ". Location?";
   }
 };
 
-StoryClass WomenOfWolfeFamily = new(null, "Mother Louisa and her 8 daughters", new(1888)) {
+StoryClass WomenOfWolfeFamily = new(#08a8c480-aaaa-4411-a88f-755def9a4770#, null, "Mother Louisa and her 8 daughters", #1888#) {
   Text: Styles.Story {
     "Standing: " ListPeople([HazelWolfeFrance, BessieWolfeLawrence, ViolaWolfeKnepsheild, MargretWolfeSlack]);
     LineBreak;
@@ -357,43 +341,43 @@ StoryClass WomenOfWolfeFamily = new(null, "Mother Louisa and her 8 daughters", n
   };
 };
 
-StoryClass FlorenceJaneAt3 = new(PeggyLeeNelson, "Florence Jane at 3 years", new(1933)) {
+StoryClass FlorenceJaneAt3 = new(#8bb310eb-fa3e-4e28-bc1b-497ddc27b968#, PeggyLeeNelson, "Florence Jane at 3 years", #1933#) {
   Text: Styles.Story {
     ListPeople([FlorenceJaneGofton])
   }
 };
 
-StoryClass FlorenceJaneAt9 = new(PeggyLeeNelson, "Florence Jane at 9 years", new(1939)) {
+StoryClass FlorenceJaneAt9 = new(#1b7e540e-99df-4faf-a4ce-779bde7afa6e#, PeggyLeeNelson, "Florence Jane at 9 years", #1939#) {
   Text: Styles.Story {
     ListPeople([FlorenceJaneGofton])
   }
 };
 
-StoryClass JackFloAndRalph = new(PeggyLeeNelson, "Florence Jane's Siblings", new(1944)) {
+StoryClass JackFloAndRalph = new(#1019908a-5d5f-4d27-91a7-915d37f43b4c#, PeggyLeeNelson, "Florence Jane's Siblings", #1944#) {
   Text: Styles.Story {
     ListPeople([JohnHarryMcCreight, FlorenceJaneGofton, RalphEmersonMcCreight])
   }
 };
 
-StoryClass FloAndFather = new(PeggyLeeNelson, "Florence Jane and Dad", new(1945)) {
+StoryClass FloAndFather = new(#51f33fa6-9f4c-4826-87da-0fa5b654ef96#, PeggyLeeNelson, "Florence Jane and Dad", #1945#) {
   Text: Styles.Story {
     ListPeople([FlorenceJaneGofton, JohnHamillMcCreight])
   }
 };
 
-StoryClass FlorenceJaneGraduation = new(PeggyLeeNelson, "Florence Jane's Graduation", new(1948)) {
+StoryClass FlorenceJaneGraduation = new(#ab94415f-d09e-4577-bd3d-141cfdb407ff#, PeggyLeeNelson, "Florence Jane's Graduation", #1948#) {
   Text: Styles.Story {
     ListPeople([FlorenceJaneGofton])
   }
 };
 
-StoryClass FloAndBobWedding = new(PeggyLeeNelson, "Bob & Flo's wedding", new(1950)) {
+StoryClass FloAndBobWedding = new(#d54a4553-f20f-410e-909f-da3702f4cd5f#, PeggyLeeNelson, "Bob & Flo's wedding", #1950#) {
   Text: Styles.Story {
     ListPeople([JohnHamillMcCreight, FlorenceGertrudeMcCreight, FlorenceJaneGofton, RobertJohnGofton, LoisLelandGofton, ClaudeGofton])
   }
 };
 
-StoryClass FloAndBob1971 = new(PeggyLeeNelson, "Bob & Flo's wedding", new(1971)) {
+StoryClass FloAndBob1971 = new(#4eae2cc0-ec83-4625-bc9e-519fa3d136d4#, PeggyLeeNelson, "Bob & Flo's wedding", #1971#) {
   Text: Block {
     Styles.Story {
       ListPeople([RobertJohnGofton, FlorenceJaneGofton])
@@ -401,27 +385,27 @@ StoryClass FloAndBob1971 = new(PeggyLeeNelson, "Bob & Flo's wedding", new(1971))
   }
 };
 
-StoryClass FloAndBob2013 = new(ShawnHamillMcCreight, "At Shawn & Jen's house in Pasadena", new(2013)) {
+StoryClass FloAndBob2013 = new(#f0a1f89c-eb95-40aa-9ef7-391caae2e13d#, ShawnHamillMcCreight, "At Shawn & Jen's house in Pasadena", #2013#) {
   Text: Styles.Story {
     ListPeople([RobertJohnGofton, FlorenceJaneGofton, ShawnHamillMcCreight]) " went to a dinner at the Twilight Club in Pasadena, CA. ";
     "Bob was thrilled to meet the head coach of the USC football team. Bob made sure that the coach knew that he himself was "; Bold "not"; " a USC fan."
   }
 };
 
-StoryClass FloAtJoshAndMeganWedding = new(ShawnHamillMcCreight, "Josh & Megan's wedding", new(2001)) {
+StoryClass FloAtJoshAndMeganWedding = new(#29e5b4c1-a833-4f74-ae2e-55f8d3ea6666#, ShawnHamillMcCreight, "Josh & Megan's wedding", #2001#) {
   Text: Styles.Story {
     ListPeople([FlorenceJaneGofton]) " whooping it up!"
   }
 };
 
-StoryClass FloAndBobWithGrandkids = new(PeggyLeeNelson, "Flo And Bob namespace the grandkids", new(1982)) {
+StoryClass FloAndBobWithGrandkids = new(#48692b30-87dd-4ac5-a207-e457b3957c10#, PeggyLeeNelson, "Flo And Bob namespace the grandkids", #1982#) {
   Text: Styles.Story {
     ListPeople([RobertJohnGofton, TylerJamesGofton]); LineBreak;
     ListPeople([CassandraMarieVarner, FlorenceJaneGofton, KevinMichaelNelson, JoshuaLeeVarner, KristyLeeJordan])
   }
 };
 
-StoryClass BobGofton1930 = new(PeggyLeeNelson, "Bob", new(1930)) {
+StoryClass BobGofton1930 = new(#474500ac-ea28-499e-81cb-114c32b88086#, PeggyLeeNelson, "Bob", #1930#) {
   Text: Block {
     Styles.Story {
       ListPeople([RobertJohnGofton]) " in Flushing, MI"
@@ -429,43 +413,43 @@ StoryClass BobGofton1930 = new(PeggyLeeNelson, "Bob", new(1930)) {
   }
 };
 
-StoryClass FourGoftonGenerations = new(PeggyLeeNelson, "Four Generations of Gofton", new(1927)) {
+StoryClass FourGoftonGenerations = new(#ddaa3f32-dc13-47a0-a5cd-071f24f35323#, PeggyLeeNelson, "Four Generations of Gofton", #1927#) {
   Text: Styles.Story {
     ListPeople([JohnGofton, NathanialGofton, ClaudeGofton, RobertJohnGofton])
   }
 };
 
-StoryClass GoftonFamily1959 = new(PeggyLeeNelson, "The Gofton Family", new(1959)) {
+StoryClass GoftonFamily1959 = new(#bdf2865d-7f7f-4071-ac13-3a1bcd1f5f05#, PeggyLeeNelson, "The Gofton Family", #1959#) {
   Text: Styles.Story {
     ListPeople([RobertJohnGofton, FlorenceJaneGofton, JamesRobertGofton, JoannMarieVarner, PeggyLeeNelson]);
   }
 };
 
-StoryClass Bobs80thBirthday = new(PeggyLeeNelson, "Bobs80thBirthday", new(2007, 3, 11)) {
+StoryClass Bobs80thBirthday = new(#11eaf3d2-2759-42a1-80fb-434519a90c33#, PeggyLeeNelson, "Bobs80thBirthday", #2007-3-11#) {
   Text: Styles.Story {
     ListPeople([PeggyLeeNelson, TobyVarner, JoannMarieVarner, RobertJohnGofton, FlorenceJaneGofton, JamesRobertGofton, JeffreyPNelson, DebbieGofton])
   }
 };
 
-StoryClass BobsSiblings1935 = new(PeggyLeeNelson, "Bob's Siblings", new(1935)) {
+StoryClass BobsSiblings1935 = new(#7791ff4f-179a-494d-892f-a5ad8de678a1#, PeggyLeeNelson, "Bob's Siblings", #1935#) {
   Text: Styles.Story {
     ListPeople([RobertJohnGofton, RichardGofton, AnnGofton]);
   }
 };
 
-StoryClass BobsSiblings2002 = new(PeggyLeeNelson, "Bob's Siblings", new(2002)) {
+StoryClass BobsSiblings2002 = new(#2ae73551-2154-458e-826a-62e4668e6304#, PeggyLeeNelson, "Bob's Siblings", #2002#) {
   Text: Styles.Story {
     ListPeople([RichardGofton, AnnGofton, RobertJohnGofton]);
   }
 };
 
-StoryClass BobAndToby1985 = new(PeggyLeeNelson, "Bob and Toby", new(1985)) {
+StoryClass BobAndToby1985 = new(#86589c28-83bf-4ffe-9f68-8eeacdd2e4ed#, PeggyLeeNelson, "Bob and Toby", #1985#) {
   Text: Styles.Story {
     ListPeople([RobertJohnGofton, TobyVarner]);
   }
 };
 
-StoryClass VeteransDayCelebration2009 = new(PeggyLeeNelson, "Veteran's Day Celebration", new(2009)) {
+StoryClass VeteransDayCelebration2009 = new(#12b06ecc-a9a1-48fc-9470-75e1974412ee#, PeggyLeeNelson, "Veteran's Day Celebration", #2009#) {
   Text: Styles.Story {
     ListPeople([RobertJohnGofton]);
     " in Harlan, IN namespace his three great grand kids ";
@@ -478,13 +462,13 @@ StoryClass VeteransDayCelebration2009 = new(PeggyLeeNelson, "Veteran's Day Celeb
   }
 };
 
-StoryClass BobAtBearCreekLodge = new(PeggyLeeNelson, "Bob at Bear Creek Lodge, MI", new(2006)) {
+StoryClass BobAtBearCreekLodge = new(#bba5dd47-f15f-4c97-8a3d-3891310ea5da#, PeggyLeeNelson, "Bob at Bear Creek Lodge, MI", #2006#) {
   Text: Styles.Story {
     ListPeople([RobertJohnGofton]);
   }
 };
 
-StoryClass MajorIsraelstory = new(null, "Major Israel", new(1888)) {
+StoryClass MajorIsraelstory = new(#9d30c2c4-29c0-4018-80b8-9cda288b54ba#, null, "Major Israel", #1888#) {
   Text: Styles.Story {
     MajorIsraelMcCreight.ShowLink " was named after Major Israel Uncapher. ";
     "Neighbors thought it was cute to call the infant Major when he was born, so he went through life namespace that name. ";
@@ -499,762 +483,762 @@ StoryClass MajorIsraelstory = new(null, "Major Israel", new(1888)) {
 }
 //============================================================================================================
 
-Female People.MaryMcCreight = new("Mary", null, McCreight) {
-  Born(null, null, null, Places.Ireland);
-  Died(1780, 1, 19)
+Female People.MaryMcCreight = new(#fd9e1cab-0c83-4c34-9de5-640532c3f234#, "Mary", null, McCreight) {
+  Born(null, Places.Ireland);
+  Died(#1780-1-19#)
 };
 
-Male People.DavidMcCreight = new("David", null, McCreight) {
-  Born(1709, null, null, Places.Ireland);
-  Died(1799, 9, 14)
+Male People.DavidMcCreight = new(#e6d659cb-e9f0-468e-9a96-e6f42b81af49#, "David", null, McCreight) {
+  Born(#1709#, Places.Ireland);
+  Died(#1799-9-14#)
 };
 
-UnionClass Unions.DavidMary = new(MaryMcCreight, DavidMcCreight) {
-  Married(1730)
-};
-//============================================================================================================
-
-Male People.WilliamMcCreight = new("William", null, McCreight, Unions.DavidMary) {
-  Born(1736, 12, null, Places.Ireland)
+UnionClass Unions.DavidMary = new(#e71821fc-f0c9-44e6-9e56-e27c4dbfaf08#, MaryMcCreight, DavidMcCreight) {
+  Married(#1730#)
 };
 //============================================================================================================
 
-Male People.JamesMcCreight = new("James", null, McCreight, Unions.DavidMary) {
-  Born(1745, 12, null, Places.Glasgow)
-};
-
-Female People.SallyDunnMcCreight = new("Sally", "Dunn", McCreight) {
-};
-
-UnionClass Unions.JamesSally = new(SallyDunnMcCreight, JamesMcCreight) {
-  Married(1730)
+Male People.WilliamMcCreight = new(#0b51bfcf-cfcd-4bd2-bf80-71e27a50ba23#, "William", null, McCreight, Unions.DavidMary) {
+  Born(#1736-12#, Places.Ireland)
 };
 //============================================================================================================
 
-Male People.DavidJrMcCreight = new("David", null, McCreight, Unions.DavidMary) {
-  Born(1749, 12, null, Places.Ireland);
-  Died(1817, 2, 7);
+Male People.JamesMcCreight = new(#ec72845d-259f-4a91-a78b-484444a47d7f#, "James", null, McCreight, Unions.DavidMary) {
+  Born(#1745-12#, Places.Glasgow)
 };
 
-Female People.MarthaMcCreight = new("Martha", null, McCreight, Unions.DavidMary) {
-  Born(1748);
-  Died(1815, 9, 13);
+Female People.SallyDunnMcCreight = new(#2325a770-55f2-4f3e-b052-431801a9a484#, "Sally", "Dunn", McCreight) {
 };
 
-Female People.DavidDaughter = new("?", null, McCreight, Unions.DavidMary);
-//============================================================================================================
-
-Male People.AndrewMcCreight1 = new("Andrew", null, McCreight, Unions.JamesSally) {
-  Born(1787, 5, 5, Places.Shelocta);
-  Died(1861, 5, 23);
-};
-
-Female People.AnnSharpMcCreight = new("Ann", "Sharp", McCreight) {
-  Born(1794, 6, 27);
-};
-
-UnionClass Unions.AnnAndrew = new(AnnSharpMcCreight, AndrewMcCreight1) {
-  Married(1812, 1, 7)
+UnionClass Unions.JamesSally = new(#1c7ca611-0b3e-461a-89ec-9638443ce107#, SallyDunnMcCreight, JamesMcCreight) {
+  Married(#1730#)
 };
 //============================================================================================================
 
-Male People.JamesEdwardMcCreight = new("James", "Edward", McCreight, Unions.AnnAndrew) {
+Male People.DavidJrMcCreight = new(#a8f44b53-d77e-4d8c-8e1d-4692010d93fa#, "David", null, McCreight, Unions.DavidMary) {
+  Born(#1749-12#, Places.Ireland);
+  Died(#1817-2-7#);
 };
 
-Male People.AndrewSharpMcCreight = new("Andrew", "Sharp", McCreight, Unions.AnnAndrew) {
-  Born(1815, 1, 10, Places.CrookedCreekPA)
+Female People.MarthaMcCreight = new(#c73ffb96-6f5c-4292-97e7-6052e93512fb#, "Martha", null, McCreight, Unions.DavidMary) {
+  Born(#1748#);
+  Died(#1815-9-13#);
 };
 
-UnionClass Unions.JaneAndrew = new(JaneJohnsonMcCreight, AndrewSharpMcCreight) {
+Female People.DavidDaughter = new(#950adf7d-29a0-43bd-8b64-67813d3266e2#, "?", null, McCreight, Unions.DavidMary);
+//============================================================================================================
+
+Male People.AndrewMcCreight1 = new(#b0540530-7b42-47ee-9157-3e2c1f78de9c#, "Andrew", null, McCreight, Unions.JamesSally) {
+  Born(#1787-5-5#, Places.Shelocta);
+  Died(#1861-5-23#);
+};
+
+Female People.AnnSharpMcCreight = new(#29551d6a-afb7-49fe-ad43-20a840795895#, "Ann", "Sharp", McCreight) {
+  Born(#1794-6-27#);
+};
+
+UnionClass Unions.AnnAndrew = new(#324ecb00-8ec9-4b0e-afea-9616ea138442#, AnnSharpMcCreight, AndrewMcCreight1) {
+  Married(#1812-1-7#)
+};
+//============================================================================================================
+
+Male People.JamesEdwardMcCreight = new(#7a78aec0-3391-49fe-8a02-14057399c563#, "James", "Edward", McCreight, Unions.AnnAndrew) {
+};
+
+Male People.AndrewSharpMcCreight = new(#5761cf7e-53a2-44b5-82ef-1eba1205c1ab#, "Andrew", "Sharp", McCreight, Unions.AnnAndrew) {
+  Born(#1815-1-10#, Places.CrookedCreekPA)
+};
+
+UnionClass Unions.JaneAndrew = new(#8cc90243-c64f-4c79-9bc2-ace349c51c45#, JaneJohnsonMcCreight, AndrewSharpMcCreight) {
   //First cousins!
-  Married(1843, 6, 6)
+  Married(#1843-6-6#)
 };
 
-Female People.JaneJohnsonMcCreight = new("Jane", null, McCreight) {
+Female People.JaneJohnsonMcCreight = new(#99e679c9-296a-4c05-bfcc-d5010d39bf0e#, "Jane", null, McCreight) {
   Formerly("Johnson")
 };
 
 
-Female People.SallieMcCreight = new("Sallie", null, McCreight, Unions.AnnAndrew) {
+Female People.SallieMcCreight = new(#5feb232f-4189-43e5-84d4-4c49d2754f0a#, "Sallie", null, McCreight, Unions.AnnAndrew) {
 };
 
-Male People.JosephMcCreight = new("Joseph", null, McCreight, Unions.AnnAndrew) {
+Male People.JosephMcCreight = new(#cb14caae-bb96-4581-a5c0-7ad1a78665fb#, "Joseph", null, McCreight, Unions.AnnAndrew) {
 };
 
-Male People.JohnWinslowMcCreight = new("John", "Winslow", McCreight, Unions.AnnAndrew) {
-  Born(1821, 7, 11);
-  Died(1900, 7, 23)
+Male People.JohnWinslowMcCreight = new(#a3785eb2-996b-4ef6-876f-8e3083bf375a#, "John", "Winslow", McCreight, Unions.AnnAndrew) {
+  Born(#1821-7-11#);
+  Died(#1900-7-23#)
 };
 
-Female People.ElizaUncapherMcCreight = new("Eliza", null, McCreight) {
+Female People.ElizaUncapherMcCreight = new(#e947991a-828f-4ac2-b668-e4a490a8c42c#, "Eliza", null, McCreight) {
   Formerly("Uncapher");
-  Born(1830, 5, 10);
-  Died(1918, 7, 2)
+  Born(#1830-5-10#);
+  Died(#1918-7-2#)
 };
 
-UnionClass Unions.ElizaJohn = new(ElizaUncapherMcCreight, JohnWinslowMcCreight);
+UnionClass Unions.ElizaJohn = new(#54172b36-73d9-442e-88d2-e00deded860d#, ElizaUncapherMcCreight, JohnWinslowMcCreight);
 
-Female People.AnneSMcCreight = new("Anne", "S", McCreight, Unions.AnnAndrew);
+Female People.AnneSMcCreight = new(#0e110221-49e2-4b8d-afb7-3a5b5b8457ac#, "Anne", "S", McCreight, Unions.AnnAndrew);
 
-Female People.JaneMcCreight = new("Jane", null, McCreight, Unions.AnnAndrew);
+Female People.JaneMcCreight = new(#6f302c3e-8c4f-4fa7-aba5-9e0952336d9d#, "Jane", null, McCreight, Unions.AnnAndrew);
 
-Female People.PollyRMcCreight = new("Polly", "R", McCreight, Unions.AnnAndrew);
+Female People.PollyRMcCreight = new(#306d0f21-be12-4406-a4cd-e202b5e72968#, "Polly", "R", McCreight, Unions.AnnAndrew);
 
-Male People.ThomasSMcCreight = new("Thomas", "S", McCreight, Unions.AnnAndrew);
+Male People.ThomasSMcCreight = new(#5a50357a-0dc5-4a14-9ee9-d3cf27053709#, "Thomas", "S", McCreight, Unions.AnnAndrew);
 
-Male People.SmithMcCreight = new("Smith", null, McCreight, Unions.AnnAndrew);
+Male People.SmithMcCreight = new(#6d1fb760-3639-494c-84ab-b39da48ce86d#, "Smith", null, McCreight, Unions.AnnAndrew);
 
-Female People.NancySMcCreight = new("Nancy", "S", McCreight, Unions.AnnAndrew) {
-  Born(1834, 7, 10);
-  Died(1891, 6, 3)
+Female People.NancySMcCreight = new(#3509243e-494a-4583-8231-290ce211dc9a#, "Nancy", "S", McCreight, Unions.AnnAndrew) {
+  Born(#1834-7-10#);
+  Died(#1891-6-3#)
 };
 
-Male People.JamiesonMcCreight = new("Jamieson", null, McCreight, Unions.AnnAndrew);
+Male People.JamiesonMcCreight = new(#01d0031b-3add-431c-ab25-e748096beae4#, "Jamieson", null, McCreight, Unions.AnnAndrew);
 
-Female People.HannaLMcCreight = new("Hanna", "L", McCreight, Unions.AnnAndrew) {
-  Born(1839, 11, 26);
-};
-//=====================================
-
-Female People.AnnaMarieMcCreight = new("Anna", "Marie", McCreight, Unions.ElizaJohn) {
-  Born(1852, 10, 26);
-  Died(1860, 7, 10)
-};
-
-Female People.SusanMcCreight = new("Susan", null, McCreight, Unions.ElizaJohn) {
-  Born(1854, 8, 23);
-  Died(1932, 1, 17);
-};
-
-Male People.JosephSamuelMcCreight = new("Joseph", "Samuel", McCreight, Unions.ElizaJohn) {
-  Born(1858, 1, 2);
-  Died(1954, 1, 15)
-};
-
-Male People.WilliamHenryMcCreight = new("William", "Henry", McCreight, Unions.ElizaJohn) {
-  Born(1860, 1, 20);
-};
-
-Male People.AndrewSharpMcCreight2 = new("Andrew", "Sharp", McCreight, Unions.ElizaJohn) {
-  Born(1863, 3, 18);
-  Died(1867, 3, 19)
-};
-
-Male People.MajorIsraelMcCreight = new("Israel", null, McCreight, Unions.ElizaJohn) {
-  Born(1866, 4, 21);
-  Died(1958, 11, 13)
-};
-
-Female People.AliceMcCreight = new("Alice", null, McCreight) {
-  Born(1866, 4, 21);
-  Died(1958, 11, 13)
-};
-
-UnionClass Unions.AliceIsrael = new(AliceMcCreight, MajorIsraelMcCreight) {
-  Married(1860)
-};
-
-Female People.EdithPriscillaMcCreight = new("Edith", "Priscilla", McCreight, Unions.ElizaJohn);
-
-Male People.BenjaminBruceMcCreight = new("Benjamin", "Bruce", McCreight, Unions.ElizaJohn);
-
-Female People.OliveBerthaMcCreight = new("Olive", "Bertha", McCreight, Unions.ElizaJohn);
-
-Female People.MaryLillibelMcCreight = new("Mary", "Lillibell", McCreight, Unions.ElizaJohn);
-//=====================================
-
-Female People.MaryHamill = new("Mary", null, Hamill);
-Male People.HughHamill = new("Hugh", null, Hamill);
-UnionClass Unions.MaryHughHamill = new(MaryHamill, HughHamill);
-//=====================================
-
-Female People.SarahMcCreight = new("Sarah", null, McCreight, Unions.JaneAndrew) {
-  Born(1844, 7, 1, Places.PA);
-  Died(1945)
-};
-
-Male People.GeorgeWarnick = new("George", null, "Warnick");
-
-UnionClass Unions.SarahGeorge = new(SarahMcCreight, GeorgeWarnick) {
-  Married(1860)
+Female People.HannaLMcCreight = new(#418b4c24-02e1-4944-936b-5d04c9d38828#, "Hanna", "L", McCreight, Unions.AnnAndrew) {
+  Born(#1839-11-26#);
 };
 //=====================================
 
-Female People.NancyJaneMcCreight = new("Nancy", "Jane", McCreight, Unions.JaneAndrew) {
-  Born(1856, 10, 21);
-  Died(1860, 7, 20)
+Female People.AnnaMarieMcCreight = new(#7753d460-62ac-4ba0-9cd1-1881b1186382#, "Anna", "Marie", McCreight, Unions.ElizaJohn) {
+  Born(#1852-10-26#);
+  Died(#1860-7-10#)
 };
 
-Female People.OrrelElizabethMcCreight = new("Orrel", "Elizabeth", McCreight, Unions.JaneAndrew) {
-  Born(1863, 11, 6);
+Female People.SusanMcCreight = new(#106ae71b-0560-4c97-bfdd-c2d4dc50acff#, "Susan", null, McCreight, Unions.ElizaJohn) {
+  Born(#1854-8-23#);
+  Died(#1932-1-17#);
+};
+
+Male People.JosephSamuelMcCreight = new(#8f3335e0-c8d6-4622-9cd4-89d9d6b479be#, "Joseph", "Samuel", McCreight, Unions.ElizaJohn) {
+  Born(#1858-1-2#);
+  Died(#1954-1-15#)
+};
+
+Male People.WilliamHenryMcCreight = new(#3ca0b4c7-1402-4651-8077-f70d2d9732f3#, "William", "Henry", McCreight, Unions.ElizaJohn) {
+  Born(#1860-1-20#);
+};
+
+Male People.AndrewSharpMcCreight2 = new(#0e0c4cf2-3457-4124-92cb-8d00198ca681#, "Andrew", "Sharp", McCreight, Unions.ElizaJohn) {
+  Born(#1863-3-18#);
+  Died(#1867-3-19#)
+};
+
+Male People.MajorIsraelMcCreight = new(#28c8e414-5217-48fc-9e24-c0fb5863db43#, "Israel", null, McCreight, Unions.ElizaJohn) {
+  Born(#1866-4-21#);
+  Died(#1958-11-13#)
+};
+
+Female People.AliceMcCreight = new(#22cb26a4-8e8d-4a60-a300-0b07edceca9d#, "Alice", null, McCreight) {
+  Born(#1866-4-21#);
+  Died(#1958-11-13#)
+};
+
+UnionClass Unions.AliceIsrael = new(#2017c315-250d-4fdd-8f22-a321bb0da6bb#, AliceMcCreight, MajorIsraelMcCreight) {
+  Married(#1860#)
+};
+
+Female People.EdithPriscillaMcCreight = new(#e93499e1-f4c2-4360-a624-2f81e6d35b34#, "Edith", "Priscilla", McCreight, Unions.ElizaJohn);
+
+Male People.BenjaminBruceMcCreight = new(#3323622c-217f-4cd1-97f3-d1bb07bef289#, "Benjamin", "Bruce", McCreight, Unions.ElizaJohn);
+
+Female People.OliveBerthaMcCreight = new(#cadc03b4-9119-4c48-961f-c4baca6beabf#, "Olive", "Bertha", McCreight, Unions.ElizaJohn);
+
+Female People.MaryLillibelMcCreight = new(#71c5efbf-c2de-48c1-b411-7b59ce54c47c#, "Mary", "Lillibell", McCreight, Unions.ElizaJohn);
+//=====================================
+
+Female People.MaryHamill = new(#922679d5-0580-41d6-b411-b7f988008f7c#, "Mary", null, Hamill);
+Male People.HughHamill = new(#dd86794f-aa9a-4169-9677-6f37bab06ebc#, "Hugh", null, Hamill);
+UnionClass Unions.MaryHughHamill = new(#075586a0-7889-4d4a-88a5-4599280aace0#, MaryHamill, HughHamill);
+//=====================================
+
+Female People.SarahMcCreight = new(#562bed70-0918-4c7a-82cf-c479d06d98e2#, "Sarah", null, McCreight, Unions.JaneAndrew) {
+  Born(#1844-7-1#, Places.PA);
+  Died(#1945#)
+};
+
+Male People.GeorgeWarnick = new(#996896dc-b8fc-418d-ae54-99525564e077#, "George", null, "Warnick");
+
+UnionClass Unions.SarahGeorge = new(#76033ee3-4f39-4f98-80e3-90ac9730e2a5#, SarahMcCreight, GeorgeWarnick) {
+  Married(#1860#)
 };
 //=====================================
 
-Female People.MarthaJaneNorth = new("Martha", "Jane", "North") {
-  Born(1859, 10, 19)
+Female People.NancyJaneMcCreight = new(#ea1d8dec-a64f-4dfe-9b94-299d6a634ac4#, "Nancy", "Jane", McCreight, Unions.JaneAndrew) {
+  Born(#1856-10-21#);
+  Died(#1860-7-20#)
 };
 
-Male People.AndrewSmithMcCreight = new("Andrew", "Smith", McCreight, Unions.JaneAndrew) {
-  Born(1851, 3, 24)
-};
-
-UnionClass Unions.MarthaAndrew = new(MarthaJaneNorth, AndrewSmithMcCreight);
-
-Female People.OliveMyrtleMcCreight = new("Olive", "Myrtle", McCreight, Unions.MarthaAndrew) {
-};
-
-Female People.JessieIreneMcCreight = new("Jesse", "Irene", McCreight, Unions.MarthaAndrew) {
-};
-
-Male People.WalterAndrewNorthMcCreight = new("Walter", "Andrew North", McCreight, Unions.MarthaAndrew) {
-};
-
-Male People.JohnEugeneMcCreight = new("John", "Eugene", McCreight, Unions.MarthaAndrew) {
+Female People.OrrelElizabethMcCreight = new(#a3b92882-56e7-40db-b9b4-125114907297#, "Orrel", "Elizabeth", McCreight, Unions.JaneAndrew) {
+  Born(#1863-11-6#);
 };
 //=====================================
 
-Female People.SallyBelleWalker = new("Sally", "Belle", McCreight) {
+Female People.MarthaJaneNorth = new(#17090472-0113-49c1-b8f7-31d3dc17b0be#, "Martha", "Jane", "North") {
+  Born(#1859-10-19#)
+};
+
+Male People.AndrewSmithMcCreight = new(#d2de5890-ef12-4f89-be7c-16a0fea5c5aa#, "Andrew", "Smith", McCreight, Unions.JaneAndrew) {
+  Born(#1851-3-24#)
+};
+
+UnionClass Unions.MarthaAndrew = new(#8e64dc81-7d1f-4fb9-b817-1b44aed869f8#, MarthaJaneNorth, AndrewSmithMcCreight);
+
+Female People.OliveMyrtleMcCreight = new(#77026a83-3ad9-4c49-a31f-0e4b7838dec0#, "Olive", "Myrtle", McCreight, Unions.MarthaAndrew) {
+};
+
+Female People.JessieIreneMcCreight = new(#6ceb8c34-5f62-4314-be31-552bffa8848d#, "Jesse", "Irene", McCreight, Unions.MarthaAndrew) {
+};
+
+Male People.WalterAndrewNorthMcCreight = new(#996ea20a-4272-498e-97e3-465c54514ca3#, "Walter", "Andrew North", McCreight, Unions.MarthaAndrew) {
+};
+
+Male People.JohnEugeneMcCreight = new(#cbb23cf6-de7c-4485-acf7-ca4e6df4ab12#, "John", "Eugene", McCreight, Unions.MarthaAndrew) {
+};
+//=====================================
+
+Female People.SallyBelleWalker = new(#4d3135e4-ccbf-459b-bb5e-a87372257623#, "Sally", "Belle", McCreight) {
   Formerly("Walker");
-  Died(1933)
+  Died(#1933#)
 };
 
-Male People.JamesAlexanderMcCreight = new("James", "Alexander", McCreight, Unions.JaneAndrew) {
-  Born(1853, 4, 3);
-  Died(1937, 7, 11)
+Male People.JamesAlexanderMcCreight = new(#389a9800-f0c1-4fec-8dc5-1b097a5e064e#, "James", "Alexander", McCreight, Unions.JaneAndrew) {
+  Born(#1853-4-3#);
+  Died(#1937-7-11#)
 };
 
-UnionClass Unions.SallyJames = new(SallyBelleWalker, JamesAlexanderMcCreight) {
-  Married(1888, 9, 20)
+UnionClass Unions.SallyJames = new(#b3fa9d98-ded5-4467-8e44-d9c21269e737#, SallyBelleWalker, JamesAlexanderMcCreight) {
+  Married(#1888-9-20#)
 };
 
-Female People.HazelMcCreight = new("Hazel", null, McCreight, Unions.SallyJames) {
-  Born(1892)
+Female People.HazelMcCreight = new(#a7b21cc7-133b-4799-ac21-b0d74972d505#, "Hazel", null, McCreight, Unions.SallyJames) {
+  Born(#1892#)
 };
 
-Male People.JamesMarlinMcCreight = new("James", "Marlin", McCreight, Unions.SallyJames) {
-  Born(1894, 11, 6)
+Male People.JamesMarlinMcCreight = new(#f0bca1bf-b244-4365-9bd6-df30da955e8a#, "James", "Marlin", McCreight, Unions.SallyJames) {
+  Born(#1894-11-6#)
 };
 
-Female People.ElizabethMcCreight = new("Elizabeth", null, McCreight, Unions.SallyJames) {
-  Born(1897)
-};
-//=====================================
-
-Female People.MaryDonegan = new("Mary", null, "Donegan");
-Male People.CyrilMcCreight = new("Cyril", null, McCreight, Unions.SallyJames) {
-  Born(1900);
-  Died(1972)
-};
-
-UnionClass Unions.MaryCyril = new(MaryDonegan, CyrilMcCreight);
-
-//=====================================
-
-Male People.WilliamMcCreight2 = new("William", null, McCreight, Unions.JaneAndrew);
-
-Male People.JohnSharpWarnick = new("John", "Sharp", "Warnick", Unions.SarahGeorge);
-
-Female People.AngusJaneWarnick = new("Angus", "Jane", "Warnick", Unions.SarahGeorge) {
-  Born(1869, 3, 13)
-};
-
-Female People.AnnHMcCreight = new("Ann", "H", McCreight, Unions.JaneAndrew) {
-  Born(1848, 9, 12);
-  Died(1860, 6, 25)
+Female People.ElizabethMcCreight = new(#9a814939-1a5a-4220-86e4-f8b6522f0b19#, "Elizabeth", null, McCreight, Unions.SallyJames) {
+  Born(#1897#)
 };
 //=====================================
 
-Male People.JohnJamiesonMcCreight = new("John", "Jamieson", McCreight, Unions.JaneAndrew) {
-  Born(1846, 8, 22);
-  Died(1923, 12, 5)
+Female People.MaryDonegan = new(#dc1570ec-c277-4bcc-8d09-919cb68d9c71#, "Mary", null, "Donegan");
+Male People.CyrilMcCreight = new(#a6975079-a403-4dd2-a7cd-faccb97feacc#, "Cyril", null, McCreight, Unions.SallyJames) {
+  Born(#1900#);
+  Died(#1972#)
 };
 
-Female People.JennieAdelphiaMcCreight = new("Jennie", "Adelphia", McCreight, Unions.MaryHughHamill) {
+UnionClass Unions.MaryCyril = new(#1b857cef-0519-46e4-be91-4d34c63d7e2f#, MaryDonegan, CyrilMcCreight);
+
+//=====================================
+
+Male People.WilliamMcCreight2 = new(#74531df3-438e-4c48-9c5e-817930510e03#, "William", null, McCreight, Unions.JaneAndrew);
+
+Male People.JohnSharpWarnick = new(#b0bd0a30-857b-44e8-928e-3a57f8304643#, "John", "Sharp", "Warnick", Unions.SarahGeorge);
+
+Female People.AngusJaneWarnick = new(#2b84b99b-cde3-4ce3-9ebb-7fb8c400077a#, "Angus", "Jane", "Warnick", Unions.SarahGeorge) {
+  Born(#1869-3-13#)
+};
+
+Female People.AnnHMcCreight = new(#a41cd732-2e87-4b8f-947b-902b767740b7#, "Ann", "H", McCreight, Unions.JaneAndrew) {
+  Born(#1848-9-12#);
+  Died(#1860-6-25#)
+};
+//=====================================
+
+Male People.JohnJamiesonMcCreight = new(#89ec8eb1-8343-489c-a701-fc728d4339b9#, "John", "Jamieson", McCreight, Unions.JaneAndrew) {
+  Born(#1846-8-22#);
+  Died(#1923-12-5#)
+};
+
+Female People.JennieAdelphiaMcCreight = new(#26bac8b7-aaef-49ae-b86b-0a2ea2ad036a#, "Jennie", "Adelphia", McCreight, Unions.MaryHughHamill) {
   Formerly(Hamill);
-  Born(1875, 11, 1, Places.GeorgevillePA);
-  Died(1950, 1, 3);
+  Born(#1875-11-1#, Places.GeorgevillePA);
+  Died(#1950-1-3#);
 };
 
-UnionClass Unions.JennieJohn = new(JennieAdelphiaMcCreight, JohnJamiesonMcCreight);
+UnionClass Unions.JennieJohn = new(#d624ba4e-8526-43e9-b187-1bf8410ec355#, JennieAdelphiaMcCreight, JohnJamiesonMcCreight);
 //=====================================
 
-Male People.GrandpaWolfe = new("Grandpa", null, Wolfe) {
+Male People.GrandpaWolfe = new(#c5611deb-4e2a-4ace-8606-0158ed720add#, "Grandpa", null, Wolfe) {
 };
 
-Female People.LouisaWolfe = new("Louisa", null, Wolfe) {
-  Born(1862);
-  Died(1940, 6, 6);
+Female People.LouisaWolfe = new(#656e796d-973f-42a1-bb22-caa6cfde88ad#, "Louisa", null, Wolfe) {
+  Born(#1862#);
+  Died(#1940-6-6#);
 };
 
-UnionClass Unions.LouisaGrandpa = new(LouisaWolfe, GrandpaWolfe);
+UnionClass Unions.LouisaGrandpa = new(#19b0c000-7c70-4af4-9bc7-ef23545bdb43#, LouisaWolfe, GrandpaWolfe);
 //=====================================
 
-Male People.HarryWhiteHazelett = new("Harry", "White", Hazelett);
+Male People.HarryWhiteHazelett = new(#51635388-40b9-4072-b7b0-12a2a0cc76c4#, "Harry", "White", Hazelett);
 
-Female People.BerthaPearlHazelett = new("Bertha", "Pearl", Hazelett, Unions.LouisaGrandpa) {
-  Born(1886, 1, 6);
+Female People.BerthaPearlHazelett = new(#8df2243c-e3c5-4f76-8bf6-c3e904cad37c#, "Bertha", "Pearl", Hazelett, Unions.LouisaGrandpa) {
+  Born(#1886-1-6#);
   Formerly(Wolfe);
 };
 
-UnionClass Unions.HarryBertha = new(BerthaPearlHazelett, HarryWhiteHazelett);
+UnionClass Unions.HarryBertha = new(#d80e4f62-524d-47db-bf0c-6465e8bbab0f#, BerthaPearlHazelett, HarryWhiteHazelett);
 //=====================================
 
-Female People.MollieWolfeWolfe = new("Mollie", Wolfe, Wolfe, Unions.LouisaGrandpa) {
-  Born(1884, 2, 5);
-  Died(1957, 12, 6);
+Female People.MollieWolfeWolfe = new(#a49c84e3-6859-4067-9ae3-4249f042ef46#, "Mollie", Wolfe, Wolfe, Unions.LouisaGrandpa) {
+  Born(#1884-2-5#);
+  Died(#1957-12-6#);
 };
 
-Female People.LottieWolfeEckersley = new("Lottie", Wolfe, "Eckersley", Unions.LouisaGrandpa) {
+Female People.LottieWolfeEckersley = new(#358173cf-9f55-42b4-80f2-9e2505aeada8#, "Lottie", Wolfe, "Eckersley", Unions.LouisaGrandpa) {
   Formerly(Wolfe);
-  Born(1898, 4, 16);
+  Born(#1898-4-16#);
 };
 
-Female People.EssieWolfe = new("Essie", null, Wolfe, Unions.LouisaGrandpa) {
-  Born(1902, 7, 2);
-  Died(1963, 7, 7);
+Female People.EssieWolfe = new(#4813bcb8-611d-4d96-aa92-28029464953c#, "Essie", null, Wolfe, Unions.LouisaGrandpa) {
+  Born(#1902-7-2#);
+  Died(#1963-7-7#);
 };
 
-Female People.HazelWolfeFrance = new("Hazel", Wolfe, "France", Unions.LouisaGrandpa) {
+Female People.HazelWolfeFrance = new(#529a7ac4-2a6b-4b6c-95d8-f713a4e85234#, "Hazel", Wolfe, "France", Unions.LouisaGrandpa) {
   Formerly(Wolfe);
-  Born(1893, 9, 28);
-  Died(1961, 3, 8);
+  Born(#1893-9-28#);
+  Died(#1961-3-8#);
 };
 
-Female People.BessieWolfeLawrence = new("Bessie", Wolfe, "Lawrence", Unions.LouisaGrandpa) {
+Female People.BessieWolfeLawrence = new(#b3049774-ef5b-458d-8389-65c7f58d8ebe#, "Bessie", Wolfe, "Lawrence", Unions.LouisaGrandpa) {
   Formerly(Wolfe);
-  Born(1887, 2, 20);
+  Born(#1887-2-20#);
 };
 
-Female People.ViolaWolfeKnepsheild = new("Viola", Wolfe, "Knepsheild", Unions.LouisaGrandpa) {
+Female People.ViolaWolfeKnepsheild = new(#b4d12057-c7a4-4527-8a4b-857895ffd4a3#, "Viola", Wolfe, "Knepsheild", Unions.LouisaGrandpa) {
   Formerly(Wolfe);
-  Born(1889, 4, 15);
+  Born(#1889-4-15#);
 };
 
-Female People.MargretWolfeSlack = new("Margret", Wolfe, "Slack", Unions.LouisaGrandpa) {
+Female People.MargretWolfeSlack = new(#549622de-71a2-4860-9c97-c0142c613ba9#, "Margret", Wolfe, "Slack", Unions.LouisaGrandpa) {
   Formerly(Wolfe);
-  Born(1900, 5, 29);
-  Died(1964, 2, 29);
+  Born(#1900-5-29#);
+  Died(#1964-2-29#);
 };
 
-Male People.OrrieHowardWolfe = new("Orrie", "Howard", Wolfe, Unions.LouisaGrandpa) {
-  Born(1886, 1, 6);
-  Died(1959, 2, 21);
+Male People.OrrieHowardWolfe = new(#abe78810-6127-4803-b46e-d40a449474a4#, "Orrie", "Howard", Wolfe, Unions.LouisaGrandpa) {
+  Born(#1886-1-6#);
+  Died(#1959-2-21#);
 };
 
-Male People.ElvieLemuelWolfe = new("Elvie", "Lemuel", Wolfe, Unions.LouisaGrandpa) {
-  Born(1882, 5, 6);
-  Died(1928, 8, 4);
+Male People.ElvieLemuelWolfe = new(#4e424736-836b-4b96-a6a5-5d885a4bfe94#, "Elvie", "Lemuel", Wolfe, Unions.LouisaGrandpa) {
+  Born(#1882-5-6#);
+  Died(#1928-8-4#);
 };
 
-Male People.ClaueWolfe = new("Claeie", null, Wolfe, Unions.LouisaGrandpa) {
-  Born(1892, 6, 4);
+Male People.ClaueWolfe = new(#0e9eebfa-196f-46b8-b998-550b28f41b31#, "Claeie", null, Wolfe, Unions.LouisaGrandpa) {
+  Born(#1892-6-4#);
 };
 
-Male People.JohnElmerWolfe = new("John", "Elmer", Wolfe, Unions.LouisaGrandpa) {
-  Born(1896, 4, 8);
+Male People.JohnElmerWolfe = new(#18a48554-f952-4d4d-8a47-1b96ebf4f61f#, "John", "Elmer", Wolfe, Unions.LouisaGrandpa) {
+  Born(#1896-4-8#);
 };
 //=====================================
 
-Male People.AnnKatherineMcCreight = new("Ann", "Katherine", McCreight) {
+Male People.AnnKatherineMcCreight = new(#32e96a37-519d-45c7-9684-93d56fc0a817#, "Ann", "Katherine", McCreight) {
   Formerly("Russell");
-  Born(1908, 1, 30)
+  Born(#1908-1-30#)
 };
 
-Male People.WendellButlerMcCreight = new("Wendell", "Butler", McCreight, Unions.JennieJohn) {
-  Born(1905, 12, 17);
-  Died(1998, 8, 23);
+Male People.WendellButlerMcCreight = new(#bd43685a-a831-4093-9ba4-482727f687db#, "Wendell", "Butler", McCreight, Unions.JennieJohn) {
+  Born(#1905-12-17#);
+  Died(#1998-8-23#);
 };
 
-UnionClass Unions.AnnWendle = new(AnnKatherineMcCreight, WendellButlerMcCreight);
+UnionClass Unions.AnnWendle = new(#a02e836b-a3e9-4b18-bec5-03ebb6f87eaf#, AnnKatherineMcCreight, WendellButlerMcCreight);
 //=====================================
 
-Female People.ThelmaEllenFaust = new("Thelma", "Ellen", "Faust");
+Female People.ThelmaEllenFaust = new(#78cdb683-b524-4356-a0f3-e3fac27aa82b#, "Thelma", "Ellen", "Faust");
 
-Male People.JamesClarkMcCreight = new("James", "Clark", McCreight, Unions.JennieJohn) {
-  Born(1909, 4, 16);
-  Died(0);
+Male People.JamesClarkMcCreight = new(#e4438bf4-ee0d-4b55-9de9-a64da9485101#, "James", "Clark", McCreight, Unions.JennieJohn) {
+  Born(#1909-4-16#);
+  Died(null);
 };
 
-UnionClass Unions.ThelmaJames = new(ThelmaEllenFaust, JamesClarkMcCreight);
+UnionClass Unions.ThelmaJames = new(#010f283e-4c63-4f1b-98dd-212ea8d90934#, ThelmaEllenFaust, JamesClarkMcCreight);
 //=====================================
 
-Female People.InezMargaretKerr = new("Inez", "Margaret", "Kerr", Unions.JennieJohn) {
+Female People.InezMargaretKerr = new(#b7a08ab8-7d1d-4890-9673-172aa35b1b87#, "Inez", "Margaret", "Kerr", Unions.JennieJohn) {
   Nick("Betty");
   Formerly(McCreight);
-  Born(1902, 4, 22);
-  Died(1992);
+  Born(#1902-4-22#);
+  Died(#1992#);
 };
 
-Male People.ClarenceGrantKerr = new("Clarence", "Grant", "Kerr") {
-  Born(1897);
-  Died(1964);
+Male People.ClarenceGrantKerr = new(#d4a80ad9-00dc-438f-b8d5-dd8c6dbf09c7#, "Clarence", "Grant", "Kerr") {
+  Born(#1897#);
+  Died(#1964#);
 };
 
-UnionClass Unions.InezClarence = new(InezMargaretKerr, ClarenceGrantKerr) {
-  Married(1921, 3, 31)
-};
-//=====================================
-
-Female People.PeggyLeeKerr = new("Peggy", "Lee", "Kerr", Unions.InezClarence) {
-};
-
-Male People.GaryKerr = new("Gary", null, "Kerr", Unions.InezClarence) {
+UnionClass Unions.InezClarence = new(#c1141155-85ae-414b-bb25-157a49c839a5#, InezMargaretKerr, ClarenceGrantKerr) {
+  Married(#1921-3-31#)
 };
 //=====================================
 
-Female People.FlorenceGertrudeMcCreight  = new("Florence", "Gertrude", McCreight, Unions.HarryBertha) {
+Female People.PeggyLeeKerr = new(#f1268e3a-3db1-44c6-a77b-7dd80b73bfa1#, "Peggy", "Lee", "Kerr", Unions.InezClarence) {
+};
+
+Male People.GaryKerr = new(#c7df578a-7b07-4b85-a59e-68857d3c172e#, "Gary", null, "Kerr", Unions.InezClarence) {
+};
+//=====================================
+
+Female People.FlorenceGertrudeMcCreight = new(#3f2f1bb8-f446-48c8-8060-d618345d5bb1#, "Florence", "Gertrude", McCreight, Unions.HarryBertha) {
   Formerly(Hazelett);
 };
 
-Male People.JohnHamillMcCreight = new("John", Hamill, McCreight, Unions.JennieJohn) {
-  Died(1965, 10, 9);
-  Born(1904, 5, 21)
+Male People.JohnHamillMcCreight = new(#51a304b0-0892-43c3-b28f-78b99492fac3#, "John", Hamill, McCreight, Unions.JennieJohn) {
+  Died(#1965-10-9#);
+  Born(#1904-5-21#)
 };
 
-UnionClass Unions.FloJohn = new(FlorenceGertrudeMcCreight, JohnHamillMcCreight) {
+UnionClass Unions.FloJohn = new(#60bcfa66-caaf-4e84-be7f-1dd4293e826a#, FlorenceGertrudeMcCreight, JohnHamillMcCreight) {
 };
 //=====================================
 
-Female People.MaryJoanMcCreight = new("Mary", "Joan", McCreight) {
+Female People.MaryJoanMcCreight = new(#4a57e9bb-d074-4855-a8ff-f519e67c4885#, "Mary", "Joan", McCreight) {
   Nick("Joanie");
   Formerly("Plowe");
-  Born(1934, 6, 4);
-  Died(2011, 4, 1)
+  Born(#1934-6-4#);
+  Died(#2011-4-1#)
 };
 
-Male People.JohnHarryMcCreight = new("John", "Harry", McCreight, Unions.FloJohn) {
+Male People.JohnHarryMcCreight = new(#ac75d664-479b-4288-8100-5766e14d772b#, "John", "Harry", McCreight, Unions.FloJohn) {
   Nick("Jack");
-  Born(1931, 8, 9);
-  Died(1976, 4, 23)
+  Born(#1931-8-9#);
+  Died(#1976-4-23#)
 };
 
-UnionClass Unions.JoanJack = new(MaryJoanMcCreight, JohnHarryMcCreight) {
-  Married(1958, 12, 2)
+UnionClass Unions.JoanJack = new(#e02665d5-197b-47ee-96d5-2742d647afeb#, MaryJoanMcCreight, JohnHarryMcCreight) {
+  Married(#1958-12-2#)
 };
 //=====================================
 
-Male People.RalphEmersonMcCreight = new("Ralph", "Emerson", McCreight, Unions.FloJohn) {
+Male People.RalphEmersonMcCreight = new(#f5ecd86b-7c12-4890-b423-058d48314657#, "Ralph", "Emerson", McCreight, Unions.FloJohn) {
   Nick("Whitey");
-  Born(1936, 12, 26);
-  Died(2003, 10, 9)
+  Born(#1936-12-26#);
+  Died(#2003-10-9#)
 };
 
-Female People.JanetMcCreight = new("Janet", "Jane", McCreight) {
-  Born(1939, 8, 18);
-  Died(2022, 1, 10);
+Female People.JanetMcCreight = new(#db69ac93-82a0-4eb5-ba60-674fea31e630#, "Janet", "Jane", McCreight) {
+  Born(#1939-8-18#);
+  Died(#2022-1-10#);
   Formerly("Johnson");
 };
 
-UnionClass Unions.JanetRalph = new(JanetMcCreight, RalphEmersonMcCreight) {
-  Married(1959, 11, 28)
+UnionClass Unions.JanetRalph = new(#967c5da9-bae8-4e32-9ad8-a60aef3b29df#, JanetMcCreight, RalphEmersonMcCreight) {
+  Married(#1959-11-28#)
 };
 //=====================================
 
-Female People.FlorenceJaneGofton = new("Florence", "Jane", Gofton, Unions.FloJohn) {
+Female People.FlorenceJaneGofton = new(#d026b8cf-12dc-47b4-bc10-e9c8883a877a#, "Florence", "Jane", Gofton, Unions.FloJohn) {
   Nick("Flo");
-  Born(1930, 8, 22, Places.NewKensington);
-  Died(2021, 4, 26);
+  Born(#1930-8-22#, Places.NewKensington);
+  Died(#2021-4-26#);
   Formerly(McCreight);
 };
 
-Male People.RobertJohnGofton = new("Robert", "John", Gofton, Unions.LoisClaude) {
+Male People.RobertJohnGofton = new(#c0e97492-9bee-4630-9b75-241ecf71360f#, "Robert", "John", Gofton, Unions.LoisClaude) {
   Nick("Bob");
-  Born(1927, 3, 11, Places.Flushing);
-  Died(2015, 6, 13);
+  Born(#1927-3-11#, Places.Flushing);
+  Died(#2015-6-13#);
 };
 
-UnionClass Unions.FloBob = new(FlorenceJaneGofton, RobertJohnGofton) {
-  Married(1950, 12, 21)
+UnionClass Unions.FloBob = new(#09b224b2-4b9a-4a4a-b97d-24d3d7631f72#, FlorenceJaneGofton, RobertJohnGofton) {
+  Married(#1950-12-21#)
 };
 //=====================================
 
-Female People.CassandraMarieVarner = new("Cassandra", "Marie", Varner, Unions.JoannTobey) {
+Female People.CassandraMarieVarner = new(#75b57d18-f15d-4a3d-a2c4-568c6d06c538#, "Cassandra", "Marie", Varner, Unions.JoannTobey) {
   Nick("Cass");
-  Born(1975, 4, 30);
+  Born(#1975-4-30#);
 };
 
-Female People.SheriFolta = new("Sheri", null, "Folta");
+Female People.SheriFolta = new(#406faff9-3b40-4b16-a922-0919161169e3#, "Sheri", null, "Folta");
 
-UnionClass Unions.CassSheri = new(CassandraMarieVarner, SheriFolta);
+UnionClass Unions.CassSheri = new(#250eb9aa-8cb9-461c-b4f8-040724710704#, CassandraMarieVarner, SheriFolta);
 
 //=====================================
 
-Female People.MeaganVarner = new("Megan", null, Varner) {
+Female People.MeaganVarner = new(#b90b10a7-1d4a-425d-9c62-9e741d787637#, "Megan", null, Varner) {
   Formerly("Martin")
 };
 
-Male People.JoshuaLeeVarner = new("Joshua", "Lee", Varner, Unions.JoannTobey) {
+Male People.JoshuaLeeVarner = new(#3c536053-8254-48f4-92f9-165aa3749f62#, "Joshua", "Lee", Varner, Unions.JoannTobey) {
   Nick("Josh");
-  Born(1976, 4, 7);
+  Born(#1976-4-7#);
 };
 
-UnionClass Unions.MeganJoshua = new(MeaganVarner, JoshuaLeeVarner);
+UnionClass Unions.MeganJoshua = new(#c4a578f0-ef29-49cb-95db-369f2c50ece7#, MeaganVarner, JoshuaLeeVarner);
 
-Male People.SawyerVarner = new("Sawyer", "Lee", Varner, Unions.MeganJoshua) {
-  Born(2008, 11, 25);
+Male People.SawyerVarner = new(#f3a119a7-18ab-41cb-95ee-214a81149dbd#, "Sawyer", "Lee", Varner, Unions.MeganJoshua) {
+  Born(#2008-11-25#);
 };
 
-Male People.ReeseVarner = new("Reese", "Patricia", Varner, Unions.MeganJoshua) {
-  Born(2011, 11, 10);
-};
-//=====================================
-
-Male People.TylerJamesGofton = new("Tyler", "James", Gofton, Unions.JamesSharon) {
-  Born(1979, 6, 19);
-  Died(2020, 4, 18)
-};
-
-Male People.AdamRussellGofton = new("Adam", "Russell", Gofton, Unions.JamesSharon) {
-  Born(1987, 3, 12)
-};
-
-Female People.LisaJoanMcCreight = new("Lisa", "Joan", McCreight, Unions.JoanJack) {
-  Born(1959);
-  Died(1963, 10, 4)
+Male People.ReeseVarner = new(#f19d2a22-5d3a-40d6-97da-ff135e219f8f#, "Reese", "Patricia", Varner, Unions.MeganJoshua) {
+  Born(#2011-11-10#);
 };
 //=====================================
 
-Female People.LoriChun = new("Lori", null, "Chun") {
+Male People.TylerJamesGofton = new(#98c2da26-60b7-46f2-964c-04f14b5915c0#, "Tyler", "James", Gofton, Unions.JamesSharon) {
+  Born(#1979-6-19#);
+  Died(#2020-4-18#)
 };
 
-Male People.JohnCraigMcCreight = new("John", "Craig", McCreight, Unions.JoanJack) {
-  Born(1962, 7, 2)
+Male People.AdamRussellGofton = new(#af28eab0-9c3a-49d6-bcce-b2dddc67fb3b#, "Adam", "Russell", Gofton, Unions.JamesSharon) {
+  Born(#1987-3-12#)
 };
 
-UnionClass Unions.LoriJohn = new(LoriChun, JohnCraigMcCreight) {
-  Married(2005, 6, 25);
+Female People.LisaJoanMcCreight = new(#a6a1d463-c89c-4ead-b24a-eaab3daca4b7#, "Lisa", "Joan", McCreight, Unions.JoanJack) {
+  Born(#1959#);
+  Died(#1963-10-4#)
+};
+//=====================================
+
+Female People.LoriChun = new(#3adfa398-f03f-4e31-9e66-da3bcec3c608#, "Lori", null, "Chun") {
+};
+
+Male People.JohnCraigMcCreight = new(#4d24dfa6-2001-4ed3-9fa6-3c97cf265eef#, "John", "Craig", McCreight, Unions.JoanJack) {
+  Born(#1962-7-2#)
+};
+
+UnionClass Unions.LoriJohn = new(#2e2be4ec-738b-4684-ae3a-86c0c4f6577d#, LoriChun, JohnCraigMcCreight) {
+  Married(#2005-6-25#);
   DivorceDate: #2010#
 };
 //=====================================
 
-Female People.JoannaMcCreight = new("Joanna", "Marie", McCreight, Unions.LoriJohn) {
-  Born(2004, 1, 8)
+Female People.JoannaMcCreight = new(#a22a6671-e2c6-42c1-a0d5-403a1b2499b0#, "Joanna", "Marie", McCreight, Unions.LoriJohn) {
+  Born(#2004-1-8#)
 };
 
-Female People.AmandaMcCreight = new("Amanda", "Rose", McCreight, Unions.LoriJohn) {
-  Born(2007, 5, 2)
+Female People.AmandaMcCreight = new(#1d87c65d-3262-4356-832b-6487bab9b2c0#, "Amanda", "Rose", McCreight, Unions.LoriJohn) {
+  Born(#2007-5-2#)
 };
 //=====================================
 
-Male People.CraigJohnMcCreight = new("Craig", "John", McCreight, Unions.JoanJack) {
-  Born(1964, 8, 17, Places.SanBernardino)
+Male People.CraigJohnMcCreight = new(#cafac9be-f5cd-4960-a473-476fd2bef644#, "Craig", "John", McCreight, Unions.JoanJack) {
+  Born(#1964-8-17#, Places.SanBernardino)
 };
 
-Female People.TheresaMaryMcCreight = new("Theresa", "Mary", McCreight) {
+Female People.TheresaMaryMcCreight = new(#feb2a857-d3c4-4644-8b1c-089002c41f09#, "Theresa", "Mary", McCreight) {
   Nick("Terry");
   Formerly("Furlong");
-  Born(1960)
+  Born(#1960#)
 };
 
-Female People.MarianneElizabethFrontino = new("Marianne", "Elizabeth", "Frontino") {
+Female People.MarianneElizabethFrontino = new(#7db75475-b816-4e6f-a4bb-f9db0d3b33e6#, "Marianne", "Elizabeth", "Frontino") {
 };
 
-UnionClass Unions.MarianneCraig = new(MarianneElizabethFrontino, CraigJohnMcCreight) {
-  Married(1986, 9, 6)
+UnionClass Unions.MarianneCraig = new(#4829b344-b7f8-490b-a081-6e1fc687ab18#, MarianneElizabethFrontino, CraigJohnMcCreight) {
+  Married(#1986-9-6#)
 };
 
-UnionClass Unions.TerryCraig = new(TheresaMaryMcCreight, CraigJohnMcCreight) {
-  Married(2017, 7, 21)
+UnionClass Unions.TerryCraig = new(#7862c06c-7321-4933-b8c7-4a78bae2a23a#, TheresaMaryMcCreight, CraigJohnMcCreight) {
+  Married(#2017-7-21#)
 };
 //=====================================
 
-Female People.AlyssaMarieMcCreight = new("Alyssa", "Marie", McCreight) {
+Female People.AlyssaMarieMcCreight = new(#17694c50-2d11-44a3-94e4-7e96376c1a51#, "Alyssa", "Marie", McCreight) {
   Formerly("Boote");
-  Born(1992, 12, 28);
+  Born(#1992-12-28#);
 };
 
-Male People.ThomasDanielMcCreight = new("Thomas", "Daniel", McCreight, Unions.MarianneCraig) {
+Male People.ThomasDanielMcCreight = new(#63ab5c33-7f28-45de-8d8f-337724e54278#, "Thomas", "Daniel", McCreight, Unions.MarianneCraig) {
   Nick("Tom");
-  Born(1993, 4, 23);
+  Born(#1993-4-23#);
 };
 
-UnionClass Unions.AlyssaTom = new(AlyssaMarieMcCreight, ThomasDanielMcCreight) {
-  Married(2020, 7, 10)
+UnionClass Unions.AlyssaTom = new(#59f2b35b-85a8-4988-8cbf-eb56272ad205#, AlyssaMarieMcCreight, ThomasDanielMcCreight) {
+  Married(#2020-7-10#)
 };
 
-Female People.AbigailMarieMcCreight = new("Abigail", "Marie", "McCreight", Unions.AlyssaTom) {
-  Born(2021, 6, 19)
+Female People.AbigailMarieMcCreight = new(#5191808b-1acd-4169-8e92-0717a7867d4e#, "Abigail", "Marie", "McCreight", Unions.AlyssaTom) {
+  Born(#2021-6-19#)
 };
 //=====================================
 
-Female People.KatherineMarieStanifer = new("Katherine", "Marie", "Stanifer", Unions.MarianneCraig) {
+Female People.KatherineMarieStanifer = new(#e1f5d34a-a0eb-4265-bad2-50b8b21bade1#, "Katherine", "Marie", "Stanifer", Unions.MarianneCraig) {
   Formerly(McCreight);
-  Born(1990, 9, 6);
+  Born(#1990-9-6#);
 };
 
-Female People.WilliamStanifer = new("William", null, "Stanifer") {
+Female People.WilliamStanifer = new(#22c2979a-dcf6-46c8-a97c-565aa3baee24#, "William", null, "Stanifer") {
   Nick("Bill")
 };
 
 
-UnionClass Unions.KatherineBill = new(KatherineMarieStanifer, WilliamStanifer) {
-  Married(2020)  // ???
+UnionClass Unions.KatherineBill = new(#0de57ba9-0355-4502-9257-93cde511ff01#, KatherineMarieStanifer, WilliamStanifer) {
+  Married(#2020#)  // ???
 };
 
-Female People.LibertyFaithStanifer = new("Liberty", "Faith", "Stanifer", Unions.KatherineBill) {
-  Born(2021, 8); // ???
+Female People.LibertyFaithStanifer = new(#32ddc109-9fe6-4121-a9c4-ed959003e1d1#, "Liberty", "Faith", "Stanifer", Unions.KatherineBill) {
+  Born(#2021-8#); // ???
 };
 
-Male People.BenjaminJamesStanifer = new("Benjamin", "James", "Stanifer", Unions.KatherineBill) {
+Male People.BenjaminJamesStanifer = new(#ed25e730-13c3-420c-91fb-085864e789c0#, "Benjamin", "James", "Stanifer", Unions.KatherineBill) {
   Nick("Benji");
-  Born(2023, 6, 6);
+  Born(#2023-6-6#);
 };
 
-Female People.GraceStanifer = new("Grace", null, "Stanifer", Unions.KatherineBill);
+Female People.GraceStanifer = new(#070e0d7a-9c91-439c-9f22-df7280ef3d0a#, "Grace", null, "Stanifer", Unions.KatherineBill);
 
 //=====================================
 
-Female People.MichelleNicholeCalderoni = new("Michelle", "Nichole", Calderoni, Unions.MarianneCraig) {
+Female People.MichelleNicholeCalderoni = new(#88b374a4-078d-4871-9961-f2d34b80d3c1#, "Michelle", "Nichole", Calderoni, Unions.MarianneCraig) {
   Formerly(McCreight);
-  Born(1988, 1, 21)
+  Born(#1988-1-21#)
 };
 
-Male People.RobertCalderoni = new("Robert", null, Calderoni) {
+Male People.RobertCalderoni = new(#ce3289dc-f6e2-48af-877d-f0afc9fffa6f#, "Robert", null, Calderoni) {
   Nick("Bobby");
-  Born(1988, 1, 21)
+  Born(#1988-1-21#)
 };
 
-UnionClass Unions.MichelleBobby = new(MichelleNicholeCalderoni, RobertCalderoni) {
-  Married(2019, 7, 8)
+UnionClass Unions.MichelleBobby = new(#607d726c-1e99-4633-b8fc-5ef7bde06126#, MichelleNicholeCalderoni, RobertCalderoni) {
+  Married(#2019-7-8#)
 };
 
-Male People.LucaRobertCalderoni = new("Luca", "Robert", Calderoni, Unions.MichelleBobby) {
-  Born(2020, 8, 17)
+Male People.LucaRobertCalderoni = new(#a591debf-8d67-40b4-84a7-38f39b1426be#, "Luca", "Robert", Calderoni, Unions.MichelleBobby) {
+  Born(#2020-8-17#)
 };
 
 //=====================================
 
-Male People.ShawnHamillMcCreight = new("Shawn", Hamill, McCreight, Unions.JoanJack) {
-  Born(1966, 2, 5, Places.SanBernardino)
+Male People.ShawnHamillMcCreight = new(#bcda8125-3a48-448e-ae75-9cc8c5dca2e4#, "Shawn", Hamill, McCreight, Unions.JoanJack) {
+  Born(#1966-2-5#, Places.SanBernardino)
 };
 
-Female People.JenniferLynnMcCreight = new("Jennifer", "Lynn", McCreight, Unions.CharlotteCharlesWion) {
+Female People.JenniferLynnMcCreight = new(#ad9abe98-d0d6-4023-84c2-cca0ca0da570#, "Jennifer", "Lynn", McCreight, Unions.CharlotteCharlesWion) {
   Nick("Jen")
   Formerly("Wion");
-  Born(1968, 2, 16)
+  Born(#1968-2-16#)
 };
 
-UnionClass Unions.JenniferShawn = new(JenniferLynnMcCreight, ShawnHamillMcCreight) {
-  Married(1995, 6, 17)
-};
-//=====================================
-
-Female People.MeganCharlotteMcCreight = new("Megan", "Charlotte", McCreight, Unions.JenniferShawn) {
-  Born(1999, 1, 14, Places.Pasadena);
-};
-
-Male People.NolanHamillMcCreight = new("Nolan", Hamill, McCreight, Unions.JenniferShawn) {
-  Born(2001, 7, 30, Places.Pasadena);
-};
-
-Female People.LaurenLynnMcCreight = new("Lauren", "Lynn", McCreight, Unions.JenniferShawn) {
-  Born(2004, 7, 26, Places.Pasadena);
-};
-
-Female People.ShannonReneeMcCreight = new("Shannon", "Renee", McCreight, Unions.JoanJack) {
-  Born(1968, 8, 10, Places.SanBernardino)
+UnionClass Unions.JenniferShawn = new(#03244646-fa91-4689-b2ec-41df44f61370#, JenniferLynnMcCreight, ShawnHamillMcCreight) {
+  Married(#1995-6-17#)
 };
 //=====================================
 
-Female People.LisaLouiseMcCreight = new("Lisa", "Louise", McCreight) {
-  Born(1966, 8, 16);
+Female People.MeganCharlotteMcCreight = new(#6d1ce161-140d-46a4-9b23-c0eb5e31f859#, "Megan", "Charlotte", McCreight, Unions.JenniferShawn) {
+  Born(#1999-1-14#, Places.Pasadena);
+};
+
+Male People.NolanHamillMcCreight = new(#5b1fc323-d04e-424f-8846-37cad8792a78#, "Nolan", Hamill, McCreight, Unions.JenniferShawn) {
+  Born(#2001-7-30#, Places.Pasadena);
+};
+
+Female People.LaurenLynnMcCreight = new(#9ab10575-6eea-4462-9a0e-e764aa5808fc#, "Lauren", "Lynn", McCreight, Unions.JenniferShawn) {
+  Born(#2004-7-26#, Places.Pasadena);
+};
+
+Female People.ShannonReneeMcCreight = new(#9e733e88-3f04-417f-8601-c26cd521fc61#, "Shannon", "Renee", McCreight, Unions.JoanJack) {
+  Born(#1968-8-10#, Places.SanBernardino)
+};
+//=====================================
+
+Female People.LisaLouiseMcCreight = new(#37821e09-8a4d-487d-8137-3e494fd21226#, "Lisa", "Louise", McCreight) {
+  Born(#1966-8-16#);
   //edward evelen
   Formerly("Huber");
 };
 
-Male People.ClaytonAlanMcCreight = new("Clayton", "Alan", McCreight, Unions.JanetRalph) {
+Male People.ClaytonAlanMcCreight = new(#e75bfbf8-6431-4f9f-a881-c3913c088f07#, "Clayton", "Alan", McCreight, Unions.JanetRalph) {
   Nick("Clay");
-  Born(1963, 4, 4);
+  Born(#1963-4-4#);
 };
 
-UnionClass Unions.LisaClay = new(LisaLouiseMcCreight, ClaytonAlanMcCreight) {
-  Married(1987, 5, 9)
+UnionClass Unions.LisaClay = new(#11c9b93b-35af-4f72-8e6f-8c50cec14405#, LisaLouiseMcCreight, ClaytonAlanMcCreight) {
+  Married(#1987-5-9#)
 };
 //=====================================
 
-Female People.RanaedaMarieYuncker = new("Ranaeda", "Marie", Yuncker, Unions.LisaClay) {
+Female People.RanaedaMarieYuncker = new(#b884503f-a42b-4fec-bf87-568edcf1de47#, "Ranaeda", "Marie", Yuncker, Unions.LisaClay) {
   Formerly(McCreight);
-  Born(1988, 6, 10);
+  Born(#1988-6-10#);
 };
 
-Male People.AnthonyYuncker = new("Anthony", "Francis", Yuncker) {
-  Born(1986, 7, 1);
+Male People.AnthonyYuncker = new(#69f9752b-a66d-4c79-9471-665fa10c4d12#, "Anthony", "Francis", Yuncker) {
+  Born(#1986-7-1#);
 };
 
-UnionClass Unions.RenaedaAnthony = new(RanaedaMarieYuncker, AnthonyYuncker) {
-  Married(2016, 1, 22)
-};
-//=====================================
-
-Female People.ScarlettMaeYuncker = new("Scarlett", "Mae", Yuncker, Unions.RenaedaAnthony) {
-  Born(2018, 9, 9);
-};
-
-Female People.AinsleyKayeYuncker = new("Ainsley", "Kaye", Yuncker, Unions.RenaedaAnthony) {
-  Born(2021, 5, 6);
+UnionClass Unions.RenaedaAnthony = new(#1bc56fd2-470a-45df-b070-05c4c4c22d4f#, RanaedaMarieYuncker, AnthonyYuncker) {
+  Married(#2016-1-22#)
 };
 //=====================================
 
+Female People.ScarlettMaeYuncker = new(#f60d8e6f-b0bb-4e92-be5d-409d1451cf80#, "Scarlett", "Mae", Yuncker, Unions.RenaedaAnthony) {
+  Born(#2018-9-9#);
+};
 
-Male People.WilliamCharlesMyler = new("William", "Charles", Myler) {
+Female People.AinsleyKayeYuncker = new(#2f0dec63-b3d4-45c9-8903-3ea9bb5119d2#, "Ainsley", "Kaye", Yuncker, Unions.RenaedaAnthony) {
+  Born(#2021-5-6#);
+};
+//=====================================
+
+
+Male People.WilliamCharlesMyler = new(#987d4e3f-630e-497b-a3ba-4a2b86b6a18f#, "William", "Charles", Myler) {
   Nick("Billy");
-  Born(1991, 7, 18);
+  Born(#1991-7-18#);
 };
 
-Female People.AmeliaMaeMyler = new("Amelia", "Mae", Myler, Unions.LisaClay) {
+Female People.AmeliaMaeMyler = new(#57a4061e-28d5-478f-9d30-0cbfb733317c#, "Amelia", "Mae", Myler, Unions.LisaClay) {
   Formerly(McCreight);
-  Born(1990, 6, 11);
+  Born(#1990-6-11#);
 };
 
-UnionClass Unions.AmeliaBilly = new(AmeliaMaeMyler, WilliamCharlesMyler) {
-  Married(2021, 7)
+UnionClass Unions.AmeliaBilly = new(#d57d012b-7b80-4d67-850f-4f2974cbe66c#, AmeliaMaeMyler, WilliamCharlesMyler) {
+  Married(#2021-7#)
 };
 
-Female People.EmersonLouiseMyler = new("Emerson", "Louise", Myler, Unions.AmeliaBilly) {
+Female People.EmersonLouiseMyler = new(#fa062dfc-2253-4ae1-8d9d-285343881375#, "Emerson", "Louise", Myler, Unions.AmeliaBilly) {
   Nick("Emmy");
-  Born(2022, 4, 4);
+  Born(#2022-4-4#);
 };
 //=====================================
 
-Female People.KathyAnneMcCreight = new("Kathy", "Anne", McCreight, Unions.JanetRalph) {
-  Born(1961, 7, 13);
+Female People.KathyAnneMcCreight = new(#76724c9c-514b-4ab5-862c-fca0e027be69#, "Kathy", "Anne", McCreight, Unions.JanetRalph) {
+  Born(#1961-7-13#);
 };
 //=====================================
 
-Male People.JamesRobertGofton = new("James", "Robert", Gofton, Unions.FloBob) {
+Male People.JamesRobertGofton = new(#70dda614-9f01-45c7-a026-2e35b7f0fbfe#, "James", "Robert", Gofton, Unions.FloBob) {
   Nick("Jim");
-  Born(1951, 12, 17);
+  Born(#1951-12-17#);
 };
 
-Female People.SharonParks = new("Sharon", "Kay", "Parks") {
+Female People.SharonParks = new(#cf535fee-8cc2-431c-b940-96e18b7a8132#, "Sharon", "Kay", "Parks") {
   Nick("Shari");
 };
 
-Female People.MollyJohnson = new("Molly", null, "Johnson");
+Female People.MollyJohnson = new(#cad7a7d7-621f-4f77-93aa-fa6d9deb6fa9#, "Molly", null, "Johnson");
 
-Female People.GailEnglish = new("Gail", null, "English");
+Female People.GailEnglish = new(#546d44d0-b865-42f5-a5c2-92af15ff773a#, "Gail", null, "English");
 
-Female People.DebbieGofton = new("Debbie", null, "Gofton");
+Female People.DebbieGofton = new(#ac006399-77df-4fe0-b426-ad2ff0649b1c#, "Debbie", null, "Gofton");
 
-UnionClass Unions.JamesSharon = new(SharonParks, JamesRobertGofton) {
-  Married(1971, 4, 17)
+UnionClass Unions.JamesSharon = new(#f970be65-c36b-4a8e-9595-bfd0a3e48649#, SharonParks, JamesRobertGofton) {
+  Married(#1971-4-17#)
 };
 
-UnionClass Unions.JoanneJamesGofton = new(MollyJohnson, JamesRobertGofton);
+UnionClass Unions.JoanneJamesGofton = new(#01609315-c382-40f7-aa3d-0d7773480b08#, MollyJohnson, JamesRobertGofton);
 
-UnionClass Unions.GailEnglishJamesGofton = new(GailEnglish, JamesRobertGofton);
+UnionClass Unions.GailEnglishJamesGofton = new(#e2350b09-e791-40d9-b450-66f4cb212959#, GailEnglish, JamesRobertGofton);
 
-UnionClass Unions.DebbieGoftonJamesGofton = new(DebbieGofton, JamesRobertGofton);
+UnionClass Unions.DebbieGoftonJamesGofton = new(#1dafef4b-bc1d-41ad-9d06-6a9303c1957f#, DebbieGofton, JamesRobertGofton);
 //=====================================
 
-Female People.JoannMarieVarner = new("JoAnn", "Marie", Varner, Unions.FloBob) {
+Female People.JoannMarieVarner = new(#946025c4-78bb-4e4c-bd06-8695ecf8964c#, "JoAnn", "Marie", Varner, Unions.FloBob) {
   Formerly(Gofton);
 };
 
-Male People.TobyVarner = new("Toby", null, Varner);
+Male People.TobyVarner = new(#81133b25-9eb5-4995-bb67-709540ce4348#, "Toby", null, Varner);
 
-UnionClass Unions.JoannTobey = new(JoannMarieVarner, TobyVarner) {
-  Married(1974, 6, 29)
+UnionClass Unions.JoannTobey = new(#fe1ab6b2-6756-41ae-b4dd-902c6c236cb1#, JoannMarieVarner, TobyVarner) {
+  Married(#1974-6-29#)
 };
 //============================================================================================================
 

@@ -1,0 +1,15 @@
+using Format, Units;
+
+include "../../Nytril/Deploy/Examples/Family Tree/Family Tree";
+include "Huelsenbeck";
+
+//======================================================================
+
+Main.Documents = new FamilyDocumentClass(#552ccaf1-a60a-434e-ad89-b7ed877d6198#, "Family History", [
+  new(Information.Unions.PeteNikki, 14 pts, 10 pts),
+  new(Information.Unions.MartinBarbara, 14 pts, 10 pts),
+]);
+
+PictureFolder = IO.Folders.Source;
+
+//======================================================================

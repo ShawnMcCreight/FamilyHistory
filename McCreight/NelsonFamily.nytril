@@ -1,212 +1,214 @@
-using People;
+using Information.People;
 //============================================================================================================
 
-Male People.CleoLNelson = new("Cleo", "L.", Nelson) {
-  Born(1930, 9, 28, Places.Durban);
-  Died(1980, 11, 30);
+readonly namespace Information;
+
+Male People.CleoLNelson = new(#5ef88bb5-c026-4495-b929-3a74b954e9c0#, "Cleo", "L.", Nelson) {
+  Born(#1930-9-28#, Places.Durban);
+  Died(#1980-11-30#);
 };
 //=====================================
 
-Female People.AnnaVetheNelson = new("Anna", null, Nelson) {
+Female People.AnnaVetheNelson = new(#af4cb795-e7a3-48bd-a784-fe5965a599e6#, "Anna", null, Nelson) {
   Formerly("Vethe")
-  Born(1872, 2, 24, Places.Voss);
-  Died(1963, 5, 19)
+  Born(#1872-2-24#, Places.Voss);
+  Died(#1963-5-19#)
 };
 
-Female People.MarieOBortveit = new("Marie", null, "Bortveit") {
-  Born(1830, 8, 6, Places.Norway);
-  Died(1896, 5, 30)
+Female People.MarieOBortveit = new(#8d78487d-5752-4c66-9254-bc5d9a6cc561#, "Marie", null, "Bortveit") {
+  Born(#1830-8-6#, Places.Norway);
+  Died(#1896-5-30#)
 };
 
-Male People.JohanNGrettveit = new("Johan", "N.", "Grettveit") {
-  Born(1835, 1, 11, Places.Norway);
-  Died(1882, 10, 30)
+Male People.JohanNGrettveit = new(#38f4aa90-9601-486e-b1ce-4d14aea8737e#, "Johan", "N.", "Grettveit") {
+  Born(#1835-1-11#, Places.Norway);
+  Died(#1882-10-30#)
 };
 
-UnionClass Unions.MarieJohan = new(MarieOBortveit, JohanNGrettveit) {
-  Married(1860, 4, 30, Places.Hosanger)
+UnionClass Unions.MarieJohan = new(#e12666cc-8c72-494f-bc11-662bf0c6a50b#, MarieOBortveit, JohanNGrettveit) {
+  Married(#1860-4-30#, Places.Hosanger)
 };
 
-Male People.OlaiNelson = new("Olai", null, Nelson, Unions.MarieJohan) {
-  Born(1866, 1, 25, Places.Bergan);
-  Died(1950, 7, 27)
+Male People.OlaiNelson = new(#11534538-625c-4d79-8710-1eb6bac31f5f#, "Olai", null, Nelson, Unions.MarieJohan) {
+  Born(#1866-1-25#, Places.Bergan);
+  Died(#1950-7-27#)
 };
 
-UnionClass Unions.AnnaOlai = new(AnnaVetheNelson, OlaiNelson) {
-  Married(1897, 3, 24, Places.Madison)
+UnionClass Unions.AnnaOlai = new(#a02e04d1-6511-4427-950a-3603ab82a80a#, AnnaVetheNelson, OlaiNelson) {
+  Married(#1897-3-24#, Places.Madison)
 };
 //=====================================
 
-Female People.ViolaMNelson = new("Viola", "M.", Nelson) {
+Female People.ViolaMNelson = new(#9130601b-1025-41b3-b802-f084ba7e7f0c#, "Viola", "M.", Nelson) {
   Formerly("Vetos");
 };
 
-Male People.RichardTNelson = new("Richard", "T.", Nelson, Unions.AnnaOlai) {
-  Born(1908, 1, 19, Places.Laurel);
-  Died(1999, 12, 12)
+Male People.RichardTNelson = new(#514d4fce-f6b9-446f-b97c-e5d173b452ce#, "Richard", "T.", Nelson, Unions.AnnaOlai) {
+  Born(#1908-1-19#, Places.Laurel);
+  Died(#1999-12-12#)
 };
 
-UnionClass Unions.ViolaRichard = new(ViolaMNelson, RichardTNelson) {
-  Married(1931, 6, 26, Places.Janesville)
-};
-//=====================================
-
-Male People.MelvinENelson = new("Melvin", "E.", Nelson, Unions.ViolaRichard) {
-  Born(1932, 2, 19, Places.Beresford);
-};
-
-UnionClass Unions.CleoMelvin = new(CleoLNelson, MelvinENelson) {
-  Married(1976, 7, 30, Places.Midland)
+UnionClass Unions.ViolaRichard = new(#46c7d321-2a1d-4e42-bc86-da4aaf801cec#, ViolaMNelson, RichardTNelson) {
+  Married(#1931-6-26#, Places.Janesville)
 };
 //=====================================
 
-Female People.PeggyLeeNelson = new("Peggy", "Lee", Nelson, Unions.FloBob) {
+Male People.MelvinENelson = new(#d2a34809-7345-450e-a403-53a9792e7039#, "Melvin", "E.", Nelson, Unions.ViolaRichard) {
+  Born(#1932-2-19#, Places.Beresford);
+};
+
+UnionClass Unions.CleoMelvin = new(#d6926447-0753-4a7a-bc6e-61f5a31dad22#, CleoLNelson, MelvinENelson) {
+  Married(#1976-7-30#, Places.Midland)
+};
+//=====================================
+
+Female People.PeggyLeeNelson = new(#02941fc0-d886-4442-955b-bfc194becd35#, "Peggy", "Lee", Nelson, Unions.FloBob) {
   Formerly(Gofton);
-  Born(1955, 2, 3, Places.Saginaw);
+  Born(#1955-2-3#, Places.Saginaw);
 };
 
-Male People.JeffreyPNelson = new("Jeffrey", "P.", Nelson, Unions.CleoMelvin) {
+Male People.JeffreyPNelson = new(#11c43c55-7947-424c-92bb-01f766dcece3#, "Jeffrey", "P.", Nelson, Unions.CleoMelvin) {
   Nick("Jeff");
-  Born(1955, 9, 7, Places.Midland);
+  Born(#1955-9-7#, Places.Midland);
 };
 
-UnionClass Unions.PeggyJeff = new(PeggyLeeNelson, JeffreyPNelson) {
-  Married(1976, 7, 30, Places.Midland)
+UnionClass Unions.PeggyJeff = new(#f9c73c57-6f3e-49b9-850e-49743777a770#, PeggyLeeNelson, JeffreyPNelson) {
+  Married(#1976-7-30#, Places.Midland)
 };
 //=====================================
 
-Female People.KristyLeeJordan = new("Kristy", "Lee", Jordan, Unions.PeggyJeff) {
+Female People.KristyLeeJordan = new(#bd6fbabd-0032-4877-bc42-c7e8dd40876b#, "Kristy", "Lee", Jordan, Unions.PeggyJeff) {
   Formerly(Nelson);
-  Born(1979, 9, 17, Places.Janesville);
+  Born(#1979-9-17#, Places.Janesville);
 };
 
-Male People.JasonWJordan = new("Jason", "W.", Jordan) {
-  Born(1973, 5, 5, Places.Freemont);
+Male People.JasonWJordan = new(#e7be8093-a1d9-4e3e-b311-8e8bee8e8c82#, "Jason", "W.", Jordan) {
+  Born(#1973-5-5#, Places.Freemont);
 };
 
-UnionClass Unions.KristyJason = new(KristyLeeJordan, JasonWJordan) {
-  Married(2005, 2, 26);
-  Divorced(2005, 9)
+UnionClass Unions.KristyJason = new(#cc0fe7be-103f-4e05-b608-8308d59b2161#, KristyLeeJordan, JasonWJordan) {
+  Married(#2005-2-26#);
+  Divorced(#2005-9#)
 };
 
-Male People.JustinAJordan = new("Justin", "A.", Jordan, Unions.KristyJason) {
-  Born(1997, 8, 1, Places.FortWayne);
+Male People.JustinAJordan = new(#1528dead-b2e2-4ffa-bd18-58b481e79524#, "Justin", "A.", Jordan, Unions.KristyJason) {
+  Born(#1997-8-1#, Places.FortWayne);
 };
 
-Female People.AlexisAJordan = new("Alexis", "A.", Jordan, Unions.KristyJason) {
+Female People.AlexisAJordan = new(#5230f21a-35e2-4267-8af2-d458aa7deac7#, "Alexis", "A.", Jordan, Unions.KristyJason) {
   Nick("Lexi");
-  Born(2000, 11, 8, Places.FortWayne);
+  Born(#2000-11-8#, Places.FortWayne);
 };
 
-Female People.DelaneyNJordan = new("Delaney", "N.", Jordan, Unions.KristyJason) {
+Female People.DelaneyNJordan = new(#5c98c371-12e0-43a4-b845-f3cf832104fd#, "Delaney", "N.", Jordan, Unions.KristyJason) {
   Nick("Lani");
-  Born(2003, 3, 11, Places.FortWayne);
+  Born(#2003-3-11#, Places.FortWayne);
 };
 //=========
 
-Male People.KevinMichaelNelson = new("Kevin", "Michael", Nelson, Unions.PeggyJeff) {
-  Born(1982, 6, 2, Places.Janesville)
+Male People.KevinMichaelNelson = new(#f246bb77-d508-4b80-972f-a24a23f0f858#, "Kevin", "Michael", Nelson, Unions.PeggyJeff) {
+  Born(#1982-6-2#, Places.Janesville)
 };
 
-Female People.TiffanyFrye = new("Tiffany", null, "Frye") {
-  Born(2000, 11, 8, Places.FortWayne);
+Female People.TiffanyFrye = new(#4f902a70-8428-4d08-8474-e6b10ddcea3b#, "Tiffany", null, "Frye") {
+  Born(#2000-11-8#, Places.FortWayne);
 };
 
-UnionClass Unions.TiffanyKevin = new(TiffanyFrye, KevinMichaelNelson);
+UnionClass Unions.TiffanyKevin = new(#1ecae606-71d1-43bd-966f-13a9df6e7abc#, TiffanyFrye, KevinMichaelNelson);
 
-Female People.CaitlinMNelson = new("Caitlin", "M.", Nelson, Unions.TiffanyKevin) {
-  Born(2000, 11, 8, Places.FortWayne)
+Female People.CaitlinMNelson = new(#442db7e5-72e6-489d-b2b8-c5950d72557b#, "Caitlin", "M.", Nelson, Unions.TiffanyKevin) {
+  Born(#2000-11-8#, Places.FortWayne)
 };
 //=========
 
-Female People.LisaAnnMaroney = new("Lisa", "Ann", "Maroney", Unions.PeggyJeff) {
+Female People.LisaAnnMaroney = new(#c3e9f7f3-2cfb-446c-9ef4-28a409aefade#, "Lisa", "Ann", "Maroney", Unions.PeggyJeff) {
   Formerly(Nelson);
-  Born(1983, 12, 29, Places.Janesville)
+  Born(#1983-12-29#, Places.Janesville)
 };
 
-Male People.PhillipRosier = new("Phillip", null, "Rosier") {
-  Born(1981, 8, 13)
+Male People.PhillipRosier = new(#3737c453-d008-4fb0-b0e7-39039175ecd3#, "Phillip", null, "Rosier") {
+  Born(#1981-8-13#)
 };
 
-Male People.ChadMaroney = new("Chad", null, "Maroney") {
-  Born(1971, 3, 28, Places.FortWayne)
+Male People.ChadMaroney = new(#3f9533a9-0643-4c5f-b1c3-b5af848e3b77#, "Chad", null, "Maroney") {
+  Born(#1971-3-28#, Places.FortWayne)
 };
 
-UnionClass Unions.LisaPhillip = new(LisaAnnMaroney, PhillipRosier) {
-  Married(2003, 8, 23)
+UnionClass Unions.LisaPhillip = new(#fb355d2c-0a79-42b1-a144-4e7f91933f07#, LisaAnnMaroney, PhillipRosier) {
+  Married(#2003-8-23#)
 };
 
-UnionClass Unions.LisaChad = new(LisaAnnMaroney, ChadMaroney) {
-  Married(2019, 4, 29)
+UnionClass Unions.LisaChad = new(#d044e6a5-5569-4efe-8657-93813dc197b2#, LisaAnnMaroney, ChadMaroney) {
+  Married(#2019-4-29#)
 };
 
-Male People.ClaytonPRosier = new("Clayton", "P.", "Rosier", Unions.LisaPhillip) {
-  Born(2007, 3, 6, Places.FortWayne)
+Male People.ClaytonPRosier = new(#1c6a1d8b-c912-4813-b97e-7ef366b25b89#, "Clayton", "P.", "Rosier", Unions.LisaPhillip) {
+  Born(#2007-3-6#, Places.FortWayne)
 };
 
-Female People.GraceLRosier = new("Grace", "L.", "Rosier", Unions.LisaPhillip) {
-  Born(2010, 6, 17, Places.FortWayne)
+Female People.GraceLRosier = new(#27c1a65a-93c7-4c60-850e-aade5eaceb09#, "Grace", "L.", "Rosier", Unions.LisaPhillip) {
+  Born(#2010-6-17#, Places.FortWayne)
 };
 //=========================================
 
-Female People.JeannieSmithProut = new("Jeannie", null, "Prout") {
+Female People.JeannieSmithProut = new(#c6a00ad4-6b6f-46ba-b6a5-5077153461ca#, "Jeannie", null, "Prout") {
   Formerly("Smith");
 };
 
-Male People.ThomasProut = new("Thomas", null, "Prout");
+Male People.ThomasProut = new(#bfb4bdb9-2b33-4524-9338-0d4a6258ca11#, "Thomas", null, "Prout");
 
-UnionClass Unions.JeannieThomas = new(JeannieSmithProut, ThomasProut);
+UnionClass Unions.JeannieThomas = new(#a3523247-64f8-4563-aa9b-f7b1d89d601d#, JeannieSmithProut, ThomasProut);
 //=========================================
 
-Female People.MargretGofton = new("Margret", null, Gofton, Unions.JeannieThomas) {
+Female People.MargretGofton = new(#ac13c476-0962-410e-a58c-1d4bb5f51612#, "Margret", null, Gofton, Unions.JeannieThomas) {
   Formerly("Brennan");
-  Born(1854);
-  Died(1920);
+  Born(#1854#);
+  Died(#1920#);
 };
 
-Male People.JohnGofton = new("John", null, Gofton) {
-  Born(1848, 10, 23, Places.Oxford);
-  Died(1931, 4, 26);
+Male People.JohnGofton = new(#f86e74f0-ef2e-4896-929f-734e06cda01d#, "John", null, Gofton) {
+  Born(#1848-10-23#, Places.Oxford);
+  Died(#1931-4-26#);
 };
 
-UnionClass Unions.MargretJohn = new(MargretGofton, JohnGofton) {
-  Married(1899, 1, 23);
+UnionClass Unions.MargretJohn = new(#eed22325-9080-4ceb-a10b-4451e022b400#, MargretGofton, JohnGofton) {
+  Married(#1899-1-23#);
 };
 //=========================================
 
-Female People.MaryAGofton = new("Mary", "A.", Gofton) {
+Female People.MaryAGofton = new(#0a606d52-f8d4-43c3-b86d-7e87f2f0096e#, "Mary", "A.", Gofton) {
   Formerly("Prout");
-  Born(1877, 9, 26);
-  Died(1965, 7, 19);
+  Born(#1877-9-26#);
+  Died(#1965-7-19#);
 };
 
-Male People.NathanialGofton = new("Nathanial", null, Gofton, Unions.MargretJohn) {
-  Born(1872, 1, 3, Places.Oxford);
-  Died(1928, 1, 18);
+Male People.NathanialGofton = new(#4e2954c7-dbef-4fc1-be90-962440034a4e#, "Nathanial", null, Gofton, Unions.MargretJohn) {
+  Born(#1872-1-3#, Places.Oxford);
+  Died(#1928-1-18#);
 };
 
-UnionClass Unions.MaryNathanial = new(MaryAGofton, NathanialGofton) {
-  Married(1899, 1, 23);
+UnionClass Unions.MaryNathanial = new(#5061400b-c215-4fc9-a144-497c28b5b3e0#, MaryAGofton, NathanialGofton) {
+  Married(#1899-1-23#);
 };
 //===========================================
 
-Female People.LoisLelandGofton = new("Lois", null, Gofton) {
+Female People.LoisLelandGofton = new(#797c80d6-376e-4358-88f1-e8f9b78b2b13#, "Lois", null, Gofton) {
   Formerly("Leland");
 };
 
-Male People.ClaudeGofton = new("Claude", null, Gofton, Unions.MaryNathanial) {
-  Born(1899, 12, 1, Places.Applegate);
-  Died(1952, 2, 16);
+Male People.ClaudeGofton = new(#366b131d-0767-4af5-996c-b6369f263dc6#, "Claude", null, Gofton, Unions.MaryNathanial) {
+  Born(#1899-12-1#, Places.Applegate);
+  Died(#1952-2-16#);
 };
 
-UnionClass Unions.LoisClaude = new(LoisLelandGofton, ClaudeGofton) {
-  Married(1899, 1, 23);
+UnionClass Unions.LoisClaude = new(#9e60706e-8ec3-40fa-8a1e-9930eac6211f#, LoisLelandGofton, ClaudeGofton) {
+  Married(#1899-1-23#);
 };
 
-Male People.RichardGofton = new("Richard", null, Gofton, Unions.LoisClaude) {
+Male People.RichardGofton = new(#a09ff489-97ad-4b33-b3e8-bfb3c9801e1e#, "Richard", null, Gofton, Unions.LoisClaude) {
   Nick("Dick");
 };
 
-Female People.AnnGofton = new("Ann", null, Gofton, Unions.LoisClaude);
+Female People.AnnGofton = new(#dadf9cfb-5f4f-4947-89ce-110485eac56c#, "Ann", null, Gofton, Unions.LoisClaude);
 //============================================================================================================
 
