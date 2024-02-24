@@ -7,7 +7,9 @@ using Information, Units;
 
 //======================================================================
 
-Main.Documents = new FamilyDocumentClass(#64607616-5b43-4146-849a-5b9b58b3e051#, "McCreight-Gofton Family History", [
+readonly SiteClass Main.Site = new("McCreight Family History");
+
+readonly Main.Documents = new FamilyDocumentClass(#64607616-5b43-4146-849a-5b9b58b3e051#, "McCreight-Gofton Family History", [
   new(Unions.DavidMary, 5.2 pts, 0),
   new(Unions.MargretJohn, 12 pts, 6 pts),
   new(Unions.MarieJohan, 14 pts, 10 pts),
