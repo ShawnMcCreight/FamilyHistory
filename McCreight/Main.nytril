@@ -14,6 +14,7 @@ readonly Main.Documents = new FamilyDocumentClass(#64607616-5b43-4146-849a-5b9b5
   new(Unions.MargretJohn, 12 pts, 6 pts),
   new(Unions.MarieJohan, 14 pts, 10 pts),
   new(Unions.LouisaGrandpa, 8 pts, 1 pts),
+  new(Unions.MaryHughHamill, 8 pts, 1 pts),
 ]);
 
 readonly PictureFolder = IO.Folders.Source;

@@ -152,17 +152,17 @@ StoryClass LostCousin = new(#e42acf34-0567-4715-9c45-3f7fca2eab19#, FlorenceJane
     LineBreak;
     "We exchanged names and I told her that my last name was 'McCreight'. ";
     "Her name was Leone Phillips. She said that was her aunt's name.  ";
-    "The aunt (Mary McCreight) lived namespace them. Leone's mother was Mary's sister. ";
-    "Leone and I were in different 4th grade rooms, but we became very good friends and I stood up in her wedding and kept in touch until she passed away namespace cancer. ";
+    "The aunt (Mary McCreight) lived with them. Leone's mother was Mary's sister. ";
+    "Leone and I were in different 4th grade rooms, but we became very good friends and I stood up in her wedding and kept in touch until she passed away with cancer. ";
     LineBreak;
     "We both went home and told our parents and my folks invited them to dinner. "
-    "Years before my Grandfather had a falling out namespace his brothers over a bank deal and consequently my ";
+    "Years before my Grandfather had a falling out with his brothers over a bank deal and consequently my ";
      JohnHamillMcCreight.ShowLink("Dad");
      " never met his aunts, uncles or cousins.  ";
     "These two ladies were my Dad's first cousins and they all went to DuBois, PA to meet ";
     MajorIsraelMcCreight.ShowLink("Major McCreight");
     ",  and some of the family. ";
-    "Needless to say Dad did spend more time namespace Major's family over the years. ";
+    "Needless to say Dad did spend more time with Major's family over the years. ";
   }
 };
 
@@ -398,7 +398,7 @@ StoryClass FloAtJoshAndMeganWedding = new(#29e5b4c1-a833-4f74-ae2e-55f8d3ea6666#
   }
 };
 
-StoryClass FloAndBobWithGrandkids = new(#48692b30-87dd-4ac5-a207-e457b3957c10#, PeggyLeeNelson, "Flo And Bob namespace the grandkids", #1982#) {
+StoryClass FloAndBobWithGrandkids = new(#48692b30-87dd-4ac5-a207-e457b3957c10#, PeggyLeeNelson, "Flo And Bob with the grandkids", #1982#) {
   Text: Styles.Story {
     ListPeople([RobertJohnGofton, TylerJamesGofton]); LineBreak;
     ListPeople([CassandraMarieVarner, FlorenceJaneGofton, KevinMichaelNelson, JoshuaLeeVarner, KristyLeeJordan])
@@ -452,7 +452,7 @@ StoryClass BobAndToby1985 = new(#86589c28-83bf-4ffe-9f68-8eeacdd2e4ed#, PeggyLee
 StoryClass VeteransDayCelebration2009 = new(#12b06ecc-a9a1-48fc-9470-75e1974412ee#, PeggyLeeNelson, "Veteran's Day Celebration", #2009#) {
   Text: Styles.Story {
     ListPeople([RobertJohnGofton]);
-    " in Harlan, IN namespace his three great grand kids ";
+    " in Harlan, IN with his three great grand kids ";
     ListPeople([DelaneyNJordan, AlexisAJordan, JustinAJordan]); ". ";
     "He was thrilled that Justin called him to come to his school for the celebration. ";
     "He borrowed Toby's old Navy uniform for that day. ";
@@ -471,7 +471,7 @@ StoryClass BobAtBearCreekLodge = new(#bba5dd47-f15f-4c97-8a3d-3891310ea5da#, Peg
 StoryClass MajorIsraelstory = new(#9d30c2c4-29c0-4018-80b8-9cda288b54ba#, null, "Major Israel", #1888#) {
   Text: Styles.Story {
     MajorIsraelMcCreight.ShowLink " was named after Major Israel Uncapher. ";
-    "Neighbors thought it was cute to call the infant Major when he was born, so he went through life namespace that name. ";
+    "Neighbors thought it was cute to call the infant Major when he was born, so he went through life with that name. ";
     "In 1888 he helped start a Deposit Bank in Dubois, Pa., and was manager for 50 years. ";
     "He was a friend of Buffalo Bill Cody and in June 1908 was installed by Chief Irontail as a Chief of the Sioux Tribe. ";
     "His Indian name was Tchanta Tanks. ";
@@ -648,7 +648,9 @@ Female People.MaryLillibelMcCreight = new(#71c5efbf-c2de-48c1-b411-7b59ce54c47c#
 //=====================================
 
 Female People.MaryHamill = new(#922679d5-0580-41d6-b411-b7f988008f7c#, "Mary", null, Hamill);
+
 Male People.HughHamill = new(#dd86794f-aa9a-4169-9677-6f37bab06ebc#, "Hugh", null, Hamill);
+
 UnionClass Unions.MaryHughHamill = new(#075586a0-7889-4d4a-88a5-4599280aace0#, MaryHamill, HughHamill);
 //=====================================
 
@@ -758,6 +760,26 @@ Female People.JennieAdelphiaMcCreight = new(#26bac8b7-aaef-49ae-b86b-0a2ea2ad036
   Born(#1875-11-1#, Places.GeorgevillePA);
   Died(#1950-1-3#);
 };
+
+Male People.BlairHamill = new(#c7cd1189-bfb7-46cc-a67a-596080d6baf5#, "Blair", null, Hamill, Unions.MaryHughHamill);
+
+Female People.MabelHazelett = new(#364869b1-0f6e-418e-ab3a-541a207f5a2b#, "Mabel", null, Hazelett, Unions.MaryHughHamill);
+
+UnionClass Unions.MabelBlair = new(#3682568a-d298-4dcd-b04e-7ad9b1d62656#, MabelHazelett, BlairHamill);
+
+Female People.MarionHamill = new(#2b033ad9-76a9-4348-a3b1-753003477634#, "Marion", null, "Simpson", Unions.MabelBlair) {
+  Formerly(Hamill);
+};
+
+Male People.WalterSimpson = new(#f4f70eff-f4f3-4441-a6d3-55a2a9380c28#, "Walter", null, "Simpson");
+
+UnionClass Unions.MarionWalter = new(#61e7f522-a573-4bf5-a8df-a0bfa585540d#, MarionHamill, WalterSimpson);
+
+Male People.KenSimpson = new(#5a3d7bc0-4a59-44cc-b7ed-8b8b1201e5b5#, "Ken", null, "Simpson", Unions.MarionWalter);
+Male People.RichSimpson = new(#aad13747-cd44-4f91-8b36-e0cca7c54614#, "Rich", null, "Simpson", Unions.MarionWalter);
+Female People.GinnySimpson = new(#f185ea01-639b-432b-a68d-84d81ff38b86#, "Ginny", null, "Simpson", Unions.MarionWalter);
+
+
 
 UnionClass Unions.JennieJohn = new(#d624ba4e-8526-43e9-b187-1bf8410ec355#, JennieAdelphiaMcCreight, JohnJamiesonMcCreight);
 //=====================================
