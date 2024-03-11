@@ -2,6 +2,7 @@ include "../../Nytril/Deploy/Examples/Family Tree/Family Tree";
 include "WionFamily";
 include "NelsonFamily";
 include "McCreightFamily";
+include "Stories";
 
 using Information, Units;
 
