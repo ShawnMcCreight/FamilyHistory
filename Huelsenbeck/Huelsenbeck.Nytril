@@ -52,7 +52,7 @@ UnionClass Unions.MartinBarbara = new(#f31850f3-bf42-4881-b8c4-ca7b875bc8f9#, Ba
 };
 //=====================================
 
-Male People.JohnPeterHuelsenbeck = new(#38b6bcb1-cd3b-4274-adc5-312b57af0ed1#, "John", "Peter", Huelsenbeck, Unions.PeteNikki) {
+Male People.JohnPeterHuelsenbeck = new(#38b6bcb1-cd3b-4274-adc5-312b57af0ed1#, "John", "Peter", Huelsenbeck, Unions.PeteNikki, res "JohnPeterHuelsenbeck.jpg") {
   Born(#1966-4-18#, Places.RedBankNJ)
 };
 
@@ -60,7 +60,7 @@ Female People.KimberlyBurkeHuelsenbeck = new(#77d26d0c-43a7-4faa-a1b8-a71ef70780
   Born(#1967-10-27#, Places.RedBankNJ)
 };
 
-Female People.SoniaHuelsenbeck = new(#9bbbe978-bd00-40b6-ac81-cac139e60031#, "Sonia", null, Huelsenbeck, Unions.MartinBarbara) {
+Female People.SoniaHuelsenbeck = new(#9bbbe978-bd00-40b6-ac81-cac139e60031#, "Sonia", null, Huelsenbeck, Unions.MartinBarbara, res "SoniaHuelsenbeck.jpg") {
   Formerly(Kramer);
   Born(#1964-8-17#, Places.RedBankNJ)
 };
@@ -89,7 +89,7 @@ Female People.ElizabethClaireHuelsenbeck = new(#a1547890-a325-442a-8fcf-c81335ed
 };
 //=====================================
 
-StoryClass Stories.SoniaAndJohnMet = new(#2daaa206-c69f-4345-912b-f55c1eb540ce#, JohnPeterHuelsenbeck, "When Sonia met John", #2015#) {
+StoryClass Stories.SoniaAndJohnMet = new(#2daaa206-c69f-4345-912b-f55c1eb540ce#, JohnPeterHuelsenbeck, "When Sonia met John", #2015#, res "SoniaAndJohnMet.jpg") {
   Text: Styles.Story {
     "I met " ListPeople([SoniaHuelsenbeck]) " in the biology building at UC Berkeley.";
   };

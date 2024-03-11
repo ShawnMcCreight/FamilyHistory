@@ -763,7 +763,7 @@ Female People.JennieAdelphiaMcCreight = new(#26bac8b7-aaef-49ae-b86b-0a2ea2ad036
 
 Male People.BlairHamill = new(#c7cd1189-bfb7-46cc-a67a-596080d6baf5#, "Blair", null, Hamill, Unions.MaryHughHamill);
 
-Female People.MabelHazelett = new(#364869b1-0f6e-418e-ab3a-541a207f5a2b#, "Mabel", null, Hazelett, Unions.MaryHughHamill);
+Female People.MabelHazelett = new(#364869b1-0f6e-418e-ab3a-541a207f5a2b#, "Mabel", null, Hazelett, Unions.FatherMotherHazelett);
 
 UnionClass Unions.MabelBlair = new(#3682568a-d298-4dcd-b04e-7ad9b1d62656#, MabelHazelett, BlairHamill);
 
@@ -779,9 +779,13 @@ Male People.KenSimpson = new(#5a3d7bc0-4a59-44cc-b7ed-8b8b1201e5b5#, "Ken", null
 Male People.RichSimpson = new(#aad13747-cd44-4f91-8b36-e0cca7c54614#, "Rich", null, "Simpson", Unions.MarionWalter);
 Female People.GinnySimpson = new(#f185ea01-639b-432b-a68d-84d81ff38b86#, "Ginny", null, "Simpson", Unions.MarionWalter);
 
-
-
 UnionClass Unions.JennieJohn = new(#d624ba4e-8526-43e9-b187-1bf8410ec355#, JennieAdelphiaMcCreight, JohnJamiesonMcCreight);
+
+
+Male People.FatherHazelett = new(#f8555b8e-7c31-422c-aae6-443451fd7100#, "Father", null, Hazelett);
+Female People.MotherHazelett = new(#e2af01cc-5eca-44ca-b03b-4031ccee857d#, "Mother", null, Hazelett);
+UnionClass Unions.FatherMotherHazelett = new(#4fd044e6-a3a5-4f9b-93ba-5a05d59ffad4#, MotherHazelett, FatherHazelett);
+
 //=====================================
 
 Male People.GrandpaWolfe = new(#c5611deb-4e2a-4ace-8606-0158ed720add#, "Grandpa", null, Wolfe) {
@@ -795,7 +799,7 @@ Female People.LouisaWolfe = new(#656e796d-973f-42a1-bb22-caa6cfde88ad#, "Louisa"
 UnionClass Unions.LouisaGrandpa = new(#19b0c000-7c70-4af4-9bc7-ef23545bdb43#, LouisaWolfe, GrandpaWolfe);
 //=====================================
 
-Male People.HarryWhiteHazelett = new(#51635388-40b9-4072-b7b0-12a2a0cc76c4#, "Harry", "White", Hazelett);
+Male People.HarryWhiteHazelett = new(#51635388-40b9-4072-b7b0-12a2a0cc76c4#, "Harry", "White", Hazelett, Unions.FatherMotherHazelett);
 
 Female People.BerthaPearlHazelett = new(#8df2243c-e3c5-4f76-8bf6-c3e904cad37c#, "Bertha", "Pearl", Hazelett, Unions.LouisaGrandpa) {
   Born(#1886-1-6#);
