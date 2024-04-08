@@ -4,15 +4,24 @@ using Format, Information.People, Units;
 
 readonly namespace Information.Stories;
 
+
+
+StoryClass EmmyIsAFarmGirl = new(#c40428dc-80a8-4328-a0db-eaca6ae759a1#, null, "Emmy is a farmgirl", #2022-8-15#, res "Emmy is a farmgirl.jpg") {
+  Text: Styles.Story {
+    ListPeople([EmersonLouiseMyler]) " is spending time helping " ListPeople([ClaytonAlanMcCreight, LisaLouiseMcCreight]) " on the farm. ";
+  }
+};
+
+
 StoryClass CraigLuca = new(#c40428dc-80a8-4328-a0db-eaca6ae759a1#, null, "Luca gets a lift from Grandpa", #2022-8-15#, res "CraigLuca.jpg") {
   Text: Styles.Story {
-    ListPeople([CraigJohnMcCreight]) " gives a lift to his grandson " ListPeople([LucaRobertCalderoni]) "."
+    ListPeople([CraigJohnMcCreight]) " gives a lift to his grandson " ListPeople([LucaRobertCalderoni]); DotSpace;
   }
 };
 
 StoryClass EmersonLouiseMylerBorn = new(#f5ae23fd-b437-45ae-8a48-555e72c75e03#, null, "Emerson Myler is born", EmersonLouiseMyler.Date, res "EmersonLouiseMylerBorn.jpg") {
   Text: Styles.Story {
-    ListPeople([AmeliaMaeMyler, WilliamCharlesMyler]) " welcomed their daughter " ListPeople([EmersonLouiseMyler]) " into the world."
+    ListPeople([AmeliaMaeMyler, WilliamCharlesMyler]) " welcomed their daughter " ListPeople([EmersonLouiseMyler]); " into the world."
   }
 };
 
@@ -42,7 +51,7 @@ StoryClass LucaRobertCalderoniBorn = new(#590a0fa5-3011-481b-87a1-73e6cd41afc3#,
 
 StoryClass ScarlettMaeYunckerBorn = new(#c78be850-001d-4af3-82b5-5381939b848a#, null, "Scarlett Yuncker is born", ScarlettMaeYuncker.Date, res "ScarlettMaeYunckerBorn.jpg") {
   Text: Styles.Story {
-    ListPeople([RanaedaMarieYuncker, AnthonyYuncker]) " celebrate the birth of " ListPeople([ScarlettMaeYuncker]) "."
+    ListPeople([RanaedaMarieYuncker, AnthonyYuncker]) " celebrate the birth of " ListPeople([ScarlettMaeYuncker]); DotSpace;
   }
 };
 

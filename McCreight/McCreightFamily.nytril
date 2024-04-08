@@ -824,7 +824,7 @@ UnionClass Unions.AmeliaBilly = new(#d57d012b-7b80-4d67-850f-4f2974cbe66c#, Amel
   Married(#2021-7#)
 };
 
-Female People.EmersonLouiseMyler = new(#fa062dfc-2253-4ae1-8d9d-285343881375#, "Emerson", "Louise", Myler, Unions.AmeliaBilly) {
+Female People.EmersonLouiseMyler = new(#fa062dfc-2253-4ae1-8d9d-285343881375#, "Emerson", "Louise", Myler, Unions.AmeliaBilly, res "EmersonLouiseMyler.jpg") {
   Nick("Emmy");
   Born(#2022-4-4#);
 };
