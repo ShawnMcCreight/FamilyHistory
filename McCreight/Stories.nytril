@@ -8,7 +8,7 @@ readonly namespace Information.Stories;
 
 StoryClass EmmyIsAFarmGirl = new(#c40428dc-80a8-4328-a0db-eaca6ae759a1#, null, "Emmy is a farmgirl", #2022-8-15#, res "Emmy is a farmgirl.jpg") {
   Text: Styles.Story {
-    ListPeople([EmersonLouiseMyler]) " is spending time helping " ListPeople([ClaytonAlanMcCreight, LisaLouiseMcCreight]) " on the farm. ";
+    ListPeople([EmersonLouiseMyler]) " is spending time with Gibbs and helping " ListPeople([ClaytonAlanMcCreight, LisaLouiseMcCreight]) " on the farm. ";
   }
 };
 
@@ -19,7 +19,7 @@ StoryClass CraigLuca = new(#c40428dc-80a8-4328-a0db-eaca6ae759a1#, null, "Luca g
   }
 };
 
-StoryClass EmersonLouiseMylerBorn = new(#f5ae23fd-b437-45ae-8a48-555e72c75e03#, null, "Emerson Myler is born", EmersonLouiseMyler.Date, res "EmersonLouiseMylerBorn.jpg") {
+StoryClass EmersonLouiseMylerBorn = new(#f5ae23fd-b437-45ae-8a48-555e72c75e03#, null, "Emerson Myler \"Emmy Lou\" is born", EmersonLouiseMyler.Date, res "EmersonLouiseMylerBorn.jpg") {
   Text: Styles.Story {
     ListPeople([AmeliaMaeMyler, WilliamCharlesMyler]) " welcomed their daughter " ListPeople([EmersonLouiseMyler]); " into the world."
   }
