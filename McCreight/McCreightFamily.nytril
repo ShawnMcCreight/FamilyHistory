@@ -681,8 +681,12 @@ UnionClass Unions.AlyssaTom = new(#59f2b35b-85a8-4988-8cbf-eb56272ad205#, Alyssa
   Married(#2020-7-10#)
 };
 
-Female People.AbigailMarieMcCreight = new(#5191808b-1acd-4169-8e92-0717a7867d4e#, "Abigail", "Marie", "McCreight", Unions.AlyssaTom) {
+Female People.AbigailMarieMcCreight = new(#5191808b-1acd-4169-8e92-0717a7867d4e#, "Abigail", "Marie", McCreight, Unions.AlyssaTom) {
   Born(#2021-6-19#)
+};
+
+Female People.ElijahJohnMcCreight = new(#bc96c347-bcb7-49f5-960d-0a3f93fb3b59#, "Elijah", "John", McCreight, Unions.AlyssaTom, res "ElijahJohnMcCreight.jpg") {
+  Born(#2024-4-20#)
 };
 
 //=====================================
