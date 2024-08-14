@@ -8,7 +8,7 @@ StoryClass ElijahJohnBorn = new(#ee423433-8784-4530-ad2d-973a76be12ed#, null, "E
   Text: Styles.Story {
     ListPeople([AlyssaMarieMcCreight, ThomasDanielMcCreight, AbigailMarieMcCreight])
     " welcomed the newest member of the family "
-    ListPeople(ElijahJohnMcCreight) DotSpace;
+    ListPeople([ElijahJohnMcCreight]) DotSpace;
   }
 };
 
