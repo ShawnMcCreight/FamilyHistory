@@ -587,9 +587,9 @@ Female People.MicheleHazelett = new(#1246c02c-f59b-4184-9dd9-39298ae6b784#, "Mic
 };
 Male People.DavidDemharter = new(#41e9e63a-4e15-4e0d-9d78-e0bb072dae49#, "David", "Alan", "Demharter", Unions.HarryBertha);
 
-Male People.RalphHazelett = new(#57d1e50d-5cb9-45ca-9ed9-44be2f21a7ce#, "Ralph", null, Hazelett, Unions.BeverlyOrrie);
+Male People.RalphHazelett = new(#57d1e50d-5cb9-45ca-9ed9-44be2f21a7ce#, "Ralph", null, Hazelett, Unions.BeverlyOrrie, res "RalphHazelett.jpg");
 
-Male People.KennethHazelett = new(#c98928d9-986d-482b-8c12-3ce59c37c829#, "Kenneth", null, Hazelett, Unions.BeverlyOrrie) {
+Male People.KennethHazelett = new(#c98928d9-986d-482b-8c12-3ce59c37c829#, "Kenneth", null, Hazelett, Unions.BeverlyOrrie, res "KenHazelett.jpg") {
   Born(#1961-9-9#)
 };
 
