@@ -1,4 +1,4 @@
-include "../../Nytril/Deploy/Examples/Family Tree/Family Tree";
+include "Examples/Family Tree/Family Tree";
 include "WionFamily";
 include "NelsonFamily";
 include "McCreightFamily";
@@ -16,7 +16,7 @@ readonly Main.Documents = new FamilyDocumentClass(#64607616-5b43-4146-849a-5b9b5
   new(Unions.MarieJohan, 14 pts, 10 pts),
   new(Unions.LouisaGrandpa, 8 pts, 1 pts),
   new(Unions.MaryHughHamill, 8 pts, 1 pts),
-  new(Unions.FatherMotherHazelett, 8 pts, 1 pts),
+  new(Unions.SilasSusannahHazelett, 6.5 pts, 0),
 ]);
 
 readonly PictureFolder = IO.Folders.Source;

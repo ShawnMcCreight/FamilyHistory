@@ -82,6 +82,24 @@ UnionClass Unions.PeggyJeff = new(#f9c73c57-6f3e-49b9-850e-49743777a770#, PeggyL
 
 //=====================================
 
+Male People.DustinFaltermeier = new(#3f281681-7b30-46c7-b918-f718ada28347#, "Dustin", null, "Faltermeier");
+
+UnionClass Unions.KristyDustin = new(#b1316ee0-9cf2-4750-908a-1c50c8294658#, KristyLeeJordan, DustinFaltermeier) {
+  Married(#2022-9-24#);
+};
+
+Female People.HopeFaltermeier = new(#5043a43b-5400-4ddf-b8fa-b5d7ef65d204#, "Hope", null, "Faltermeier", Unions.KristyDustin) {
+  Born(#2005#);
+};
+
+Female People.SageFaltermeier = new(#4d0b6f0a-1a97-49bd-b092-52e06481a7bb#, "Sage", null, "Faltermeier", Unions.KristyDustin) {
+  Born(#2008-3-26#);
+};
+
+Male People.PrestonFaltermeier = new(#54d30551-379c-4acc-9619-6f20e13380dd#, "Preston", null, "Faltermeier", Unions.KristyDustin) {
+  Born(#2013-12-30#);
+};
+
 Female People.KristyLeeJordan = new(#bd6fbabd-0032-4877-bc42-c7e8dd40876b#, "Kristy", "Lee", Jordan, Unions.PeggyJeff, res "KristyLeeJordan.jpg") {
   Formerly(Nelson);
   Born(#1979-9-17#, Places.Janesville);
@@ -142,11 +160,13 @@ Male People.ChadMaroney = new(#3f9533a9-0643-4c5f-b1c3-b5af848e3b77#, "Chad", nu
 };
 
 UnionClass Unions.LisaPhillip = new(#fb355d2c-0a79-42b1-a144-4e7f91933f07#, LisaAnnMaroney, PhillipRosier) {
-  Married(#2003-8-23#)
+  Married(#2003-8-23#);
+  Divorced(#2014#);
 };
 
 UnionClass Unions.LisaChad = new(#d044e6a5-5569-4efe-8657-93813dc197b2#, LisaAnnMaroney, ChadMaroney) {
-  Married(#2019-4-29#)
+  Married(#2019-4-29#);
+  Divorced(#2022-8#);
 };
 
 Male People.ClaytonPRosier = new(#1c6a1d8b-c912-4813-b97e-7ef366b25b89#, "Clayton", "P.", "Rosier", Unions.LisaPhillip, res "ClaytonPRosier.jpg") {
