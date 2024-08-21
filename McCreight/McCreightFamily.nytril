@@ -630,7 +630,7 @@ UnionClass Unions.JoanJack = new(#e02665d5-197b-47ee-96d5-2742d647afeb#, MaryJoa
 
 //=====================================
 
-Male People.RalphEmersonMcCreight = new(#f5ecd86b-7c12-4890-b423-058d48314657#, "Ralph", "Emerson", McCreight, Unions.FloJohn) {
+Male People.RalphEmersonMcCreight = new(#f5ecd86b-7c12-4890-b423-058d48314657#, "Ralph", "Emerson", McCreight, Unions.FloJohn, res "RalphEmersonMcCreight.jpg") {
   Nick("Whitey");
   Born(#1936-12-26#);
   Died(#2003-10-9#)
