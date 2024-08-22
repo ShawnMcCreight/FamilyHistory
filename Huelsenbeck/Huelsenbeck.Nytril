@@ -1,26 +1,14 @@
-using Format, Units, Information.People;
+using Format, Units, Information.People, LinkTypes;
 
 readonly namespace Information;
 //===============================================================================================================
 
 Huelsenbeck = "Huelsenbeck";
-Grant       = "Grant";
-Burke       = "Burke";
-Pratt       = "Pratt";
 Kramer      = "Kramer";
-NJ          = "New Jersey";
-NY          = "New York";
-CA          = "California";
 
 namespace Places {
-  PlaceClass NewarkNJ   = new("Newark", NJ);
-  PlaceClass Berkeley   = new("Berkeley", CA);
-  PlaceClass RedBankNJ  = new("Red Bank", NJ);
-  PlaceClass NYNY       = new("New York City", NY);
-  PlaceClass SF         = new("San Francisco", CA);
-  PlaceClass Oakland    = new("Oakland", CA);
-  PlaceClass Rochester  = new("Rochester", NY);
-  PlaceClass Ellensburg = new("Ellensburg", "Washington");
+  CityClass RedBankNJ  = new(#8831cf23-1b42-4b6e-ab07-c82a9a81bc84#, "Red Bank") {Link to USStates.NewJersey};
+  CityClass Ellensburg = new(#943cf21d-564d-4fb4-aa02-5427204ede95#, "Ellensburg") {Link to USStates.Washington};
 }
 
 //=====================================
@@ -29,7 +17,7 @@ Male People.PeterWilfredHuelsenbeck = new(#04657035-2ae8-479e-a47c-2d20bef3d24b#
   Born(#1942-8-2#)
 };
 
-Female People.NikkiSueGrant = new(#9d7159cc-e079-404b-ac62-6831c14b1390#, "Nikki", "Sue", Grant) {
+Female People.NikkiSueGrant = new(#9d7159cc-e079-404b-ac62-6831c14b1390#, "Nikki", "Sue", "Grant") {
   Born(#1945-3-30#);
   Died(#2016-10-22#)
 };
@@ -48,7 +36,7 @@ Female People.BarbaraKramer = new(#6aa8f999-2582-4d85-a292-7e91e8fba357#, "Barba
 };
 
 UnionClass Unions.MartinBarbara = new(#f31850f3-bf42-4881-b8c4-ca7b875bc8f9#, BarbaraKramer, MartinKramer) {
-  Married(#2015-4-29#, Places.SF)
+  Married(#2015-4-29#, Cities.SanFrancisco)
 };
 //=====================================
 
@@ -75,17 +63,17 @@ UnionClass Unions.EdnaJohn = new(#68118310-570d-4ba7-8a51-adbeee979ed3#, EdnaTel
 };
 
 UnionClass Unions.SoniaJohn = new(#493697c2-fbcb-4dfb-9f8d-a11f62f711fb#, SoniaHuelsenbeck, JohnPeterHuelsenbeck) {
-  Married(#2015-4-29#, Places.SF)
+  Married(#2015-4-29#, Cities.SanFrancisco)
 };
 
 //=====================================
 
 Male People.MatthewJohnHuelsenbeck = new(#eacead78-8ccd-464a-b5d9-8b612cf4d991#, "Matthew", "John", Huelsenbeck, Unions.EdnaJohn) {
-  Born(#1996-12-29#, Places.Oakland)
+  Born(#1996-12-29#, Cities.Oakland)
 };
 
 Female People.ElizabethClaireHuelsenbeck = new(#a1547890-a325-442a-8fcf-c81335edc75a#, "Elizabeth", "Claire", Huelsenbeck, Unions.EdnaJohn) {
-  Born(#1999-4-27#, Places.Rochester)
+  Born(#1999-4-27#, Cities.Rochester)
 };
 //=====================================
 

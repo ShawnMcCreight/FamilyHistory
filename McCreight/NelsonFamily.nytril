@@ -17,12 +17,12 @@ Female People.AnnaVetheNelson = new(#af4cb795-e7a3-48bd-a784-fe5965a599e6#, "Ann
 };
 
 Female People.MarieOBortveit = new(#8d78487d-5752-4c66-9254-bc5d9a6cc561#, "Marie", null, "Bortveit") {
-  Born(#1830-8-6#, Places.Norway);
+  Born(#1830-8-6#, Countries.Norway);
   Died(#1896-5-30#)
 };
 
 Male People.JohanNGrettveit = new(#38f4aa90-9601-486e-b1ce-4d14aea8737e#, "Johan", "N.", "Grettveit") {
-  Born(#1835-1-11#, Places.Norway);
+  Born(#1835-1-11#, Countries.Norway);
   Died(#1882-10-30#)
 };
 

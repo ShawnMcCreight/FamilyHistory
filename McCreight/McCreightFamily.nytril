@@ -1,4 +1,4 @@
-using Format, Information.People, Units;
+using Format, Information.People, Units, LinkTypes;
 
 //======================================================================
 
@@ -22,44 +22,40 @@ Indiana      = "Indiana";
 
 
 namespace Places {
-  PlaceClass Ireland         = new(null, null, "Ireland");
-  PlaceClass Glasgow         = new("Glasgow", null, "Scotland");
-  PlaceClass NorthernIreland = new(null, null, "Northern Ireland");
-  PlaceClass Charleston      = new("Charleston", "South Carolina");
-  PlaceClass GeorgevillePA   = new("Georgeville", Pennsylvania);
-  PlaceClass Shelocta        = new("Shelocta", Pennsylvania);
-  PlaceClass PA              = new(null, Pennsylvania);
-  PlaceClass CrookedCreekPA  = new("Crooked Creek", Pennsylvania);
-  PlaceClass NewKensington   = new("New Kensington", Pennsylvania);
-  PlaceClass Pasadena        = new("Pasadena", California);
-  PlaceClass SanBernardino   = new("San Bernardino", California);
-  PlaceClass Saginaw         = new("Saginaw", Michigan);
-  PlaceClass Midland         = new("Midland", Michigan);
-  PlaceClass Flushing        = new("Flushing", Michigan);
-  PlaceClass Janesville      = new("Janesville", "Wisconsin");
-  PlaceClass Madison         = new("Madison", "Wisconsin");
-  PlaceClass FortWayne       = new("Fort Wayne", Indiana);
-  PlaceClass Beresford       = new("Beresford", "South Dakota");
-  PlaceClass Durban          = new("Durban", null, "South Africa");
-  PlaceClass Norway          = new(null, null, "Norway");
-  PlaceClass Bergan          = new("Bergan", null, "Norway");
-  PlaceClass Voss            = new("Voss", null, "Norway");
-  PlaceClass Hosanger        = new("Hosanger", null, "Norway");
-  PlaceClass Laurel          = new("Laurel", "Nebraska");
-  PlaceClass Applegate       = new("Applegate", Michigan);
-  PlaceClass Oxford          = new("Oxford", null, "Canada");
-  PlaceClass Freemont        = new("Freemont", "Ohio");
+  CityClass Charleston      = new(#eb0554d1-5422-4319-b366-9705953226cb#, "Charleston") {Link to USStates.SouthCarolina};
+  CityClass GeorgevillePA   = new(#3ab81a93-eb4d-4490-ae03-2f340b95a24e#, "Georgeville") {Link to USStates.Pennsylvania};
+  CityClass Shelocta        = new(#0a49a03e-d913-46bd-b012-00aca05cb5dc#, "Shelocta") {Link to USStates.Pennsylvania};
+  CityClass CrookedCreekPA  = new(#1be2ba17-f648-4c7c-8b76-7d5202cbb0ed#, "Crooked Creek") {Link to USStates.Pennsylvania};
+  CityClass NewKensington   = new(#a783890a-5e40-4597-a337-12c723d4a092#, "New Kensington") {Link to USStates.Pennsylvania};
+  CityClass Pasadena        = new(#b1ca168c-0801-422c-b495-8f6ecc2d66d8#, "Pasadena") {Link to USStates.California};
+  CityClass SanBernardino   = new(#f45b731f-bbf6-4b36-b6ec-168c4ef801b0#, "San Bernardino") {Link to USStates.California};
+  CityClass Saginaw         = new(#a049a312-6a78-4eba-abf8-492a1c7cf929#, "Saginaw") {Link to USStates.Michigan};
+  CityClass Midland         = new(#46072b23-7532-46f8-86a0-84be38495052#, "Midland") {Link to USStates.Michigan};
+  CityClass Flushing        = new(#a2ae18a4-e454-45a7-a57d-8fa4e5193381#, "Flushing") {Link to USStates.Michigan};
+  CityClass Applegate       = new(#d816c004-4346-48c1-a759-2f8905f62a0c#, "Applegate") {Link to USStates.Michigan};
+  CityClass Janesville      = new(#695cbe2e-030d-43dc-9539-9911719968e7#, "Janesville") {Link to USStates.Wisconsin};
+  CityClass Madison         = new(#7bca01b8-d660-45a8-bf42-f06bae7fd7fc#, "Madison") {Link to USStates.Wisconsin};
+  CityClass FortWayne       = new(#1eda20d3-0e37-4276-a1e5-69714295725e#, "Fort Wayne") {Link to USStates.Indiana};
+  CityClass Beresford       = new(#379573cc-cdd7-4c76-bc24-d416a93bd06d#, "Beresford") {Link to USStates.SouthDakota};
+  CityClass Durban          = new(#b0ed40a0-bd2c-4925-b993-50a2fe10e97f#, "Durban") {Link to Countries.SouthAfrica};
+  CityClass Bergan          = new(#ac12ce00-e0a9-4711-9b98-7881072f3ffd#, "Bergan") {Link to Countries.Norway};
+  CityClass Voss            = new(#8b019f15-76b1-4edf-b6e2-7d2162bf1c71#, "Voss") {Link to Countries.Norway};
+  CityClass Hosanger        = new(#1d4ebce4-da1c-481d-8c61-12f0bd9f4057#, "Hosanger") {Link to Countries.Norway};
+  CityClass Laurel          = new(#3d2771e5-6ce8-42f6-b967-cb42d5768c7e#, "Laurel") {Link to USStates.Nebraska};
+  CityClass Oxford          = new(#0570f866-87ee-457b-b7d1-d844bc99cfab#, "Oxford") {Link to Countries.Canada};
+  CityClass Glasgow         = new(#f99afa9d-b690-41df-be32-1b26fd906f48#, "Glasgow") {Link to Countries.Scotland};
+  CityClass Freemont        = new(#c57ba5e6-3cd7-4c57-a649-d39e0604ad6a#, "Freemont") {Link to USStates.Ohio};
 }
 
 //============================================================================================================
 
 Female People.MaryMcCreight = new(#fd9e1cab-0c83-4c34-9de5-640532c3f234#, "Mary", null, McCreight) {
-  Born(null, Places.Ireland);
+  Born(null, Countries.Ireland);
   Died(#1780-1-19#)
 };
 
 Male People.DavidMcCreight = new(#e6d659cb-e9f0-468e-9a96-e6f42b81af49#, "David", null, McCreight) {
-  Born(#1709#, Places.Ireland);
+  Born(#1709#, Countries.Ireland);
   Died(#1799-9-14#)
 };
 
@@ -70,7 +66,7 @@ UnionClass Unions.DavidMary = new(#e71821fc-f0c9-44e6-9e56-e27c4dbfaf08#, MaryMc
 //============================================================================================================
 
 Male People.WilliamMcCreight = new(#0b51bfcf-cfcd-4bd2-bf80-71e27a50ba23#, "William", null, McCreight, Unions.DavidMary) {
-  Born(#1736-12#, Places.Ireland)
+  Born(#1736-12#, Countries.Ireland)
 };
 
 //============================================================================================================
@@ -89,7 +85,7 @@ UnionClass Unions.JamesSally = new(#1c7ca611-0b3e-461a-89ec-9638443ce107#, Sally
 //============================================================================================================
 
 Male People.DavidJrMcCreight = new(#a8f44b53-d77e-4d8c-8e1d-4692010d93fa#, "David", null, McCreight, Unions.DavidMary) {
-  Born(#1749-12#, Places.Ireland);
+  Born(#1749-12#, Countries.Ireland);
   Died(#1817-2-7#);
 };
 
@@ -233,7 +229,7 @@ UnionClass Unions.MaryHughHamill = new(#075586a0-7889-4d4a-88a5-4599280aace0#, M
 //=====================================
 
 Female People.SarahMcCreight = new(#562bed70-0918-4c7a-82cf-c479d06d98e2#, "Sarah", null, McCreight, Unions.JaneAndrew) {
-  Born(#1844-7-1#, Places.PA);
+  Born(#1844-7-1#, USStates.Pennsylvania);
   Died(#1945#)
 };
 
