@@ -82,7 +82,10 @@ UnionClass Unions.PeggyJeff = new(#f9c73c57-6f3e-49b9-850e-49743777a770#, PeggyL
 
 //=====================================
 
-Male People.DustinFaltermeier = new(#3f281681-7b30-46c7-b918-f718ada28347#, "Dustin", null, "Faltermeier");
+Male People.DustinFaltermeier = new(#3f281681-7b30-46c7-b918-f718ada28347#, "Dustin", "Thomas", "Faltermeier") {
+  Born(#1984-10-4#);
+  Died(#2024-11-2#);
+};
 
 UnionClass Unions.KristyDustin = new(#b1316ee0-9cf2-4750-908a-1c50c8294658#, KristyLeeJordan, DustinFaltermeier) {
   Married(#2022-9-24#);
