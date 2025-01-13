@@ -1,0 +1,489 @@
+using Format, Units;
+
+readonly MyDocumentClass Main.Documents.MainDocument = new;
+
+Par = Paragraph {
+  FirstIndent: 36 pts;
+};
+
+
+class MyDocumentClass: DocumentClass {
+  Constructor {
+    super.Constructor(#d3b10908-4e06-4de0-9602-d20001007825#, "Wigwam");
+  }
+
+  Sep = Paragraph {
+    SpaceBefore: 32 pts;
+    SpaceAfter: 32 pts;
+    Icons.pages;
+  };
+
+  TitlePage = Block {
+    TextHeight: 16 pts;
+    Italic;
+    ParAlignment: Center;
+    TextFamily: TextFamilies.Arial;
+
+    Paragraph {
+      SpaceBefore: 24 pts;
+      TextHeight: 28 pts;
+      "AUTOBIOGRAPHY";
+    };
+    Sep;
+    "70 YEAR RECORD";
+    Sep;
+    "TCHANTA TANKA";
+    "and SQUAW";
+    Sep;
+    Paragraph {
+      TextItalic: false;
+      TextFamily: TextFamilies.Georgia;
+      "The Wigwam 1957";
+    }
+  };
+
+  BorderLine(RectClass r) = Shape {
+    var x = r.X;
+    var y = r.Y;
+
+    var SD = 4 pts;
+
+    ClosedPath(0) {
+      while (x < r.Right) {
+        LineTo(x, each0 mod 2 == 1 ? y + SD : y);
+        x += SD
+      }
+      x = r.Right;
+
+      while (y < r.Bottom) {
+        LineTo(each0 mod 2 == 1 ? x - SD : x, y);
+        y += SD;
+      }
+
+      y = r.Bottom;
+      while (x > r.X) {
+        LineTo(x, each0 mod 2 == 1 ? y - SD : y);
+        x -= SD;
+      }
+
+      x = r.X;
+      y = r.Bottom;
+
+      while (y > r.Y) {
+        LineTo(each0 mod 2 == 1 ? x + SD : x, y);
+        y -= SD;
+      }
+    }
+  };
+
+  BorderLines = Canvas(100%, 100%) {
+    for (double i = 0; i < 3; ++i)
+      BorderLine(new(i, new(ExtentWidth - i*2, ExtentHeight - i*2)));
+  };
+
+  override GetDocument = Document(0.5 inch, null, null, null, null, new(5 inches, 7 inches)) {
+    TextFamily: TextFamilies.TimesNewRoman;
+    ParAlignment: Justify;
+    TextHeight: 12 pts;
+
+    Canvas(100%, 100%) {
+      BorderLines;
+      Frame(100%, 100%) {
+        TitlePage;
+      };
+    };
+
+    SectionNextPage(new(0.5 inch, 0.75 inch, 0.5 inch, 0.5 inch)) {
+      Footer: MarginBlock {
+        Paragraph {
+          ParAlignment: Center;
+          "("; DocFields.PageNumber; ")"
+        };
+      };
+    };
+
+    Par {
+      "The writer has to look backward; at 92 there is no rule or right to look ahead. ";
+      "Born at the moment that Lincoln's funeral service was being held fronting the State House in Philadelphia, where many were hurt in the mobs demonstrating grief and roaring revenge at the terrifying news. ";
+      "A few days later the lamented president was buried in the local graveyard along with little Tad, in the midst of throngs at Springfield. ";
+      "The war was just ended and the country was in a state of chaos. ";
+      "Foreign people generally, were disappointed—had hoped that the South would win. ";
+      "Our memory begins at the age of five. ";
+      "Then it was that school began—a two-mile walk in forests in paths to be made in deep snow. ";
+      "Outstanding recollection is that head-tickets were won for the prize of a volume of U. ";
+      "S. ";
+      "History—size 6\"x4\", 1/4-inch thick—grabbed by the older ones and never recovered.";
+    };
+    Par {
+      "Big pine forests covered most of the farm. ";
+      "At 8 we had to go with father and older brothers, to help make square timber for rafting down Red Bank creek. ";
+      "The only way to get money for taxes and to buy sugar and coffee for the older ones; the personal drink was milk or water. ";
+      "Tools for making timber comprised the gin, cross-cut saw, broad axe and double bit, wedges (iron and hand-made ones), the cant-hook, and maul. ";
+      "Hand-spikes were cut at the job. ";
+      "When the big pine was felled, the first thing was to climb on top, and cut into the trunk for juggles; this when split off called for the tree to be turned over, and now the gin came into operation; this done, the same process was gone over to cut the juggle from that side—and so on until the stick was squared. ";
+      "It was all a real man's work When enough timber was so made, it had to be hauled to the creek-bank for rafting in, This meant the family ox-team and others borrowed from neighbors, to load on 'devils' sled and dragged away to water side. ";
+    };
+    Par {
+      "It was at this time that father cut the largest pine in the state. ";
+      "They squared it at a length of fifty feet—face at base measured 42 and 44 inches. ";
+      "It required six teams of horses and oxen to drag it on the level road to creek-bank. ";
+      "It was the largest stick of square timber ever floated down Sandy Lick and Red Bank to the Allegheny and thence to Pittsburgh. ";
+      "There its arrival created a sensation; there was no mill large enough to process it, yet it was sold there for $300, and sent on down the Ohio to Cincinnati where it was sawn into ship-lap. ";
+      "No recollection to account for any of that money coming into father's hands. ";
+      "A careful mining engineer in later years, accounted the story of that big pine and found it to have had a value of $1,800, at prices ruling at that time. ";
+    };
+    Par {
+      "Father was known all around the region as 'Honest John'— and some years later he was elected Justice of the Peace. ";
+      "He never adopted a docket or had a trial—always adjusting disputes or complaints without formal hearing and without fee. ";
+    };
+    Par {
+      "From the age of eight to age sixteen I have no memory of ever having seen as much real money as a silver dollar. ";
+      "There was no money. ";
+      "Food came from the field and garden, and from the forests— always fresh meat could be had by an hour's hunt around the fences. ";
+      "The old Kentucky rifle was the only way to get wild game—squirrels, pheasants, wild pigeons—all must come from a rifle ball—shot guns were a disgrace at that time. ";
+      "Never used. ";
+      "A damaged rifle had been cut off at 2 ft. ";
+      "length barrel was given me by the family doctor; it was a smooth bore and would shoot. ";
+      "Always it was possible to get within rail-length of pigeons and black and grey squirrels. ";
+      "The easy approach and short range assured a bag full of fresh meat for supper. ";
+    };
+    Par {
+      "But it was a disgrace to any boy who brought home any such game that had been shot in the body—must always be hit in the head otherwise unfit for use. ";
+      "Percussion caps were rather a new thing—cost .10 ";
+      "a box—size of a half dollar flat and round were a luxury—expended with care at the turkey shoot in the Christmas season. ";
+    };
+    Par {
+      "Every year there was a ‘clearing’ to be made —log-rollings at summer and fall, when neighbors were called to help—and given a good wholesome dinner as compensation. ";
+      "Then came real grief. ";
+      "The youngsters had to yoke up the big reds and plow the new ground to be seeded in wheat. ";
+      "Threshing day came in the fall—after harvest when three additional teams of horses were hitched to the circular power-plane to run the buzzing cylinder as the feederman fed the sheaves into the maw of the machine—the boys having to mow back the straw —a terrible dust choking job. ";
+      "The boy of today has no conception of what it took to earn a living those days. ";
+      "Always there had to be a beef killed to supply the big meals due the threshers. ";
+      "And this applied to the ‘huskings’, ‘raisings’ and ‘Log-rollings’— or any neighboring gatherings.";
+    };
+    Par {
+      "Generally we could trade in a roll of butter and a basket of eggs for a pound of coffee or a similar lot of sugar. ";
+      "Ten cents a dozen for eggs and the same for butter per pound. ";
+      "Seldom any actual cash passed except for taxes—and that was a year's savings. ";
+      "Was sixteen-past when quit school and demanded the right to go to Eastman college; that was to cost $110 and meant a great sacrifice if at all possible. ";
+      "A young horse and a couple of steers together with the savings of the other members of the family finally produced the sum, and the youth boarded the local train for the long trip to Philadelphia, New York and up Hudson River by rail to Poughkeepsie. ";
+    };
+    Par {
+      "It is laughable to recall the mammoth undertaking. ";
+      "Just at the age of 17 this was at that time a serious job. ";
+      "Never having travelled on trains any length—it was like starting on a trip around the world as of today. ";
+      "The U. ";
+      "S. ";
+      "was not yet discovered for much of it was then unknown. ";
+      "The whole South was in state of chaos—all west of the Mississippi was Indian country except that of California. ";
+      "The transcontinental railroad was completed, but nearly all the rest was undeveloped. ";
+      "To recall the heavy carpet bag, with its extra suit of new clothes, and the basket of food, boiled eggs, pickles and sandwiches, was a truly vague outfit for a long journey and school term. ";
+      "But it was a break into the wide, wide world—and enthusiasm was rampant in the boy's mind. ";
+    };
+    Par {
+      "Such a thing as a sleeper was unheard of-and so the long ride in the local cars was spent in dozing in the uncomfortable day coach. ";
+      "The ticket was the guide to change of cars in Philadelphia—and then New York City with its crowds and roar and confusion, had to be met. ";
+      "Some Irish cab driver grabbed the carpet bag and ordered the boy into the seat—and the long rough drive to the depot ended, and the boy told what door to enter for the ride up river to destination. ";
+      "A local train of course. ";
+      "Whether a night was passed on the way is not remembered, but in due time, Poughkeepsie was announced by the conductor and the boy dumped out to find his own way to the great Eastman. ";
+      "Inquiry where to find the place—far away on the hill—far up and very steep. ";
+      "That heavy bag was toted all the way up that interminable mountain street. ";
+      "Exhausted, he finally read the sign a block to the north. ";
+      "Staggering on he finally entered the sacred edifice. ";
+    };
+    Par {
+      "Announcing his name and address the professor took charge entered his name on the records, and told him he would board at No. ";
+      "90 Montgomery Street, a mile or more on in opposite direction. ";
+      "How he got there with that load of bag is not now remembered, but it was finally settled and he was given a room on third floor with another boy whose name was Grant Cubbison, also from Pennsylvania. ";
+    };
+    Par {
+      "The proprietors of this was an aged pair who had seen better days, and now exacted a living from rooming school boys from Eastman. ";
+      "Little attention was paid to the kind of service there rendered — only the study for getting through that noted training place. ";
+      "Exactly seventeen, the course seemed easily met. ";
+      "Once the students were offered a steamer ride down the river to West Point, with a stop at Newberg, to see Washington's headquarters. ";
+      "And we went with the crowd. ";
+      "But the work of passing examinations was paramount always— and the boy passed them. ";
+      "This was in April 1882. ";
+      "By August 8th the last test was passed and a diploma handed to him. ";
+      "Four months—the shortest time any boy ever passed at that school, and the youngest ever graduated there. ";
+    };
+    Par {
+      "A couple of days waiting arrival of some money to pay way home and a train was boarded for Niagara Falls. ";
+      "There the one great event came—one great sight in the world. ";
+      "How he got from there home is not recalled for no railroad existed then, no doubt it was via PRR to Driftwood thence home. ";
+      };
+      Par {
+      "But, the diploma was his, and he was sufficiently proud of it. ";
+      "His ego was very prominent. ";
+      "He felt equipped to run the whole business world. ";
+      "But he was put to pitching manure at once. ";
+      "This all he tolerated through the winter. ";
+      "Spring on, he went to town to look for a job. ";
+      "He got it at Fuller store at $20 per month and board himself. ";
+    };
+    Par {
+      "And that diploma helped him get the clerkship in the big general store. ";
+      "Fronting the corner of the big building a small cut was made for use of a small private bank. ";
+      "Weeks had not passed when the store clerk was busy helping the banker at off hours soon to be hired as banker-help. ";
+      "Same wage and same board self. ";
+    };
+    Par {
+      "This went on for two years. ";
+      "Meantime all the work of running the bank came to the boy—and it became a little monotonous too. ";
+      "Then, in the spring of 1885 a fever came on to see the west. ";
+      "A letter of recommendation handed him by his employer, and plan for the far west was made. ";
+      "Northern Dakota Territory was then the last frontier. ";
+      "Indians and buffalo still lived there. ";
+      "That settled the plans. ";
+      "But there was one string holding—it was a girl—she was still in school. ";
+      "She had been the only girl for a long time. ";
+      "Sufficient money had been saved to pay for a ticket to the end of track. ";
+      "It was a long trail —all in day coaches and no stops for lunches or sleep. ";
+      "And so, they packed a basket and said goodbye at the old depot. ";
+      "Ticket was via Low Grade to Driftwood, thence PRR to Meadville or a connection with the Penna. ";
+      "& Northwestern, to Old Erie, to Chicago; a broken glass in the only seat kept out sleep for the first night. ";
+      "Change there to the Burlington for St. ";
+      "Paul—and change again to St. ";
+      "P. ";
+      "Minn. ";
+      "& Manitoba for the last long drift to Devils Lake—end of road. ";
+      "All wild wooly.and unsettled beyond. ";
+      "Winter '85-'86 saw 48 degrees below zero. ";
+      "These were days when the old west was really wild and wooly. ";
+    };
+    Par {
+      "To write in this sketch all that could be said of interest, is not possible—it is much too long— somewhat romantic yet deserves a volume. ";
+    };
+    Par {
+      "Caught out on the wild prairie 30 miles from home — the worst Dakota blizzard ever known — saved by unguided ponies—dragged to home and safety for five hours—24 people died, and uncounted livestock perished. ";
+      "Just one of many narrow escapes from death such as the ice-quake opening a gap 20 ft. ";
+      "wide a second ago, as I drove the pony from a day at the fort, alone at 32 below zero. ";
+    };
+    Par {
+      "Summer was charming—once weekly a trip by boat 14 miles to collect from the post-trader and the quartermaster and officers of the old 7th cavalry —of Custer fame—at the fort—often having stood at the wheel and steered the steamer safely to port. ";
+    };
+    Par {
+      "Buying and shipping buffalo bones from the Indians (See story in Buffalo Bone Days)—also buying and shipping the car-loads of fish and frozen carcasses of deer to market at St. ";
+      "Paul. ";
+      "An active part as treasurer for James J. ";
+      "Hill Fat Stock Show —by all odds the greatest day ever seen in the little frontier town—and when the great Northern Railroad was begun, I, with Bob Joynt shoveled the first dirt to lay the first tie, in that now vast trans- continental system. ";
+      "And so, in memory of that now three-quarter century old time, is something to think about. ";
+    };
+    Par {
+      "Then, after near two years, the urge to see the girl I left behind me, overcame the obligation to serve on, and a shake of the hand of old friend Chief Waneta, and thanks for the wonderful bead bag and redstone pipe he presented, for kindness extended to him, a wave of good-bye found me aboard the train for St. ";
+      "Paul and the East—for a two-week vacation. ";
+      "As the train whistled in to her home town, she sprang out of bed—certain that her boyfriend was aboard. ";
+      "A pure case of clairvoyance! ";
+    };
+    Par {
+      "Then, the old banker met him on the street—said he, “You must come back to the bank—take my place there.” ";
+    };
+    Par {
+      "I was then just over 21. ";
+      "The pioneer banker offered to sell half his stock in the bank if I would come and be made director and assistant cashier. ";
+      "Before going West I had served in his bank replacing the cashier then on a wedding trip. ";
+    };
+    Par {
+      "To go back west and take the girl along, or remain and take her at once and begin housekeeping—that was the question; and the girl pull won. ";
+      "Coming July 20 was the wedding. ";
+      "Buffalo Bill was in town with his Wild West—and he advised the wedding when he saw the girl. ";
+      "It could not be otherwise. ";
+    };
+    Par {
+      "Help from father the Slack home was bought, and sparsely furnished so that after the ceremony they had a home to go to. ";
+    };
+    Par {
+      "A four pound baby was born next May—and the following month came the Big Fire that destroyed the town and the banks leaving only ashes, and a blank future. ";
+    };
+    Par {
+      "Heroic work of a few firefighters saved the home—and stopped the blaze, thus saving all the first ward residence section, but the business part of the town was gone. ";
+      "I had just started the new Deposit Bank with office in the lobby of the Commercial Hotel. ";
+      "Just two weeks old. ";
+      "The big safe lay in the hot coals in the basement. ";
+      "Chains and crane lifted it to a temporary floor and three days later I sledged it open to find the gold coin and the currency glued to the walls, but by chisels and a hammer the coin was recovered and later the big bundles of currency was redeemed by the government. ";
+      "The old frame opera house had been saved and was about the only building left—it was appropriated by both banks to reopen for trade. ";
+      "A carpenter's work bench provided a counter for my bank; vault of the national bank was opened and served as a money safe for both banks under guard. ";
+      "For six months banking was carried on thus, as the people gradually dug out their property lines and rebuilt. ";
+      "We built a new building—moved in after six months banking in the old Hines opera house there to win new business rapidly. ";
+      "Too small, the Boyles lot 22 ft. ";
+      "was bought—but that seeming too small the corner lot bought from Mrs. ";
+      "E. ";
+      "Kuntz for $9,000 furnished the room for the new bank building — too large — the new building was considered a joke. ";
+      "It has since been increased in size three times—now the biggest bank and offices in all the region.";
+    };
+    Par {
+      "Started in 1888 and managed by myself for more than 50 years—until resigning in 1925—still active in 1943. ";
+      "Son Rembrandt became afflicted with an uncurable malady—died in 1937—a terrible suffering of the family and particularly myself and Alice B. ";
+      "for the years until his death — but the suffering of father and mother continued—and still continues. ";
+      "He was a fine lad as ever lived. ";
+    };
+    Par {
+      "Opening of the new century was the spread of Big Business and soon it affected our growing town. ";
+      "Local industries were bought up by Big Business and either removed to large cities or closed. ";
+      "But the Big Business boom was on. ";
+      "Now it was that former experience in coal trade came in force —coal was king. ";
+      "Knowledge of the coal beds took hold—coal and railroad heads came to seek data— gave him oversight and power to acquire vast acreage, and to establish operations thereon. ";
+      "1901 to 1931 were strenuous years. ";
+      "From Tyler to Sagamore more than twenty thousand acres of coal lands were purchased, and operations placed thereon—all on plans of the writer; layed out route of and was mostly responsible for the building of the Buffalo & Susquehanna Railroad—spending many millions for that company, all without a contract or any writing or limit of control. ";
+      "It was his work that brought the Erie Railroad to the coal region. ";
+    };
+    Par {
+      "It was in June 1908 that Buffalo Bill came, with his biggest and best Wild West. ";
+      "He had with him 150 Indians and the same number of horses and ponies. ";
+      "We had known each other for several years, and of course our new Rambler automobile of 1907 grade was prominently spirited around town by the oldest boy Don. ";
+      "At noon he pulled up in front of the house, loaded with Cody and Chief Iron Tail. ";
+      "Monroe McCanles was our house guest, and stood on the walk answering questions put to him by Cody about his father Dave McCanles having been shot by Wild Bill Hickok. ";
+    };
+    Par {
+      "This rare scene was caught in the camera, and has become a noted picture, the Saturday Evening Post having paid $50 for a copy. ";
+      "That evening the two noted characters, along with Iron Tail, were served dinner at the Long Avenue home. ";
+      "Before adjourning the afternoon performance Col. ";
+      "Cody spirited the youthful bank president to his private tent where four big chiefs had gathered, with the whole 150 tribal members surrounding them, all prepared to do the great honor of making me a chief of the tribe. ";
+      "Alice B was present as witness to the ceremony. ";
+      "She with Cody and Bill Hines were the only whites permitted there, as such witnesses. ";
+    };
+    Par {
+      "The ceremony was conducted by Chief iron Tail—began with a speech in Sioux dialect—a war bonnet placed on his head, and moccasins put on his feet. ";
+      "A tepee was then presented for himself and squaw to live in. ";
+      "Tom-toms were beaten and tribal songs put up vigorously, all ending with hearty hand-shakes. ";
+      "Then the ceremony was re-opened and another talk by the chief followed. ";
+      "It was a rare and even brilliant occasion—and the Colonel and the big chief were loaded in the auto and driven to the East Long Ave. ";
+      "home for the banquet which followed. ";
+      "There the Chief was presented with a new Winchester rifle as souvenir of the event. ";
+    };
+    Par {
+      "It would take a volume to record the half of what he had so accomplished in way of industrial development. ";
+      "During all these busy times there were many other subjects in which he had a hand for he had written the Conservation Policy for Theodore Roosevelt in 1906 — had organized the State Conservation Society, and was originator and principle sponsor of the Cook Forest State Park. ";
+      "On one occasion he handled two of the largest real estate deals ever made, in West Virginia and in Pennsylvania both in one day — some thirty thousand acres of coal and timber in W. Va. with more than $300,000 price, while Cook Forest later closed, for $600,000 in Penna. ";
+      "This was doing big things in a big way but seemed at the time to be merely in the day's work. ";
+    };
+    Par {
+      "Yet the panic of the 1930's bankrupted us—not confessed but really so. ";
+      "All the strenuous work of coal years, no real wealth came to him—no compensation worthy of the times was received for the vast amount of work he had done. ";
+      "Through the 1930's and 1940's it was a continuous struggle to live. ";
+      "Minor holdings in the brewery helped carry on—pay taxes on unsalable real estate. ";
+      "Blue Eagle days were about all that was left of government. ";
+    };
+    Par {
+      "Desperation forced the public to resort to common sense. ";
+      "But World War IT came — and I was made a war victim with two years’ service in raising the army—clerk of the Local Board, having over 7000 names on the record for service. ";
+      "Estimates made at the close showed my loss to be about all we had. ";
+      "But a quick revival of confidence showed that the country would survive. ";
+      "Sale of a lot of timber saved the foreclosures — and signs of recovery of property began to brighten. ";
+      "A few trades resulted in clearing heavy debts. ";
+      "And sales of lots helped out materially, when along about 1950 the mortgages were liquidated, and the property clear. ";
+    };
+    Par {
+      "Along about 1940 1 was slowly retiring—at 75. ";
+      "Retiring from active work, but not from active thinking about it. ";
+    };
+    Par {
+      "About this time we had disposed of all city property and were permanently housed at the Wigwam. ";
+      "No attempt to go back to farming the fine ground. ";
+      "It grew into wild grasses and weeds. ";
+      "But the automobile was in good trim—did considerable driving around the estate and into the country. ";
+      "Selling lots both down the front and along the Remvale plot—some money coming in constantly from ground sales. ";
+      "This kept the debts down and finally eliminated them altogether. ";
+      "And so, at 92 we still live alone as man and wife at the Wigwam. ";
+      "Both tottery. ";
+    };
+    Par {
+      "Have been getting old for several years—a day at a time. ";
+    };
+    Par {
+      "Near twenty years of service as school director—twelve of them as president of the Board. ";
+      "As owner of the street. ";
+      "railways and Electric Light companies—later sold and now is Penna. ";
+      "Electric Corporation. ";
+      "Owner and operator of Hotel DuBois—later sold. ";
+      "Securing the Car Shops—mostly personal work. ";
+      "Spading the corner stone and establishing the DuBois Brewing Co. ";
+      "— now the one largest and richest plant in the district. ";
+      "For the town, bought the water works — now the most valuable property it owns. ";
+      "Principal promoter for the first cross-state concrete road — the BP Highway—from Bradford to Indiana—and Pittsburgh. ";
+    };
+    Par {
+      "Alice B. Humphrey became the wife of M. I. McCreight at 7:00 o'clock A.M., July 20, 1887. ";
+      "On July 20 this year, will show that they have lived together seventy years—and that is unusual if not rare. ";
+      "As she approaches ninety she is the housekeeper and boss as she always has been. ";
+      "For years, we seldom had more than a day or two in a week at home. ";
+      "When a trip was due, it was her right to join—and she always did—generally to have one or more of the children as extra luggage. ";
+      "To the south, to the Pacific, to Canada, to France and Austria—always she went along. ";
+    };
+    Par {
+      "Once, when on a trip to the west coast, she left rigid orders to wire if any sign of illness came any of the family. ";
+      "While at breakfast in Glacier park Hotel, a message was handed to us: it read, \"Remmy sneezed twice—others OK.\" ";
+      "But we continued on West. ";
+      "This, or a similar trip, she stayed in San Francisco, to shop, while the partner went to Santa Rosa and spent the day with Luther Burbank.";
+    };
+    Par;
+
+    Block {
+      TextHeight: 80%;
+      LeftIndent: 8 pts;
+      RightIndent: 8 pts;
+      Block {
+        ParAlignment: ParAlignments.Right;
+        "Hogansburg, N. Y.";
+        "Jan. 1, 1957 ";
+      };
+      Par {
+        "Mr. M. McCreight ";
+      };
+      Par {
+        "Sago Skenno-Kowa Tonikonrate, Brother";
+      };
+      Par {
+        "Your Christmas greetings arrived here and I have put it in our record book of the Akwesasne Mohawk Counselors so that our members can read your words and think on your thoughts. ";
+        "Brother, your message tells us that soon you will take the sunset trail to the land where our ancient Fathers will welcome and greet you as one of themselves. ";
+        "It will make our hearts unhappy when you leave us because we know that you are a good and faithful friend and a Brother, one whom we will remember all of our days upon this Earth. ";
+        "Brother, after you leave us, you will be remembered by the truths that you have written in your many books and articles about the Indians, our Fathers. ";
+        "Your words will be read by many and they will change the thoughts of many white folks who will read them. ";
+        "So, though your body may pass on, your thoughts will continue to live, will speak for us. ";
+        "Daring your life on this earth. ";
+        "you have done many, many good things and for this all of us who know you are very grateful. ";
+        "Always know that our hearts are with you. ";
+        "Though we are many miles away from you, yet you are close by in our hearts and thoughts, all who know you. ";
+        "You are an INDIAN born again in a white body, sent here by our Creator to tell the world today the true story of our people. ";
+        "When you leave Mother Earth, you will return to your real self and our Ancient Ones will welcome you with outstretched arms. ";
+        "The prairies and forests will look golden and green to you and your moccasins will walk on smooth grasses. ";
+        "The sky will be blue and here and there from skin and bark lodges you will see smoke rising into the sky. ";
+        "Your ears will hear the good music of singing voices which will blend with the tom-tom music that belongs to this great Island. ";
+        "The faces that you will see will be dark faces and they will be smiling at you as you walk to greet them. ";
+        "Remember this Brother, this is how it will be for you. ";
+      };
+      Par {
+        "Your Brother, ";
+      };
+      Par {
+        "Aren Akweks ";
+      };
+    };
+    Par;
+    Par {
+      "As the despicable weather of the past January begins to moderate there is promise of sunshine once again. ";
+      "And the daily housekeeping goes on a day at a time, in the Wigwam. ";
+    };
+    "Feb. 1957 ";
+    Par {
+      ParAlignment: ParAlignments.Right;
+      "M. I. McCreight. ";
+    };
+    PageBreak;
+    FitBox(new ImageClass(res "Major with family.png"), 100%);
+    Block {
+      ParAlignment: Center;
+      Paragraph {
+        Bold;
+        TextHeight: 110%;
+        TextFamily: TextFamilies.Arial;
+        "The McCreight Family";
+      };
+      Paragraph {
+        TextHeight: 90%;
+        "Pictured with Mr. and Mrs. McCreight are their four sons and two daughters: Donald, Catherine, Martha, Jim, Jack, M. I. II";
+      };
+    }
+  };
+}
+
