@@ -207,7 +207,7 @@ Female People.AliceMcCreight = new(#22cb26a4-8e8d-4a60-a300-0b07edceca9d#, "Alic
 };
 
 UnionClass Unions.AliceIsrael = new(#2017c315-250d-4fdd-8f22-a321bb0da6bb#, AliceMcCreight, MajorIsraelMcCreight) {
-  Married(#1860#)
+  Married(#1887-7-20 7:00#)
 };
 
 Female People.EdithPriscillaMcCreight = new(#e93499e1-f4c2-4360-a624-2f81e6d35b34#, "Edith", "Priscilla", McCreight, Unions.ElizaJohn);
