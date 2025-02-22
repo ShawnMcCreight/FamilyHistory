@@ -1,7 +1,5 @@
 using Format, Units, IO;
 
-GetPic(n, size) = FitBox(new ImageClass(Folders.Source FileName(n) Extensions.JPG), size);
-
 namespace BookData {
   Title      = "Chief Flying Hawk's Tales";
   Author     = "M.I. McCreight";
@@ -75,7 +73,7 @@ class FlyingHawkDocumentClass: DocumentClass {
   InsideCover = Block {
     Paragraph {
       PageBreakBefore: true;
-      GetPic("Firewater", 3 inches);
+      FitBox(new ImageClass(res "Firewater.jpg"), 3 inches);
     }
   };
 
@@ -89,7 +87,7 @@ class FlyingHawkDocumentClass: DocumentClass {
       Title;
     };
     Paragraph {
-      GetPic("Signature", 3 inches);
+      FitBox(new ImageClass(res "Signature.jpg"), 3 inches);
     }
   };
 
@@ -144,6 +142,8 @@ readonly Quoted = Paragraph(BorderLR(QuoteBorder)) {
 };
 
 readonly QuoteBorder = new EdgeClass(0.5, 6 pts, Colors.Black);
+
+GetPic(n, size) = FitBox(new ImageClass(Folders.Source FileName(n) Extensions.JPG), size);
 
 FullPicture(AttributeClass picture) = Block {
   var p = picture.Value;

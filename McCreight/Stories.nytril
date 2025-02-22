@@ -4,6 +4,20 @@ using Format, Information.People, Units;
 
 readonly namespace Information.Stories;
 
+StoryClass MylersAtHome = new(#ee423433-8784-4530-ad2d-973a76be12ed#, null, "Mylers at home", #2024-6-27#, res "MylersAtHome.jpg") {
+  Text: Styles.Story {
+    ListPeople([EmersonLouiseMyler, AmeliaMaeMyler, WilliamCharlesMyler, CasselClayMyler]) " posed for a picture outside their home.";
+  }
+};
+
+StoryClass CasselClayBorn = new(#ee423433-8784-4530-ad2d-973a76be12ed#, null, "Cassel Clay Myler Born", #2024-5-9#, res "CasselClayBorn.jpg") {
+  Text: Styles.Story {
+    "Proud parents "
+    ListPeople([AmeliaMaeMyler, WilliamCharlesMyler]) " and big sister " ListPeople([EmersonLouiseMyler]) " welcomed " ListPeople([CasselClayMyler])
+    ", the newest member of the family into the world."
+  }
+};
+
 StoryClass ElijahJohnBorn = new(#ee423433-8784-4530-ad2d-973a76be12ed#, null, "Elijah John McCreight Born", #2024-4-20#, res "ElijahJohnMcCreightBorn.jpg") {
   Text: Styles.Story {
     ListPeople([AlyssaMarieMcCreight, ThomasDanielMcCreight, AbigailMarieMcCreight])

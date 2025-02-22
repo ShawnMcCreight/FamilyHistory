@@ -938,7 +938,7 @@ Female People.EmersonLouiseMyler = new(#fa062dfc-2253-4ae1-8d9d-285343881375#, "
   Born(#2022-4-4#);
 };
 
-Male People.CasselClayMyler = new(#fa062dfc-2253-4ae1-8d9d-285343881375#, "Cassel", "Clay", Myler, Unions.AmeliaBilly) {
+Male People.CasselClayMyler = new(#fa062dfc-2253-4ae1-8d9d-285343881375#, "Cassel", "Clay", Myler, Unions.AmeliaBilly, res "CasselClayMyler.jpg") {
   Born(#2024-5-9#);
 };
 //=====================================
