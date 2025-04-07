@@ -6,6 +6,7 @@ include "Stories";
 include "Site";
 include "Wigwam/Wigwam";
 include "Flying Hawk/Flying Hawk";
+include "Stoic Quotes/Stoic Quotes";
 
 using Format, Units, Information;
 
@@ -18,6 +19,7 @@ readonly namespace Main.Documents {
   Album      = new FamilyAlbumClass;
   FlyingHawk = new FlyingHawkDocumentClass;
   Wigwam     = new WigwamDocumentClass;
+  Stoic      = new StoicDocumentClass;
 }
 
 readonly PictureFolder = IO.Folders.Source;
@@ -85,6 +87,7 @@ class HomePageClass: SitePageClass {
       new DocTileClass(Main.Documents.Album, Icons.photo_album),
       new DocTileClass(Main.Documents.Wigwam, Icons.article),
       new DocTileClass(Main.Documents.FlyingHawk, Icons.auto_stories),
+      new DocTileClass(Main.Documents.Stoic, Icons.format_quote),
     ];
   }
 

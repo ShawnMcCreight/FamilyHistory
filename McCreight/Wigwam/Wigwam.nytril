@@ -1,15 +1,14 @@
 using Format, Units;
 
-Par = Paragraph {
-  FirstIndent: 36 pts;
-};
-
-
 class WigwamDocumentClass: DocumentClass {
   Constructor {
     super.Constructor(#d3b10908-4e06-4de0-9602-d20001007825#, "Wigwam");
     Description = "The short autobiography of M.I. McCreight";
   }
+
+  Par = Paragraph {
+    FirstIndent: 36 pts;
+  };
 
   Sep = Paragraph {
     SpaceBefore: 32 pts;

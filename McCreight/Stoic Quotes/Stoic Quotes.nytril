@@ -1,0 +1,74 @@
+using Format, Units;
+
+class StoicDocumentClass: DocumentClass {
+  Constructor {
+    super.Constructor(#0f563bd0-e542-45d8-9c4b-f99396114724#, "Stoic Quotes");
+    Description = "Stoic quotes that will change your life";
+  }
+
+  static readonly ImageClass MarcusAureliusPic = new(res "Marcus Aurelius.jpg");
+
+  static readonly MarcusAurelius = "Marcus Aurelius";
+  static readonly Seneca         = "Seneca";
+  static readonly Epictetus      = "Epictetus";
+
+  Quote(name, quote) = Block {
+    Paragraph {
+      SpaceBefore: 10 pts;
+      TextHeight: 12 pts;
+      Tex.LeftDoubleQuote;
+      quote;
+      Tex.RightDoubleQuote;
+    };
+    Paragraph {
+      LeftIndent: 8 pts;
+      TextHeight: 10 pts;
+      TextColor: #63574E#;
+      "—";
+      name;
+    };
+  };
+
+  override GetDocument = Document(0.75 inch) {
+    Canvas(100%) {
+      var angle = 5 degrees;
+      VBox(35%, null, new EdgeClass(8, 0, #F3E6D5#)) {
+        Transform: TransformClass.Skew(-angle) TransformClass.Rotate(-angle);
+        BorderRadius: 3;
+        FitBox(MarcusAureliusPic, 100%);
+        HBox(100%) {
+          Background: #F3E6D5#;
+          HAlign: Center;
+          Span {
+            TextHeight: 16 pts;
+            TextColor: #63574E#;
+            MarcusAurelius;
+          }
+        };
+      };
+      Frame(60%) {
+        X: 45%;
+        TextFamily: TextFamilies.Impact;
+        TextHeight: 50 pts;
+        ParAlignment: Center;
+        Span {
+          TextCase: WordUpper;
+          TextColor: #63574E#;
+          Description;
+        };
+      };
+    };
+
+    Quote(MarcusAurelius, "You have the power over your mind—not outside events. Realize this, and you will find strength.");
+    Quote(Seneca, "We suffer more often in imagination than in reality.");
+    Quote(Epictetus, "It's not what happens to you, but how you react to it that matters.");
+    Quote(MarcusAurelius, "The happiness of your life depends upon the quality of your thoughts.");
+    Quote(Seneca, "As is a tale, so is life: not how long it is, but how good it is, is what matters.");
+    Quote(Epictetus, "First you say to yourself what you would be; and then you do what you have to do.");
+    Quote(MarcusAurelius, "Waste no more time arguing about what a good man should be. Be one.");
+    Quote(Seneca, "Luck is what happens when preparation meets opportunity.");
+    Quote(Epictetus, "He who laughs at himself never runs out of things to laugh at.");
+    Quote(MarcusAurelius, "When you arise in the morning, think of what a precious privalege it is to be alive—to breath, to think, to enjoy, to love.");
+  };
+}
+
