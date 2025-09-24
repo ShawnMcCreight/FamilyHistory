@@ -41,7 +41,7 @@ class FlyingHawkDocumentClass: DocumentClass {
     }
   };
 
-  ChapterContents(AttributeClass c) = Block {
+  ChapterContents(Attribute c) = Block {
     var chapter = c.Value;
     Paragraph {
       ParAlignment: Center;
@@ -73,7 +73,7 @@ class FlyingHawkDocumentClass: DocumentClass {
   InsideCover = Block {
     Paragraph {
       PageBreakBefore: true;
-      FitBox(new ImageClass(res "Firewater.jpg"), 3 inches);
+      FitBox(new Image(res "Firewater.jpg"), 3 inches);
     }
   };
 
@@ -87,7 +87,7 @@ class FlyingHawkDocumentClass: DocumentClass {
       Title;
     };
     Paragraph {
-      FitBox(new ImageClass(res "Signature.jpg"), 3 inches);
+      FitBox(new Image(res "Signature.jpg"), 3 inches);
     }
   };
 
@@ -141,11 +141,11 @@ readonly Quoted = Paragraph(BorderLR(QuoteBorder)) {
   ParAlignment: Justify;
 };
 
-readonly QuoteBorder = new EdgeClass(0.5, 6 pts, Colors.Black);
+readonly QuoteBorder = new Edge(0.5, 6 pts, Colors.Black);
 
-GetPic(n, size) = FitBox(new ImageClass(Folders.Source FileName(n) Extensions.JPG), size);
+GetPic(n, size) = FitBox(new Image(Folders.Source FileName(n) Extensions.JPG), size);
 
-FullPicture(AttributeClass picture) = Block {
+FullPicture(Attribute picture) = Block {
   var p = picture.Value;
 
   ParAlignment: Center;
@@ -181,12 +181,12 @@ Header1(text) = Paragraph {
   text;
 };
 
-ContentsLine(AttributeClass c) = Paragraph {
+ContentsLine(Attribute c) = Paragraph {
   TextHeight: 14 pts;
   TextFamily: BookData.FontFamily;
   SpaceAfter: 6 pts;
   Span {
-    Action: new ActionClass(Actions.ToAnchor, c.FullName);
+    Action: new Action(Actions.ToAnchor, c.FullName);
     c.Value.Title;
   }
 };
@@ -196,7 +196,7 @@ readonly TableOfContents = Block {
   each ContentsLine(each attribute(Chapter).Children);
 };
 
-PicListing(width, AttributeClass picture) = VBox(width - 10) {
+PicListing(width, Attribute picture) = VBox(width - 10) {
   HAlign: Center;
 
   var title = picture.Value.Title;
@@ -204,12 +204,12 @@ PicListing(width, AttributeClass picture) = VBox(width - 10) {
     LeftIndent: 0;
     ParAlignment: Center;
     Span {
-      Action: new ActionClass(Actions.ToAnchor, picture.FullName);
+      Action: new Action(Actions.ToAnchor, picture.FullName);
       title;
     };
   };
   GetPic(title, width - 20) {
-    Action: new ActionClass(Actions.ToAnchor, picture.FullName);
+    Action: new Action(Actions.ToAnchor, picture.FullName);
   };
 };
 

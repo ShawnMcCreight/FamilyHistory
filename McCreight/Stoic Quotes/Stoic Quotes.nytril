@@ -6,7 +6,7 @@ class StoicDocumentClass: DocumentClass {
     Description = "Stoic quotes that will change your life";
   }
 
-  static readonly ImageClass MarcusAureliusPic = new(res "Marcus Aurelius.jpg");
+  static readonly Image MarcusAureliusPic = new(res "Marcus Aurelius.jpg");
 
   static readonly MarcusAurelius = "Marcus Aurelius";
   static readonly Seneca         = "Seneca";
@@ -32,8 +32,8 @@ class StoicDocumentClass: DocumentClass {
   override GetDocument = Document(0.75 inch) {
     Canvas(100%) {
       var angle = 5 degrees;
-      VBox(35%, null, new EdgeClass(8, 0, #F3E6D5#)) {
-        Transform: TransformClass.Skew(-angle) TransformClass.Rotate(-angle);
+      VBox(35%, null, new Edge(8, 0, #F3E6D5#)) {
+        Transform: Transform.Skew(-angle) Transform.Rotate(-angle);
         BorderRadius: 3;
         FitBox(MarcusAureliusPic, 100%);
         HBox(100%) {

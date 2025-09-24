@@ -7,8 +7,8 @@ Huelsenbeck = "Huelsenbeck";
 Kramer      = "Kramer";
 
 namespace Places {
-  CityClass RedBankNJ  = new(#8831cf23-1b42-4b6e-ab07-c82a9a81bc84#, "Red Bank") {Link to USStates.NewJersey};
-  CityClass Ellensburg = new(#943cf21d-564d-4fb4-aa02-5427204ede95#, "Ellensburg") {Link to USStates.Washington};
+  City RedBankNJ  = new(#8831cf23-1b42-4b6e-ab07-c82a9a81bc84#, "Red Bank") {Link to USStates.NewJersey};
+  City Ellensburg = new(#943cf21d-564d-4fb4-aa02-5427204ede95#, "Ellensburg") {Link to USStates.Washington};
 }
 
 //=====================================

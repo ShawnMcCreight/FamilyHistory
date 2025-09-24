@@ -40,7 +40,7 @@ class WigwamDocumentClass: DocumentClass {
     }
   };
 
-  BorderLine(RectClass r) = Shape {
+  BorderLine(Rect r) = Shape {
     var x = r.X;
     var y = r.Y;
 
@@ -455,7 +455,7 @@ class WigwamDocumentClass: DocumentClass {
 
     SectionNextPage(12 pts);
 
-    FitBox(new ImageClass(res "Major with family.jpg"), 100%);
+    FitBox(new Image(res "Major with family.jpg"), 100%);
     Block {
       ParAlignment: Center;
       Paragraph {

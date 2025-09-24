@@ -12,7 +12,7 @@ using Format, Units, Information;
 
 //======================================================================
 
-readonly SiteClass Main.Site = new WebSiteClass;
+readonly RealmSite Main.Site = new WebSiteClass;
 
 readonly namespace Main.Documents {
   Home       = new HomePageClass;
@@ -43,7 +43,7 @@ class FamilyAlbumClass: FamilyDocumentClass {
 
 //===============================================================
 
-class WebSiteClass: SiteClass {
+class WebSiteClass: RealmSite {
   Constructor {
     super.Constructor("McCreight Family History");
   }
