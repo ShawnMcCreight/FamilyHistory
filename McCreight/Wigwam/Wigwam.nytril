@@ -1,4 +1,4 @@
-using Format, Units;
+using Format;
 
 class WigwamDocumentClass: DocumentClass {
   Constructor {
@@ -7,24 +7,24 @@ class WigwamDocumentClass: DocumentClass {
   }
 
   Par = Paragraph {
-    FirstIndent: 36 pts;
+    FirstIndent: 36pt;
   };
 
   Sep = Paragraph {
-    SpaceBefore: 32 pts;
-    SpaceAfter: 32 pts;
+    SpaceBefore: 32pt;
+    SpaceAfter: 32pt;
     Icons.pages;
   };
 
   TitlePage = Block {
-    TextHeight: 16 pts;
+    TextHeight: 16pt;
     Italic;
     ParAlignment: Center;
     TextFamily: TextFamilies.Arial;
 
     Paragraph {
-      SpaceBefore: 24 pts;
-      TextHeight: 28 pts;
+      SpaceBefore: 24pt;
+      TextHeight: 28pt;
       "AUTOBIOGRAPHY";
     };
     Sep;
@@ -44,7 +44,7 @@ class WigwamDocumentClass: DocumentClass {
     var x = r.X;
     var y = r.Y;
 
-    var SD = 4 pts;
+    var SD = 4pt;
 
     ClosedPath(0) {
       while (x < r.Right) {
@@ -79,10 +79,10 @@ class WigwamDocumentClass: DocumentClass {
       BorderLine(new(i, new(ExtentWidth - i*2, ExtentHeight - i*2)));
   };
 
-  override GetDocument = Document(0.5 inch, null, null, null, null, new(5 inches, 7 inches)) {
+  override GetDocument = Document(0.5", null, null, null, null, new(5", 7")) {
     TextFamily: TextFamilies.TimesNewRoman;
     ParAlignment: Justify;
-    TextHeight: 12 pts;
+    TextHeight: 12pt;
 
     Canvas(100%, 100%) {
       BorderLines;
@@ -91,7 +91,7 @@ class WigwamDocumentClass: DocumentClass {
       };
     };
 
-    SectionNextPage(new(0.5 inch, 0.75 inch, 0.5 inch, 0.5 inch)) {
+    SectionNextPage(new(0.5", 0.75", 0.5", 0.5")) {
       Footer: MarginBlock {
         Paragraph {
           ParAlignment: Center;
@@ -403,8 +403,8 @@ class WigwamDocumentClass: DocumentClass {
 
     Block {
       TextHeight: 80%;
-      LeftIndent: 8 pts;
-      RightIndent: 8 pts;
+      LeftIndent: 8pt;
+      RightIndent: 8pt;
       Block {
         ParAlignment: ParAlignments.Right;
         "Hogansburg, N. Y.";
@@ -453,7 +453,7 @@ class WigwamDocumentClass: DocumentClass {
       "M. I. McCreight. ";
     };
 
-    SectionNextPage(12 pts);
+    SectionNextPage(12pt);
 
     FitBox(new Image(res "Major with family.jpg"), 100%);
     Block {

@@ -1,4 +1,4 @@
-using Format, Units;
+using Format;
 
 class StoicDocumentClass: DocumentClass {
   Constructor {
@@ -14,22 +14,22 @@ class StoicDocumentClass: DocumentClass {
 
   Quote(name, quote) = Block {
     Paragraph {
-      SpaceBefore: 10 pts;
-      TextHeight: 12 pts;
+      SpaceBefore: 10pt;
+      TextHeight: 12pt;
       Tex.LeftDoubleQuote;
       quote;
       Tex.RightDoubleQuote;
     };
     Paragraph {
-      LeftIndent: 8 pts;
-      TextHeight: 10 pts;
+      LeftIndent: 8pt;
+      TextHeight: 10pt;
       TextColor: #63574E#;
       "—";
       name;
     };
   };
 
-  override GetDocument = Document(0.75 inch) {
+  override GetDocument = Document(0.75") {
     Canvas(100%) {
       var angle = 5 degrees;
       VBox(35%, null, new Edge(8, 0, #F3E6D5#)) {
@@ -40,7 +40,7 @@ class StoicDocumentClass: DocumentClass {
           Background: #F3E6D5#;
           HAlign: Center;
           Span {
-            TextHeight: 16 pts;
+            TextHeight: 16pt;
             TextColor: #63574E#;
             MarcusAurelius;
           }
@@ -49,7 +49,7 @@ class StoicDocumentClass: DocumentClass {
       Frame(60%) {
         X: 45%;
         TextFamily: TextFamilies.Impact;
-        TextHeight: 50 pts;
+        TextHeight: 50pt;
         ParAlignment: Center;
         Span {
           TextCase: WordUpper;

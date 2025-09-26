@@ -1,4 +1,4 @@
-using Format, Units, IO;
+using Format, IO;
 
 namespace BookData {
   Title      = "Chief Flying Hawk's Tales";
@@ -16,7 +16,7 @@ class FlyingHawkDocumentClass: DocumentClass {
     Subject     = BookData.Subject;
   }
 
-  override GetDocument = Document(new(0.75 inches, 0.5 inches, 0.75 inches, 0.5 inches), false, 1, 0, 0, new(5.5 inches, PaperSizes.Letter.Width)) {
+  override GetDocument = Document(new(0.75", 0.5", 0.75", 0.5"), false, 1, 0, 0, new(5.5", PaperSizes.Letter.Width)) {
     Cover;
     InsideCover;
     StartPage;
@@ -28,7 +28,7 @@ class FlyingHawkDocumentClass: DocumentClass {
 
     foreach (var chapter in attribute(Chapter).Children) {
       SectionNextPage {
-        Header: MarginBlock(0.25 inches) {
+        Header: MarginBlock(0.25") {
           Paragraph {
             DocFields.PageNumber;
             Tab;
@@ -45,9 +45,9 @@ class FlyingHawkDocumentClass: DocumentClass {
     var chapter = c.Value;
     Paragraph {
       ParAlignment: Center;
-      SpaceBefore: 0.5 inches;
+      SpaceBefore: 0.5";
       TextCase: TextCases.AllUpper;
-      TextHeight: 18 pts;
+      TextHeight: 18pt;
       DocFields.Anchor(c.FullName);
       chapter.Title;
     };
@@ -57,15 +57,15 @@ class FlyingHawkDocumentClass: DocumentClass {
   Cover = Block {
     TextFamily: BookData.FontFamily;
     Paragraph {
-      TextHeight: 24 pts;
-      RightIndent: 2.5 inches;
+      TextHeight: 24pt;
+      RightIndent: 2.5";
       Bold;
       TextCase: TextCases.AllUpper;
       Title;
     };
     Paragraph {
-      SpaceBefore: 20 pts;
-      TextHeight: 18 pts;
+      SpaceBefore: 20pt;
+      TextHeight: 18pt;
       BookData.Author;
     }
   };
@@ -73,12 +73,12 @@ class FlyingHawkDocumentClass: DocumentClass {
   InsideCover = Block {
     Paragraph {
       PageBreakBefore: true;
-      FitBox(new Image(res "Firewater.jpg"), 3 inches);
+      FitBox(new Image(res "Firewater.jpg"), 3");
     }
   };
 
   StartPage = Block {
-    TextHeight: 14 pts;
+    TextHeight: 14pt;
     TextFamily: BookData.FontFamily;
     TextCase: TextCases.AllUpper;
     ParAlignment: Center;
@@ -87,7 +87,7 @@ class FlyingHawkDocumentClass: DocumentClass {
       Title;
     };
     Paragraph {
-      FitBox(new Image(res "Signature.jpg"), 3 inches);
+      FitBox(new Image(res "Signature.jpg"), 3");
     }
   };
 
@@ -95,8 +95,8 @@ class FlyingHawkDocumentClass: DocumentClass {
     TextFamily: BookData.FontFamily;
     ParAlignment: Center;
     Paragraph {
-      SpaceAfter: 8 pts;
-      TextHeight: 20 pts;
+      SpaceAfter: 8pt;
+      TextHeight: 20pt;
       TextCase: TextCases.AllUpper;
       PageBreakBefore: true;
       Title;
@@ -104,21 +104,21 @@ class FlyingHawkDocumentClass: DocumentClass {
     Paragraph {
       Bold;
       BookData.Subject;
-      SpaceAfter: 8 pts;
+      SpaceAfter: 8pt;
     };
     Paragraph {
       "As told by Chief Flying Hawk";
-      SpaceAfter: 8 pts;
+      SpaceAfter: 8pt;
     };
     Paragraph {
       "to";
-      SpaceAfter: 8 pts;
+      SpaceAfter: 8pt;
     };
     Paragraph {
       BookData.Author " (Tchanta Tanka)";
     };
     Paragraph {
-      SpaceBefore: 5 inches;
+      SpaceBefore: 5";
       "ALLIANCE PRESS";
     };
     "PUBLISHERS" Tab "NEW YORK";
@@ -127,21 +127,21 @@ class FlyingHawkDocumentClass: DocumentClass {
 
 readonly BodyParagraph = Paragraph {
   TextFamily: BookData.FontFamily;
-  TextHeight: 12 pts;
-  FirstIndent: 0.25 inches;
-  SpaceAfter: 4 pts;
+  TextHeight: 12pt;
+  FirstIndent: 0.25";
+  SpaceAfter: 4pt;
   ParAlignment: Justify;
 };
 
 readonly Quoted = Paragraph(BorderLR(QuoteBorder)) {
   TextFamily: BookData.FontFamily;
-  TextHeight: 12 pts;
-  FirstIndent: 0.25 inches;
-  SpaceAfter: 4 pts;
+  TextHeight: 12pt;
+  FirstIndent: 0.25";
+  SpaceAfter: 4pt;
   ParAlignment: Justify;
 };
 
-readonly QuoteBorder = new Edge(0.5, 6 pts, Colors.Black);
+readonly QuoteBorder = new Edge(0.5, 6pt, Colors.Black);
 
 GetPic(n, size) = FitBox(new Image(Folders.Source FileName(n) Extensions.JPG), size);
 
@@ -151,11 +151,11 @@ FullPicture(Attribute picture) = Block {
   ParAlignment: Center;
   Paragraph {
     KeepWithNext: true;
-    GetPic(p.Title, 3.5 inches);
+    GetPic(p.Title, 3.5");
   };
   Block {
-    LeftIndent: 0.25 inches;
-    RightIndent: 0.25 inches;
+    LeftIndent: 0.25";
+    RightIndent: 0.25";
     TextFamily: TextFamilies.Arial;
     Paragraph {
       DocFields.Anchor(picture.FullName);
@@ -165,7 +165,7 @@ FullPicture(Attribute picture) = Block {
     };
     Paragraph {
       ParAlignment: Justify;
-      SpaceAfter: 12 pts;
+      SpaceAfter: 12pt;
       p.?Text;
     }
   }
@@ -173,18 +173,18 @@ FullPicture(Attribute picture) = Block {
 
 Header1(text) = Paragraph {
   ParAlignment: Center;
-  SpaceBefore: 0.25 inches;
-  SpaceAfter: 12 pts;
+  SpaceBefore: 0.25";
+  SpaceAfter: 12pt;
   PageBreakBefore: true;
   TextCase: TextCases.AllUpper;
-  TextHeight: 18 pts;
+  TextHeight: 18pt;
   text;
 };
 
 ContentsLine(Attribute c) = Paragraph {
-  TextHeight: 14 pts;
+  TextHeight: 14pt;
   TextFamily: BookData.FontFamily;
-  SpaceAfter: 6 pts;
+  SpaceAfter: 6pt;
   Span {
     Action: new Action(Actions.ToAnchor, c.FullName);
     c.Value.Title;
@@ -220,8 +220,8 @@ readonly Illustrations = Block {
 
   var pw = ExtentWidth / cols;
 
-  Table(PadB(4 pts), null, [pw] * cols) {
-    TextHeight: 12 pts;
+  Table(PadB(4pt), null, [pw] * cols) {
+    TextHeight: 12pt;
     foreach (var row in picrows) {
       Row(PadB(10)) {
         PicListing(pw, each row);
@@ -232,7 +232,7 @@ readonly Illustrations = Block {
 //=========================================================================
 
 CopyrightPage = Block {
-  TextHeight: 10 pts;
+  TextHeight: 10pt;
   ParAlignment: Center;
   Paragraph {
     PageBreakBefore: true;
@@ -244,7 +244,7 @@ CopyrightPage = Block {
   };
   "ALL RIGHTS RESERVED";
   Paragraph {
-    SpaceBefore: 6 inches;
+    SpaceBefore: 6";
     TextCase: TextCases.AllUpper;
     "Printed in the United States of America";
   };
@@ -253,7 +253,7 @@ CopyrightPage = Block {
 
 Forword = Block {
   Header1("Foreword");
-  TextHeight: 10 pts;
+  TextHeight: 10pt;
   TextFamily: TextFamilies.CourierNew;
   Paragraph {
     "As Troop Commander, Headquarters Troop, 7th Cavalry, U. S. Army, stationed at Fort Bliss, Texas, I am interested in the completion of history outlining the misfortunes this Regiment encountered while under the command of General Custer at the battle of Little Big Horn. ";

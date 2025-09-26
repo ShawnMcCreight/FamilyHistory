@@ -1,4 +1,4 @@
-using Format, Units, Information.People, LinkTypes;
+using Format, Information.People, LinkTypes;
 
 readonly namespace Information;
 //===============================================================================================================

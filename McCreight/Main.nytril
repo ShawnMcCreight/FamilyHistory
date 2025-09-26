@@ -8,7 +8,7 @@ include "Wigwam/Wigwam";
 include "Flying Hawk/Flying Hawk";
 include "Stoic Quotes/Stoic Quotes";
 
-using Format, Units, Information;
+using Format, Information;
 
 //======================================================================
 
@@ -29,12 +29,12 @@ readonly PictureFolder = IO.Folders.Source;
 class FamilyAlbumClass: FamilyDocumentClass {
   Constructor {
     super.Constructor(#64607616-5b43-4146-849a-5b9b58b3e051#, "Family Album", [
-      new(Unions.DavidMary, 5.2 pts, 0),
-      new(Unions.MargretJohn, 12 pts, 6 pts),
-      new(Unions.MarieJohan, 14 pts, 10 pts),
-      new(Unions.LouisaGrandpa, 7 pts, 0),
-      new(Unions.MaryHughHamill, 8 pts, 0),
-      new(Unions.SilasSusannahHazelett, 6.5 pts, 0),
+      new(Unions.DavidMary, 5.2pt, 0),
+      new(Unions.MargretJohn, 12pt, 6pt),
+      new(Unions.MarieJohan, 14pt, 10pt),
+      new(Unions.LouisaGrandpa, 7pt, 0),
+      new(Unions.MaryHughHamill, 8pt, 0),
+      new(Unions.SilasSusannahHazelett, 6.5pt, 0),
     ]);
 
     Description = "Family history events and people";
@@ -49,9 +49,9 @@ class WebSiteClass: RealmSite {
   }
 
   override GetLayoutIcon = HBox {
-    TextHeight: 48 pts;
+    TextHeight: 48pt;
     VAlign: Bottom;
-    Shape(Palette.IconBack, Colors.White) {
+    Shape(NytrilPalette.IconBack, Colors.White) {
       Icons.spatial_audio_off;
     };
   };
@@ -60,8 +60,8 @@ class WebSiteClass: RealmSite {
 
   override GetLayoutLogo = HBox {
     VAlign: Center;
-    TextHeight: 48 pts;
-    var c = Palette.IconBack;
+    TextHeight: 48pt;
+    var c = NytrilPalette.IconBack;
 
     Shape(c, Colors.White) {
       VAlignment: VAligns.Bottom;
@@ -79,22 +79,22 @@ class WebSiteClass: RealmSite {
 
 //===============================================================
 
-class HomePageClass: SitePageClass {
+class HomePageClass: SitePage {
   Constructor {
     super.Constructor(Main.Site, #90030b29-eef6-4c57-899d-e8f5d0adce09#, "Home", "McCreight-Gofton Family History");
 
     Tiles = [
-      new DocTileClass(Main.Documents.Album, Icons.photo_album),
-      new DocTileClass(Main.Documents.Wigwam, Icons.article),
-      new DocTileClass(Main.Documents.FlyingHawk, Icons.auto_stories),
-      new DocTileClass(Main.Documents.Stoic, Icons.format_quote),
+      new DocTile(Main.Documents.Album, Icons.photo_album),
+      new DocTile(Main.Documents.Wigwam, Icons.article),
+      new DocTile(Main.Documents.FlyingHawk, Icons.auto_stories),
+      new DocTile(Main.Documents.Stoic, Icons.format_quote),
     ];
   }
 
   override GetHeader = Block {
     Paragraph {
-      TextHeight: 20 pts;
-      SpaceAfter: 20 pts;
+      TextHeight: 20pt;
+      SpaceAfter: 20pt;
       Description;
     };
   };
