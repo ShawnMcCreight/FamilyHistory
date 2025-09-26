@@ -12,21 +12,21 @@ using Format, Information;
 
 //======================================================================
 
-readonly RealmSite Main.Site = new WebSiteClass;
+readonly RealmSite Main.Site = new WebSite;
 
 readonly namespace Main.Documents {
-  Home       = new HomePageClass;
-  Album      = new FamilyAlbumClass;
+  Home       = new HomePage;
+  Album      = new FamilyAlbum;
   FlyingHawk = new FlyingHawkDocumentClass;
   Wigwam     = new WigwamDocumentClass;
-  Stoic      = new StoicDocumentClass;
+  Stoic      = new StoicDocument;
 }
 
 readonly PictureFolder = IO.Folders.Source;
 
 //===============================================================
 
-class FamilyAlbumClass: FamilyDocumentClass {
+class FamilyAlbum: FamilyDocumentClass {
   Constructor {
     super.Constructor(#64607616-5b43-4146-849a-5b9b58b3e051#, "Family Album", [
       new(Unions.DavidMary, 5.2pt, 0),
@@ -43,7 +43,7 @@ class FamilyAlbumClass: FamilyDocumentClass {
 
 //===============================================================
 
-class WebSiteClass: RealmSite {
+class WebSite: RealmSite {
   Constructor {
     super.Constructor("McCreight Family History");
   }
@@ -79,7 +79,7 @@ class WebSiteClass: RealmSite {
 
 //===============================================================
 
-class HomePageClass: SitePage {
+class HomePage: SitePage {
   Constructor {
     super.Constructor(Main.Site, #90030b29-eef6-4c57-899d-e8f5d0adce09#, "Home", "McCreight-Gofton Family History");
 

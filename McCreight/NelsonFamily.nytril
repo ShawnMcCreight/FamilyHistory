@@ -26,7 +26,7 @@ Male People.JohanNGrettveit = new(#38f4aa90-9601-486e-b1ce-4d14aea8737e#, "Johan
   Died(#1882-10-30#)
 };
 
-UnionClass Unions.MarieJohan = new(#e12666cc-8c72-494f-bc11-662bf0c6a50b#, MarieOBortveit, JohanNGrettveit) {
+Union Unions.MarieJohan = new(#e12666cc-8c72-494f-bc11-662bf0c6a50b#, MarieOBortveit, JohanNGrettveit) {
   Married(#1860-4-30#, Places.Hosanger)
 };
 
@@ -35,7 +35,7 @@ Male People.OlaiNelson = new(#11534538-625c-4d79-8710-1eb6bac31f5f#, "Olai", nul
   Died(#1950-7-27#)
 };
 
-UnionClass Unions.AnnaOlai = new(#a02e04d1-6511-4427-950a-3603ab82a80a#, AnnaVetheNelson, OlaiNelson) {
+Union Unions.AnnaOlai = new(#a02e04d1-6511-4427-950a-3603ab82a80a#, AnnaVetheNelson, OlaiNelson) {
   Married(#1897-3-24#, Places.Madison)
 };
 
@@ -50,7 +50,7 @@ Male People.RichardTNelson = new(#514d4fce-f6b9-446f-b97c-e5d173b452ce#, "Richar
   Died(#1999-12-12#)
 };
 
-UnionClass Unions.ViolaRichard = new(#46c7d321-2a1d-4e42-bc86-da4aaf801cec#, ViolaMNelson, RichardTNelson) {
+Union Unions.ViolaRichard = new(#46c7d321-2a1d-4e42-bc86-da4aaf801cec#, ViolaMNelson, RichardTNelson) {
   Married(#1931-6-26#, Places.Janesville)
 };
 
@@ -60,7 +60,7 @@ Male People.MelvinENelson = new(#d2a34809-7345-450e-a403-53a9792e7039#, "Melvin"
   Born(#1932-2-19#, Places.Beresford);
 };
 
-UnionClass Unions.CleoMelvin = new(#d6926447-0753-4a7a-bc6e-61f5a31dad22#, CleoLNelson, MelvinENelson) {
+Union Unions.CleoMelvin = new(#d6926447-0753-4a7a-bc6e-61f5a31dad22#, CleoLNelson, MelvinENelson) {
   Married(#1976-7-30#, Places.Midland)
 };
 
@@ -76,7 +76,7 @@ Male People.JeffreyPNelson = new(#11c43c55-7947-424c-92bb-01f766dcece3#, "Jeffre
   Born(#1955-9-7#, Places.Midland);
 };
 
-UnionClass Unions.PeggyJeff = new(#f9c73c57-6f3e-49b9-850e-49743777a770#, PeggyLeeNelson, JeffreyPNelson) {
+Union Unions.PeggyJeff = new(#f9c73c57-6f3e-49b9-850e-49743777a770#, PeggyLeeNelson, JeffreyPNelson) {
   Married(#1976-7-30#, Places.Midland)
 };
 
@@ -87,7 +87,7 @@ Male People.DustinFaltermeier = new(#3f281681-7b30-46c7-b918-f718ada28347#, "Dus
   Died(#2024-11-2#);
 };
 
-UnionClass Unions.KristyDustin = new(#b1316ee0-9cf2-4750-908a-1c50c8294658#, KristyLeeJordan, DustinFaltermeier) {
+Union Unions.KristyDustin = new(#b1316ee0-9cf2-4750-908a-1c50c8294658#, KristyLeeJordan, DustinFaltermeier) {
   Married(#2022-9-24#);
 };
 
@@ -112,7 +112,7 @@ Male People.JasonWJordan = new(#e7be8093-a1d9-4e3e-b311-8e8bee8e8c82#, "Jason", 
   Born(#1973-5-5#, Places.Freemont);
 };
 
-UnionClass Unions.KristyJason = new(#cc0fe7be-103f-4e05-b608-8308d59b2161#, KristyLeeJordan, JasonWJordan) {
+Union Unions.KristyJason = new(#cc0fe7be-103f-4e05-b608-8308d59b2161#, KristyLeeJordan, JasonWJordan) {
   Married(#2005-2-26#);
   Divorced(#2005-9#)
 };
@@ -141,7 +141,7 @@ Female People.TiffanyFrye = new(#4f902a70-8428-4d08-8474-e6b10ddcea3b#, "Tiffany
   Born(#2000-11-8#, Places.FortWayne);
 };
 
-UnionClass Unions.TiffanyKevin = new(#1ecae606-71d1-43bd-966f-13a9df6e7abc#, TiffanyFrye, KevinMichaelNelson);
+Union Unions.TiffanyKevin = new(#1ecae606-71d1-43bd-966f-13a9df6e7abc#, TiffanyFrye, KevinMichaelNelson);
 
 Female People.CaitlinMNelson = new(#442db7e5-72e6-489d-b2b8-c5950d72557b#, "Caitlin", "M.", Nelson, Unions.TiffanyKevin, res "CaitlinMNelson.jpg") {
   Born(#2000-11-8#, Places.FortWayne)
@@ -162,12 +162,12 @@ Male People.ChadMaroney = new(#3f9533a9-0643-4c5f-b1c3-b5af848e3b77#, "Chad", nu
   Born(#1971-3-28#, Places.FortWayne)
 };
 
-UnionClass Unions.LisaPhillip = new(#fb355d2c-0a79-42b1-a144-4e7f91933f07#, LisaAnnMaroney, PhillipRosier) {
+Union Unions.LisaPhillip = new(#fb355d2c-0a79-42b1-a144-4e7f91933f07#, LisaAnnMaroney, PhillipRosier) {
   Married(#2003-8-23#);
   Divorced(#2014#);
 };
 
-UnionClass Unions.LisaChad = new(#d044e6a5-5569-4efe-8657-93813dc197b2#, LisaAnnMaroney, ChadMaroney) {
+Union Unions.LisaChad = new(#d044e6a5-5569-4efe-8657-93813dc197b2#, LisaAnnMaroney, ChadMaroney) {
   Married(#2019-4-29#);
   Divorced(#2022-8#);
 };
@@ -188,7 +188,7 @@ Female People.JeannieSmithProut = new(#c6a00ad4-6b6f-46ba-b6a5-5077153461ca#, "J
 
 Male People.ThomasProut = new(#bfb4bdb9-2b33-4524-9338-0d4a6258ca11#, "Thomas", null, "Prout");
 
-UnionClass Unions.JeannieThomas = new(#a3523247-64f8-4563-aa9b-f7b1d89d601d#, JeannieSmithProut, ThomasProut);
+Union Unions.JeannieThomas = new(#a3523247-64f8-4563-aa9b-f7b1d89d601d#, JeannieSmithProut, ThomasProut);
 
 //=========================================
 
@@ -203,7 +203,7 @@ Male People.JohnGofton = new(#f86e74f0-ef2e-4896-929f-734e06cda01d#, "John", nul
   Died(#1931-4-26#);
 };
 
-UnionClass Unions.MargretJohn = new(#eed22325-9080-4ceb-a10b-4451e022b400#, MargretGofton, JohnGofton) {
+Union Unions.MargretJohn = new(#eed22325-9080-4ceb-a10b-4451e022b400#, MargretGofton, JohnGofton) {
   Married(#1899-1-23#);
 };
 //=========================================
@@ -219,7 +219,7 @@ Male People.NathanialGofton = new(#4e2954c7-dbef-4fc1-be90-962440034a4e#, "Natha
   Died(#1928-1-18#);
 };
 
-UnionClass Unions.MaryNathanial = new(#5061400b-c215-4fc9-a144-497c28b5b3e0#, MaryAGofton, NathanialGofton) {
+Union Unions.MaryNathanial = new(#5061400b-c215-4fc9-a144-497c28b5b3e0#, MaryAGofton, NathanialGofton) {
   Married(#1899-1-23#);
 };
 
@@ -234,7 +234,7 @@ Male People.ClaudeGofton = new(#366b131d-0767-4af5-996c-b6369f263dc6#, "Claude",
   Died(#1952-2-16#);
 };
 
-UnionClass Unions.LoisClaude = new(#9e60706e-8ec3-40fa-8a1e-9930eac6211f#, LoisLelandGofton, ClaudeGofton) {
+Union Unions.LoisClaude = new(#9e60706e-8ec3-40fa-8a1e-9930eac6211f#, LoisLelandGofton, ClaudeGofton) {
   Married(#1899-1-23#);
 };
 

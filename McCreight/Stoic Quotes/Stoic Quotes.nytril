@@ -1,6 +1,6 @@
 using Format;
 
-class StoicDocumentClass: DocumentClass {
+class StoicDocument: DocumentClass {
   Constructor {
     super.Constructor(#0f563bd0-e542-45d8-9c4b-f99396114724#, "Stoic Quotes");
     Description = "Stoic quotes that will change your life";
