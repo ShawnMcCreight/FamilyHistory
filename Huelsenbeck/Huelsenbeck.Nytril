@@ -1,4 +1,4 @@
-using Format, Information.People, LinkTypes;
+using Information.People, LinkTypes;
 
 readonly namespace Information;
 //===============================================================================================================
@@ -22,7 +22,7 @@ Female People.NikkiSueGrant = new(#9d7159cc-e079-404b-ac62-6831c14b1390#, "Nikki
   Died(#2016-10-22#)
 };
 
-UnionClass Unions.PeteNikki = new(#e2902500-4ee8-469e-a07d-34aee40580ae#, NikkiSueGrant, PeterWilfredHuelsenbeck) {
+Union Unions.PeteNikki = new(#e2902500-4ee8-469e-a07d-34aee40580ae#, NikkiSueGrant, PeterWilfredHuelsenbeck) {
   Married(#1965-2-5#)
 };
 //=====================================
@@ -35,7 +35,7 @@ Female People.BarbaraKramer = new(#6aa8f999-2582-4d85-a292-7e91e8fba357#, "Barba
   Born(#1967-10-27#, Places.RedBankNJ)
 };
 
-UnionClass Unions.MartinBarbara = new(#f31850f3-bf42-4881-b8c4-ca7b875bc8f9#, BarbaraKramer, MartinKramer) {
+Union Unions.MartinBarbara = new(#f31850f3-bf42-4881-b8c4-ca7b875bc8f9#, BarbaraKramer, MartinKramer) {
   Married(#2015-4-29#, Cities.SanFrancisco)
 };
 //=====================================
@@ -57,12 +57,12 @@ Female People.EdnaTelanYeh = new(#928a47a4-9a62-4cf1-8709-b1a473e366bc#, "Edna",
   Born(#1966-6-4#, Places.Ellensburg)
 };
 
-UnionClass Unions.EdnaJohn = new(#68118310-570d-4ba7-8a51-adbeee979ed3#, EdnaTelanYeh, JohnPeterHuelsenbeck) {
+Union Unions.EdnaJohn = new(#68118310-570d-4ba7-8a51-adbeee979ed3#, EdnaTelanYeh, JohnPeterHuelsenbeck) {
   Married(#1990-7-21#, Places.Ellensburg);
   Divorced(#2014-12-19#)
 };
 
-UnionClass Unions.SoniaJohn = new(#493697c2-fbcb-4dfb-9f8d-a11f62f711fb#, SoniaHuelsenbeck, JohnPeterHuelsenbeck) {
+Union Unions.SoniaJohn = new(#493697c2-fbcb-4dfb-9f8d-a11f62f711fb#, SoniaHuelsenbeck, JohnPeterHuelsenbeck) {
   Married(#2015-4-29#, Cities.SanFrancisco)
 };
 
@@ -77,7 +77,7 @@ Female People.ElizabethClaireHuelsenbeck = new(#a1547890-a325-442a-8fcf-c81335ed
 };
 //=====================================
 
-StoryClass Stories.SoniaAndJohnMet = new(#2daaa206-c69f-4345-912b-f55c1eb540ce#, JohnPeterHuelsenbeck, "When Sonia met John", #2015#, res "SoniaAndJohnMet.jpg") {
+Story Stories.SoniaAndJohnMet = new(#2daaa206-c69f-4345-912b-f55c1eb540ce#, JohnPeterHuelsenbeck, "When Sonia met John", #2015#, res "SoniaAndJohnMet.jpg") {
   Text: Styles.Story {
     "I met " ListPeople([SoniaHuelsenbeck]) " in the biology building at UC Berkeley.";
   };

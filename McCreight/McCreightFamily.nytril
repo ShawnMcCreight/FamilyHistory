@@ -1,4 +1,4 @@
-using Format, Information.People, LinkTypes;
+using Information.People, LinkTypes;
 
 //======================================================================
 
