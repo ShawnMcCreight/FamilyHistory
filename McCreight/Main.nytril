@@ -17,7 +17,7 @@ readonly RealmSite Main.Site = new WebSite;
 readonly namespace Main.Documents {
   Home       = new HomePage;
   Album      = new FamilyAlbum;
-  FlyingHawk = new FlyingHawkDocumentClass;
+  FlyingHawk = new FlyingHawkDocument;
   Wigwam     = new WigwamDocumentClass;
   Stoic      = new StoicDocument;
 }
@@ -26,7 +26,7 @@ readonly PictureFolder = IO.Folders.Source;
 
 //===============================================================
 
-class FamilyAlbum: FamilyDocumentClass {
+class FamilyAlbum: FamilyDocument {
   Constructor {
     super.Constructor(#64607616-5b43-4146-849a-5b9b58b3e051#, "Family Album", [
       new(Unions.DavidMary, 5.2pt, 0),

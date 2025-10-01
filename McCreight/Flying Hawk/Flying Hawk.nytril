@@ -7,7 +7,7 @@ namespace BookData {
   FontFamily = TextFamilies.TimesNewRoman;
 }
 
-class FlyingHawkDocumentClass: DocumentClass {
+class FlyingHawkDocument: DocumentEntry {
   Constructor {
     super.Constructor(#10bcffc4-0f73-4a6f-bd47-1e58d7ce27c2#, "Chief Flying Hawk's Tales");
     Description = "The True Story of Custer's Last Fight - M.I. McCreight";

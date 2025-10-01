@@ -1,6 +1,6 @@
 using Format;
 
-class WigwamDocumentClass: DocumentClass {
+class WigwamDocumentClass: DocumentEntry {
   Constructor {
     super.Constructor(#d3b10908-4e06-4de0-9602-d20001007825#, "Wigwam");
     Description = "The short autobiography of M.I. McCreight";
