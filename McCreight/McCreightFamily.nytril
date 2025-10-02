@@ -21,30 +21,30 @@ California   = "California";
 Indiana      = "Indiana";
 
 
-namespace Places {
-  City Charleston      = new(#eb0554d1-5422-4319-b366-9705953226cb#, "Charleston") {Link to USStates.SouthCarolina};
-  City GeorgevillePA   = new(#3ab81a93-eb4d-4490-ae03-2f340b95a24e#, "Georgeville") {Link to USStates.Pennsylvania};
-  City Shelocta        = new(#0a49a03e-d913-46bd-b012-00aca05cb5dc#, "Shelocta") {Link to USStates.Pennsylvania};
-  City CrookedCreekPA  = new(#1be2ba17-f648-4c7c-8b76-7d5202cbb0ed#, "Crooked Creek") {Link to USStates.Pennsylvania};
-  City NewKensington   = new(#a783890a-5e40-4597-a337-12c723d4a092#, "New Kensington") {Link to USStates.Pennsylvania};
-  City Pasadena        = new(#b1ca168c-0801-422c-b495-8f6ecc2d66d8#, "Pasadena") {Link to USStates.California};
-  City SanBernardino   = new(#f45b731f-bbf6-4b36-b6ec-168c4ef801b0#, "San Bernardino") {Link to USStates.California};
-  City Saginaw         = new(#a049a312-6a78-4eba-abf8-492a1c7cf929#, "Saginaw") {Link to USStates.Michigan};
-  City Midland         = new(#46072b23-7532-46f8-86a0-84be38495052#, "Midland") {Link to USStates.Michigan};
-  City Flushing        = new(#a2ae18a4-e454-45a7-a57d-8fa4e5193381#, "Flushing") {Link to USStates.Michigan};
-  City Applegate       = new(#d816c004-4346-48c1-a759-2f8905f62a0c#, "Applegate") {Link to USStates.Michigan};
-  City Janesville      = new(#695cbe2e-030d-43dc-9539-9911719968e7#, "Janesville") {Link to USStates.Wisconsin};
-  City Madison         = new(#7bca01b8-d660-45a8-bf42-f06bae7fd7fc#, "Madison") {Link to USStates.Wisconsin};
-  City FortWayne       = new(#1eda20d3-0e37-4276-a1e5-69714295725e#, "Fort Wayne") {Link to USStates.Indiana};
-  City Beresford       = new(#379573cc-cdd7-4c76-bc24-d416a93bd06d#, "Beresford") {Link to USStates.SouthDakota};
-  City Durban          = new(#b0ed40a0-bd2c-4925-b993-50a2fe10e97f#, "Durban") {Link to Countries.SouthAfrica};
-  City Bergan          = new(#ac12ce00-e0a9-4711-9b98-7881072f3ffd#, "Bergan") {Link to Countries.Norway};
-  City Voss            = new(#8b019f15-76b1-4edf-b6e2-7d2162bf1c71#, "Voss") {Link to Countries.Norway};
-  City Hosanger        = new(#1d4ebce4-da1c-481d-8c61-12f0bd9f4057#, "Hosanger") {Link to Countries.Norway};
-  City Laurel          = new(#3d2771e5-6ce8-42f6-b967-cb42d5768c7e#, "Laurel") {Link to USStates.Nebraska};
-  City Oxford          = new(#0570f866-87ee-457b-b7d1-d844bc99cfab#, "Oxford") {Link to Countries.Canada};
-  City Glasgow         = new(#f99afa9d-b690-41df-be32-1b26fd906f48#, "Glasgow") {Link to Countries.Scotland};
-  City Freemont        = new(#c57ba5e6-3cd7-4c57-a649-d39e0604ad6a#, "Freemont") {Link to USStates.Ohio};
+namespace<City> Places {
+  Charleston      = new(#eb0554d1-5422-4319-b366-9705953226cb#, "Charleston") {Link to USStates.SouthCarolina};
+  GeorgevillePA   = new(#3ab81a93-eb4d-4490-ae03-2f340b95a24e#, "Georgeville") {Link to USStates.Pennsylvania};
+  Shelocta        = new(#0a49a03e-d913-46bd-b012-00aca05cb5dc#, "Shelocta") {Link to USStates.Pennsylvania};
+  CrookedCreekPA  = new(#1be2ba17-f648-4c7c-8b76-7d5202cbb0ed#, "Crooked Creek") {Link to USStates.Pennsylvania};
+  NewKensington   = new(#a783890a-5e40-4597-a337-12c723d4a092#, "New Kensington") {Link to USStates.Pennsylvania};
+  Pasadena        = new(#b1ca168c-0801-422c-b495-8f6ecc2d66d8#, "Pasadena") {Link to USStates.California};
+  SanBernardino   = new(#f45b731f-bbf6-4b36-b6ec-168c4ef801b0#, "San Bernardino") {Link to USStates.California};
+  Saginaw         = new(#a049a312-6a78-4eba-abf8-492a1c7cf929#, "Saginaw") {Link to USStates.Michigan};
+  Midland         = new(#46072b23-7532-46f8-86a0-84be38495052#, "Midland") {Link to USStates.Michigan};
+  Flushing        = new(#a2ae18a4-e454-45a7-a57d-8fa4e5193381#, "Flushing") {Link to USStates.Michigan};
+  Applegate       = new(#d816c004-4346-48c1-a759-2f8905f62a0c#, "Applegate") {Link to USStates.Michigan};
+  Janesville      = new(#695cbe2e-030d-43dc-9539-9911719968e7#, "Janesville") {Link to USStates.Wisconsin};
+  Madison         = new(#7bca01b8-d660-45a8-bf42-f06bae7fd7fc#, "Madison") {Link to USStates.Wisconsin};
+  FortWayne       = new(#1eda20d3-0e37-4276-a1e5-69714295725e#, "Fort Wayne") {Link to USStates.Indiana};
+  Beresford       = new(#379573cc-cdd7-4c76-bc24-d416a93bd06d#, "Beresford") {Link to USStates.SouthDakota};
+  Durban          = new(#b0ed40a0-bd2c-4925-b993-50a2fe10e97f#, "Durban") {Link to Countries.SouthAfrica};
+  Bergan          = new(#ac12ce00-e0a9-4711-9b98-7881072f3ffd#, "Bergan") {Link to Countries.Norway};
+  Voss            = new(#8b019f15-76b1-4edf-b6e2-7d2162bf1c71#, "Voss") {Link to Countries.Norway};
+  Hosanger        = new(#1d4ebce4-da1c-481d-8c61-12f0bd9f4057#, "Hosanger") {Link to Countries.Norway};
+  Laurel          = new(#3d2771e5-6ce8-42f6-b967-cb42d5768c7e#, "Laurel") {Link to USStates.Nebraska};
+  Oxford          = new(#0570f866-87ee-457b-b7d1-d844bc99cfab#, "Oxford") {Link to Countries.Canada};
+  Glasgow         = new(#f99afa9d-b690-41df-be32-1b26fd906f48#, "Glasgow") {Link to Countries.Scotland};
+  Freemont        = new(#c57ba5e6-3cd7-4c57-a649-d39e0604ad6a#, "Freemont") {Link to USStates.Ohio};
 }
 
 //============================================================================================================
