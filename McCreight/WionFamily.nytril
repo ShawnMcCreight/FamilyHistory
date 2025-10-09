@@ -30,6 +30,8 @@ Female People.HalieJaneWion = new(#ada92f74-014c-47b7-ac6e-259266479b44#, "Haili
 //============================================================================================================
 
 Union Unions.JeanineRichardWion   = new(#e966584d-57df-4010-99b3-a15008543389#, RichardWion, JeanineCline);
-Union Unions.CharlotteCharlesWion = new(#e0314167-ef79-4372-a879-a7ab94526c55#, CharlotteWion, CharlesWion, #1964-3-8#);
+Union Unions.CharlotteCharlesWion = new(#e0314167-ef79-4372-a879-a7ab94526c55#, CharlotteWion, CharlesWion) {
+  Married(#1964-3-8#);
+}; 
 //============================================================================================================
 

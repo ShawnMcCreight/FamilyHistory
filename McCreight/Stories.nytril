@@ -47,7 +47,7 @@ Story CraigLuca = new(#c40428dc-80a8-4328-a0db-eaca6ae759a1#, null, "Luca gets a
   }
 };
 
-Story EmersonLouiseMylerBorn = new(#f5ae23fd-b437-45ae-8a48-555e72c75e03#, null, "Emerson Myler \"Emmy Lou\" is born", EmersonLouiseMyler.Date, res "EmersonLouiseMylerBorn.jpg") {
+Story EmersonLouiseMylerBorn = new(#f5ae23fd-b437-45ae-8a48-555e72c75e03#, null, "Emerson Myler \"Emmy Lou\" is born", EmersonLouiseMyler.Born, res "EmersonLouiseMylerBorn.jpg") {
   Text: Styles.Story {
     ListPeople([AmeliaMaeMyler, WilliamCharlesMyler]);
     " welcomed their daughter ";
@@ -63,7 +63,7 @@ Story CousinsMackinacIsland = new(#3a9cf1d8-ab73-49fb-b348-5087954b29fb#, null, 
   }
 };
 
-Story AmeliaBillyWedding = new(#2bbb32eb-ab08-45fe-9a9c-2d7e90aee0f6#, null, "The wedding of Amelia and Billy", Unions.AmeliaBilly.Date, res "AmeliaBillyWedding.jpg") {
+Story AmeliaBillyWedding = new(#2bbb32eb-ab08-45fe-9a9c-2d7e90aee0f6#, null, "The wedding of Amelia and Billy", Unions.AmeliaBilly.MarriedDate, res "AmeliaBillyWedding.jpg") {
   Text: Styles.Story {
     "The wedding of ";
     ListPeople([AmeliaMaeMyler, WilliamCharlesMyler]);
@@ -71,7 +71,7 @@ Story AmeliaBillyWedding = new(#2bbb32eb-ab08-45fe-9a9c-2d7e90aee0f6#, null, "Th
   }
 };
 
-Story AbigailMarieMcCreightBorn = new(#21824b6b-cbfd-4cb0-8b25-6457d86b1fc7#, null, "Abigail McCreight is born", People.AbigailMarieMcCreight.Date, res "AbigailMarieMcCreightBorn.jpg") {
+Story AbigailMarieMcCreightBorn = new(#21824b6b-cbfd-4cb0-8b25-6457d86b1fc7#, null, "Abigail McCreight is born", People.AbigailMarieMcCreight.Born, res "AbigailMarieMcCreightBorn.jpg") {
   Text: Styles.Story {
     ListPeople([AlyssaMarieMcCreight, ThomasDanielMcCreight]);
     " welcomed their daughter ";
@@ -80,7 +80,7 @@ Story AbigailMarieMcCreightBorn = new(#21824b6b-cbfd-4cb0-8b25-6457d86b1fc7#, nu
   }
 };
 
-Story LucaRobertCalderoniBorn = new(#590a0fa5-3011-481b-87a1-73e6cd41afc3#, null, "Luca Calderoni is born", People.LucaRobertCalderoni.Date, res "LucaRobertCalderoniBorn.jpg") {
+Story LucaRobertCalderoniBorn = new(#590a0fa5-3011-481b-87a1-73e6cd41afc3#, null, "Luca Calderoni is born", People.LucaRobertCalderoni.Born, res "LucaRobertCalderoniBorn.jpg") {
   Text: Styles.Story {
     ListPeople([MichelleNicholeCalderoni, RobertCalderoni]);
     " are overjoyed at the birth of " ListPeople([LucaRobertCalderoni]);
@@ -90,7 +90,7 @@ Story LucaRobertCalderoniBorn = new(#590a0fa5-3011-481b-87a1-73e6cd41afc3#, null
   }
 };
 
-Story ScarlettMaeYunckerBorn = new(#c78be850-001d-4af3-82b5-5381939b848a#, null, "Scarlett Yuncker is born", ScarlettMaeYuncker.Date, res "ScarlettMaeYunckerBorn.jpg") {
+Story ScarlettMaeYunckerBorn = new(#c78be850-001d-4af3-82b5-5381939b848a#, null, "Scarlett Yuncker is born", ScarlettMaeYuncker.Born, res "ScarlettMaeYunckerBorn.jpg") {
   Text: Styles.Story {
     ListPeople([RanaedaMarieYuncker, AnthonyYuncker]);
     " celebrate the birth of ";
@@ -98,7 +98,7 @@ Story ScarlettMaeYunckerBorn = new(#c78be850-001d-4af3-82b5-5381939b848a#, null,
   }
 };
 
-Story AlyssaTomWedding = new(#dfac800f-99a4-4435-8d7e-4bd5ab7f2a09#, null, "The wedding of Alyssa and Tom", Unions.AlyssaTom.Date, res "AlyssaTomWedding.jpg") {
+Story AlyssaTomWedding = new(#dfac800f-99a4-4435-8d7e-4bd5ab7f2a09#, null, "The wedding of Alyssa and Tom", Unions.AlyssaTom.MarriedDate, res "AlyssaTomWedding.jpg") {
   Text: Styles.Story {
     "The wedding of " ListPeople([ThomasDanielMcCreight, AlyssaMarieMcCreight]);
     " took place at St. Joseph Catholic Church in Dexter, Michigan. ";

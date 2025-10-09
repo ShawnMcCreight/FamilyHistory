@@ -51,7 +51,7 @@ namespace<City> Places {
 
 Female People.MaryMcCreight = new(#fd9e1cab-0c83-4c34-9de5-640532c3f234#, "Mary", null, McCreight) {
   Born(null, Countries.Ireland);
-  Died(#1780-1-19#)
+  Died(#1780-1-19#);
 };
 
 Male People.DavidMcCreight = new(#e6d659cb-e9f0-468e-9a96-e6f42b81af49#, "David", null, McCreight) {
@@ -299,7 +299,7 @@ Male People.JamesMarlinMcCreight = new(#f0bca1bf-b244-4365-9bd6-df30da955e8a#, "
 };
 
 Female People.ElizabethMcCreight = new(#9a814939-1a5a-4220-86e4-f8b6522f0b19#, "Elizabeth", null, McCreight, Unions.SallyJames) {
-  Born(#1897#)
+  Born(#1897#);
 };
 
 //=====================================
@@ -543,7 +543,7 @@ Male People.ClarenceGrantKerr = new(#d4a80ad9-00dc-438f-b8d5-dd8c6dbf09c7#, "Cla
 };
 
 Union Unions.InezClarence = new(#c1141155-85ae-414b-bb25-157a49c839a5#, InezMargaretKerr, ClarenceGrantKerr) {
-  Married(#1921-3-31#)
+  Married(#1921-3-31#);
 };
 
 //=====================================
@@ -562,7 +562,7 @@ Female People.FlorenceGertrudeMcCreight = new(#3f2f1bb8-f446-48c8-8060-d618345d5
 
 Male People.JohnHamillMcCreight = new(#51a304b0-0892-43c3-b28f-78b99492fac3#, "John", Hamill, McCreight, Unions.JennieJohn, res "JohnHamillMcCreight.jpg") {
   Died(#1965-10-9#);
-  Born(#1904-5-21#)
+  Born(#1904-5-21#);
 };
 
 //=====================================
@@ -617,11 +617,11 @@ Female People.MaryJoanMcCreight = new(#4a57e9bb-d074-4855-a8ff-f519e67c4885#, "M
 Male People.JohnHarryMcCreight = new(#ac75d664-479b-4288-8100-5766e14d772b#, "John", "Harry", McCreight, Unions.FloJohn, res "JohnHarryMcCreight.jpg") {
   Nick("Jack");
   Born(#1931-8-9#);
-  Died(#1976-4-23#)
+  Died(#1976-4-23#);
 };
 
 Union Unions.JoanJack = new(#e02665d5-197b-47ee-96d5-2742d647afeb#, MaryJoanMcCreight, JohnHarryMcCreight) {
-  Married(#1958-12-2#)
+  Married(#1958-12-2#);
 };
 
 //=====================================
@@ -629,7 +629,7 @@ Union Unions.JoanJack = new(#e02665d5-197b-47ee-96d5-2742d647afeb#, MaryJoanMcCr
 Male People.RalphEmersonMcCreight = new(#f5ecd86b-7c12-4890-b423-058d48314657#, "Ralph", "Emerson", McCreight, Unions.FloJohn, res "RalphEmersonMcCreight.jpg") {
   Nick("Whitey");
   Born(#1936-12-26#);
-  Died(#2003-10-9#)
+  Died(#2003-10-9#);
 };
 
 Female People.JanetMcCreight = new(#db69ac93-82a0-4eb5-ba60-674fea31e630#, "Janet", "Jane", McCreight, null, res "JanetMcCreight.jpg") {
@@ -639,7 +639,7 @@ Female People.JanetMcCreight = new(#db69ac93-82a0-4eb5-ba60-674fea31e630#, "Jane
 };
 
 Union Unions.JanetRalph = new(#967c5da9-bae8-4e32-9ad8-a60aef3b29df#, JanetMcCreight, RalphEmersonMcCreight) {
-  Married(#1959-11-28#)
+  Married(#1959-11-28#);
 };
 
 //=====================================
@@ -658,7 +658,7 @@ Male People.RobertJohnGofton = new(#c0e97492-9bee-4630-9b75-241ecf71360f#, "Robe
 };
 
 Union Unions.FloBob = new(#09b224b2-4b9a-4a4a-b97d-24d3d7631f72#, FlorenceJaneGofton, RobertJohnGofton) {
-  Married(#1950-12-21#)
+  Married(#1950-12-21#);
 };
 
 //=====================================
@@ -711,7 +711,7 @@ Male People.RyanGorman = new(#7d1ed539-93c6-4e0f-ba3a-502512830821#, "Ryan", nul
 
 
 Male People.AdamRussellGofton = new(#af28eab0-9c3a-49d6-bcce-b2dddc67fb3b#, "Adam", "Russell", Gofton, Unions.JamesSharon) {
-  Born(#1987-3-12#)
+  Born(#1987-3-12#);
 };
 
 Female People.ChaslynGofton = new(#6e47eb28-4690-4cf3-acac-d65e4569e2c0#, "Chaslyn", "Duffek", Gofton);
@@ -729,45 +729,45 @@ Female People.LoriChun = new(#3adfa398-f03f-4e31-9e66-da3bcec3c608#, "Lori", nul
 };
 
 Male People.JohnCraigMcCreight = new(#4d24dfa6-2001-4ed3-9fa6-3c97cf265eef#, "John", "Craig", McCreight, Unions.JoanJack, res "JohnCraigMcCreight.jpg") {
-  Born(#1962-7-2#)
+  Born(#1962-7-2#);
 };
 
 Union Unions.LoriJohn = new(#2e2be4ec-738b-4684-ae3a-86c0c4f6577d#, LoriChun, JohnCraigMcCreight) {
   Married(#2005-6-25#);
-  DivorceDate: #2010#
+  DivorceDate: #2010#;
 };
 
 //=====================================
 
 Female People.JoannaMcCreight = new(#a22a6671-e2c6-42c1-a0d5-403a1b2499b0#, "Joanna", "Marie", McCreight, Unions.LoriJohn) {
-  Born(#2004-1-8#)
+  Born(#2004-1-8#);
 };
 
 Female People.AmandaMcCreight = new(#1d87c65d-3262-4356-832b-6487bab9b2c0#, "Amanda", "Rose", McCreight, Unions.LoriJohn) {
-  Born(#2007-5-2#)
+  Born(#2007-5-2#);
 };
 
 //=====================================
 
 Male People.CraigJohnMcCreight = new(#cafac9be-f5cd-4960-a473-476fd2bef644#, "Craig", "John", McCreight, Unions.JoanJack, res "CraigJohnMcCreight.jpg") {
-  Born(#1964-8-17#, Places.SanBernardino)
+  Born(#1964-8-17#, Places.SanBernardino);
 };
 
 Female People.TheresaMaryMcCreight = new(#feb2a857-d3c4-4644-8b1c-089002c41f09#, "Theresa", "Mary", McCreight, null, res "TheresaMaryMcCreight.jpg") {
   Nick("Terry");
   Formerly("Furlong");
-  Born(#1960#)
+  Born(#1960#);
 };
 
 Female People.MarianneElizabethFrontino = new(#7db75475-b816-4e6f-a4bb-f9db0d3b33e6#, "Marianne", "Elizabeth", "Frontino") {
 };
 
 Union Unions.MarianneCraig = new(#4829b344-b7f8-490b-a081-6e1fc687ab18#, MarianneElizabethFrontino, CraigJohnMcCreight) {
-  Married(#1986-9-6#)
+  Married(#1986-9-6#);
 };
 
 Union Unions.TerryCraig = new(#7862c06c-7321-4933-b8c7-4a78bae2a23a#, TheresaMaryMcCreight, CraigJohnMcCreight) {
-  Married(#2017-7-21#)
+  Married(#2017-7-21#);
 };
 
 //=====================================
@@ -783,15 +783,15 @@ Male People.ThomasDanielMcCreight = new(#63ab5c33-7f28-45de-8d8f-337724e54278#, 
 };
 
 Union Unions.AlyssaTom = new(#59f2b35b-85a8-4988-8cbf-eb56272ad205#, AlyssaMarieMcCreight, ThomasDanielMcCreight) {
-  Married(#2020-7-10#)
+  Married(#2020-7-10#);
 };
 
 Female People.AbigailMarieMcCreight = new(#5191808b-1acd-4169-8e92-0717a7867d4e#, "Abigail", "Marie", McCreight, Unions.AlyssaTom, res "AbigailMarieMcCreight.jpg") {
-  Born(#2021-6-19#)
+  Born(#2021-6-19#);
 };
 
 Female People.ElijahJohnMcCreight = new(#bc96c347-bcb7-49f5-960d-0a3f93fb3b59#, "Elijah", "John", McCreight, Unions.AlyssaTom, res "ElijahJohnMcCreight.jpg") {
-  Born(#2024-4-20#)
+  Born(#2024-4-20#);
 };
 
 //=====================================
@@ -802,7 +802,7 @@ Female People.KatherineMarieStanifer = new(#e1f5d34a-a0eb-4265-bad2-50b8b21bade1
 };
 
 Female People.WilliamStanifer = new(#22c2979a-dcf6-46c8-a97c-565aa3baee24#, "William", null, "Stanifer", null, res "WilliamStanifer.jpg") {
-  Nick("Bill")
+  Nick("Bill");
 };
 
 Union Unions.KatherineBill = new(#0de57ba9-0355-4502-9257-93cde511ff01#, KatherineMarieStanifer, WilliamStanifer) {
@@ -824,37 +824,37 @@ Female People.GraceStanifer = new(#070e0d7a-9c91-439c-9f22-df7280ef3d0a#, "Grace
 
 Female People.MichelleNicholeCalderoni = new(#88b374a4-078d-4871-9961-f2d34b80d3c1#, "Michelle", "Nichole", "Calderoni", Unions.MarianneCraig, res "MichelleNicholeCalderoni.jpg") {
   Formerly(McCreight);
-  Born(#1988-1-21#)
+  Born(#1988-1-21#);
 };
 
 Male People.RobertCalderoni = new(#ce3289dc-f6e2-48af-877d-f0afc9fffa6f#, "Robert", null, "Calderoni", null, res "RobertCalderoni.jpg") {
   Nick("Bobby");
-  Born(#1988-1-21#)
+  Born(#1988-1-21#);
 };
 
 Union Unions.MichelleBobby = new(#607d726c-1e99-4633-b8fc-5ef7bde06126#, MichelleNicholeCalderoni, RobertCalderoni) {
-  Married(#2019-7-8#)
-  Divorced(#2024#)
+  Married(#2019-7-8#);
+  Divorced(#2024#);
 };
 
 Male People.LucaRobertCalderoni = new(#a591debf-8d67-40b4-84a7-38f39b1426be#, "Luca", "Robert", "Calderoni", Unions.MichelleBobby, res "LucaRobertCalderoni.jpg") {
-  Born(#2020-8-17#)
+  Born(#2020-8-17#);
 };
 
 //=====================================
 
 Male People.ShawnHamillMcCreight = new(#bcda8125-3a48-448e-ae75-9cc8c5dca2e4#, "Shawn", Hamill, McCreight, Unions.JoanJack, res "ShawnHamillMcCreight.jpg") {
-  Born(#1966-2-5#, Places.SanBernardino)
+  Born(#1966-2-5#, Places.SanBernardino);
 };
 
 Female People.JenniferLynnMcCreight = new(#ad9abe98-d0d6-4023-84c2-cca0ca0da570#, "Jennifer", "Lynn", McCreight, Unions.CharlotteCharlesWion, res "JenniferLynnMcCreight.jpg") {
-  Nick("Jen")
+  Nick("Jen");
   Formerly("Wion");
-  Born(#1968-2-16#)
+  Born(#1968-2-16#);
 };
 
 Union Unions.JenniferShawn = new(#03244646-fa91-4689-b2ec-41df44f61370#, JenniferLynnMcCreight, ShawnHamillMcCreight) {
-  Married(#1995-6-17#)
+  Married(#1995-6-17#);
 };
 
 //=====================================
@@ -872,7 +872,7 @@ Female People.LaurenLynnMcCreight = new(#9ab10575-6eea-4462-9a0e-e764aa5808fc#, 
 };
 
 Female People.ShannonReneeMcCreight = new(#9e733e88-3f04-417f-8601-c26cd521fc61#, "Shannon", "Renee", McCreight, Unions.JoanJack, res "ShannonReneeMcCreight.jpg") {
-  Born(#1968-8-10#, Places.SanBernardino)
+  Born(#1968-8-10#, Places.SanBernardino);
 };
 
 //=====================================
@@ -889,7 +889,7 @@ Male People.ClaytonAlanMcCreight = new(#e75bfbf8-6431-4f9f-a881-c3913c088f07#, "
 };
 
 Union Unions.LisaClay = new(#11c9b93b-35af-4f72-8e6f-8c50cec14405#, LisaLouiseMcCreight, ClaytonAlanMcCreight) {
-  Married(#1987-5-9#)
+  Married(#1987-5-9#);
 };
 
 //=====================================
@@ -904,7 +904,7 @@ Male People.AnthonyYuncker = new(#69f9752b-a66d-4c79-9471-665fa10c4d12#, "Anthon
 };
 
 Union Unions.RenaedaAnthony = new(#1bc56fd2-470a-45df-b070-05c4c4c22d4f#, RanaedaMarieYuncker, AnthonyYuncker) {
-  Married(#2016-1-22#)
+  Married(#2016-1-22#);
 };
 
 //=====================================
@@ -967,7 +967,7 @@ Female People.GailEnglish = new(#546d44d0-b865-42f5-a5c2-92af15ff773a#, "Gail", 
 Female People.DebbieGofton = new(#ac006399-77df-4fe0-b426-ad2ff0649b1c#, "Debbie", null, "Gofton");
 
 Union Unions.JamesSharon = new(#f970be65-c36b-4a8e-9595-bfd0a3e48649#, SharonParks, JamesRobertGofton) {
-  Married(#1971-4-17#)
+  Married(#1971-4-17#);
 };
 
 Union Unions.JoanneJamesGofton = new(#01609315-c382-40f7-aa3d-0d7773480b08#, MollyJohnson, JamesRobertGofton);
@@ -985,7 +985,7 @@ Female People.JoannMarieVarner = new(#946025c4-78bb-4e4c-bd06-8695ecf8964c#, "Jo
 Male People.TobyVarner = new(#81133b25-9eb5-4995-bb67-709540ce4348#, "Toby", null, Varner, null, res "TobyVarner.jpg");
 
 Union Unions.JoannTobey = new(#fe1ab6b2-6756-41ae-b4dd-902c6c236cb1#, JoannMarieVarner, TobyVarner) {
-  Married(#1974-6-29#)
+  Married(#1974-6-29#);
 };
 
 //============================================================================================================
