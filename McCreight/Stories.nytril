@@ -1,17 +1,30 @@
-using Format, Information.People;
+using Format, Information.People, LinkTypes;
 
 //======================================================================
 
 readonly namespace Information.Stories;
 
-Story MylersAtHome = new(#29be3d89-085d-451f-a721-0a12acc0ba34#, null, "Mylers at home", #2024-6-27#, res "MylersAtHome.jpg") {
+Story AnnabelleStaniferBorn = new(#2763823d-715f-4dd7-91d5-a750d385d286#, null, "Annabelle Joy Stanifer is born", #2025-10-12#, res "Annabelle Stanifer is born.jpg") {
+  var people = [KatherineMarieStanifer, AnnabelleJoyStanifer, LibertyFaithStanifer, WilliamStanifer, BenjaminJamesStanifer];
+  Link to people;
   Text: Styles.Story {
-    ListPeople([EmersonLouiseMyler, AmeliaMaeMyler, WilliamCharlesMyler, CasselClayMyler])
+    ListPeople(people)
+    " celebrate the birth of Annabelle.";
+  }
+};
+
+Story MylersAtHome = new(#29be3d89-085d-451f-a721-0a12acc0ba34#, null, "Mylers at home", #2024-6-27#, res "MylersAtHome.jpg") {
+  var people = [EmersonLouiseMyler, AmeliaMaeMyler, WilliamCharlesMyler, CasselClayMyler];
+  Link to people;
+  Text: Styles.Story {
+    ListPeople(people)
     " posed for a picture outside their home.";
   }
 };
 
 Story CasselClayBorn = new(#2625d669-c544-45b9-997a-5b2a4ea896dd#, null, "Cassel Clay Myler Born", #2024-5-9#, res "CasselClayBorn.jpg") {
+  Link to [AmeliaMaeMyler, WilliamCharlesMyler, EmersonLouiseMyler, CasselClayMyler];
+
   Text: Styles.Story {
     "Proud parents "
     ListPeople([AmeliaMaeMyler, WilliamCharlesMyler]);
@@ -24,14 +37,17 @@ Story CasselClayBorn = new(#2625d669-c544-45b9-997a-5b2a4ea896dd#, null, "Cassel
 };
 
 Story ElijahJohnBorn = new(#0e237bba-551e-4046-a48a-ea216a1cd9ce#, null, "Elijah John McCreight Born", #2024-4-20#, res "ElijahJohnMcCreightBorn.jpg") {
+  var people = [AlyssaMarieMcCreight, ThomasDanielMcCreight, AbigailMarieMcCreight];
+  Link to people;
   Text: Styles.Story {
-    ListPeople([AlyssaMarieMcCreight, ThomasDanielMcCreight, AbigailMarieMcCreight]);
+    ListPeople(people);
     " welcomed the newest member of the family ";
     ListPeople([ElijahJohnMcCreight]) DotSpace;
   }
 };
 
 Story EmmyIsAFarmGirl = new(#647183c9-8d19-4a9a-a390-53ad993b0ded#, null, "Emmy is a farmgirl", #2024-4-8#, res "Emmy is a farmgirl.jpg") {
+  Link to [EmersonLouiseMyler, ClaytonAlanMcCreight, LisaLouiseMcCreight];
   Text: Styles.Story {
     ListPeople([EmersonLouiseMyler]);
     " is spending time with Gibbs and helping ";
@@ -40,6 +56,7 @@ Story EmmyIsAFarmGirl = new(#647183c9-8d19-4a9a-a390-53ad993b0ded#, null, "Emmy 
 };
 
 Story CraigLuca = new(#c40428dc-80a8-4328-a0db-eaca6ae759a1#, null, "Luca gets a lift from Grandpa", #2022-8-15#, res "CraigLuca.jpg") {
+  Link to [CraigJohnMcCreight, LucaRobertCalderoni];
   Text: Styles.Story {
     ListPeople([CraigJohnMcCreight]);
     " gives a lift to his grandson ";
@@ -48,6 +65,7 @@ Story CraigLuca = new(#c40428dc-80a8-4328-a0db-eaca6ae759a1#, null, "Luca gets a
 };
 
 Story EmersonLouiseMylerBorn = new(#f5ae23fd-b437-45ae-8a48-555e72c75e03#, null, "Emerson Myler \"Emmy Lou\" is born", EmersonLouiseMyler.Born, res "EmersonLouiseMylerBorn.jpg") {
+  Link to [AmeliaMaeMyler, WilliamCharlesMyler, EmersonLouiseMyler];
   Text: Styles.Story {
     ListPeople([AmeliaMaeMyler, WilliamCharlesMyler]);
     " welcomed their daughter ";
@@ -57,23 +75,29 @@ Story EmersonLouiseMylerBorn = new(#f5ae23fd-b437-45ae-8a48-555e72c75e03#, null,
 };
 
 Story CousinsMackinacIsland = new(#3a9cf1d8-ab73-49fb-b348-5087954b29fb#, null, "Cousins on Mackinac Island", #2022-03-17#, res "CousinsMackinacIsland.jpg") {
+  var people = [ClaytonAlanMcCreight, CraigJohnMcCreight, ShawnHamillMcCreight, ThomasDanielMcCreight];
+  Link to people;
   Text: Styles.Story {
-    ListPeople([ClaytonAlanMcCreight, CraigJohnMcCreight, ShawnHamillMcCreight, ThomasDanielMcCreight]);
+    ListPeople(people);
     " (taking photo) made a snowmobile trip to Mackinaw Island from St. Ignace across the ice bridge that forms on the Straits of Mackinac during especially long, cold periods in the winter."
   }
 };
 
 Story AmeliaBillyWedding = new(#2bbb32eb-ab08-45fe-9a9c-2d7e90aee0f6#, null, "The wedding of Amelia and Billy", Unions.AmeliaBilly.MarriedDate, res "AmeliaBillyWedding.jpg") {
+  var people = [AmeliaMaeMyler, WilliamCharlesMyler];
+  Link to people;
   Text: Styles.Story {
     "The wedding of ";
-    ListPeople([AmeliaMaeMyler, WilliamCharlesMyler]);
+    ListPeople(people);
     " took place on Mackinac Island, Michigan. ";
   }
 };
 
 Story AbigailMarieMcCreightBorn = new(#21824b6b-cbfd-4cb0-8b25-6457d86b1fc7#, null, "Abigail McCreight is born", People.AbigailMarieMcCreight.Born, res "AbigailMarieMcCreightBorn.jpg") {
+  var people = [AlyssaMarieMcCreight, ThomasDanielMcCreight];
+  Link to people;
   Text: Styles.Story {
-    ListPeople([AlyssaMarieMcCreight, ThomasDanielMcCreight]);
+    ListPeople(people);
     " welcomed their daughter ";
     ListPeople([AbigailMarieMcCreight]);
     " into the world. Tom kept everyone informed as events were unfolding."
@@ -81,6 +105,7 @@ Story AbigailMarieMcCreightBorn = new(#21824b6b-cbfd-4cb0-8b25-6457d86b1fc7#, nu
 };
 
 Story LucaRobertCalderoniBorn = new(#590a0fa5-3011-481b-87a1-73e6cd41afc3#, null, "Luca Calderoni is born", People.LucaRobertCalderoni.Born, res "LucaRobertCalderoniBorn.jpg") {
+  Link to [MichelleNicholeCalderoni, RobertCalderoni, LucaRobertCalderoni];
   Text: Styles.Story {
     ListPeople([MichelleNicholeCalderoni, RobertCalderoni]);
     " are overjoyed at the birth of " ListPeople([LucaRobertCalderoni]);
@@ -91,6 +116,7 @@ Story LucaRobertCalderoniBorn = new(#590a0fa5-3011-481b-87a1-73e6cd41afc3#, null
 };
 
 Story ScarlettMaeYunckerBorn = new(#c78be850-001d-4af3-82b5-5381939b848a#, null, "Scarlett Yuncker is born", ScarlettMaeYuncker.Born, res "ScarlettMaeYunckerBorn.jpg") {
+  Link to [RanaedaMarieYuncker, AnthonyYuncker, ScarlettMaeYuncker];
   Text: Styles.Story {
     ListPeople([RanaedaMarieYuncker, AnthonyYuncker]);
     " celebrate the birth of ";
@@ -99,8 +125,10 @@ Story ScarlettMaeYunckerBorn = new(#c78be850-001d-4af3-82b5-5381939b848a#, null,
 };
 
 Story AlyssaTomWedding = new(#dfac800f-99a4-4435-8d7e-4bd5ab7f2a09#, null, "The wedding of Alyssa and Tom", Unions.AlyssaTom.MarriedDate, res "AlyssaTomWedding.jpg") {
+  var people = [ThomasDanielMcCreight, AlyssaMarieMcCreight];
+  Link to people;
   Text: Styles.Story {
-    "The wedding of " ListPeople([ThomasDanielMcCreight, AlyssaMarieMcCreight]);
+    "The wedding of " ListPeople(people);
     " took place at St. Joseph Catholic Church in Dexter, Michigan. ";
     "It was a beautiful ceremony, and the reception took place in fancy converted barn. ";
     "It was also the occasion for a big McCreight-Gofton family reunion. ";
@@ -108,14 +136,7 @@ Story AlyssaTomWedding = new(#dfac800f-99a4-4435-8d7e-4bd5ab7f2a09#, null, "The 
 };
 
 Story WeddingReunion2020 = new(#942471dd-a42e-46ca-9110-717ca70b75e6#, ShawnHamillMcCreight, "Reunion at JoAnn and Toby's place", #2020-07-11#, res "WeddingReunion2020.jpg") {
-  Text: Styles.Story {
-    "The day after the wedding, we got together at the home of ";
-    ListPeople([JoannMarieVarner, TobyVarner]);
-    " for an afternoon of food, games and great conversation. ";
-    FlorenceJaneGofton.ShowLink("Aunt Flo") " was the guest of honor. ";
-    "Pictured, from the top left ";
-    ListPeople([
-      KathyAnneMcCreight,
+  var people = [KathyAnneMcCreight,
       JenniferLynnMcCreight,
       CraigJohnMcCreight,
       TheresaMaryMcCreight,
@@ -132,20 +153,30 @@ Story WeddingReunion2020 = new(#942471dd-a42e-46ca-9110-717ca70b75e6#, ShawnHami
       MichelleNicholeCalderoni,
       ShannonReneeMcCreight,
       ClaytonAlanMcCreight,
-      LisaLouiseMcCreight,
-    ]);
+      LisaLouiseMcCreight];
+  Link to people;
+  Text: Styles.Story {
+    "The day after the wedding, we got together at the home of ";
+    ListPeople([JoannMarieVarner, TobyVarner]);
+    " for an afternoon of food, games and great conversation. ";
+    FlorenceJaneGofton.ShowLink("Aunt Flo") " was the guest of honor. ";
+    "Pictured, from the top left ";
+    ListPeople(people);
   }
 };
 
 Story SnowmobileTrip1 = new(#73d433de-a4e4-4f74-9925-87db3731c490#, ShawnHamillMcCreight, "First Annual Michigan Snowmobile Trip", #2019-1#, res "SnowmobileTrip1.jpg") {
+  var people = [ClaytonAlanMcCreight, CraigJohnMcCreight, ThomasDanielMcCreight, ShawnHamillMcCreight];
+  Link to people;
   Text: Styles.Story {
-    ListPeople([ClaytonAlanMcCreight, CraigJohnMcCreight, ThomasDanielMcCreight, ShawnHamillMcCreight]);
+    ListPeople(people);
     " enjoyed the snow at the first annual McCreight-Johnson sledding trip to the Johnson family cabin. ";
     " The conditions were perfect, and a great time was had by all. ";
   }
 };
 
 Story LostCousin = new(#e42acf34-0567-4715-9c45-3f7fca2eab19#, FlorenceJaneGofton, "My Long Lost Cousin", #1939#) {
+  Link to [JohnHamillMcCreight, MajorIsraelMcCreight];
   Text: Styles.Story {
     "It was 1939 and I was in the 4th grade. ";
     "I had to walk a mile to school because in the old days we didn't have buses. ";
@@ -170,6 +201,7 @@ Story LostCousin = new(#e42acf34-0567-4715-9c45-3f7fca2eab19#, FlorenceJaneGofto
 };
 
 Story BobSnowPlow = new(#52ecfb59-8360-4dcd-a24c-82f8b192de39#, FlorenceJaneGofton, "Real Man's Snow Plow", #2013-1-26#, res "BobSnowPlow.jpg") {
+  Link to [RobertJohnGofton];
   Text: Styles.Story {
     "Never one to shirk his household responsibilities, even in the face of injury, ";
     RobertJohnGofton.ShowLink("Bob");
@@ -178,48 +210,54 @@ Story BobSnowPlow = new(#52ecfb59-8360-4dcd-a24c-82f8b192de39#, FlorenceJaneGoft
 };
 
 Story ReunionAtNelsons = new(#352b13a1-c0cb-49f8-8d3b-78422c02797c#, PeggyLeeNelson, "Reunion at the Nelson House", #2003-8-24#, res "ReunionAtNelsons.jpg") {
+  var people = [
+    RalphEmersonMcCreight,
+    RobertJohnGofton,
+    JenniferLynnMcCreight,
+    CraigJohnMcCreight,
+    ShannonReneeMcCreight,
+    ShawnHamillMcCreight,
+    KathyAnneMcCreight,
+    ClaytonAlanMcCreight,
+    JoannMarieVarner,
+    JohnCraigMcCreight,
+    JamesRobertGofton,
+    FlorenceGertrudeMcCreight,
+  ];
+  Link to people;
   Text: Styles.Story {
     JeffreyPNelson.ShowLink " and I hosted a family reunion at our house in Harlan, Indiana. ";
     "Pictured from the left, ";
-    ListPeople([
-      RalphEmersonMcCreight,
-      RobertJohnGofton,
-      JenniferLynnMcCreight,
-      CraigJohnMcCreight,
-      ShannonReneeMcCreight,
-      ShawnHamillMcCreight,
-      KathyAnneMcCreight,
-      ClaytonAlanMcCreight,
-      JoannMarieVarner,
-      JohnCraigMcCreight,
-      JamesRobertGofton,
-      FlorenceGertrudeMcCreight,
-    ]);
+    ListPeople(people);
     " were there to enjoy the family time.";
   }
 };
 
 Story McCreightSparklerSign = new(#fa532c41-8da0-4228-9f41-ac4f014d9949#, KatherineMarieStanifer, "Sparkler Sign", #2014-9-13#, res "McCreightSparklerSign.jpg") {
+  var people = [
+    ShawnHamillMcCreight,
+    ClaytonAlanMcCreight,
+    ShannonReneeMcCreight,
+    JohnCraigMcCreight,
+    LisaLouiseMcCreight,
+    PeggyLeeNelson,
+    CraigJohnMcCreight,
+    KathyAnneMcCreight,
+    MichelleNicholeCalderoni,
+  ];
+  Link to people;
   Text: Styles.Story {
     "One night at a family camping trip, I did time-lapse photographs of everyone waving a sparkler around in the shape of a letter. ";
     "I combined those together to spell out the family name. ";
     "Pictured from the left, ";
-    ListPeople([
-      ShawnHamillMcCreight,
-      ClaytonAlanMcCreight,
-      ShannonReneeMcCreight,
-      JohnCraigMcCreight,
-      LisaLouiseMcCreight,
-      PeggyLeeNelson,
-      CraigJohnMcCreight,
-      KathyAnneMcCreight,
-      MichelleNicholeCalderoni,
-    ]);
+    ListPeople(people);
     " helped make the picture.";
   }
 };
 
 Story WhiteHouseTrip = new(#bd315c98-55f0-40ef-a23a-43c0efb80ee9#, FlorenceJaneGofton, "Trip to the White House", #1989#, res "WhiteHouseTrip.jpg") {
+  var people = [FlorenceJaneGofton, ShawnHamillMcCreight];
+  Link to people;
   Text: Styles.Story {
     ShawnHamillMcCreight.ShowLink;
     " and I met in Virginia for the retirement of my cousin Jerry Reynolds from the Pentagon. ";
@@ -228,14 +266,18 @@ Story WhiteHouseTrip = new(#bd315c98-55f0-40ef-a23a-43c0efb80ee9#, FlorenceJaneG
 };
 
 Story McCreightHeadstone = new(#be92743b-a552-42b1-af8b-27153cea253d#, KathyAnneMcCreight, "McCreight Headstone", #1954-7#, res "McCreightHeadstone.jpg") {
+  var people = [JohnJamiesonMcCreight, JennieAdelphiaMcCreight];
+  Link to people;
   Text: Styles.Story {
     "The headstone of "
-    ListPeople([JohnJamiesonMcCreight, JennieAdelphiaMcCreight]) DotSpace;
+    ListPeople(people) DotSpace;
     "The identity of the person in the photo is not known. ";
   }
 };
 
 Story KerrFamily = new(#74acaeb9-9ae6-44ef-9506-58cf4ff09d6c#, FlorenceJaneGofton, "Inez Kerr Family", null, res "KerrFamily.jpg") {
+  var people = [InezMargaretKerr, ClarenceGrantKerr, PeggyLeeKerr, GaryKerr];
+  Link to people;
   Text: Styles.Story {
     "The family of " ListPeople([InezMargaretKerr, ClarenceGrantKerr]) " outside their house in Redlands, CA? ";
     "Jack in uniform, Vera May, ?, Betty Jane. The two little ones are ";
@@ -244,13 +286,17 @@ Story KerrFamily = new(#74acaeb9-9ae6-44ef-9506-58cf4ff09d6c#, FlorenceJaneGofto
 };
 
 Story InezAt9 = new(#77d6f29a-d73c-416d-8a74-0fb8fc86007c#, KathyAnneMcCreight, "Inez at 9 years old", #1911#, res "InezAt9.jpg") {
+  var people = [InezMargaretKerr];
+  Link to people;
   Text: Styles.Story {
-    ListPeople([InezMargaretKerr]);
+    ListPeople(people);
     " at 9 years old";
   };
 };
 
 Story JimArmyPicture = new(#c55d84c9-4b79-47e3-82ab-95240fb7afc3#, KathyAnneMcCreight, "Uncle Jim", #1942#, res "JimArmyPicture.jpg") {
+  var people = [JamesClarkMcCreight, JohnHamillMcCreight];
+  Link to people;
   Text: Styles.Story {
     "I think this is "
     JamesClarkMcCreight.ShowLink("Uncle Jim")
@@ -261,18 +307,34 @@ Story JimArmyPicture = new(#c55d84c9-4b79-47e3-82ab-95240fb7afc3#, KathyAnneMcCr
 };
 
 Story AnnAndWendleMcCreight = new(#8c9cdfa6-621c-4a56-8dce-f4482df4a965#, KathyAnneMcCreight, "Picture of Ann and Wendle", #1942#, res "AnnAndWendleMcCreight.jpg") {
+  var people = [AnnKatherineMcCreight, WendellButlerMcCreight];
+  Link to people;
   Text: Styles.Story {
-    ListPeople([AnnKatherineMcCreight, WendellButlerMcCreight])
+    ListPeople(people)
   }
 };
 
 Story JamesClarkPostcard = new(#cbd1743e-86b6-4cc8-b2bd-d6f2678ca823#, KathyAnneMcCreight, "James Clark McCreight postcard", #1942-11-18#, res "JamesClarkPostcard.jpg") {
+  var people = [JamesClarkMcCreight];
+  Link to people;
   Text: Styles.Story {
-    ListPeople([JamesClarkMcCreight]) " in a postcard home.";
+    ListPeople(people) " in a postcard home.";
   }
 };
 
+
+Story HazelettFamily = new(#44c049c8-ff3a-4806-8c65-73345f696d41#, KathyAnneMcCreight, "Hazelettes Celebrate Ken's Graduation", #1979#, res "Hazelett Family.png") {
+  var people = [BeverlyHazelett, DebbieHazelett, KennethHazelett, OrrieHazelett];
+  Link to people;
+  Text: Styles.Story {
+    // Not sure who is in the picture
+    ListPeople(people) " graduates.";
+  };
+};
+
 Story AnnAndThelmaMcCreight = new(#f95c2f85-5ca2-4dea-b13e-e64922aa9af8#, KathyAnneMcCreight, "Ann and Thelma McCreight") {
+  var people = [AnnKatherineMcCreight, ThelmaEllenFaust, WendellButlerMcCreight, JamesClarkMcCreight];
+  Link to people;
   Text: Styles.Story {
     ListPeople([AnnKatherineMcCreight, ThelmaEllenFaust])
     " were sister-in-laws and the wives of ";
@@ -283,208 +345,286 @@ Story AnnAndThelmaMcCreight = new(#f95c2f85-5ca2-4dea-b13e-e64922aa9af8#, KathyA
 };
 
 Story JennieAndChildren = new(#eebf02fb-a974-433e-9be7-0db3f98f8fc0#, KathyAnneMcCreight, "Jennie McCreight and children", #1911-07#, res "JennieAndChildren.jpg") {
+  var people = [JennieAdelphiaMcCreight, JohnHamillMcCreight, WendellButlerMcCreight, InezMargaretKerr];
+  Link to people;
   Text: Styles.Story {
-    ListPeople([JennieAdelphiaMcCreight, JohnHamillMcCreight, WendellButlerMcCreight, InezMargaretKerr]);
+    ListPeople(people);
   }
 };
 
 Story JohnAndFlorenceMcCreight = new(#a32c4827-7483-4f0f-8c58-5bb343632ffc#, KathyAnneMcCreight, "John and Florence McCreight", #1901-07#, res "JohnAndFlorenceMcCreight.jpg") {
+  var people = [FlorenceGertrudeMcCreight, JohnHamillMcCreight];
+  Link to people;
   Text: Styles.Story {
-    "Rare photo of "; ListPeople([FlorenceGertrudeMcCreight, JohnHamillMcCreight]); " together.";
+    "Rare photo of "; ListPeople(people); " together.";
   };
 };
 
 Story JennieHoldingFlorenceJane = new(#f3ee9ad5-015a-470c-bdd1-8996f98bf7c0#, FlorenceJaneGofton, "Jennie holding Florence Jane", null, res "JennieHoldingFlorenceJane.jpg") {
+  var people = [JennieAdelphiaMcCreight, FlorenceJaneGofton];
+  Link to people;
   Text: Styles.Story {
-    ListPeople([JennieAdelphiaMcCreight, FlorenceJaneGofton])
+    ListPeople(people)
   };
 };
 
 Story InezaAndJohnAsChildren = new(#f4284d46-11f1-4809-a681-8f9625f7554e#, FlorenceJaneGofton, "Baby Portrait", #1904#, res "InezaAndJohnAsChildren.jpg") {
+  var people = [InezMargaretKerr, JohnHamillMcCreight];
+  Link to people;
   Text: Styles.Story {
-    ListPeople([InezMargaretKerr, JohnHamillMcCreight]); " as children.";
+    ListPeople(people); " as children.";
   };
 };
 
 Story FloandJanet = new(#5c415d08-c9ef-461b-98e0-091acde84e2f#, PeggyLeeNelson, "Flo and Janet cutting the cake", #1958-12-27#, res "FloandJanet.jpg") {
+  var people = [FlorenceJaneGofton, JanetMcCreight, MaryJoanMcCreight, JohnHarryMcCreight];
+  Link to people;
   Text: Styles.Story {
     ListPeople([FlorenceJaneGofton, JanetMcCreight]) " cut the cake at the wedding of " ListPeople([MaryJoanMcCreight, JohnHarryMcCreight]);
   }
 };
 
 Story GrandpaKathyLisa = new(#475bc097-432a-445d-bcc8-19d0cde1074a#, PeggyLeeNelson, "Grandpa with Kathy and Lisa", #1962#, res "Grandpa-Kathy-Lisa.jpg") {
+  var people = [JohnHamillMcCreight, KathyAnneMcCreight, LisaJoanMcCreight];
+  Link to people;
   Text: Styles.Story {
     "Grandpa " ListPeople([JohnHamillMcCreight]) " posed for a picture with " ListPeople([KathyAnneMcCreight, LisaJoanMcCreight]);
   }
 };
 
 Story JohnHamillMcCreightOnHorse = new(#782a2803-f1e8-4985-9ef4-d1d587ac3413#, FlorenceJaneGofton, "John Hamill McCreight on a Horse", null, res "JohnHamillMcCreightOnHorse.jpg") {
+  var people = [JohnHamillMcCreight];
+  Link to people;
   Text: Styles.Story {
-    ListPeople([JohnHamillMcCreight]);
+    ListPeople(people);
   }
 };
 
 Story MyThreeSons = new(#d0db1782-7143-406f-a009-9f82e30889ea#, FlorenceJaneGofton, "My Three Sons", #1924#, res "MyThreeSons.jpg") {
+  var people = [JamesClarkMcCreight, WendellButlerMcCreight, JohnHamillMcCreight, JennieAdelphiaMcCreight];
+  Link to people;
   Text: Styles.Story {
-    ListPeople([JamesClarkMcCreight, WendellButlerMcCreight, JohnHamillMcCreight, JennieAdelphiaMcCreight]);
+    ListPeople(people);
   }
 };
 
 Story JohnHamillAtWork = new(#ce37f81f-a3ed-4eea-97be-48d04ee7cb30#, FlorenceJaneGofton, "John Hamill McCreight at work", null, res "JohnHamillAtWork.jpg") {
+  var people = [JohnHamillMcCreight];
+  Link to people;
   Text: Styles.Story {
-    ListPeople([JohnHamillMcCreight]) " is shown 4th from the right.";
+    ListPeople(people) " is shown 4th from the right.";
   }
 };
 
 Story FlorenceAndJohnHoldingFlorenceJane = new(#f73148c1-78e3-4d62-972e-b32942e68d8e#, FlorenceJaneGofton, "Mom and Dad holding me as a baby", null, res "FlorenceAndJohnHoldingFlorenceJane.jpg") {
+  var people = [FlorenceGertrudeMcCreight, FlorenceJaneGofton, JohnHamillMcCreight];
+  Link to people;
   Text: Styles.Story {
-    ListPeople([FlorenceGertrudeMcCreight, FlorenceJaneGofton, JohnHamillMcCreight])
+    ListPeople(people)
     ". Don't know who is standing inside.";
   }
 };
 
 Story BobWhiteyandFriends = new(#6e83a18f-4401-4029-b3cb-4a3d1467aa12#, PeggyLeeNelson, "Bob, Whitey and Friends", null, res "BobWhiteyandFriends.jpg") {
+  var people = [RobertJohnGofton, RalphEmersonMcCreight];
+  Link to people;
   Text: Styles.Story {
     ListPeople([RobertJohnGofton]) ", Sam, " ListPeople([RalphEmersonMcCreight]) ", and Rich spend time together at the campsite";
   }
 };
 
 Story RalphFloInGroup = new(#ee1b7010-8f4f-445c-9152-6103073ce1ab#, FlorenceJaneGofton, "Mom and Dad holding me as a baby", null, res "RalphFloInGroup.jpg") {
+  var people = [ThelmaEllenFaust, RalphEmersonMcCreight, FlorenceGertrudeMcCreight, FlorenceJaneGofton, WendellButlerMcCreight];
+  Link to people;
   Text: Styles.Story {
-    ListPeople([ThelmaEllenFaust, RalphEmersonMcCreight, FlorenceGertrudeMcCreight, FlorenceJaneGofton, WendellButlerMcCreight]) ". Location?";
+    ListPeople(people) ". Location?";
   }
 };
 
 Story McCreightKerr = new(#a9a8f4b2-40e9-4979-b145-d1b9d2b2a85e#, FlorenceJaneGofton, "McCreight-Kerr", null, res "McCreightKerr.jpg") {
+  var people = [JohnHamillMcCreight, FlorenceGertrudeMcCreight, InezMargaretKerr, PeggyLeeKerr, GaryKerr];
+  Link to people;
   Text: Styles.Story {
-    ListPeople([JohnHamillMcCreight, FlorenceGertrudeMcCreight, InezMargaretKerr, PeggyLeeKerr, GaryKerr])
+    ListPeople(people)
     ". Location?";
   }
 };
 
 Story WomenOfWolfeFamily = new(#08a8c480-aaaa-4411-a88f-755def9a4770#, null, "Mother Louisa and her 8 daughters", #1888#, res "WomenOfWolfeFamily.jpg") {
+  var people = [
+    HazelWolfeFrance,
+    BessieWolfeLawrence,
+    ViolaWolfeKnepsheild,
+    MargretWolfeSlack,
+    MollieWolfeWolfe,
+    LottieWolfeEckersley,
+    LouisaWolfe,
+    EssieWolfe,
+    BerthaPearlHazelett,
+    OrrieHowardWolfe,
+    ElvieLemuelWolfe,
+    ClaueWolfe,
+    JohnElmerWolfe
+  ];
+  Link to people;
   Text: Styles.Story {
-    "Standing: " ListPeople([HazelWolfeFrance, BessieWolfeLawrence, ViolaWolfeKnepsheild, MargretWolfeSlack]);
+    "Standing: " ListPeople(people[0..3]);
     LineBreak;
-    "Sitting: " ListPeople([MollieWolfeWolfe, LottieWolfeEckersley, LouisaWolfe, EssieWolfe, BerthaPearlHazelett]);
+    "Sitting: " ListPeople(people[4..8]);
     LineBreak;
-    "Not shown are her sons: " ListPeople([OrrieHowardWolfe, ElvieLemuelWolfe, ClaueWolfe, JohnElmerWolfe]);
+    "Not shown are her sons: " ListPeople(people[9..]);
   };
 };
 
 Story FlorenceJaneAt3 = new(#8bb310eb-fa3e-4e28-bc1b-497ddc27b968#, PeggyLeeNelson, "Florence Jane at 3 years", #1933#, res "FlorenceJaneAt3.jpg") {
+  var people = [FlorenceJaneGofton];
+  Link to people;
   Text: Styles.Story {
-    ListPeople([FlorenceJaneGofton])
+    ListPeople(people)
   }
 };
 
 Story FlorenceJaneAt9 = new(#1b7e540e-99df-4faf-a4ce-779bde7afa6e#, PeggyLeeNelson, "Florence Jane at 9 years", #1939#, res "FlorenceJaneAt9.jpg") {
+  var people = [FlorenceJaneGofton];
+  Link to people;
   Text: Styles.Story {
-    ListPeople([FlorenceJaneGofton])
+    ListPeople(people)
   }
 };
 
 Story JackFloAndRalph = new(#1019908a-5d5f-4d27-91a7-915d37f43b4c#, PeggyLeeNelson, "Florence Jane's Siblings", #1944#, res "JackFloAndRalph.jpg") {
+  var people = [JohnHarryMcCreight, FlorenceJaneGofton, RalphEmersonMcCreight];
+  Link to people;
   Text: Styles.Story {
-    ListPeople([JohnHarryMcCreight, FlorenceJaneGofton, RalphEmersonMcCreight])
+    ListPeople(people)
   }
 };
 
 Story FloAndFather = new(#51f33fa6-9f4c-4826-87da-0fa5b654ef96#, PeggyLeeNelson, "Florence Jane and Dad", #1945#, res "FloAndFather.jpg") {
+  var people = [FlorenceJaneGofton, JohnHamillMcCreight];
+  Link to people;
   Text: Styles.Story {
-    ListPeople([FlorenceJaneGofton, JohnHamillMcCreight])
+    ListPeople(people)
   }
 };
 
 Story FlorenceJaneGraduation = new(#ab94415f-d09e-4577-bd3d-141cfdb407ff#, PeggyLeeNelson, "Florence Jane's Graduation", #1948#, res "FlorenceJaneGraduation.jpg") {
+  var people = [FlorenceJaneGofton];
+  Link to people;
   Text: Styles.Story {
-    ListPeople([FlorenceJaneGofton])
+    ListPeople(people)
   }
 };
 
 Story FloAndBobWedding = new(#d54a4553-f20f-410e-909f-da3702f4cd5f#, PeggyLeeNelson, "Bob & Flo's wedding", #1950#, res "FloAndBobWedding.jpg") {
+  var people = [JohnHamillMcCreight, FlorenceGertrudeMcCreight, FlorenceJaneGofton, RobertJohnGofton, LoisLelandGofton, ClaudeGofton];
+  Link to people;
   Text: Styles.Story {
-    ListPeople([JohnHamillMcCreight, FlorenceGertrudeMcCreight, FlorenceJaneGofton, RobertJohnGofton, LoisLelandGofton, ClaudeGofton])
+    ListPeople(people)
   }
 };
 
 Story FloAndBob1971 = new(#4eae2cc0-ec83-4625-bc9e-519fa3d136d4#, PeggyLeeNelson, "Bob & Flo's wedding", #1971#, res "FloAndBob1971.jpg") {
+  var people = [RobertJohnGofton, FlorenceJaneGofton];
+  Link to people;
   Text: Block {
     Styles.Story {
-      ListPeople([RobertJohnGofton, FlorenceJaneGofton])
+      ListPeople(people)
     }
   }
 };
 
 Story FloAndBob2013 = new(#f0a1f89c-eb95-40aa-9ef7-391caae2e13d#, ShawnHamillMcCreight, "At Shawn & Jen's house in Pasadena", #2013#, res "FloAndBob2013.jpg") {
+  var people = [RobertJohnGofton, FlorenceJaneGofton, ShawnHamillMcCreight];
+  Link to people;
   Text: Styles.Story {
-    ListPeople([RobertJohnGofton, FlorenceJaneGofton, ShawnHamillMcCreight]) " went to a dinner at the Twilight Club in Pasadena, CA. ";
+    ListPeople(people) " went to a dinner at the Twilight Club in Pasadena, CA. ";
     "Bob was thrilled to meet the head coach of the USC football team. Bob made sure that the coach knew that he himself was "; Bold "not"; " a USC fan."
   }
 };
 
 Story FloAtJoshAndMeganWedding = new(#29e5b4c1-a833-4f74-ae2e-55f8d3ea6666#, ShawnHamillMcCreight, "Josh & Megan's wedding", #2001#, res "FloAtJoshAndMeganWedding.jpg") {
+  var people = [FlorenceJaneGofton];
+  Link to people;
   Text: Styles.Story {
-    ListPeople([FlorenceJaneGofton]) " whooping it up!"
+    ListPeople(people) " whooping it up!"
   }
 };
 
 Story FloAndBobWithGrandkids = new(#48692b30-87dd-4ac5-a207-e457b3957c10#, PeggyLeeNelson, "Flo And Bob with the grandkids", #1982#, res "FloAndBobWithGrandkids.jpg") {
+  var people = [RobertJohnGofton, TylerJamesGofton, CassandraMarieVarner, FlorenceJaneGofton, KevinMichaelNelson, JoshuaLeeVarner, KristyLeeJordan];
+  Link to people;
   Text: Styles.Story {
-    ListPeople([RobertJohnGofton, TylerJamesGofton]); LineBreak;
-    ListPeople([CassandraMarieVarner, FlorenceJaneGofton, KevinMichaelNelson, JoshuaLeeVarner, KristyLeeJordan])
+    ListPeople(people[0..1]); LineBreak;
+    ListPeople(people[2..])
   }
 };
 
 Story BobGofton1930 = new(#474500ac-ea28-499e-81cb-114c32b88086#, PeggyLeeNelson, "Bob", #1930#, res "BobGofton1930.jpg") {
+  var people = [RobertJohnGofton];
+  Link to people;
   Text: Block {
     Styles.Story {
-      ListPeople([RobertJohnGofton]) " in Flushing, MI"
+      ListPeople(people) " in Flushing, MI"
     }
   }
 };
 
 Story FourGoftonGenerations = new(#ddaa3f32-dc13-47a0-a5cd-071f24f35323#, PeggyLeeNelson, "Four Generations of Gofton", #1927#, res "FourGoftonGenerations.jpg") {
+  var people = [JohnGofton, NathanialGofton, ClaudeGofton, RobertJohnGofton];
+  Link to people;
   Text: Styles.Story {
-    ListPeople([JohnGofton, NathanialGofton, ClaudeGofton, RobertJohnGofton])
+    ListPeople(people)
   }
 };
 
 Story GoftonFamily1959 = new(#bdf2865d-7f7f-4071-ac13-3a1bcd1f5f05#, PeggyLeeNelson, "The Gofton Family", #1959#, res "GoftonFamily1959.jpg") {
+  var people =[RobertJohnGofton, FlorenceJaneGofton, JamesRobertGofton, JoannMarieVarner, PeggyLeeNelson] ;
+  Link to people;
   Text: Styles.Story {
-    ListPeople([RobertJohnGofton, FlorenceJaneGofton, JamesRobertGofton, JoannMarieVarner, PeggyLeeNelson]);
+    ListPeople(people);
   }
 };
 
 Story Bobs80thBirthday = new(#11eaf3d2-2759-42a1-80fb-434519a90c33#, PeggyLeeNelson, "Bobs80thBirthday", #2007-3-11#, res "Bobs80thBirthday.jpg") {
+  var people = [PeggyLeeNelson, TobyVarner, JoannMarieVarner, RobertJohnGofton, FlorenceJaneGofton, JamesRobertGofton, JeffreyPNelson, DebbieGofton];
+  Link to people;
   Text: Styles.Story {
-    ListPeople([PeggyLeeNelson, TobyVarner, JoannMarieVarner, RobertJohnGofton, FlorenceJaneGofton, JamesRobertGofton, JeffreyPNelson, DebbieGofton])
+    ListPeople(people)
   }
 };
 
 Story BobsSiblings1935 = new(#7791ff4f-179a-494d-892f-a5ad8de678a1#, PeggyLeeNelson, "Bob's Siblings", #1935#, res "BobsSiblings1935.jpg") {
+  var people =[RobertJohnGofton, RichardGofton, AnnGofton] ;
+  Link to people;
   Text: Styles.Story {
-    ListPeople([RobertJohnGofton, RichardGofton, AnnGofton]);
+    ListPeople(people);
   }
 };
 
 Story BobsSiblings2002 = new(#2ae73551-2154-458e-826a-62e4668e6304#, PeggyLeeNelson, "Bob's Siblings", #2002#, res "BobsSiblings2002.jpg") {
+  var people = [RichardGofton, AnnGofton, RobertJohnGofton];
+  Link to people;
   Text: Styles.Story {
-    ListPeople([RichardGofton, AnnGofton, RobertJohnGofton]);
+    ListPeople(people);
   }
 };
 
 Story BobAndToby1985 = new(#86589c28-83bf-4ffe-9f68-8eeacdd2e4ed#, PeggyLeeNelson, "Bob and Toby", #1985#, res "BobAndToby1985.jpg") {
+  var people = [RobertJohnGofton, TobyVarner];
+  Link to people;
   Text: Styles.Story {
-    ListPeople([RobertJohnGofton, TobyVarner]);
+    ListPeople(people);
   }
 };
 
 Story VeteransDayCelebration2009 = new(#12b06ecc-a9a1-48fc-9470-75e1974412ee#, PeggyLeeNelson, "Veteran's Day Celebration", #2009#, res "VeteransDayCelebration2009.jpg") {
+  var people = [RobertJohnGofton, DelaneyNJordan, AlexisAJordan, JustinAJordan];
+  Link to people;
   Text: Styles.Story {
-    ListPeople([RobertJohnGofton]);
+    ListPeople(people[0]);
     " in Harlan, IN with his three great grand kids ";
-    ListPeople([DelaneyNJordan, AlexisAJordan, JustinAJordan]); ". ";
+    ListPeople(people[1..]); ". ";
     "He was thrilled that Justin called him to come to his school for the celebration. ";
     "He borrowed Toby's old Navy uniform for that day. ";
     "He walk in the gym of the school so proud, and he's chest popped out some, when some of the other Vets, said to him \"Wow you can still fit in your uniform?\" "
@@ -494,12 +634,16 @@ Story VeteransDayCelebration2009 = new(#12b06ecc-a9a1-48fc-9470-75e1974412ee#, P
 };
 
 Story BobAtBearCreekLodge = new(#bba5dd47-f15f-4c97-8a3d-3891310ea5da#, PeggyLeeNelson, "Bob at Bear Creek Lodge, MI", #2006#, res "BobAtBearCreekLodge.jpg") {
+  var people = [RobertJohnGofton];
+  Link to people;
   Text: Styles.Story {
-    ListPeople([RobertJohnGofton]);
+    ListPeople(people);
   }
 };
 
 Story MajorIsraelstory = new(#9d30c2c4-29c0-4018-80b8-9cda288b54ba#, null, "Major Israel", #1888#, res "MajorIsraelstory.jpg") {
+  var people = [MajorIsraelMcCreight];
+  Link to people;
   Text: Styles.Story {
     MajorIsraelMcCreight.ShowLink " was named after Major Israel Uncapher. ";
     "Neighbors thought it was cute to call the infant Major when he was born, so he went through life with that name. ";

@@ -818,6 +818,10 @@ Male People.BenjaminJamesStanifer = new(#ed25e730-13c3-420c-91fb-085864e789c0#, 
   Born(#2023-6-6#);
 };
 
+Female People.AnnabelleJoyStanifer = new(#d9c75ec5-c765-41f1-be0b-8073ddc9f6d5#, "Annabelle", "Joy", "Stanifer", Unions.KatherineBill, res "AnnabelleJoyStanifer.jpg") {
+  Born(#2025-10-12#);
+};
+
 Female People.GraceStanifer = new(#070e0d7a-9c91-439c-9f22-df7280ef3d0a#, "Grace", null, "Stanifer", Unions.KatherineBill, res "GraceStanifer.jpg");
 
 //=====================================

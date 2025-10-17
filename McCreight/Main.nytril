@@ -29,7 +29,7 @@ readonly PictureFolder = IO.Folders.Source;
 class FamilyAlbum: FamilyDocument {
   Constructor {
     super.Constructor(#64607616-5b43-4146-849a-5b9b58b3e051#, "Family Album", [
-      new(Unions.DavidMary, 5.2pt, 0),
+      new(Unions.DavidMary, 5pt, 0),
       new(Unions.MargretJohn, 12pt, 6pt),
       new(Unions.MarieJohan, 14pt, 10pt),
       new(Unions.LouisaGrandpa, 7pt, 0),

@@ -78,8 +78,10 @@ Female People.ElizabethClaireHuelsenbeck = new(#a1547890-a325-442a-8fcf-c81335ed
 //=====================================
 
 Story Stories.SoniaAndJohnMet = new(#2daaa206-c69f-4345-912b-f55c1eb540ce#, JohnPeterHuelsenbeck, "When Sonia met John", #2015#, res "SoniaAndJohnMet.jpg") {
+  var people= [SoniaHuelsenbeck, JohnPeterHuelsenbeck];
+  Link to people;
   Text: Styles.Story {
-    "I met " ListPeople([SoniaHuelsenbeck]) " in the biology building at UC Berkeley.";
+    "I met " ListPeople(people[0]) " in the biology building at UC Berkeley.";
   };
 };
 //=====================================
